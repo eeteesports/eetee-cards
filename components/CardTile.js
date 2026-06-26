@@ -1,3 +1,6 @@
+'use client'
+import { useCart } from '@/contexts/CartContext'
+
 // Apply Cloudinary trim+pad transformation so card fills frame cleanly
 function cardImg(url) {
   if (!url || !url.includes('res.cloudinary.com')) return url
@@ -6,6 +9,8 @@ function cardImg(url) {
 
 export default function CardTile({ card, onClick }) {
   const f = card.fields
+  const { add, items } = useCart()
+  const inCart = items.some((i) => i.id === card.id)
 
   const conditionColor =
     f.Condition?.includes('PSA 10') || f.Condition?.includes('BGS 10')
@@ -28,7 +33,7 @@ export default function CardTile({ card, onClick }) {
       {/* Image area */}
       <div className="relative">
         {f['For Sale'] && (
-          <span className="absolute top-2 left-2 z-10 bg-blue-600 text-white text-xs font-bold px-2 py-0.5 rounded">
+          <span className="absolute top-2 left-2 z-10 bg-green-600 text-white text-xs font-bold px-2 py-0.5 rounded">
             FOR SALE
           </span>
         )}
@@ -64,6 +69,9 @@ export default function CardTile({ card, onClick }) {
               {f.Sport}
             </span>
           )}
+          {f.Rookie && (
+            <span className="text-xs bg-yellow-100 text-yellow-800 px-2 py-0.5 rounded-full font-medium">⭐ RC</span>
+          )}
           {f.Tags?.slice(0, 1).map((t) => (
             <span key={t} className="text-xs bg-gray-100 text-gray-600 px-2 py-0.5 rounded-full">
               {t}
@@ -71,11 +79,27 @@ export default function CardTile({ card, onClick }) {
           ))}
         </div>
 
-        {f['Estimated Value'] != null && (
-          <p className="text-right font-bold text-sm mt-2 text-gray-800">
-            ${Number(f['Estimated Value']).toLocaleString()}
-          </p>
-        )}
+        <div className="flex items-center justify-between mt-2">
+          {f['Estimated Value'] != null ? (
+            <p className="font-bold text-sm text-gray-800">
+              ${Number(f['Estimated Value']).toLocaleString()}
+            </p>
+          ) : <span />}
+
+          {/* Add to cart — only for For Sale cards */}
+          {f['For Sale'] && (
+            <button
+              onClick={(e) => { e.stopPropagation(); add(card) }}
+              className={`text-xs font-bold px-2.5 py-1 rounded-lg transition-colors ${
+                inCart
+                  ? 'bg-green-100 text-green-700 cursor-default'
+                  : 'bg-green-600 text-white hover:bg-green-700'
+              }`}
+            >
+              {inCart ? '✓ In Cart' : '+ Cart'}
+            </button>
+          )}
+        </div>
       </div>
     </div>
   )

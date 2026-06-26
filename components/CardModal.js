@@ -1,5 +1,7 @@
 'use client'
 import { useEffect, useState } from 'react'
+import Link from 'next/link'
+import { useCart } from '@/contexts/CartContext'
 
 // Apply Cloudinary trim+pad transformation so card fills frame cleanly
 function cardImg(url) {
@@ -20,6 +22,8 @@ const CONDITIONS = [
 
 export default function CardModal({ card, onClose, onRefresh }) {
   const f = card.fields
+  const { add, remove, items } = useCart()
+  const inCart = items.some((i) => i.id === card.id)
   const [editing, setEditing] = useState(false)
   const [saving, setSaving] = useState(false)
   const [error, setError] = useState('')
@@ -360,12 +364,37 @@ export default function CardModal({ card, onClose, onRefresh }) {
 
               {f['For Sale'] && (
                 <div className="bg-green-50 border border-green-200 rounded-xl p-4">
-                  <p className="text-green-700 font-semibold text-sm uppercase tracking-wide">Listed for Sale</p>
-                  {f['Asking Price'] && (
-                    <p className="text-2xl font-black text-green-700 mt-0.5">
-                      ${Number(f['Asking Price']).toLocaleString()}
-                    </p>
-                  )}
+                  <div className="flex items-center justify-between mb-3">
+                    <div>
+                      <p className="text-green-700 font-semibold text-sm uppercase tracking-wide">Listed for Sale</p>
+                      {f['Asking Price'] && (
+                        <p className="text-2xl font-black text-green-700 mt-0.5">
+                          ${Number(f['Asking Price']).toLocaleString()}
+                        </p>
+                      )}
+                    </div>
+                  </div>
+                  <div className="flex gap-2">
+                    <button
+                      onClick={() => inCart ? remove(card.id) : add(card)}
+                      className={`flex-1 py-2.5 rounded-xl font-bold text-sm transition-colors ${
+                        inCart
+                          ? 'bg-green-200 text-green-800 hover:bg-red-100 hover:text-red-700'
+                          : 'bg-green-600 text-white hover:bg-green-700'
+                      }`}
+                    >
+                      {inCart ? '✓ In Cart — Remove?' : '🛒 Add to Cart'}
+                    </button>
+                    {inCart && (
+                      <Link
+                        href="/cart"
+                        onClick={onClose}
+                        className="flex-1 py-2.5 rounded-xl font-bold text-sm text-center bg-[#0f1b35] text-white hover:bg-blue-900 transition-colors"
+                      >
+                        View Cart & Offer →
+                      </Link>
+                    )}
+                  </div>
                 </div>
               )}
 
