@@ -1,9 +1,10 @@
 'use client'
 import { useState, useRef } from 'react'
 import { useRouter } from 'next/navigation'
+import { TEAMS_BY_LEAGUE } from './teams'
 
 const SPORTS = ['Football', 'Basketball', 'Baseball', 'Hockey', 'Soccer', 'Other']
-const LEAGUES = ['NFL', 'NBA', 'MLB', 'NHL', 'MLS', 'Other']
+const LEAGUES = ['NFL', 'NBA', 'MLB', 'NHL', 'MLS', 'NCAA Football', 'NCAA Basketball', 'Other']
 const ALL_TAGS = ['Refractor', 'Auto', 'Patch', 'Short Print', 'Prizm']
 const BRANDS = ['Panini', 'Topps', 'Upper Deck', 'Bowman', 'Fleer', 'Score', 'Leaf', 'Donruss', 'SkyBox', 'O-Pee-Chee', 'Pacific', 'Playoff', 'Pro Set', 'Stadium Club', 'SP', 'Other']
 const CONDITIONS = [
@@ -27,8 +28,9 @@ export default function AddCard() {
   const frontInputRef = useRef()
   const backInputRef = useRef()
 
-  const [step, setStep] = useState('capture') // capture | review | done
-  const [frontImg, setFrontImg] = useState(null)  // { preview, url }
+  const [step, setStep] = useState('capture') // capture | capture-back | review | done
+  const [photoMode, setPhotoMode] = useState('both') // 'both' | 'front-only'
+  const [frontImg, setFrontImg] = useState(null)
   const [backImg, setBackImg] = useState(null)
   const [form, setForm] = useState(emptyForm())
   const [voiceText, setVoiceText] = useState('')
@@ -43,10 +45,7 @@ export default function AddCard() {
 
   // ── Image upload ──────────────────────────────────────────────────
   async function uploadToCloudinary(file) {
-    if (!CLOUD_NAME || !UPLOAD_PRESET) {
-      // Cloudinary not configured — use object URL as fallback
-      return URL.createObjectURL(file)
-    }
+    if (!CLOUD_NAME || !UPLOAD_PRESET) return URL.createObjectURL(file)
     const fd = new FormData()
     fd.append('file', file)
     fd.append('upload_preset', UPLOAD_PRESET)
@@ -63,6 +62,8 @@ export default function AddCard() {
   async function handlePhoto(e, side) {
     const file = e.target.files?.[0]
     if (!file) return
+    // Reset input so same file can be re-selected
+    e.target.value = ''
     const preview = URL.createObjectURL(file)
 
     if (side === 'front') {
@@ -72,24 +73,32 @@ export default function AddCard() {
       try {
         const url = await uploadToCloudinary(file)
         setFrontImg({ preview, url })
-        // Auto-identify after front image upload
-        await identifyCard(url)
-      } catch (err) {
+        if (photoMode === 'both') {
+          // Move to back-capture step — user will tap button to open camera for back
+          setStep('capture-back')
+        } else {
+          // Front only — identify immediately
+          await identifyCard(url)
+        }
+      } catch {
         setError('Image upload failed — please check Cloudinary settings or try again.')
         setFrontImg({ preview, url: preview, uploadFailed: true })
         setStep('review')
       }
       setUploading(false)
     } else {
+      // Back image
       setBackImg({ preview, url: preview })
       try {
         const url = await uploadToCloudinary(file)
         setBackImg({ preview, url })
-        // Re-identify with back image — card number is usually on the back
         if (frontImg?.url) {
-          await identifyCardWithBack(frontImg.url, url)
+          await identifyCardWithBack(frontImg.url, url, true)
         }
-      } catch {}
+      } catch {
+        // Back upload failed — go to review anyway
+        setStep('review')
+      }
     }
   }
 
@@ -123,15 +132,14 @@ export default function AddCard() {
         condition: data.condition || '',
         notes: data.notes || '',
       }))
-    } catch (err) {
+    } catch {
       setError('Could not auto-identify card — please fill in details manually.')
     }
     setIdentifying(false)
     setStep('review')
   }
 
-  // Re-identify using both front + back for better card number detection
-  async function identifyCardWithBack(frontUrl, backUrl) {
+  async function identifyCardWithBack(frontUrl, backUrl, moveToReview = false) {
     setIdentifying(true)
     try {
       const res = await fetch('/api/identify', {
@@ -141,7 +149,6 @@ export default function AddCard() {
       })
       if (!res.ok) throw new Error('Identification failed')
       const data = await res.json()
-      // Only update card number if we got one (don't overwrite other confirmed fields)
       setForm((prev) => ({
         ...prev,
         cardName: data.cardName || prev.cardName,
@@ -164,6 +171,7 @@ export default function AddCard() {
       }))
     } catch {}
     setIdentifying(false)
+    if (moveToReview) setStep('review')
   }
 
   // ── Voice input ───────────────────────────────────────────────────
@@ -228,7 +236,7 @@ export default function AddCard() {
       })
       if (!res.ok) throw new Error('Save failed')
       setStep('done')
-    } catch (err) {
+    } catch {
       setError('Could not save card — please try again.')
     }
     setSaving(false)
@@ -243,11 +251,43 @@ export default function AddCard() {
 
   function resetAll() {
     setStep('capture')
+    setPhotoMode('both')
     setFrontImg(null)
     setBackImg(null)
     setForm(emptyForm())
     setVoiceText('')
     setError('')
+  }
+
+  // ── Team dropdown helper ──────────────────────────────────────────
+  function TeamField() {
+    const teamList = TEAMS_BY_LEAGUE[form.league]
+    if (teamList) {
+      // AI may return a team name not in our list — add it as an option so it shows
+      const aiTeamNotInList = form.team && !teamList.includes(form.team)
+      return (
+        <select
+          value={form.team}
+          onChange={(e) => set('team', e.target.value)}
+          className="w-full border border-gray-300 rounded-xl px-3 py-2 mt-1 text-sm focus:outline-none focus:border-blue-400 bg-white"
+        >
+          <option value="">Select team...</option>
+          {aiTeamNotInList && (
+            <option value={form.team}>{form.team} (auto-detected)</option>
+          )}
+          {teamList.map((t) => <option key={t} value={t}>{t}</option>)}
+        </select>
+      )
+    }
+    return (
+      <input
+        type="text"
+        value={form.team}
+        onChange={(e) => set('team', e.target.value)}
+        placeholder="e.g. Los Angeles Lakers"
+        className="w-full border border-gray-300 rounded-xl px-3 py-2 mt-1 text-sm focus:outline-none focus:border-blue-400"
+      />
+    )
   }
 
   // ── Done ──────────────────────────────────────────────────────────
@@ -273,6 +313,12 @@ export default function AddCard() {
 
   return (
     <div className="max-w-lg mx-auto p-4 pb-24">
+      {/* Always-mounted hidden inputs */}
+      <input ref={frontInputRef} type="file" accept="image/*" capture="environment" className="hidden"
+        onChange={(e) => handlePhoto(e, 'front')} />
+      <input ref={backInputRef} type="file" accept="image/*" capture="environment" className="hidden"
+        onChange={(e) => handlePhoto(e, 'back')} />
+
       <h1 className="text-xl font-black uppercase tracking-widest mb-4">Add New Card</h1>
 
       {error && (
@@ -281,24 +327,43 @@ export default function AddCard() {
         </div>
       )}
 
-      {/* ── Step 1: Capture ── */}
+      {/* ── Step 1: Capture Front ── */}
       {step === 'capture' && (
         <div className="space-y-4">
+          {/* Photo mode toggle */}
+          <div className="bg-gray-100 rounded-2xl p-1 flex">
+            {[
+              { mode: 'both', label: '📸 Front & Back', desc: 'Recommended — better card ID' },
+              { mode: 'front-only', label: '📸 Front Only', desc: 'Faster entry' },
+            ].map(({ mode, label }) => (
+              <button
+                key={mode}
+                onClick={() => setPhotoMode(mode)}
+                className={`flex-1 py-2.5 rounded-xl text-sm font-semibold transition-all ${
+                  photoMode === mode
+                    ? 'bg-white shadow text-gray-900'
+                    : 'text-gray-500 hover:text-gray-700'
+                }`}
+              >
+                {label}
+              </button>
+            ))}
+          </div>
+          {photoMode === 'both' && (
+            <p className="text-xs text-center text-blue-600 -mt-2">
+              You'll photograph the front, then flip and photograph the back
+            </p>
+          )}
+
           {/* Camera */}
           <div className="border-2 border-dashed border-blue-300 bg-blue-50 rounded-2xl p-6 text-center">
             <div className="text-5xl mb-3">📷</div>
-            <p className="font-bold text-gray-800 mb-1">Take a Photo</p>
+            <p className="font-bold text-gray-800 mb-1">
+              {photoMode === 'both' ? 'Step 1 of 2 — Front of Card' : 'Take a Photo'}
+            </p>
             <p className="text-xs text-gray-500 mb-4">
               Photos go straight to the cloud — nothing saved to your phone's storage.
             </p>
-            <input
-              ref={frontInputRef}
-              type="file"
-              accept="image/*"
-              capture="environment"
-              className="hidden"
-              onChange={(e) => handlePhoto(e, 'front')}
-            />
             <button
               onClick={() => frontInputRef.current.click()}
               disabled={uploading || identifying}
@@ -354,12 +419,54 @@ export default function AddCard() {
         </div>
       )}
 
+      {/* ── Step 1b: Capture Back ── */}
+      {step === 'capture-back' && (
+        <div className="space-y-4">
+          {/* Front thumbnail */}
+          <div className="flex gap-4 items-center bg-green-50 border border-green-200 rounded-2xl p-4">
+            {frontImg && (
+              <img src={frontImg.preview} className="w-16 aspect-[3/4] object-cover rounded-lg flex-shrink-0" alt="Front" />
+            )}
+            <div>
+              <p className="font-bold text-green-800">✅ Front captured!</p>
+              <p className="text-sm text-green-700 mt-0.5">
+                {uploading ? 'Uploading...' : 'Now flip the card over for the back.'}
+              </p>
+            </div>
+          </div>
+
+          {/* Back capture */}
+          <div className="border-2 border-dashed border-orange-300 bg-orange-50 rounded-2xl p-6 text-center">
+            <div className="text-5xl mb-3">🔄</div>
+            <p className="font-bold text-gray-800 mb-1">Step 2 of 2 — Back of Card</p>
+            <p className="text-xs text-gray-500 mb-4">
+              The back helps identify the card number, stats, and other details.
+            </p>
+            <button
+              onClick={() => backInputRef.current.click()}
+              disabled={uploading || identifying}
+              className="w-full bg-orange-500 hover:bg-orange-600 text-white py-3 rounded-xl font-bold disabled:opacity-50 transition-colors"
+            >
+              {identifying ? '🔍  Identifying card...' : '📸  Photograph Back of Card'}
+            </button>
+          </div>
+
+          <button
+            onClick={() => identifyCard(frontImg?.url)}
+            disabled={!frontImg?.url || identifying}
+            className="w-full border border-gray-300 py-3 rounded-xl text-gray-500 text-sm font-medium hover:bg-gray-50 transition-colors disabled:opacity-40"
+          >
+            Skip back photo →
+          </button>
+        </div>
+      )}
+
       {/* ── Step 2: Review & Edit ── */}
       {step === 'review' && (
         <div className="space-y-4">
           {identifying && (
             <div className="bg-blue-50 text-blue-700 text-sm px-4 py-3 rounded-xl flex items-center gap-2">
-              <span className="animate-spin">🔍</span> Identifying card with AI...
+              <span className="animate-spin inline-block">🔍</span> Identifying card with AI...
             </div>
           )}
 
@@ -367,15 +474,11 @@ export default function AddCard() {
           <div className="grid grid-cols-2 gap-3">
             {/* Front */}
             <div>
-              <input ref={frontInputRef} type="file" accept="image/*" capture="environment" className="hidden"
-                onChange={(e) => handlePhoto(e, 'front')} />
               {frontImg ? (
                 <div className="relative cursor-pointer" onClick={() => frontInputRef.current.click()}>
                   <img src={frontImg.preview} className="w-full aspect-[3/4] object-cover rounded-xl" alt="Front" />
-                  <div className="absolute inset-0 bg-black/0 hover:bg-black/20 rounded-xl transition-colors flex items-center justify-center">
-                    <span className="opacity-0 hover:opacity-100 text-white font-semibold text-xs">Change</span>
-                  </div>
-                  <span className="absolute bottom-2 left-2 bg-black/60 text-white text-xs px-2 py-0.5 rounded">Front</span>
+                  <div className="absolute inset-0 bg-black/0 hover:bg-black/20 rounded-xl transition-colors" />
+                  <span className="absolute bottom-2 left-2 bg-black/60 text-white text-xs px-2 py-0.5 rounded">Front ✎</span>
                 </div>
               ) : (
                 <div onClick={() => frontInputRef.current.click()}
@@ -387,12 +490,10 @@ export default function AddCard() {
             </div>
             {/* Back */}
             <div>
-              <input ref={backInputRef} type="file" accept="image/*" capture="environment" className="hidden"
-                onChange={(e) => handlePhoto(e, 'back')} />
               {backImg ? (
                 <div className="relative cursor-pointer" onClick={() => backInputRef.current.click()}>
                   <img src={backImg.preview} className="w-full aspect-[3/4] object-cover rounded-xl" alt="Back" />
-                  <span className="absolute bottom-2 left-2 bg-black/60 text-white text-xs px-2 py-0.5 rounded">Back</span>
+                  <span className="absolute bottom-2 left-2 bg-black/60 text-white text-xs px-2 py-0.5 rounded">Back ✎</span>
                 </div>
               ) : (
                 <div onClick={() => backInputRef.current.click()}
@@ -425,10 +526,7 @@ export default function AddCard() {
             </div>
             <Field label="Parallel / Variant" value={form.parallel} onChange={(v) => set('parallel', v)} placeholder="Silver Prizm, Gold, etc." />
 
-            {/* Team */}
-            <Field label="Team" value={form.team} onChange={(v) => set('team', v)} placeholder="e.g. Los Angeles Lakers" />
-
-            {/* Sport + League */}
+            {/* Sport + League — pick league first to get team dropdown */}
             <div>
               <Label>Sport</Label>
               <div className="flex flex-wrap gap-1.5 mt-1">
@@ -441,9 +539,21 @@ export default function AddCard() {
               <Label>League</Label>
               <div className="flex flex-wrap gap-1.5 mt-1">
                 {LEAGUES.map((l) => (
-                  <Pill key={l} active={form.league === l} onClick={() => set('league', l)}>{l}</Pill>
+                  <Pill key={l} active={form.league === l} onClick={() => {
+                    set('league', l)
+                    // Clear team when league changes so user picks from new list
+                    if (TEAMS_BY_LEAGUE[l] && !TEAMS_BY_LEAGUE[l].includes(form.team)) {
+                      set('team', '')
+                    }
+                  }}>{l}</Pill>
                 ))}
               </div>
+            </div>
+
+            {/* Team — dropdown if league has a list, otherwise text */}
+            <div>
+              <Label>Team</Label>
+              <TeamField />
             </div>
 
             {/* Rookie + Numbered checkboxes */}
@@ -458,7 +568,6 @@ export default function AddCard() {
               </label>
             </div>
 
-            {/* Print Run */}
             {form.numbered && (
               <Field label="Print Run" value={form.printRun} onChange={(v) => set('printRun', v)} type="number" placeholder="e.g. 99, 249, 999" />
             )}

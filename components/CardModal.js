@@ -2,6 +2,7 @@
 import { useEffect, useState } from 'react'
 import Link from 'next/link'
 import { useCart } from '@/contexts/CartContext'
+import { TEAMS_BY_LEAGUE } from '@/app/add/teams'
 
 // Apply Cloudinary trim+pad transformation so card fills frame cleanly
 function cardImg(url) {
@@ -10,7 +11,7 @@ function cardImg(url) {
 }
 
 const SPORTS = ['Football', 'Basketball', 'Baseball', 'Hockey', 'Soccer', 'Other']
-const LEAGUES = ['NFL', 'NBA', 'MLB', 'NHL', 'MLS', 'Other']
+const LEAGUES = ['NFL', 'NBA', 'MLB', 'NHL', 'MLS', 'NCAA Football', 'NCAA Basketball', 'Other']
 const ALL_TAGS = ['Refractor', 'Auto', 'Patch', 'Short Print', 'Prizm']
 const BRANDS = ['Panini', 'Topps', 'Upper Deck', 'Bowman', 'Fleer', 'Score', 'Leaf', 'Donruss', 'SkyBox', 'O-Pee-Chee', 'Pacific', 'Playoff', 'Pro Set', 'Stadium Club', 'SP', 'Other']
 const CONDITIONS = [
@@ -207,7 +208,28 @@ export default function CardModal({ card, onClose, onRefresh }) {
                 <EField label="Set" value={form['Set']} onChange={(v) => set('Set', v)} />
               </div>
               <EField label="Parallel / Variant" value={form['Parallel / Variant']} onChange={(v) => set('Parallel / Variant', v)} placeholder="Silver Prizm, Gold…" />
-              <EField label="Team" value={form['Team']} onChange={(v) => set('Team', v)} placeholder="e.g. Los Angeles Lakers" />
+              <div>
+                <ELabel>Team</ELabel>
+                {TEAMS_BY_LEAGUE[form['League']] ? (
+                  <select
+                    value={form['Team']}
+                    onChange={(e) => set('Team', e.target.value)}
+                    className="w-full border border-gray-300 rounded-xl px-3 py-2 mt-1 text-sm focus:outline-none focus:border-blue-400 bg-white"
+                  >
+                    <option value="">Select team…</option>
+                    {form['Team'] && !TEAMS_BY_LEAGUE[form['League']].includes(form['Team']) && (
+                      <option value={form['Team']}>{form['Team']}</option>
+                    )}
+                    {TEAMS_BY_LEAGUE[form['League']].map((t) => (
+                      <option key={t} value={t}>{t}</option>
+                    ))}
+                  </select>
+                ) : (
+                  <input type="text" value={form['Team']} onChange={(e) => set('Team', e.target.value)}
+                    placeholder="e.g. Los Angeles Lakers"
+                    className="w-full border border-gray-300 rounded-xl px-3 py-2 mt-1 text-sm focus:outline-none focus:border-blue-400" />
+                )}
+              </div>
               <EField label="Serial Number" value={form['Serial Number']} onChange={(v) => set('Serial Number', v)} placeholder="45/99" />
 
               <div>
@@ -223,7 +245,12 @@ export default function CardModal({ card, onClose, onRefresh }) {
                 <ELabel>League</ELabel>
                 <div className="flex flex-wrap gap-1.5 mt-1">
                   {LEAGUES.map((l) => (
-                    <EPill key={l} active={form['League'] === l} onClick={() => set('League', l)}>{l}</EPill>
+                    <EPill key={l} active={form['League'] === l} onClick={() => {
+                      set('League', l)
+                      if (TEAMS_BY_LEAGUE[l] && !TEAMS_BY_LEAGUE[l].includes(form['Team'])) {
+                        set('Team', '')
+                      }
+                    }}>{l}</EPill>
                   ))}
                 </div>
               </div>
