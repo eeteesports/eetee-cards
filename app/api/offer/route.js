@@ -1,10 +1,11 @@
 import { Resend } from 'resend'
 
-const resend = new Resend(process.env.RESEND_API_KEY)
 const OWNER_EMAIL = 'eeteesports@gmail.com'
 
 export async function POST(request) {
   try {
+    // Initialize lazily so missing env var doesn't crash the build
+    const resend = new Resend(process.env.RESEND_API_KEY)
     const { buyerName, buyerEmail, buyerPhone, message, items } = await request.json()
 
     if (!buyerName || !buyerEmail || !items?.length) {
