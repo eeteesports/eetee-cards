@@ -108,6 +108,21 @@ function CollectionInner() {
   )
 }
 
+function FilterPill({ active, color = 'blue', onClick, children }) {
+  const activeClass = color === 'green'
+    ? 'bg-green-600 text-white border-green-600'
+    : 'bg-blue-600 text-white border-blue-600'
+  return (
+    <button
+      onClick={onClick}
+      className={`flex-shrink-0 px-3 py-1.5 rounded-full text-sm font-semibold border transition-colors whitespace-nowrap
+        ${active ? activeClass : 'bg-white text-gray-600 border-gray-200 hover:border-gray-300'}`}
+    >
+      {children}
+    </button>
+  )
+}
+
 export default function Collection() {
   return (
     <Suspense fallback={<div className="p-8 text-center text-gray-400">Loading...</div>}>

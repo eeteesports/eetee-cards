@@ -1,6 +1,12 @@
 'use client'
 import { useEffect } from 'react'
 
+// Apply Cloudinary trim+pad transformation so card fills frame cleanly
+function cardImg(url) {
+  if (!url || !url.includes('res.cloudinary.com')) return url
+  return url.replace('/upload/', '/upload/e_trim:20,c_pad,ar_3:4,b_white,w_800/')
+}
+
 export default function CardModal({ card, onClose, onRefresh }) {
   const f = card.fields
 
@@ -35,7 +41,7 @@ export default function CardModal({ card, onClose, onRefresh }) {
         <div className="px-5 flex gap-3">
           {f['Front Image URL'] ? (
             <img
-              src={f['Front Image URL']}
+              src={cardImg(f['Front Image URL'])}
               alt={f.Player}
               className={`rounded-xl object-cover ${f['Back Image URL'] ? 'w-1/2 aspect-[3/4]' : 'w-full aspect-[3/4]'}`}
             />
@@ -45,7 +51,7 @@ export default function CardModal({ card, onClose, onRefresh }) {
             </div>
           )}
           {f['Back Image URL'] && (
-            <img src={f['Back Image URL']} alt="Back" className="w-1/2 aspect-[3/4] rounded-xl object-cover" />
+            <img src={cardImg(f['Back Image URL'])} alt="Back" className="w-1/2 aspect-[3/4] rounded-xl object-cover" />
           )}
         </div>
 

@@ -4,6 +4,7 @@ import { useRouter } from 'next/navigation'
 
 const SPORTS = ['Football', 'Basketball', 'Baseball', 'Hockey', 'Soccer', 'Other']
 const ALL_TAGS = ['Rookie', 'Refractor', 'Auto', 'Patch', 'Serial Numbered', '1/1', 'Short Print', 'Prizm']
+const BRANDS = ['Panini', 'Topps', 'Upper Deck', 'Bowman', 'Fleer', 'Score', 'Leaf', 'Donruss', 'SkyBox', 'O-Pee-Chee', 'Pacific', 'Playoff', 'Pro Set', 'Stadium Club', 'SP', 'Other']
 const CONDITIONS = [
   'Raw - Mint', 'Raw - Near Mint', 'Raw - Excellent', 'Raw - Good', 'Raw - Poor',
   'PSA 6', 'PSA 7', 'PSA 8', 'PSA 9', 'PSA 10',
@@ -81,6 +82,10 @@ export default function AddCard() {
       try {
         const url = await uploadToCloudinary(file)
         setBackImg({ preview, url })
+        // Re-identify with back image — card number is usually on the back
+        if (frontImg?.url) {
+          await identifyCardWithBack(frontImg.url, url)
+        }
       } catch {}
     }
   }
@@ -115,6 +120,37 @@ export default function AddCard() {
     }
     setIdentifying(false)
     setStep('review')
+  }
+
+  // Re-identify using both front + back for better card number detection
+  async function identifyCardWithBack(frontUrl, backUrl) {
+    setIdentifying(true)
+    try {
+      const res = await fetch('/api/identify', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ imageUrl: frontUrl, backImageUrl: backUrl }),
+      })
+      if (!res.ok) throw new Error('Identification failed')
+      const data = await res.json()
+      // Only update card number if we got one (don't overwrite other confirmed fields)
+      setForm((prev) => ({
+        ...prev,
+        cardName: data.cardName || prev.cardName,
+        player: data.player || prev.player,
+        year: data.year?.toString() || prev.year,
+        brand: data.brand || prev.brand,
+        set: data.set || prev.set,
+        cardNumber: data.cardNumber || prev.cardNumber,
+        parallel: data.parallel || prev.parallel,
+        sport: data.sport || prev.sport,
+        tags: data.tags?.length ? data.tags : prev.tags,
+        serialNumber: data.serialNumber || prev.serialNumber,
+        condition: data.condition || prev.condition,
+        notes: data.notes || prev.notes,
+      }))
+    } catch {}
+    setIdentifying(false)
   }
 
   // ── Voice input ───────────────────────────────────────────────────
@@ -363,8 +399,15 @@ export default function AddCard() {
               <Field label="Card #" value={form.cardNumber} onChange={(v) => set('cardNumber', v)} placeholder="269" />
             </div>
             <div className="grid grid-cols-2 gap-3">
-              <Field label="Brand" value={form.brand} onChange={(v) => set('brand', v)} placeholder="Panini" />
-              <Field label="Set" value={form.set} onChange={(v) => set('set', v)} placeholder="Prizm" />
+              <div>
+                <Label>Brand (Manufacturer)</Label>
+                <select value={form.brand} onChange={(e) => set('brand', e.target.value)}
+                  className="w-full border border-gray-300 rounded-xl px-3 py-2 mt-1 text-sm focus:outline-none focus:border-blue-400 bg-white">
+                  <option value="">Select brand...</option>
+                  {BRANDS.map((b) => <option key={b}>{b}</option>)}
+                </select>
+              </div>
+              <Field label="Set (Product Line)" value={form.set} onChange={(v) => set('set', v)} placeholder="Prizm, Donruss..." />
             </div>
             <Field label="Parallel / Variant" value={form.parallel} onChange={(v) => set('parallel', v)} placeholder="Silver Prizm, Gold, etc." />
 

@@ -15,7 +15,7 @@ export async function GET(request) {
   const sport = searchParams.get('sport')
   const forSale = searchParams.get('forSale')
 
-  let url = `${AT_URL}?pageSize=100&sort[0][field]=Date Added&sort[0][direction]=desc`
+  let url = `${AT_URL}?pageSize=100&sort[0][field]=Date%20Added&sort[0][direction]=desc`
 
   const filters = []
   if (search) {

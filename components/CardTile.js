@@ -1,3 +1,9 @@
+// Apply Cloudinary trim+pad transformation so card fills frame cleanly
+function cardImg(url) {
+  if (!url || !url.includes('res.cloudinary.com')) return url
+  return url.replace('/upload/', '/upload/e_trim:20,c_pad,ar_3:4,b_white,w_600/')
+}
+
 export default function CardTile({ card, onClick }) {
   const f = card.fields
 
@@ -33,7 +39,7 @@ export default function CardTile({ card, onClick }) {
         )}
         {f['Front Image URL'] ? (
           <img
-            src={f['Front Image URL']}
+            src={cardImg(f['Front Image URL'])}
             alt={f.Player}
             className="w-full aspect-[3/4] object-cover"
           />
