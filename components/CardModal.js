@@ -8,7 +8,8 @@ function cardImg(url) {
 }
 
 const SPORTS = ['Football', 'Basketball', 'Baseball', 'Hockey', 'Soccer', 'Other']
-const ALL_TAGS = ['Rookie', 'Refractor', 'Auto', 'Patch', 'Serial Numbered', '1/1', 'Short Print', 'Prizm']
+const LEAGUES = ['NFL', 'NBA', 'MLB', 'NHL', 'MLS', 'Other']
+const ALL_TAGS = ['Refractor', 'Auto', 'Patch', 'Short Print', 'Prizm']
 const BRANDS = ['Panini', 'Topps', 'Upper Deck', 'Bowman', 'Fleer', 'Score', 'Leaf', 'Donruss', 'SkyBox', 'O-Pee-Chee', 'Pacific', 'Playoff', 'Pro Set', 'Stadium Club', 'SP', 'Other']
 const CONDITIONS = [
   'Raw - Mint', 'Raw - Near Mint', 'Raw - Excellent', 'Raw - Good', 'Raw - Poor',
@@ -31,8 +32,13 @@ export default function CardModal({ card, onClose, onRefresh }) {
     'Card Number': f['Card Number'] || '',
     'Parallel / Variant': f['Parallel / Variant'] || '',
     'Sport': f['Sport'] || '',
+    'League': f['League'] || '',
+    'Team': f['Team'] || '',
     'Tags': f['Tags'] || [],
     'Serial Number': f['Serial Number'] || '',
+    'Rookie': f['Rookie'] || false,
+    'Numbered': f['Numbered'] || false,
+    'Print Run': f['Print Run']?.toString() || '',
     'Condition': f['Condition'] || '',
     'Cost Paid': f['Cost Paid']?.toString() || '',
     'Estimated Value': f['Estimated Value']?.toString() || '',
@@ -77,8 +83,13 @@ export default function CardModal({ card, onClose, onRefresh }) {
         'Card Number': form['Card Number'],
         'Parallel / Variant': form['Parallel / Variant'],
         'Sport': form['Sport'],
+        'League': form['League'],
+        'Team': form['Team'],
         'Tags': form['Tags'],
         'Serial Number': form['Serial Number'],
+        'Rookie': form['Rookie'],
+        'Numbered': form['Numbered'],
+        'Print Run': form['Print Run'] ? Number(form['Print Run']) : undefined,
         'Condition': form['Condition'],
         'Cost Paid': form['Cost Paid'] ? parseFloat(form['Cost Paid']) : undefined,
         'Estimated Value': form['Estimated Value'] ? parseFloat(form['Estimated Value']) : undefined,
@@ -192,6 +203,7 @@ export default function CardModal({ card, onClose, onRefresh }) {
                 <EField label="Set" value={form['Set']} onChange={(v) => set('Set', v)} />
               </div>
               <EField label="Parallel / Variant" value={form['Parallel / Variant']} onChange={(v) => set('Parallel / Variant', v)} placeholder="Silver Prizm, Gold…" />
+              <EField label="Team" value={form['Team']} onChange={(v) => set('Team', v)} placeholder="e.g. Los Angeles Lakers" />
               <EField label="Serial Number" value={form['Serial Number']} onChange={(v) => set('Serial Number', v)} placeholder="45/99" />
 
               <div>
@@ -202,6 +214,29 @@ export default function CardModal({ card, onClose, onRefresh }) {
                   ))}
                 </div>
               </div>
+
+              <div>
+                <ELabel>League</ELabel>
+                <div className="flex flex-wrap gap-1.5 mt-1">
+                  {LEAGUES.map((l) => (
+                    <EPill key={l} active={form['League'] === l} onClick={() => set('League', l)}>{l}</EPill>
+                  ))}
+                </div>
+              </div>
+
+              <div className="flex gap-3">
+                <label className="flex items-center gap-2 flex-1 bg-yellow-50 border border-yellow-200 rounded-xl p-3 cursor-pointer">
+                  <input type="checkbox" checked={form['Rookie']} onChange={(e) => set('Rookie', e.target.checked)} className="w-4 h-4 accent-yellow-500" />
+                  <span className="text-yellow-800 font-semibold text-sm">⭐ Rookie</span>
+                </label>
+                <label className="flex items-center gap-2 flex-1 bg-orange-50 border border-orange-200 rounded-xl p-3 cursor-pointer">
+                  <input type="checkbox" checked={form['Numbered']} onChange={(e) => set('Numbered', e.target.checked)} className="w-4 h-4 accent-orange-500" />
+                  <span className="text-orange-800 font-semibold text-sm">🔢 Numbered</span>
+                </label>
+              </div>
+              {form['Numbered'] && (
+                <EField label="Print Run" value={form['Print Run']} onChange={(v) => set('Print Run', v)} type="number" placeholder="e.g. 99" />
+              )}
 
               <div>
                 <ELabel>Tags</ELabel>
@@ -262,6 +297,10 @@ export default function CardModal({ card, onClose, onRefresh }) {
 
               <div className="flex flex-wrap gap-2">
                 {f.Sport && <Chip color="blue">{f.Sport}</Chip>}
+                {f.League && <Chip color="blue">{f.League}</Chip>}
+                {f.Team && <Chip color="gray">{f.Team}</Chip>}
+                {f.Rookie && <Chip color="yellow">⭐ Rookie</Chip>}
+                {f.Numbered && <Chip color="orange">🔢 {f['Print Run'] ? `/${f['Print Run']}` : 'Numbered'}</Chip>}
                 {f.Condition && <Chip color="green">{f.Condition}</Chip>}
                 {f['Card Number'] && <Chip color="gray">#{f['Card Number']}</Chip>}
                 {f['Parallel / Variant'] && <Chip color="purple">{f['Parallel / Variant']}</Chip>}

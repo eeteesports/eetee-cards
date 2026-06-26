@@ -3,7 +3,8 @@ import { useState, useRef } from 'react'
 import { useRouter } from 'next/navigation'
 
 const SPORTS = ['Football', 'Basketball', 'Baseball', 'Hockey', 'Soccer', 'Other']
-const ALL_TAGS = ['Rookie', 'Refractor', 'Auto', 'Patch', 'Serial Numbered', '1/1', 'Short Print', 'Prizm']
+const LEAGUES = ['NFL', 'NBA', 'MLB', 'NHL', 'MLS', 'Other']
+const ALL_TAGS = ['Refractor', 'Auto', 'Patch', 'Short Print', 'Prizm']
 const BRANDS = ['Panini', 'Topps', 'Upper Deck', 'Bowman', 'Fleer', 'Score', 'Leaf', 'Donruss', 'SkyBox', 'O-Pee-Chee', 'Pacific', 'Playoff', 'Pro Set', 'Stadium Club', 'SP', 'Other']
 const CONDITIONS = [
   'Raw - Mint', 'Raw - Near Mint', 'Raw - Excellent', 'Raw - Good', 'Raw - Poor',
@@ -14,8 +15,10 @@ const CONDITIONS = [
 
 const emptyForm = () => ({
   cardName: '', player: '', year: '', brand: '', set: '', cardNumber: '',
-  parallel: '', sport: '', tags: [], serialNumber: '', condition: '',
-  costPaid: '', estimatedValue: '', psa8Value: '', psa9Value: '', psa10Value: '',
+  parallel: '', sport: '', league: '', team: '', tags: [],
+  serialNumber: '', rookie: false, numbered: false, printRun: '',
+  condition: '', costPaid: '', estimatedValue: '',
+  psa8Value: '', psa9Value: '', psa10Value: '',
   forSale: false, askingPrice: '', notes: '',
 })
 
@@ -110,8 +113,13 @@ export default function AddCard() {
         cardNumber: data.cardNumber || '',
         parallel: data.parallel || '',
         sport: data.sport || '',
+        league: data.league || '',
+        team: data.team || '',
         tags: data.tags || [],
         serialNumber: data.serialNumber || '',
+        rookie: Boolean(data.rookie),
+        numbered: Boolean(data.numbered),
+        printRun: data.printRun?.toString() || '',
         condition: data.condition || '',
         notes: data.notes || '',
       }))
@@ -144,8 +152,13 @@ export default function AddCard() {
         cardNumber: data.cardNumber || prev.cardNumber,
         parallel: data.parallel || prev.parallel,
         sport: data.sport || prev.sport,
+        league: data.league || prev.league,
+        team: data.team || prev.team,
         tags: data.tags?.length ? data.tags : prev.tags,
         serialNumber: data.serialNumber || prev.serialNumber,
+        rookie: data.rookie !== undefined ? Boolean(data.rookie) : prev.rookie,
+        numbered: data.numbered !== undefined ? Boolean(data.numbered) : prev.numbered,
+        printRun: data.printRun?.toString() || prev.printRun,
         condition: data.condition || prev.condition,
         notes: data.notes || prev.notes,
       }))
@@ -202,6 +215,7 @@ export default function AddCard() {
         body: JSON.stringify({
           ...form,
           year: parseInt(form.year) || null,
+          printRun: parseInt(form.printRun) || null,
           costPaid: parseFloat(form.costPaid) || null,
           estimatedValue: parseFloat(form.estimatedValue) || null,
           psa8Value: parseFloat(form.psa8Value) || null,
@@ -411,7 +425,10 @@ export default function AddCard() {
             </div>
             <Field label="Parallel / Variant" value={form.parallel} onChange={(v) => set('parallel', v)} placeholder="Silver Prizm, Gold, etc." />
 
-            {/* Sport */}
+            {/* Team */}
+            <Field label="Team" value={form.team} onChange={(v) => set('team', v)} placeholder="e.g. Los Angeles Lakers" />
+
+            {/* Sport + League */}
             <div>
               <Label>Sport</Label>
               <div className="flex flex-wrap gap-1.5 mt-1">
@@ -420,6 +437,31 @@ export default function AddCard() {
                 ))}
               </div>
             </div>
+            <div>
+              <Label>League</Label>
+              <div className="flex flex-wrap gap-1.5 mt-1">
+                {LEAGUES.map((l) => (
+                  <Pill key={l} active={form.league === l} onClick={() => set('league', l)}>{l}</Pill>
+                ))}
+              </div>
+            </div>
+
+            {/* Rookie + Numbered checkboxes */}
+            <div className="flex gap-3">
+              <label className="flex items-center gap-2 flex-1 bg-yellow-50 border border-yellow-200 rounded-xl p-3 cursor-pointer">
+                <input type="checkbox" checked={form.rookie} onChange={(e) => set('rookie', e.target.checked)} className="w-4 h-4 accent-yellow-500" />
+                <span className="text-yellow-800 font-semibold text-sm">⭐ Rookie Card</span>
+              </label>
+              <label className="flex items-center gap-2 flex-1 bg-orange-50 border border-orange-200 rounded-xl p-3 cursor-pointer">
+                <input type="checkbox" checked={form.numbered} onChange={(e) => set('numbered', e.target.checked)} className="w-4 h-4 accent-orange-500" />
+                <span className="text-orange-800 font-semibold text-sm">🔢 Numbered</span>
+              </label>
+            </div>
+
+            {/* Print Run */}
+            {form.numbered && (
+              <Field label="Print Run" value={form.printRun} onChange={(v) => set('printRun', v)} type="number" placeholder="e.g. 99, 249, 999" />
+            )}
 
             {/* Tags */}
             <div>

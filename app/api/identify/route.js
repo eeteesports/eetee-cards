@@ -25,15 +25,24 @@ const USER_PROMPT = `Analyze this sports card image (may be front, back, or both
   "cardNumber": "card number from back of card, digits only (e.g. '269'). Check bottom corners carefully. Empty string if not visible.",
   "parallel": "parallel/variant if not base card (e.g. 'Silver Prizm', 'Gold', 'Holo', 'Purple', 'Green', 'Red'). Empty string for base cards.",
   "sport": "Football|Basketball|Baseball|Hockey|Soccer|Other",
-  "tags": ["Rookie"],
+  "league": "NFL|NBA|MLB|NHL|MLS|Other",
+  "team": "full team name as printed on card (e.g. 'Los Angeles Lakers', 'Kansas City Chiefs'). Empty string if not visible.",
+  "rookie": false,
+  "numbered": false,
+  "printRun": 0,
   "serialNumber": "serial stamp if present like '45/99'. Empty string if not serial numbered.",
+  "tags": [],
   "condition": "Raw - Mint|Raw - Near Mint|Raw - Excellent|Raw - Good|Raw - Poor",
   "notes": "any other important details (autograph, patch, memorabilia, photo variation, etc.)"
 }
 
-For tags, choose only from: Rookie, Refractor, Auto, Patch, Serial Numbered, 1/1, Short Print, Prizm
+Rules:
+- rookie: true only if card is explicitly a rookie card (RC logo, first-year card, Rated Rookie, etc.)
+- numbered: true if the card has a print run stamped on it
+- printRun: the total run size (e.g. 99 for a /99 card), 0 if not numbered
+- tags: choose only from: Refractor, Auto, Patch, Short Print, Prizm
 
-If you cannot identify a field with confidence, use an empty string (not null).`
+If you cannot identify a field with confidence, use empty string for strings, false for booleans, 0 for numbers.`
 
 export async function POST(request) {
   try {
