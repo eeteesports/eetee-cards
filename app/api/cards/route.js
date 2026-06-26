@@ -11,6 +11,22 @@ function headers() {
 
 export async function GET(request) {
   const { searchParams } = new URL(request.url)
+
+  // Fetch all records with pagination (no filters applied)
+  if (searchParams.get('all') === 'true') {
+    let allRecords = []
+    let offset = null
+    do {
+      let pageUrl = `${AT_URL}?pageSize=100&sort[0][field]=Date%20Added&sort[0][direction]=desc`
+      if (offset) pageUrl += `&offset=${encodeURIComponent(offset)}`
+      const res = await fetch(pageUrl, { headers: headers() })
+      const data = await res.json()
+      allRecords = [...allRecords, ...(data.records || [])]
+      offset = data.offset || null
+    } while (offset)
+    return Response.json({ records: allRecords })
+  }
+
   const search    = searchParams.get('search')
   const sport     = searchParams.get('sport')
   const league    = searchParams.get('league')
