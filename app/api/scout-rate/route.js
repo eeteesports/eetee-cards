@@ -6,7 +6,7 @@ export async function POST(request) {
     const anthropic = new Anthropic({ apiKey: process.env.ANTHROPIC_API_KEY })
 
     const response = await anthropic.messages.create({
-      model: 'claude-opus-4-8',
+      model: 'claude-sonnet-4-6',
       max_tokens: 400,
       system: `You are an expert sports card investor helping a collector evaluate deals. Be direct, honest, and practical. Return ONLY valid JSON with no markdown.`,
       messages: [{

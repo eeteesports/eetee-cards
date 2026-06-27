@@ -9,7 +9,7 @@ export async function POST(request) {
     const sportStr  = sport  ? `Preferred sport/league: ${sport}.` : 'Open to any sport.'
 
     const response = await anthropic.messages.create({
-      model: 'claude-opus-4-8',
+      model: 'claude-sonnet-4-6',
       max_tokens: 900,
       system: `You are an elite sports card investment advisor with deep market knowledge. Suggest specific, actionable card buys based on value, current demand, and upside potential. Focus on cards that are currently undervalued or have strong growth potential. Return ONLY valid JSON with no markdown.`,
       messages: [{

@@ -13,6 +13,7 @@ export default function Navbar() {
     { href: '/collection', label: 'Collection', icon: '📊' },
     { href: '/store',      label: 'Store',      icon: '🏷️' },
     { href: '/scout',      label: 'Scout',      icon: '🔭' },
+    { href: '/tools',      label: 'Tools',      icon: '🛠️' },
     { href: '/add',        label: 'Add Card',   icon: '➕' },
   ]
 
@@ -55,7 +56,7 @@ export default function Navbar() {
         {[
           { href: '/',           icon: '📈' },
           { href: '/collection', icon: '📊' },
-          { href: '/store',      icon: '🏷️' },
+          { href: '/tools',      icon: '🛠️' },
           { href: '/add',        icon: '➕' },
         ].map(({ href, icon }) => (
           <Link

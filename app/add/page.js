@@ -34,6 +34,7 @@ export default function AddCard() {
   const [backImg, setBackImg] = useState(null)
   const [form, setForm] = useState(emptyForm())
   const [voiceText, setVoiceText] = useState('')
+  const [voiceHints, setVoiceHints] = useState(null) // parsed voice fields used as hints to identify
   const [listening, setListening] = useState(false)
   const [uploading, setUploading] = useState(false)
   const [identifying, setIdentifying] = useState(false)
@@ -108,7 +109,7 @@ export default function AddCard() {
       const res = await fetch('/api/identify', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ imageUrl }),
+        body: JSON.stringify({ imageUrl, hints: voiceHints || undefined }),
       })
       if (!res.ok) throw new Error('Identification failed')
       const data = await res.json()
@@ -145,7 +146,7 @@ export default function AddCard() {
       const res = await fetch('/api/identify', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ imageUrl: frontUrl, backImageUrl: backUrl }),
+        body: JSON.stringify({ imageUrl: frontUrl, backImageUrl: backUrl, hints: voiceHints || undefined }),
       })
       if (!res.ok) throw new Error('Identification failed')
       const data = await res.json()
@@ -191,7 +192,7 @@ export default function AddCard() {
     recognition.start()
   }
 
-  async function processVoice() {
+  async function processVoice(jumpToReview = false) {
     if (!voiceText.trim()) return
     setIdentifying(true)
     setError('')
@@ -202,11 +203,23 @@ export default function AddCard() {
         body: JSON.stringify({ transcript: voiceText }),
       })
       const data = await res.json()
-      setForm((prev) => ({ ...prev, ...data }))
-      setStep('review')
+      if (jumpToReview) {
+        // Legacy path: voice-only entry, no photo
+        setForm((prev) => ({ ...prev, ...data }))
+        setStep('review')
+      } else {
+        // New path: voice as pre-hint before photo
+        setVoiceHints(data)
+        // Pre-fill form too so user can see/edit before photo
+        setForm((prev) => ({ ...prev, ...data }))
+      }
     } catch {
-      setError('Could not parse voice input — please fill in manually.')
-      setStep('review')
+      if (jumpToReview) {
+        setError('Could not parse voice input — please fill in manually.')
+        setStep('review')
+      } else {
+        setError('Could not parse voice — hints will not be used.')
+      }
     }
     setIdentifying(false)
   }
@@ -256,6 +269,7 @@ export default function AddCard() {
     setBackImg(null)
     setForm(emptyForm())
     setVoiceText('')
+    setVoiceHints(null)
     setError('')
   }
 
@@ -381,15 +395,25 @@ export default function AddCard() {
 
           {/* Voice */}
           <div className="border border-purple-200 bg-purple-50 rounded-2xl p-4">
-            <p className="font-bold text-gray-700 mb-0.5">🎤 Voice Entry</p>
+            <p className="font-bold text-gray-700 mb-0.5">🎤 Voice + Photo (Saves AI Cost)</p>
             <p className="text-xs text-gray-500 mb-3">
-              Say: "2017 Panini Prizm Patrick Mahomes Silver Rookie number 269"
+              Speak the details you know, then take a photo — Claude only confirms what it sees (card #, condition, parallel).
+              <br/>Example: <em>"2003 Topps Chrome LeBron James rookie"</em>
             </p>
+            {voiceHints && (
+              <div className="bg-green-100 border border-green-300 rounded-xl px-3 py-2 mb-2 flex items-start gap-2">
+                <span className="text-green-600 mt-0.5">✓</span>
+                <div className="text-xs text-green-800">
+                  <strong>Voice hints ready:</strong> {[voiceHints.year, voiceHints.brand, voiceHints.set, voiceHints.player, voiceHints.parallel].filter(Boolean).join(' ')}
+                  <button onClick={() => { setVoiceHints(null); setVoiceText('') }} className="ml-2 underline text-green-600">clear</button>
+                </div>
+              </div>
+            )}
             <textarea
               value={voiceText}
               onChange={(e) => setVoiceText(e.target.value)}
               placeholder="Tap the mic or type card details..."
-              className="w-full border border-purple-200 rounded-xl p-3 text-sm h-20 resize-none focus:outline-none focus:border-purple-400 bg-white"
+              className="w-full border border-purple-200 rounded-xl p-3 text-sm h-16 resize-none focus:outline-none focus:border-purple-400 bg-white"
             />
             <div className="flex gap-2 mt-2">
               <button
@@ -401,13 +425,22 @@ export default function AddCard() {
                 {listening ? '🔴  Listening...' : '🎤  Start Listening'}
               </button>
               <button
-                onClick={processVoice}
+                onClick={() => processVoice(false)}
                 disabled={!voiceText.trim() || identifying}
-                className="flex-1 py-2.5 bg-gray-900 text-white rounded-xl font-semibold text-sm disabled:opacity-40 hover:bg-gray-800 transition-colors"
+                className="flex-1 py-2.5 bg-purple-900 text-white rounded-xl font-semibold text-sm disabled:opacity-40 hover:bg-purple-800 transition-colors"
               >
-                {identifying ? 'Parsing...' : 'Process →'}
+                {identifying ? 'Parsing...' : 'Set Hints →'}
               </button>
             </div>
+            {voiceText.trim() && !voiceHints && (
+              <button
+                onClick={() => processVoice(true)}
+                disabled={identifying}
+                className="w-full mt-2 py-2 border border-gray-300 text-gray-600 rounded-xl text-xs font-medium hover:bg-gray-100 transition-colors"
+              >
+                Skip photo — enter manually from voice only
+              </button>
+            )}
           </div>
 
           <button

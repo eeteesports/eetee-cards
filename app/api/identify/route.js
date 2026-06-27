@@ -46,7 +46,7 @@ If you cannot identify a field with confidence, use empty string for strings, fa
 
 export async function POST(request) {
   try {
-    const { imageUrl, backImageUrl, imageBase64, mimeType } = await request.json()
+    const { imageUrl, backImageUrl, imageBase64, mimeType, hints } = await request.json()
 
     if (!imageUrl && !imageBase64) {
       return Response.json({ error: 'imageUrl or imageBase64 required' }, { status: 400 })
@@ -64,7 +64,20 @@ export async function POST(request) {
       content.push({ type: 'text', text: 'Front of card above. Back of card below — card number is usually on the back:' })
       content.push({ type: 'image', source: { type: 'url', url: backImageUrl } })
     }
-    content.push({ type: 'text', text: USER_PROMPT })
+
+    // Build user prompt — inject voice hints so Claude confirms rather than re-derives known fields
+    let promptText = USER_PROMPT
+    if (hints && Object.keys(hints).length > 0) {
+      const hintLines = Object.entries(hints)
+        .filter(([, v]) => v != null && v !== '' && v !== false && v !== 0)
+        .map(([k, v]) => `  ${k}: ${v}`)
+        .join('\n')
+      if (hintLines) {
+        promptText = `The collector already knows these details about this card — TRUST these unless the image clearly contradicts them:\n${hintLines}\n\nFor the fields above, use the provided values. Focus your image analysis on: card number (back of card), parallel/variant, serial numbering, condition, and any details not listed above.\n\n` + USER_PROMPT
+      }
+    }
+
+    content.push({ type: 'text', text: promptText })
 
     const response = await client.messages.create({
       model: 'claude-opus-4-8',

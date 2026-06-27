@@ -20,7 +20,7 @@ export async function POST(request) {
     const anthropic = new Anthropic({ apiKey: process.env.ANTHROPIC_API_KEY })
 
     const response = await anthropic.messages.create({
-      model: 'claude-opus-4-8',
+      model: 'claude-sonnet-4-6',
       max_tokens: 600,
       system: `You are a sports card market expert with comprehensive knowledge of card values, recent sales trends, and pricing factors. You understand how condition, rarity, player performance, set desirability, and parallels affect prices. Provide honest, realistic estimates based on actual market conditions. Return ONLY valid JSON with no markdown formatting.`,
       messages: [{
