@@ -78,8 +78,10 @@ export default function CardModal({ card, onClose, onRefresh }) {
         : [...p['Tags'], tag],
     }))
 
-  const gain = (estValue != null && f['Cost Paid'] != null)
-    ? (parseFloat(form['Estimated Value']) || estValue || 0) - (parseFloat(form['Cost Paid']) || f['Cost Paid'] || 0)
+  // Inline estValue here so gain can use it (estValue is also declared below for the render)
+  const _estValue = form['Estimated Value'] ? parseFloat(form['Estimated Value']) : f['Estimated Value']
+  const gain = (_estValue != null && f['Cost Paid'] != null)
+    ? _estValue - (parseFloat(form['Cost Paid']) || f['Cost Paid'] || 0)
     : null
 
   useEffect(() => {
@@ -227,7 +229,7 @@ export default function CardModal({ card, onClose, onRefresh }) {
   const centeringLR    = form['Centering L/R']
   const centeringTB    = form['Centering T/B']
   const valueNotes     = form['Value Notes']
-  const estValue       = form['Estimated Value'] ? parseFloat(form['Estimated Value']) : f['Estimated Value']
+  const estValue       = _estValue
   const centeringColors = CENTERING_GRADE_COLOR[centeringGrade] || 'text-gray-600 bg-gray-50 border-gray-200'
 
   return (
