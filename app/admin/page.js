@@ -155,16 +155,27 @@ export default function AdminPage() {
           continue
         }
 
+        // Save Estimated Value first (field is confirmed to exist in Airtable)
         const patchRes = await fetch(`/api/cards?id=${card.id}`, {
           method: 'PATCH',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            id: card.id,
-            'Estimated Value': data.estimatedValue,
-            ...(data.notes ? { 'Value Notes': data.notes } : {}),
-          }),
+          body: JSON.stringify({ id: card.id, 'Estimated Value': data.estimatedValue }),
         })
-        if (!patchRes.ok) throw new Error('Patch failed')
+        if (!patchRes.ok) {
+          const err = await patchRes.json().catch(() => ({}))
+          throw new Error(err?.error?.message || `Patch failed (${patchRes.status})`)
+        }
+
+        // Try to save Value Notes separately — field may not exist yet, failure is non-fatal
+        if (data.notes) {
+          try {
+            await fetch(`/api/cards?id=${card.id}`, {
+              method: 'PATCH',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({ id: card.id, 'Value Notes': data.notes }),
+            })
+          } catch { /* non-fatal */ }
+        }
 
         updatedCount++
         addLog(`✓ ${f['Player']}: $${data.estimatedValue} (${data.confidence} confidence, ${data.trend})`, 'success')

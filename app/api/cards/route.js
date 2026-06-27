@@ -138,7 +138,8 @@ export async function PATCH(request) {
     body: JSON.stringify({ fields }),
   })
   const data = await res.json()
-  return Response.json(data)
+  // Forward Airtable's actual status so callers can detect errors
+  return Response.json(data, { status: res.status })
 }
 
 export async function DELETE(request) {

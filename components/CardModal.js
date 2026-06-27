@@ -155,14 +155,19 @@ export default function CardModal({ card, onClose, onRefresh }) {
         const lr = data.leftRightRatio || ''
         const tb = data.topBottomRatio || ''
         const gr = data.grade?.toString() || ''
-        // Immediately PATCH to Airtable
-        await fetch(`/api/cards?id=${card.id}`, {
-          method: 'PATCH',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ id: card.id, 'Centering L/R': lr, 'Centering T/B': tb, 'Centering Grade': gr }),
-        })
-        // Update local form too
+        // Update local state immediately so UI reflects result even if PATCH partially fails
         setForm((p) => ({ ...p, 'Centering L/R': lr, 'Centering T/B': tb, 'Centering Grade': gr }))
+        // Save each new field separately — Airtable rejects unknown fields,
+        // so we isolate failures so one missing field doesn't block the others
+        for (const [fieldName, value] of [['Centering L/R', lr], ['Centering T/B', tb], ['Centering Grade', gr]]) {
+          if (value) {
+            await fetch(`/api/cards?id=${card.id}`, {
+              method: 'PATCH',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({ id: card.id, [fieldName]: value }),
+            }).catch(() => {})
+          }
+        }
         if (onRefresh) onRefresh()
       }
     } catch {}
@@ -193,15 +198,20 @@ export default function CardModal({ card, onClose, onRefresh }) {
       })
       const data = await res.json()
       if (data.estimatedValue) {
+        // Save Estimated Value (confirmed field)
         await fetch(`/api/cards?id=${card.id}`, {
           method: 'PATCH',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            id: card.id,
-            'Estimated Value': data.estimatedValue,
-            'Value Notes': data.notes || '',
-          }),
+          body: JSON.stringify({ id: card.id, 'Estimated Value': data.estimatedValue }),
         })
+        // Try Value Notes separately — non-fatal if field doesn't exist yet
+        if (data.notes) {
+          await fetch(`/api/cards?id=${card.id}`, {
+            method: 'PATCH',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ id: card.id, 'Value Notes': data.notes }),
+          }).catch(() => {})
+        }
         setForm((p) => ({
           ...p,
           'Estimated Value': data.estimatedValue.toString(),
