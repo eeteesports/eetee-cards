@@ -108,6 +108,10 @@ export async function POST(request) {
     'Front Image URL':    body.frontImageUrl || '',
     'Back Image URL':     body.backImageUrl || '',
     'Notes':              body.notes || '',
+    'Centering L/R':      body.centeringLR || '',
+    'Centering T/B':      body.centeringTB || '',
+    'Centering Grade':    body.centeringGrade || '',
+    'Value Notes':        body.valueNotes || '',
     'Date Added':         new Date().toISOString().split('T')[0],
   }
 

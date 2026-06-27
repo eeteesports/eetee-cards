@@ -158,7 +158,11 @@ export default function AdminPage() {
         const patchRes = await fetch(`/api/cards?id=${card.id}`, {
           method: 'PATCH',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ id: card.id, 'Estimated Value': data.estimatedValue }),
+          body: JSON.stringify({
+            id: card.id,
+            'Estimated Value': data.estimatedValue,
+            ...(data.notes ? { 'Value Notes': data.notes } : {}),
+          }),
         })
         if (!patchRes.ok) throw new Error('Patch failed')
 

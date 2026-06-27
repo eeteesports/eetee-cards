@@ -21,6 +21,7 @@ const emptyForm = () => ({
   condition: '', costPaid: '', estimatedValue: '',
   psa8Value: '', psa9Value: '', psa10Value: '',
   forSale: false, askingPrice: '', notes: '',
+  centeringLR: '', centeringTB: '', centeringGrade: '', valueNotes: '',
 })
 
 export default function AddCard() {
@@ -36,6 +37,7 @@ export default function AddCard() {
   const [voiceText, setVoiceText] = useState('')
   const [voiceHints, setVoiceHints] = useState(null) // parsed voice fields used as hints to identify
   const [listening, setListening] = useState(false)
+  const [centeringLoading, setCenteringLoading] = useState(false)
   const [uploading, setUploading] = useState(false)
   const [identifying, setIdentifying] = useState(false)
   const [saving, setSaving] = useState(false)
@@ -224,6 +226,26 @@ export default function AddCard() {
     setIdentifying(false)
   }
 
+  // ── Centering analysis ───────────────────────────────────────────
+  async function runCentering() {
+    if (!frontImg?.url) return
+    setCenteringLoading(true)
+    try {
+      const res = await fetch('/api/centering', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ imageUrl: frontImg.url }),
+      })
+      const data = await res.json()
+      if (!data.error) {
+        set('centeringLR', data.leftRightRatio || '')
+        set('centeringTB', data.topBottomRatio || '')
+        set('centeringGrade', data.grade ? data.grade.toString() : '')
+      }
+    } catch {}
+    setCenteringLoading(false)
+  }
+
   // ── Save to Airtable ──────────────────────────────────────────────
   async function handleSave() {
     if (!form.player.trim()) { setError('Player name is required.'); return }
@@ -245,6 +267,9 @@ export default function AddCard() {
           askingPrice: parseFloat(form.askingPrice) || null,
           frontImageUrl: frontImg?.url || '',
           backImageUrl: backImg?.url || '',
+          centeringLR: form.centeringLR || undefined,
+          centeringTB: form.centeringTB || undefined,
+          centeringGrade: form.centeringGrade || undefined,
         }),
       })
       if (!res.ok) throw new Error('Save failed')
@@ -537,6 +562,39 @@ export default function AddCard() {
               )}
             </div>
           </div>
+
+          {/* Centering check */}
+          {frontImg?.url && (
+            <div className={`border rounded-2xl p-3 flex items-center gap-3 ${form.centeringGrade ? 'bg-blue-50 border-blue-200' : 'bg-gray-50 border-gray-200'}`}>
+              {form.centeringGrade ? (
+                <>
+                  <div className="text-2xl">📐</div>
+                  <div className="flex-1 min-w-0">
+                    <p className="text-xs font-black uppercase tracking-wide text-blue-700">Centering Analyzed</p>
+                    <p className="text-sm font-bold text-gray-800">
+                      Grade {form.centeringGrade} &nbsp;·&nbsp; L/R {form.centeringLR} &nbsp;·&nbsp; T/B {form.centeringTB}
+                    </p>
+                  </div>
+                  <button onClick={() => { set('centeringGrade',''); set('centeringLR',''); set('centeringTB','') }}
+                    className="text-xs text-gray-400 hover:text-gray-600">clear</button>
+                </>
+              ) : (
+                <>
+                  <div className="text-2xl">📐</div>
+                  <div className="flex-1">
+                    <p className="text-xs text-gray-500">Optional: check centering quality for PSA grading</p>
+                  </div>
+                  <button
+                    onClick={runCentering}
+                    disabled={centeringLoading}
+                    className="text-xs font-bold px-3 py-1.5 bg-white border border-gray-300 rounded-lg hover:bg-gray-100 transition-colors disabled:opacity-50 flex-shrink-0"
+                  >
+                    {centeringLoading ? '🔍 Analyzing...' : 'Check Centering'}
+                  </button>
+                </>
+              )}
+            </div>
+          )}
 
           {/* Form */}
           <div className="space-y-3">
