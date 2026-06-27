@@ -36,7 +36,7 @@ export default function Navbar() {
   return (
     <nav className="bg-[#0f1b35] text-white px-4 py-3 flex items-center justify-between sticky top-0 z-40">
       <Link href="/" className="flex items-center gap-2 flex-shrink-0">
-        <div className="w-9 h-9 bg-blue-600 rounded-full flex items-center justify-center text-xs font-black">ET</div>
+        <img src="https://res.cloudinary.com/dgfukcdmz/image/upload/eetee-cards/eetee-logo.png" alt="eetee Sports" className="w-9 h-9 rounded-full object-cover" />
         <span className="font-black text-lg tracking-widest uppercase hidden sm:block">eetee Sports</span>
       </Link>
 

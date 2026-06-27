@@ -52,7 +52,7 @@ function StoreInner() {
         <div className="max-w-5xl mx-auto px-4 py-5 flex items-center justify-between">
           <div>
             <Link href="/" className="flex items-center gap-2">
-              <div className="w-9 h-9 bg-blue-600 rounded-full flex items-center justify-center text-xs font-black">ET</div>
+              <img src="https://res.cloudinary.com/dgfukcdmz/image/upload/eetee-cards/eetee-logo.png" alt="eetee Sports" className="w-9 h-9 rounded-full object-cover" />
               <div>
                 <p className="font-black text-lg tracking-widest uppercase leading-none">eetee Sports</p>
                 <p className="text-blue-300 text-xs">Cards for Sale</p>
