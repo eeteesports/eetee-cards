@@ -78,10 +78,8 @@ export default function CardModal({ card, onClose, onRefresh }) {
         : [...p['Tags'], tag],
     }))
 
-  const gain = editing
-    ? (parseFloat(form['Estimated Value']) || 0) - (parseFloat(form['Cost Paid']) || 0)
-    : f['Estimated Value'] && f['Cost Paid']
-    ? f['Estimated Value'] - f['Cost Paid']
+  const gain = (estValue != null && f['Cost Paid'] != null)
+    ? (parseFloat(form['Estimated Value']) || estValue || 0) - (parseFloat(form['Cost Paid']) || f['Cost Paid'] || 0)
     : null
 
   useEffect(() => {
@@ -223,10 +221,13 @@ export default function CardModal({ card, onClose, onRefresh }) {
     setRefreshingValue(false)
   }
 
-  const centeringGrade = editing ? form['Centering Grade'] : f['Centering Grade']
-  const centeringLR    = editing ? form['Centering L/R']   : f['Centering L/R']
-  const centeringTB    = editing ? form['Centering T/B']   : f['Centering T/B']
-  const valueNotes     = editing ? form['Value Notes']     : f['Value Notes']
+  // Always read live values from form (form is initialized from f, so defaults match;
+  // but runCentering/refreshValue update form immediately so view mode reflects results)
+  const centeringGrade = form['Centering Grade']
+  const centeringLR    = form['Centering L/R']
+  const centeringTB    = form['Centering T/B']
+  const valueNotes     = form['Value Notes']
+  const estValue       = form['Estimated Value'] ? parseFloat(form['Estimated Value']) : f['Estimated Value']
   const centeringColors = CENTERING_GRADE_COLOR[centeringGrade] || 'text-gray-600 bg-gray-50 border-gray-200'
 
   return (
@@ -444,7 +445,7 @@ export default function CardModal({ card, onClose, onRefresh }) {
               </div>
 
               {/* Value */}
-              {(f['Cost Paid'] != null || f['Estimated Value'] != null) && (
+              {(f['Cost Paid'] != null || estValue != null) && (
                 <div className="space-y-2">
                   <div className="grid grid-cols-2 gap-3">
                     {f['Cost Paid'] != null && (
@@ -453,7 +454,7 @@ export default function CardModal({ card, onClose, onRefresh }) {
                         <p className="font-bold text-xl mt-0.5">${Number(f['Cost Paid']).toLocaleString()}</p>
                       </div>
                     )}
-                    {f['Estimated Value'] != null && (
+                    {estValue != null && (
                       <div className="bg-gray-50 rounded-xl p-3">
                         <p className="text-xs text-gray-500 uppercase font-semibold tracking-wide flex items-center justify-between gap-1">
                           <span>Est. Value</span>
@@ -463,7 +464,7 @@ export default function CardModal({ card, onClose, onRefresh }) {
                           </button>
                         </p>
                         <p className={`font-bold text-xl mt-0.5 ${gain != null && gain > 0 ? 'text-green-600' : gain != null && gain < 0 ? 'text-red-500' : ''}`}>
-                          ${Number(f['Estimated Value']).toLocaleString()}
+                          ${Number(estValue).toLocaleString()}
                         </p>
                         {gain != null && (
                           <p className={`text-xs font-medium ${gain >= 0 ? 'text-green-500' : 'text-red-400'}`}>
@@ -474,13 +475,13 @@ export default function CardModal({ card, onClose, onRefresh }) {
                     )}
                   </div>
                   {/* Value reasoning */}
-                  {(f['Value Notes'] || valueNotes) && (
+                  {valueNotes && (
                     <div className="bg-blue-50 border border-blue-100 rounded-xl px-3 py-2">
                       <p className="text-xs font-bold text-blue-600 uppercase tracking-wide mb-0.5">Why this value</p>
-                      <p className="text-xs text-blue-900 leading-relaxed">{f['Value Notes'] || valueNotes}</p>
+                      <p className="text-xs text-blue-900 leading-relaxed">{valueNotes}</p>
                     </div>
                   )}
-                  {f['Estimated Value'] != null && !f['Value Notes'] && (
+                  {estValue != null && !valueNotes && (
                     <button onClick={refreshValue} disabled={refreshingValue}
                       className="text-xs text-blue-500 hover:text-blue-700 underline disabled:opacity-40">
                       {refreshingValue ? 'Getting reasoning...' : 'Get value reasoning from AI →'}
