@@ -22,12 +22,35 @@ export default function PublicHome() {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Hero */}
-      <div className="bg-[#0f1b35] text-white">
-        <div className="max-w-5xl mx-auto px-4 py-16 flex flex-col items-center text-center">
+      <div className="relative bg-[#0f1b35] text-white overflow-hidden">
+        {/* Large watermark logo — far right, half-cropped */}
+        <img
+          src="https://res.cloudinary.com/dgfukcdmz/image/upload/eetee-cards/eetee-logo.png"
+          alt=""
+          aria-hidden="true"
+          className="absolute -right-16 top-1/2 -translate-y-1/2 w-80 h-80 object-cover rounded-full opacity-10 pointer-events-none select-none"
+        />
+        {/* Subtle radial glow behind the logo */}
+        <div className="absolute -right-8 top-1/2 -translate-y-1/2 w-96 h-96 rounded-full bg-blue-500/10 blur-3xl pointer-events-none" />
+
+        {/* Decorative circles — top-left cluster */}
+        <div className="absolute -top-10 -left-10 w-48 h-48 rounded-full border border-white/5 pointer-events-none" />
+        <div className="absolute -top-4 -left-4 w-32 h-32 rounded-full border border-white/5 pointer-events-none" />
+        <div className="absolute top-6 left-6 w-16 h-16 rounded-full bg-blue-600/20 pointer-events-none" />
+
+        {/* Diagonal stripe accent */}
+        <div
+          className="absolute inset-0 pointer-events-none opacity-[0.03]"
+          style={{
+            backgroundImage: 'repeating-linear-gradient(135deg, white 0px, white 1px, transparent 1px, transparent 24px)',
+          }}
+        />
+
+        <div className="relative z-10 max-w-5xl mx-auto px-4 py-16 flex flex-col items-center text-center">
           <img
             src="https://res.cloudinary.com/dgfukcdmz/image/upload/eetee-cards/eetee-logo.png"
             alt="eetee Sports"
-            className="w-28 h-28 rounded-full object-cover ring-4 ring-white/20 mb-6"
+            className="w-28 h-28 rounded-full object-cover ring-4 ring-white/20 mb-6 shadow-2xl"
           />
           <h1 className="text-5xl md:text-6xl font-black tracking-widest uppercase mb-3">
             eetee Sports
@@ -39,7 +62,7 @@ export default function PublicHome() {
           <div className="flex gap-3 flex-wrap justify-center">
             <Link
               href="/store"
-              className="bg-white text-[#0f1b35] font-black px-6 py-3 rounded-xl text-sm hover:bg-blue-50 transition-colors"
+              className="bg-white text-[#0f1b35] font-black px-6 py-3 rounded-xl text-sm hover:bg-blue-50 transition-colors shadow-lg"
             >
               🏷️ Browse Cards for Sale
             </Link>
