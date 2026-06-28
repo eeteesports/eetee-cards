@@ -3,6 +3,7 @@ import { useState, useRef, useEffect } from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { useCart } from '@/contexts/CartContext'
+import { useSession, signOut } from 'next-auth/react'
 
 export default function Navbar() {
   const pathname = usePathname()
@@ -10,6 +11,8 @@ export default function Navbar() {
   const cartCount = items.length
   const [addOpen, setAddOpen] = useState(false)
   const addRef = useRef(null)
+  const { data: session, status } = useSession()
+  const isAdmin = status === 'authenticated'
 
   // Close dropdown when clicking outside
   useEffect(() => {
@@ -23,19 +26,26 @@ export default function Navbar() {
   // Close on route change
   useEffect(() => { setAddOpen(false) }, [pathname])
 
-  const links = [
-    { href: '/',           label: 'Dashboard',  icon: '📈' },
+  // Hide navbar on login and public homepage (they have their own headers)
+  if (pathname === '/login' || pathname === '/') return null
+
+  const adminLinks = [
+    { href: '/dashboard',  label: 'Dashboard',  icon: '📈' },
     { href: '/collection', label: 'Collection', icon: '📊' },
-    { href: '/store',      label: 'Store',      icon: '🏷️' },
     { href: '/scout',      label: 'Scout',      icon: '🔭' },
     { href: '/tools',      label: 'Tools',      icon: '🛠️' },
   ]
 
+  const publicLinks = [
+    { href: '/store', label: 'Store', icon: '🏷️' },
+  ]
+
+  const links = isAdmin ? adminLinks : publicLinks
   const isAddActive = pathname === '/add' || pathname === '/bulk-add'
 
   return (
     <nav className="bg-[#0f1b35] text-white px-4 py-3 flex items-center justify-between sticky top-0 z-40">
-      <Link href="/" className="flex items-center gap-2 flex-shrink-0">
+      <Link href={isAdmin ? '/dashboard' : '/'} className="flex items-center gap-2 flex-shrink-0">
         <img src="https://res.cloudinary.com/dgfukcdmz/image/upload/eetee-cards/eetee-logo.png" alt="eetee Sports" className="w-9 h-9 rounded-full object-cover" />
         <span className="font-black text-lg tracking-widest uppercase hidden sm:block">eetee Sports</span>
       </Link>
@@ -62,11 +72,14 @@ export default function Navbar() {
         ))}
 
         {/* Mobile: condensed icons */}
-        {[
-          { href: '/',           icon: '📈' },
+        {(isAdmin ? [
+          { href: '/dashboard',  icon: '📈' },
           { href: '/collection', icon: '📊' },
           { href: '/tools',      icon: '🛠️' },
-        ].map(({ href, icon }) => (
+        ] : [
+          { href: '/',      icon: '🏠' },
+          { href: '/store', icon: '🏷️' },
+        ]).map(({ href, icon }) => (
           <Link key={`m-${href}`} href={href}
             className={`p-2 rounded-lg text-lg sm:hidden transition-colors ${
               pathname === href ? 'bg-blue-600' : 'hover:bg-white/10'
@@ -75,66 +88,68 @@ export default function Navbar() {
           </Link>
         ))}
 
-        {/* ── Add Card split button ── */}
-        <div ref={addRef} className="relative ml-1">
-          {/* Desktop: label + chevron */}
-          <div className={`hidden lg:flex items-center rounded-lg overflow-hidden border ${isAddActive ? 'border-blue-400' : 'border-white/20'}`}>
-            <Link href="/add"
-              className={`px-3 py-2 text-sm font-medium flex items-center gap-1 transition-colors ${
-                pathname === '/add' ? 'bg-blue-600 text-white' : 'text-white/70 hover:bg-white/10 hover:text-white'
-              }`}>
-              <span>➕</span> Add Card
-            </Link>
-            <button onClick={() => setAddOpen(o => !o)}
-              className={`px-2 py-2 text-xs border-l border-white/20 transition-colors ${
-                addOpen ? 'bg-white/20 text-white' : 'text-white/50 hover:bg-white/10 hover:text-white'
-              }`}
-              title="Batch upload">
-              {addOpen ? '▲' : '▼'}
-            </button>
-          </div>
-
-          {/* Tablet: icon + chevron */}
-          <div className={`hidden sm:flex lg:hidden items-center rounded-lg overflow-hidden border ${isAddActive ? 'border-blue-400' : 'border-white/20'}`}>
-            <Link href="/add" title="Add single card"
-              className={`p-2 text-lg transition-colors ${pathname === '/add' ? 'bg-blue-600' : 'hover:bg-white/10'}`}>
-              ➕
-            </Link>
-            <button onClick={() => setAddOpen(o => !o)}
-              className={`px-1.5 py-2 text-[10px] border-l border-white/20 transition-colors ${addOpen ? 'bg-white/20' : 'text-white/50 hover:bg-white/10'}`}>
-              {addOpen ? '▲' : '▼'}
-            </button>
-          </div>
-
-          {/* Mobile: just the ➕ icon (opens dropdown) */}
-          <button onClick={() => setAddOpen(o => !o)}
-            className={`sm:hidden p-2 rounded-lg text-lg transition-colors ${isAddActive || addOpen ? 'bg-blue-600' : 'hover:bg-white/10'}`}>
-            ➕
-          </button>
-
-          {/* Dropdown */}
-          {addOpen && (
-            <div className="absolute right-0 top-full mt-2 w-48 bg-white rounded-2xl shadow-2xl border border-gray-100 overflow-hidden z-50">
+        {/* ── Add Card split button (admin only) ── */}
+        {isAdmin && (
+          <div ref={addRef} className="relative ml-1">
+            {/* Desktop: label + chevron */}
+            <div className={`hidden lg:flex items-center rounded-lg overflow-hidden border ${isAddActive ? 'border-blue-400' : 'border-white/20'}`}>
               <Link href="/add"
-                className={`flex items-center gap-3 px-4 py-3 text-sm hover:bg-blue-50 transition-colors ${pathname === '/add' ? 'bg-blue-50 text-blue-700 font-bold' : 'text-gray-800'}`}>
-                <span className="text-xl">🃏</span>
-                <div>
-                  <p className="font-bold text-sm leading-tight">Single Card</p>
-                  <p className="text-xs text-gray-400">Voice + photo, one at a time</p>
-                </div>
+                className={`px-3 py-2 text-sm font-medium flex items-center gap-1 transition-colors ${
+                  pathname === '/add' ? 'bg-blue-600 text-white' : 'text-white/70 hover:bg-white/10 hover:text-white'
+                }`}>
+                <span>➕</span> Add Card
               </Link>
-              <div className="border-t border-gray-100" />
-              <Link href="/bulk-add"
-                className={`flex items-center gap-3 px-4 py-3 text-sm hover:bg-blue-50 transition-colors ${pathname === '/bulk-add' ? 'bg-blue-50 text-blue-700 font-bold' : 'text-gray-800'}`}>
-                <span className="text-xl">📦</span>
-                <div>
-                  <p className="font-bold text-sm leading-tight">Batch Upload</p>
-                  <p className="text-xs text-gray-400">Shoot many cards, review all at once</p>
-                </div>
-              </Link>
+              <button onClick={() => setAddOpen(o => !o)}
+                className={`px-2 py-2 text-xs border-l border-white/20 transition-colors ${
+                  addOpen ? 'bg-white/20 text-white' : 'text-white/50 hover:bg-white/10 hover:text-white'
+                }`}
+                title="Batch upload">
+                {addOpen ? '▲' : '▼'}
+              </button>
             </div>
-          )}
-        </div>
+
+            {/* Tablet: icon + chevron */}
+            <div className={`hidden sm:flex lg:hidden items-center rounded-lg overflow-hidden border ${isAddActive ? 'border-blue-400' : 'border-white/20'}`}>
+              <Link href="/add" title="Add single card"
+                className={`p-2 text-lg transition-colors ${pathname === '/add' ? 'bg-blue-600' : 'hover:bg-white/10'}`}>
+                ➕
+              </Link>
+              <button onClick={() => setAddOpen(o => !o)}
+                className={`px-1.5 py-2 text-[10px] border-l border-white/20 transition-colors ${addOpen ? 'bg-white/20' : 'text-white/50 hover:bg-white/10'}`}>
+                {addOpen ? '▲' : '▼'}
+              </button>
+            </div>
+
+            {/* Mobile: just the ➕ icon (opens dropdown) */}
+            <button onClick={() => setAddOpen(o => !o)}
+              className={`sm:hidden p-2 rounded-lg text-lg transition-colors ${isAddActive || addOpen ? 'bg-blue-600' : 'hover:bg-white/10'}`}>
+              ➕
+            </button>
+
+            {/* Dropdown */}
+            {addOpen && (
+              <div className="absolute right-0 top-full mt-2 w-48 bg-white rounded-2xl shadow-2xl border border-gray-100 overflow-hidden z-50">
+                <Link href="/add"
+                  className={`flex items-center gap-3 px-4 py-3 text-sm hover:bg-blue-50 transition-colors ${pathname === '/add' ? 'bg-blue-50 text-blue-700 font-bold' : 'text-gray-800'}`}>
+                  <span className="text-xl">🃏</span>
+                  <div>
+                    <p className="font-bold text-sm leading-tight">Single Card</p>
+                    <p className="text-xs text-gray-400">Voice + photo, one at a time</p>
+                  </div>
+                </Link>
+                <div className="border-t border-gray-100" />
+                <Link href="/bulk-add"
+                  className={`flex items-center gap-3 px-4 py-3 text-sm hover:bg-blue-50 transition-colors ${pathname === '/bulk-add' ? 'bg-blue-50 text-blue-700 font-bold' : 'text-gray-800'}`}>
+                  <span className="text-xl">📦</span>
+                  <div>
+                    <p className="font-bold text-sm leading-tight">Batch Upload</p>
+                    <p className="text-xs text-gray-400">Shoot many cards, review all at once</p>
+                  </div>
+                </Link>
+              </div>
+            )}
+          </div>
+        )}
 
         {/* Cart */}
         <Link href="/cart" title="Your cart"
@@ -148,6 +163,31 @@ export default function Navbar() {
             </span>
           )}
         </Link>
+
+        {/* Admin: store link + logout */}
+        {isAdmin && (
+          <>
+            <Link href="/store" title="Storefront"
+              className={`p-2 rounded-lg text-lg transition-colors ${pathname === '/store' ? 'bg-blue-600' : 'hover:bg-white/10'}`}>
+              🏷️
+            </Link>
+            <button
+              onClick={() => signOut({ callbackUrl: '/' })}
+              title="Sign out"
+              className="ml-1 p-2 rounded-lg text-white/50 hover:text-white hover:bg-white/10 transition-colors text-sm font-bold"
+            >
+              ⎋
+            </button>
+          </>
+        )}
+
+        {/* Public: login link */}
+        {!isAdmin && status !== 'loading' && (
+          <Link href="/login"
+            className="ml-1 px-3 py-2 rounded-lg text-sm font-medium text-white/50 hover:text-white hover:bg-white/10 transition-colors">
+            Login
+          </Link>
+        )}
       </div>
     </nav>
   )

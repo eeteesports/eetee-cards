@@ -2,6 +2,7 @@ import { Inter } from 'next/font/google'
 import './globals.css'
 import Navbar from '@/components/Navbar'
 import Providers from '@/components/Providers'
+import PageWrapper from '@/components/PageWrapper'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -26,7 +27,7 @@ export default function RootLayout({ children }) {
       <body className={`${inter.className} min-h-screen bg-gray-50`}>
         <Providers>
           <Navbar />
-          <main className="max-w-5xl mx-auto">{children}</main>
+          <main><PageWrapper>{children}</PageWrapper></main>
         </Providers>
       </body>
     </html>
