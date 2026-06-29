@@ -20,10 +20,14 @@ export default function ScoutPage() {
   const [error, setError] = useState('')
 
   // Suggest mode
-  const [budget, setBudget] = useState('')
-  const [sportPref, setSportPref] = useState('')
-  const [suggestions, setSuggestions] = useState(null)
+  const [suggest, setSuggest] = useState({
+    budget: null, sport: '', team: '', rookie: false, serial: false, auto: false, more: '',
+  })
+  const [suggestions,    setSuggestions]    = useState(null)
+  const [suggestMeta,    setSuggestMeta]    = useState(null)
   const [loadingSuggest, setLoadingSuggest] = useState(false)
+
+  const setSug = (k, v) => setSuggest(p => ({ ...p, [k]: v }))
 
   const set = (k, v) => setForm((p) => ({ ...p, [k]: v }))
 
@@ -70,16 +74,19 @@ Without a confident market value estimate, rate this deal 1–10 based on the li
   }
 
   async function getSuggestions() {
+    if (!suggest.sport) return
     setLoadingSuggest(true)
     setSuggestions(null)
+    setSuggestMeta(null)
     try {
       const res = await fetch('/api/scout-suggest', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ budget: parseFloat(budget) || null, sport: sportPref }),
+        body: JSON.stringify(suggest),
       })
       const data = await res.json()
       setSuggestions(data.suggestions || [])
+      setSuggestMeta({ keywords: data.keywords, ebayResultCount: data.ebayResultCount, source: data.source })
     } catch {
       setSuggestions([])
     }
@@ -93,14 +100,6 @@ Without a confident market value estimate, rate this deal 1–10 based on the li
         <Link href="/" className="text-gray-400 hover:text-gray-700 text-sm">← Dashboard</Link>
         <span className="text-gray-300">/</span>
         <h1 className="text-xl font-black uppercase tracking-widest">🔭 Buying Assistant</h1>
-      </div>
-
-      {/* eBay API notice */}
-      <div className="bg-blue-50 border border-blue-200 rounded-2xl px-4 py-3 mb-5 flex gap-2 items-start">
-        <span className="text-blue-400 mt-0.5 flex-shrink-0">ℹ️</span>
-        <p className="text-blue-700 text-sm">
-          eBay API approval pending — real-time deal scanning coming soon. For now, use the Deal Rater to evaluate any card you find, or get AI-powered buying suggestions.
-        </p>
       </div>
 
       {/* Mode tabs */}
@@ -188,32 +187,87 @@ Without a confident market value estimate, rate this deal 1–10 based on the li
 
       {/* ── Get Suggestions ── */}
       {mode === 'suggest' && (
-        <div className="space-y-4">
-          <p className="text-sm text-gray-500">
-            Tell us your budget and interests, and our AI will suggest specific cards worth hunting for right now based on value, demand, and market trends.
-          </p>
+        <div className="space-y-5">
 
-          <div className="bg-white rounded-2xl border border-gray-200 p-4 space-y-3">
-            <div>
-              <label className="text-xs font-bold text-gray-500 uppercase tracking-wider">Budget (per card)</label>
-              <div className="relative mt-1">
-                <span className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400">$</span>
-                <input
-                  type="number"
-                  value={budget}
-                  onChange={(e) => setBudget(e.target.value)}
-                  placeholder="e.g. 50"
-                  className="w-full border border-gray-300 rounded-xl pl-7 pr-3 py-2 text-sm focus:outline-none focus:border-blue-400"
-                />
-              </div>
+          {/* Budget */}
+          <div>
+            <label className="text-xs font-black text-gray-500 uppercase tracking-wider">Budget per card</label>
+            <div className="flex flex-wrap gap-2 mt-2">
+              {[10, 25, 50, 100, 200, 500, 1000].map(amt => (
+                <button
+                  key={amt}
+                  onClick={() => setSug('budget', suggest.budget === amt ? null : amt)}
+                  className={`px-4 py-2 rounded-xl text-sm font-black border-2 transition-all ${
+                    suggest.budget === amt
+                      ? 'bg-[#0f1b35] text-white border-[#0f1b35]'
+                      : 'bg-white text-gray-700 border-gray-200 hover:border-gray-400'
+                  }`}
+                >
+                  ${amt >= 1000 ? '1,000' : amt}
+                </button>
+              ))}
             </div>
+          </div>
+
+          {/* Sport */}
+          <div>
+            <label className="text-xs font-black text-gray-500 uppercase tracking-wider">Sport <span className="text-red-400">*</span></label>
+            <div className="flex flex-wrap gap-2 mt-2">
+              {['Football', 'Basketball', 'Baseball', 'Hockey', 'Soccer', 'MMA / UFC', 'Golf', 'Other'].map(s => (
+                <button
+                  key={s}
+                  onClick={() => setSug('sport', suggest.sport === s ? '' : s)}
+                  className={`px-4 py-2 rounded-xl text-sm font-black border-2 transition-all ${
+                    suggest.sport === s
+                      ? 'bg-blue-600 text-white border-blue-600'
+                      : 'bg-white text-gray-700 border-gray-200 hover:border-blue-300'
+                  }`}
+                >
+                  {s}
+                </button>
+              ))}
+            </div>
+          </div>
+
+          {/* Toggles */}
+          <div>
+            <label className="text-xs font-black text-gray-500 uppercase tracking-wider">Card Type</label>
+            <div className="flex gap-2 mt-2 flex-wrap">
+              {[
+                { key: 'rookie', label: '⭐ Rookie',   on: 'bg-yellow-500 text-white border-yellow-500',  off: 'bg-white text-gray-700 border-gray-200 hover:border-yellow-300' },
+                { key: 'auto',   label: '✍️ Auto',     on: 'bg-purple-600 text-white border-purple-600', off: 'bg-white text-gray-700 border-gray-200 hover:border-purple-300' },
+                { key: 'serial', label: '🔢 Numbered', on: 'bg-orange-500 text-white border-orange-500', off: 'bg-white text-gray-700 border-gray-200 hover:border-orange-300' },
+              ].map(({ key, label, on, off }) => (
+                <button
+                  key={key}
+                  onClick={() => setSug(key, !suggest[key])}
+                  className={`px-4 py-2 rounded-xl text-sm font-black border-2 transition-all ${suggest[key] ? on : off}`}
+                >
+                  {label}
+                </button>
+              ))}
+            </div>
+          </div>
+
+          {/* Team + More */}
+          <div className="space-y-3">
             <div>
-              <label className="text-xs font-bold text-gray-500 uppercase tracking-wider">Sport / League Preference (optional)</label>
+              <label className="text-xs font-black text-gray-500 uppercase tracking-wider">Team <span className="text-gray-300 font-normal normal-case">optional</span></label>
               <input
                 type="text"
-                value={sportPref}
-                onChange={(e) => setSportPref(e.target.value)}
-                placeholder="e.g. NBA, NFL rookies, NCAA Basketball..."
+                value={suggest.team}
+                onChange={e => setSug('team', e.target.value)}
+                placeholder="e.g. Lions, Cowboys, Lakers…"
+                className="w-full border border-gray-300 rounded-xl px-3 py-2 mt-1 text-sm focus:outline-none focus:border-blue-400"
+              />
+            </div>
+            <div>
+              <label className="text-xs font-black text-gray-500 uppercase tracking-wider">More <span className="text-gray-300 font-normal normal-case">player, set, year, anything</span></label>
+              <input
+                type="text"
+                value={suggest.more}
+                onChange={e => setSug('more', e.target.value)}
+                placeholder="e.g. Patrick Mahomes, 2024 Prizm, PSA 10…"
                 className="w-full border border-gray-300 rounded-xl px-3 py-2 mt-1 text-sm focus:outline-none focus:border-blue-400"
               />
             </div>
@@ -221,28 +275,68 @@ Without a confident market value estimate, rate this deal 1–10 based on the li
 
           <button
             onClick={getSuggestions}
-            disabled={loadingSuggest}
+            disabled={loadingSuggest || !suggest.sport}
             className="w-full bg-[#0f1b35] hover:bg-blue-900 text-white py-4 rounded-2xl font-black text-base disabled:opacity-50 transition-colors"
           >
-            {loadingSuggest ? '💡 Thinking...' : '💡 Get Buying Suggestions'}
+            {loadingSuggest ? '🔍 Searching eBay + ranking…' : '💡 Find Cards to Buy'}
           </button>
 
+          {/* Source badge */}
+          {suggestMeta && (
+            <div className="flex items-center gap-2 text-xs text-gray-400">
+              {suggestMeta.source === 'ebay+claude' ? (
+                <span className="bg-green-100 text-green-700 font-bold px-2 py-0.5 rounded-full">
+                  ✓ {suggestMeta.ebayResultCount} real eBay listings analyzed
+                </span>
+              ) : (
+                <span className="bg-yellow-100 text-yellow-700 font-bold px-2 py-0.5 rounded-full">
+                  AI suggestions (no eBay matches)
+                </span>
+              )}
+              <span>searched: "{suggestMeta.keywords}"</span>
+            </div>
+          )}
+
+          {/* Results */}
           {suggestions && suggestions.length > 0 && (
             <div className="space-y-3">
-              <h3 className="font-black text-base uppercase tracking-wide">AI Recommendations</h3>
+              <h3 className="font-black text-base uppercase tracking-wider text-gray-700">Top Picks</h3>
               {suggestions.map((s, i) => (
-                <div key={i} className="bg-white rounded-2xl border border-gray-200 p-4">
-                  <div className="flex items-start justify-between gap-2 mb-2">
-                    <h4 className="font-black text-gray-900">{s.card}</h4>
-                    <span className="text-xs font-bold bg-blue-100 text-blue-800 px-2 py-1 rounded-lg flex-shrink-0">
-                      ~${s.estimatedPrice}
-                    </span>
-                  </div>
-                  <p className="text-sm text-gray-600 mb-2">{s.reason}</p>
-                  <div className="flex flex-wrap gap-1">
-                    {s.tags?.map((t) => (
-                      <span key={t} className="text-xs bg-gray-100 text-gray-600 px-2 py-0.5 rounded-full">{t}</span>
-                    ))}
+                <div key={i} className="bg-white rounded-2xl border border-gray-200 overflow-hidden hover:border-blue-300 transition-colors">
+                  <div className="flex gap-0">
+                    {/* Rank */}
+                    <div className="w-10 bg-[#0f1b35] flex-shrink-0 flex items-center justify-center">
+                      <span className="text-white font-black text-lg">#{i + 1}</span>
+                    </div>
+
+                    {/* Card image if available */}
+                    {s.image && (
+                      <div className="w-16 flex-shrink-0 bg-gray-50">
+                        <img src={s.image} alt={s.card} className="w-full h-full object-cover" />
+                      </div>
+                    )}
+
+                    {/* Content */}
+                    <div className="flex-1 p-4 min-w-0">
+                      <div className="flex items-start justify-between gap-2 mb-1">
+                        <h4 className="font-black text-gray-900 text-sm leading-snug">{s.card}</h4>
+                        <span className="text-sm font-black text-green-700 bg-green-50 border border-green-200 px-2 py-0.5 rounded-lg flex-shrink-0 whitespace-nowrap">
+                          ${typeof s.price === 'number' ? s.price.toFixed(2) : s.price}
+                        </span>
+                      </div>
+                      <p className="text-xs text-gray-500 leading-relaxed mb-2">{s.reason}</p>
+                      <div className="flex items-center gap-2 flex-wrap">
+                        {s.tags?.map(t => (
+                          <span key={t} className="text-[11px] bg-gray-100 text-gray-600 px-2 py-0.5 rounded-full font-medium">{t}</span>
+                        ))}
+                        {s.url && (
+                          <a href={s.url} target="_blank" rel="noopener noreferrer"
+                            className="ml-auto text-[11px] font-black text-blue-600 hover:text-blue-800 flex-shrink-0">
+                            View on eBay →
+                          </a>
+                        )}
+                      </div>
+                    </div>
                   </div>
                 </div>
               ))}
@@ -250,9 +344,7 @@ Without a confident market value estimate, rate this deal 1–10 based on the li
           )}
 
           {suggestions && suggestions.length === 0 && (
-            <div className="text-center py-8 text-gray-400">
-              No suggestions returned — try adjusting your criteria.
-            </div>
+            <div className="text-center py-8 text-gray-400">No results — try adjusting your filters.</div>
           )}
         </div>
       )}
