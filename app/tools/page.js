@@ -28,9 +28,9 @@ const TOOLS = [
   {
     href:    '/tools/appraise',
     emoji:   '🔎',
-    title:   'Photo Appraiser',
-    desc:    "Drop a card photo for instant identification + value estimate — no need to add it to your collection. Great for card shows.",
-    tags:    ['Vision AI', 'Quick Lookup'],
+    title:   'Card Appraiser',
+    desc:    "Search by keyword or snap a photo — get real eBay sold prices + AI estimate instantly. Perfect for card shows and flea markets.",
+    tags:    ['eBay Sales', 'Vision AI', 'Quick Lookup'],
     color:   'border-green-200 hover:border-green-400 hover:bg-green-50/40',
   },
 ]

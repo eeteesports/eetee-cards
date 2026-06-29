@@ -38,6 +38,7 @@ export default function CardModal({ card, onClose, onRefresh }) {
   const [error, setError] = useState('')
   const [centeringLoading, setCenteringLoading] = useState(false)
   const [refreshingValue, setRefreshingValue] = useState(false)
+  const [valueSource, setValueSource] = useState(f['Value Notes'] ? null : null)
 
   const [form, setForm] = useState({
     'Player':             f['Player'] || '',
@@ -217,6 +218,7 @@ export default function CardModal({ card, onClose, onRefresh }) {
           'Estimated Value': data.estimatedValue.toString(),
           'Value Notes': data.notes || '',
         }))
+        setValueSource(data.sourceLabel || null)
         if (onRefresh) onRefresh()
       }
     } catch {}
@@ -479,7 +481,18 @@ export default function CardModal({ card, onClose, onRefresh }) {
                   {/* Value reasoning */}
                   {valueNotes && (
                     <div className="bg-blue-50 border border-blue-100 rounded-xl px-3 py-2">
-                      <p className="text-xs font-bold text-blue-600 uppercase tracking-wide mb-0.5">Why this value</p>
+                      <div className="flex items-center justify-between mb-0.5">
+                        <p className="text-xs font-bold text-blue-600 uppercase tracking-wide">Why this value</p>
+                        {valueSource && (
+                          <span className={`text-xs font-semibold px-2 py-0.5 rounded-full ${
+                            valueSource.includes('eBay')
+                              ? 'bg-green-100 text-green-700'
+                              : 'bg-blue-100 text-blue-600'
+                          }`}>
+                            {valueSource}
+                          </span>
+                        )}
+                      </div>
                       <p className="text-xs text-blue-900 leading-relaxed">{valueNotes}</p>
                     </div>
                   )}

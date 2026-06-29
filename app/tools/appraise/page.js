@@ -2,28 +2,27 @@
 import { useState, useRef } from 'react'
 import Link from 'next/link'
 
-const TREND_ICON = { rising: '↑', falling: '↓', stable: '→', unknown: '–' }
-const TREND_COLOR = { rising: 'text-green-600', falling: 'text-red-500', stable: 'text-gray-500', unknown: 'text-gray-400' }
+const TREND_ICON  = { rising: '↑', falling: '↓', stable: '→', unknown: '–' }
+const TREND_COLOR = { rising: 'text-green-300', falling: 'text-red-300', stable: 'text-blue-300', unknown: 'text-gray-400' }
 
 async function uploadToCloudinary(file) {
   const formData = new FormData()
   formData.append('file', file)
   formData.append('upload_preset', 'eetee-cards-unsigned')
-  const res = await fetch('https://api.cloudinary.com/v1_1/dgfukcdmz/image/upload', {
-    method: 'POST',
-    body: formData,
-  })
+  const res  = await fetch('https://api.cloudinary.com/v1_1/dgfukcdmz/image/upload', { method: 'POST', body: formData })
   const data = await res.json()
   if (!data.secure_url) throw new Error('Upload failed')
   return data.secure_url
 }
 
 export default function AppraisePage() {
+  const [mode, setMode]           = useState('search') // 'search' | 'photo'
+  const [query, setQuery]         = useState('')
   const [frontSrc, setFrontSrc]   = useState(null)
   const [backSrc, setBackSrc]     = useState(null)
   const [frontFile, setFrontFile] = useState(null)
   const [backFile, setBackFile]   = useState(null)
-  const [appraising, setAppraising] = useState(false)
+  const [loading, setLoading]     = useState(false)
   const [result, setResult]       = useState(null)
   const [error, setError]         = useState(null)
   const frontRef = useRef(null)
@@ -50,19 +49,28 @@ export default function AppraisePage() {
   }
 
   async function appraise() {
-    if (!frontFile) return
-    setAppraising(true)
+    setLoading(true)
     setError(null)
     setResult(null)
     try {
-      const [frontUrl, backUrl] = await Promise.all([
-        uploadToCloudinary(frontFile),
-        backFile ? uploadToCloudinary(backFile) : Promise.resolve(null),
-      ])
-      const res = await fetch('/api/appraise', {
+      let body
+
+      if (mode === 'photo') {
+        if (!frontFile) throw new Error('Please add a front photo')
+        const [frontUrl, backUrl] = await Promise.all([
+          uploadToCloudinary(frontFile),
+          backFile ? uploadToCloudinary(backFile) : Promise.resolve(null),
+        ])
+        body = { frontImageUrl: frontUrl, backImageUrl: backUrl }
+      } else {
+        if (!query.trim()) throw new Error('Please enter a card description')
+        body = { query: query.trim() }
+      }
+
+      const res  = await fetch('/api/appraise', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ frontImageUrl: frontUrl, backImageUrl: backUrl }),
+        body: JSON.stringify(body),
       })
       const data = await res.json()
       if (data.error) throw new Error(data.error)
@@ -70,90 +78,117 @@ export default function AppraisePage() {
     } catch (err) {
       setError(err.message || 'Appraisal failed')
     } finally {
-      setAppraising(false)
+      setLoading(false)
     }
   }
 
   function reset() {
-    setFrontSrc(null)
-    setBackSrc(null)
-    setFrontFile(null)
-    setBackFile(null)
-    setResult(null)
-    setError(null)
+    setFrontSrc(null); setBackSrc(null)
+    setFrontFile(null); setBackFile(null)
+    setResult(null); setError(null)
+    setQuery('')
   }
+
+  const canSubmit = mode === 'search' ? query.trim().length > 0 : !!frontFile
 
   return (
     <div className="max-w-lg mx-auto p-4 pb-24">
       <div className="flex items-center gap-3 mb-2">
         <Link href="/tools" className="text-gray-400 hover:text-gray-700 text-sm">← Tools</Link>
         <span className="text-gray-300">/</span>
-        <h1 className="text-xl font-black uppercase tracking-widest">🔎 Photo Appraiser</h1>
+        <h1 className="text-xl font-black uppercase tracking-widest">🔎 Card Appraiser</h1>
       </div>
-      <p className="text-gray-500 text-sm mb-6">
-        Drop a card photo for instant identification and value estimate — no need to add it to your collection.
-        Perfect for card shows and flea markets.
+      <p className="text-gray-500 text-sm mb-5">
+        Search by keyword or snap a photo — get recent eBay sold prices and an AI value estimate instantly.
       </p>
+
+      {/* Mode tabs */}
+      <div className="flex gap-1 bg-gray-100 p-1 rounded-xl mb-5">
+        {[
+          { key: 'search', label: '⌨️ Search by Text' },
+          { key: 'photo',  label: '📷 Snap a Photo'  },
+        ].map(({ key, label }) => (
+          <button
+            key={key}
+            onClick={() => { setMode(key); setResult(null); setError(null) }}
+            className={`flex-1 py-2 rounded-lg text-sm font-bold transition-colors ${
+              mode === key ? 'bg-white text-gray-900 shadow-sm' : 'text-gray-500 hover:text-gray-700'
+            }`}
+          >
+            {label}
+          </button>
+        ))}
+      </div>
 
       {!result && (
         <>
-          {/* Photo inputs */}
-          <div className="grid grid-cols-2 gap-3 mb-4">
-            <div>
-              <p className="text-xs font-black uppercase tracking-wide text-gray-500 mb-1">Front *</p>
-              <div
-                onClick={() => frontRef.current?.click()}
-                className={`border-2 border-dashed rounded-2xl p-4 text-center cursor-pointer transition-colors aspect-[3/4] flex flex-col items-center justify-center ${
-                  frontSrc ? 'border-blue-300' : 'border-gray-200 hover:border-blue-300 hover:bg-blue-50/30'
-                }`}
-              >
-                {frontSrc ? (
-                  <img src={frontSrc} alt="Front" className="max-h-full object-contain rounded-lg" />
-                ) : (
-                  <>
-                    <span className="text-3xl">🃏</span>
-                    <p className="text-xs text-gray-400 mt-1">Tap to add front</p>
-                  </>
-                )}
-              </div>
-              <input ref={frontRef} type="file" accept="image/*" className="hidden" onChange={handleFront} />
+          {/* Search input */}
+          {mode === 'search' && (
+            <div className="mb-4">
+              <input
+                type="text"
+                value={query}
+                onChange={(e) => setQuery(e.target.value)}
+                onKeyDown={(e) => e.key === 'Enter' && canSubmit && !loading && appraise()}
+                placeholder="e.g. 2025 Patrick Mahomes Select, 1986 Fleer Jordan RC PSA 9…"
+                className="w-full border border-gray-300 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-100"
+                autoFocus
+              />
+              <p className="text-xs text-gray-400 mt-1.5 px-1">
+                Include year, player, set, parallel, or grade for best results
+              </p>
             </div>
+          )}
 
-            <div>
-              <p className="text-xs font-black uppercase tracking-wide text-gray-500 mb-1">Back (optional)</p>
-              <div
-                onClick={() => backRef.current?.click()}
-                className={`border-2 border-dashed rounded-2xl p-4 text-center cursor-pointer transition-colors aspect-[3/4] flex flex-col items-center justify-center ${
-                  backSrc ? 'border-blue-300' : 'border-gray-200 hover:border-blue-300 hover:bg-blue-50/30'
-                }`}
-              >
-                {backSrc ? (
-                  <img src={backSrc} alt="Back" className="max-h-full object-contain rounded-lg" />
-                ) : (
-                  <>
-                    <span className="text-3xl">🔄</span>
-                    <p className="text-xs text-gray-400 mt-1">Tap to add back</p>
-                  </>
-                )}
+          {/* Photo inputs */}
+          {mode === 'photo' && (
+            <div className="grid grid-cols-2 gap-3 mb-4">
+              <div>
+                <p className="text-xs font-black uppercase tracking-wide text-gray-500 mb-1">Front *</p>
+                <div
+                  onClick={() => frontRef.current?.click()}
+                  className={`border-2 border-dashed rounded-2xl p-4 text-center cursor-pointer transition-colors aspect-[3/4] flex flex-col items-center justify-center ${
+                    frontSrc ? 'border-blue-300' : 'border-gray-200 hover:border-blue-300 hover:bg-blue-50/30'
+                  }`}
+                >
+                  {frontSrc
+                    ? <img src={frontSrc} alt="Front" className="max-h-full object-contain rounded-lg" />
+                    : <><span className="text-3xl">🃏</span><p className="text-xs text-gray-400 mt-1">Tap to add</p></>
+                  }
+                </div>
+                <input ref={frontRef} type="file" accept="image/*" capture="environment" className="hidden" onChange={handleFront} />
               </div>
-              <input ref={backRef} type="file" accept="image/*" className="hidden" onChange={handleBack} />
+              <div>
+                <p className="text-xs font-black uppercase tracking-wide text-gray-500 mb-1">Back (optional)</p>
+                <div
+                  onClick={() => backRef.current?.click()}
+                  className={`border-2 border-dashed rounded-2xl p-4 text-center cursor-pointer transition-colors aspect-[3/4] flex flex-col items-center justify-center ${
+                    backSrc ? 'border-blue-300' : 'border-gray-200 hover:border-blue-300 hover:bg-blue-50/30'
+                  }`}
+                >
+                  {backSrc
+                    ? <img src={backSrc} alt="Back" className="max-h-full object-contain rounded-lg" />
+                    : <><span className="text-3xl">🔄</span><p className="text-xs text-gray-400 mt-1">Tap to add</p></>
+                  }
+                </div>
+                <input ref={backRef} type="file" accept="image/*" capture="environment" className="hidden" onChange={handleBack} />
+              </div>
             </div>
-          </div>
+          )}
 
           <button
             onClick={appraise}
-            disabled={!frontFile || appraising}
-            className="w-full bg-[#0f1b35] text-white py-4 rounded-2xl font-black uppercase tracking-wide text-lg disabled:opacity-40 hover:bg-blue-900 transition-colors"
+            disabled={!canSubmit || loading}
+            className="w-full bg-[#0f1b35] text-white py-4 rounded-2xl font-black uppercase tracking-wide disabled:opacity-40 hover:bg-blue-900 transition-colors"
           >
-            {appraising ? '🔍 Appraising...' : '🔎 Appraise This Card'}
+            {loading
+              ? <span className="flex items-center justify-center gap-2">
+                  <span className="w-4 h-4 border-2 border-white/40 border-t-white rounded-full animate-spin" />
+                  {mode === 'photo' ? 'Identifying & searching eBay…' : 'Searching eBay…'}
+                </span>
+              : '🔎 Appraise This Card'
+            }
           </button>
-
-          {appraising && (
-            <div className="mt-6 text-center text-gray-500 text-sm">
-              <div className="inline-block w-6 h-6 border-2 border-blue-300 border-t-blue-600 rounded-full animate-spin mb-2" />
-              <p>Claude is identifying and valuing your card...</p>
-            </div>
-          )}
         </>
       )}
 
@@ -165,22 +200,35 @@ export default function AppraisePage() {
       )}
 
       {result && (
-        <div className="space-y-4">
-          {/* Image + identity */}
-          <div className="grid grid-cols-2 gap-3">
-            {frontSrc && <img src={frontSrc} alt="Front" className="rounded-2xl object-contain border border-gray-200" />}
-            {backSrc  && <img src={backSrc}  alt="Back"  className="rounded-2xl object-contain border border-gray-200" />}
-          </div>
+        <div className="space-y-4 mt-2">
+          {/* Photo thumbnails (photo mode only) */}
+          {result.mode === 'photo' && (frontSrc || backSrc) && (
+            <div className={`grid gap-3 ${backSrc ? 'grid-cols-2' : 'grid-cols-1'}`}>
+              {frontSrc && <img src={frontSrc} alt="Front" className="rounded-2xl object-contain border border-gray-200 max-h-64 w-full" />}
+              {backSrc  && <img src={backSrc}  alt="Back"  className="rounded-2xl object-contain border border-gray-200 max-h-64 w-full" />}
+            </div>
+          )}
 
           {/* Value hero */}
           <div className="bg-[#0f1b35] text-white rounded-2xl p-5">
-            <p className="text-blue-300 text-xs font-black uppercase tracking-widest">Estimated Value</p>
+            <div className="flex items-start justify-between mb-1">
+              <p className="text-blue-300 text-xs font-black uppercase tracking-widest">Estimated Value</p>
+              {result.sourceLabel && (
+                <span className={`text-xs font-bold px-2 py-0.5 rounded-full ${
+                  result.sourceLabel.includes('eBay')
+                    ? 'bg-green-500/20 text-green-300'
+                    : 'bg-blue-500/20 text-blue-300'
+                }`}>
+                  {result.sourceLabel}
+                </span>
+              )}
+            </div>
             {result.estimatedValue ? (
               <>
-                <p className="text-5xl font-black mt-1">${result.estimatedValue.toLocaleString()}</p>
-                {(result.valueLow || result.valueHigh) && (
+                <p className="text-5xl font-black mt-1">${Number(result.estimatedValue).toLocaleString()}</p>
+                {(result.valueLow || result.valueHigh || result.low || result.high) && (
                   <p className="text-blue-300 text-sm mt-0.5">
-                    Range: ${result.valueLow?.toLocaleString()} – ${result.valueHigh?.toLocaleString()}
+                    Range: ${(result.valueLow ?? result.low)?.toLocaleString()} – ${(result.valueHigh ?? result.high)?.toLocaleString()}
                   </p>
                 )}
               </>
@@ -189,46 +237,96 @@ export default function AppraisePage() {
             )}
             <div className="flex gap-3 mt-2 flex-wrap">
               {result.trend && result.trend !== 'unknown' && (
-                <span className={`text-sm font-bold ${result.trend === 'rising' ? 'text-green-300' : result.trend === 'falling' ? 'text-red-300' : 'text-gray-400'}`}>
+                <span className={`text-sm font-bold ${TREND_COLOR[result.trend]}`}>
                   {TREND_ICON[result.trend]} {result.trend}
                 </span>
               )}
-              <span className="text-blue-300 text-xs self-end">Confidence: {result.confidence}</span>
+              {result.confidence && (
+                <span className="text-blue-400 text-xs self-end">Confidence: {result.confidence}</span>
+              )}
             </div>
+            {result.notes && (
+              <p className="text-blue-200 text-xs mt-3 leading-relaxed border-t border-white/10 pt-3">{result.notes}</p>
+            )}
           </div>
 
-          {/* Card identity */}
-          <div className="bg-white border border-gray-200 rounded-2xl p-4">
-            <p className="font-black text-sm uppercase tracking-wide mb-3">Card Identification</p>
-            <div className="grid grid-cols-2 gap-y-2 gap-x-4">
-              {[
-                ['Player',    result.player],
-                ['Year',      result.year],
-                ['Brand',     result.brand],
-                ['Set',       result.set],
-                ['Parallel',  result.parallel],
-                ['Sport',     result.sport],
-                ['League',    result.league],
-                ['Team',      result.team],
-                ['Card #',    result.cardNumber],
-                ['Condition', result.condition],
-              ].filter(([, v]) => v).map(([label, val]) => (
-                <div key={label}>
-                  <p className="text-xs text-gray-400">{label}</p>
-                  <p className="text-sm font-semibold text-gray-800">{val}</p>
-                </div>
-              ))}
+          {/* eBay Recent Sales */}
+          {result.sales?.length > 0 && (
+            <div className="bg-white border border-gray-200 rounded-2xl overflow-hidden">
+              <div className="px-4 py-3 border-b border-gray-100 flex items-center justify-between">
+                <p className="font-black text-sm uppercase tracking-wide">
+                  📦 eBay Recent Sales
+                </p>
+                <span className="text-xs text-gray-400">
+                  {result.sales.length} sold · avg ${result.stats?.avg?.toFixed(2)}
+                </span>
+              </div>
+              <div className="divide-y divide-gray-50">
+                {result.sales.map((sale, i) => (
+                  <a
+                    key={i}
+                    href={sale.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center justify-between px-4 py-3 hover:bg-gray-50 transition-colors group"
+                  >
+                    <div className="flex-1 min-w-0 mr-3">
+                      <p className="text-xs text-gray-700 truncate group-hover:text-blue-600 transition-colors">
+                        {sale.title}
+                      </p>
+                      <p className="text-xs text-gray-400 mt-0.5">{sale.date}</p>
+                    </div>
+                    <div className="text-right flex-shrink-0">
+                      <p className="font-black text-gray-900 text-sm">${sale.price.toFixed(2)}</p>
+                      {sale.url && <p className="text-xs text-blue-400 group-hover:underline">View →</p>}
+                    </div>
+                  </a>
+                ))}
+              </div>
+              {result.ebayKeywords && (
+                <p className="px-4 py-2 text-xs text-gray-400 bg-gray-50 border-t border-gray-100">
+                  Searched: "{result.ebayKeywords}"
+                </p>
+              )}
             </div>
-            <div className="flex gap-2 mt-3 flex-wrap">
-              {result.rookie   && <span className="text-xs font-bold text-orange-600 bg-orange-50 border border-orange-200 px-2 py-0.5 rounded-full">RC</span>}
-              {result.numbered && <span className="text-xs font-bold text-purple-600 bg-purple-50 border border-purple-200 px-2 py-0.5 rounded-full">{result.printRun ? `/${result.printRun}` : 'Numbered'}</span>}
-            </div>
-          </div>
+          )}
 
-          {/* Notes */}
-          {result.notes && (
-            <div className="bg-gray-50 border border-gray-200 rounded-2xl p-4">
-              <p className="text-sm text-gray-700">{result.notes}</p>
+          {result.sales?.length === 0 && (
+            <div className="bg-yellow-50 border border-yellow-200 rounded-2xl p-4">
+              <p className="text-sm text-yellow-800 font-semibold">No recent eBay sales found</p>
+              <p className="text-xs text-yellow-600 mt-1">
+                Try different keywords — less specific often works better (e.g. drop parallel or condition).
+              </p>
+            </div>
+          )}
+
+          {/* Card identity (photo mode) */}
+          {result.mode === 'photo' && result.player && (
+            <div className="bg-white border border-gray-200 rounded-2xl p-4">
+              <p className="font-black text-sm uppercase tracking-wide mb-3">Card Identification</p>
+              <div className="grid grid-cols-2 gap-y-2 gap-x-4">
+                {[
+                  ['Player',   result.player],
+                  ['Year',     result.year],
+                  ['Brand',    result.brand],
+                  ['Set',      result.set],
+                  ['Parallel', result.parallel],
+                  ['Sport',    result.sport],
+                  ['League',   result.league],
+                  ['Team',     result.team],
+                  ['Card #',   result.cardNumber],
+                  ['Condition',result.condition],
+                ].filter(([, v]) => v).map(([label, val]) => (
+                  <div key={label}>
+                    <p className="text-xs text-gray-400">{label}</p>
+                    <p className="text-sm font-semibold text-gray-800">{val}</p>
+                  </div>
+                ))}
+              </div>
+              <div className="flex gap-2 mt-3 flex-wrap">
+                {result.rookie   && <span className="text-xs font-bold text-orange-600 bg-orange-50 border border-orange-200 px-2 py-0.5 rounded-full">RC</span>}
+                {result.numbered && <span className="text-xs font-bold text-purple-600 bg-purple-50 border border-purple-200 px-2 py-0.5 rounded-full">{result.printRun ? `/${result.printRun}` : 'Numbered'}</span>}
+              </div>
             </div>
           )}
 
@@ -240,8 +338,8 @@ export default function AppraisePage() {
             </div>
           )}
 
-          <button onClick={reset} className="w-full border border-gray-200 text-gray-500 py-2 rounded-2xl text-sm hover:bg-gray-50 transition-colors">
-            Appraise another card
+          <button onClick={reset} className="w-full border border-gray-200 text-gray-500 py-3 rounded-2xl text-sm hover:bg-gray-50 transition-colors">
+            ← Appraise another card
           </button>
         </div>
       )}
