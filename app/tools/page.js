@@ -2,6 +2,14 @@ import Link from 'next/link'
 
 const TOOLS = [
   {
+    href:    '/tools/rainbow',
+    emoji:   '🌈',
+    title:   'Rainbow Tracker',
+    desc:    'Chase a full parallel rainbow. See which cards you own in color and which are missing in B&W — with live eBay prices for the gaps.',
+    tags:    ['Parallels', 'Set Completion', 'eBay'],
+    color:   'border-pink-200 hover:border-pink-400 hover:bg-pink-50/40',
+  },
+  {
     href:    '/tools/lot',
     emoji:   '📦',
     title:   'Lot Value Calculator',
