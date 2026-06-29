@@ -1,52 +1,18 @@
-// Temporary debug route — hit /api/ebay-test to see raw eBay response
+import { fetchEbayComps } from '@/lib/ebay'
+
 export async function GET() {
-  const params = new URLSearchParams({
-    'OPERATION-NAME':       'findCompletedItems',
-    'SERVICE-VERSION':      '1.0.0',
-    'APP-NAME':             process.env.EBAY_APP_ID || 'MISSING',
-    'RESPONSE-DATA-FORMAT': 'JSON',
-    'keywords':             'Patrick Mahomes Prizm',
-    'itemFilter(0).name':   'SoldItemsOnly',
-    'itemFilter(0).value':  'true',
-    'sortOrder':            'EndTimeSoonest',
-    'paginationInput.entriesPerPage': '3',
-  })
-
-  const url = `https://svcs.ebay.com/services/search/FindingService/v1?${params}`
-
   try {
-    const res     = await fetch(url)
-    const rawText = await res.text()
-
-    // If it starts with HTML, eBay rejected us before parsing — return raw snippet
-    if (rawText.trimStart().startsWith('<')) {
-      return Response.json({
-        verdict: 'eBay returned HTML — API likely sunset or keyset disabled',
-        httpStatus: res.status,
-        rawSnippet: rawText.slice(0, 400),
-      })
-    }
-
-    const data = JSON.parse(rawText)
-
-    const ack     = data?.findCompletedItemsResponse?.[0]?.ack?.[0]
-    const items   = data?.findCompletedItemsResponse?.[0]?.searchResult?.[0]?.item || []
-    const errMsg  = data?.findCompletedItemsResponse?.[0]?.errorMessage?.[0]?.error?.[0]?.message?.[0]
-
+    const result = await fetchEbayComps('Patrick Mahomes', '2020', 'Prizm', null, null, null, null)
     return Response.json({
-      appIdPresent: !!process.env.EBAY_APP_ID,
-      appIdPrefix:  process.env.EBAY_APP_ID?.slice(0, 12) + '…',
-      ack,
-      errorMessage: errMsg || null,
-      itemCount:    items.length,
-      firstItem:    items[0] ? {
-        title:        items[0].title?.[0],
-        sellingState: items[0].sellingStatus?.[0]?.sellingState?.[0],
-        price:        items[0].sellingStatus?.[0]?.currentPrice?.[0]?.['__value__'],
-      } : null,
-      rawAck: data?.findCompletedItemsResponse?.[0]?.ack,
+      appIdPresent:  !!process.env.EBAY_APP_ID,
+      certIdPresent: !!process.env.EBAY_CERT_ID,
+      dataType:      result.dataType,
+      keywords:      result.keywords,
+      itemCount:     result.items.length,
+      firstItem:     result.items[0] || null,
+      error:         result.error || null,
     })
   } catch (err) {
-    return Response.json({ error: err.message, url })
+    return Response.json({ error: err.message })
   }
 }
