@@ -15,8 +15,19 @@ export async function GET() {
   const url = `https://svcs.ebay.com/services/search/FindingService/v1?${params}`
 
   try {
-    const res  = await fetch(url)
-    const data = await res.json()
+    const res     = await fetch(url)
+    const rawText = await res.text()
+
+    // If it starts with HTML, eBay rejected us before parsing — return raw snippet
+    if (rawText.trimStart().startsWith('<')) {
+      return Response.json({
+        verdict: 'eBay returned HTML — API likely sunset or keyset disabled',
+        httpStatus: res.status,
+        rawSnippet: rawText.slice(0, 400),
+      })
+    }
+
+    const data = JSON.parse(rawText)
 
     const ack     = data?.findCompletedItemsResponse?.[0]?.ack?.[0]
     const items   = data?.findCompletedItemsResponse?.[0]?.searchResult?.[0]?.item || []
