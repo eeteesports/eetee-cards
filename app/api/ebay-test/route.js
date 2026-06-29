@@ -6,7 +6,7 @@ export async function GET() {
     return Response.json({
       appIdPresent:  !!process.env.EBAY_APP_ID,
       certIdPresent: !!process.env.EBAY_CERT_ID,
-      dataType:      result.dataType,
+      dataType:      result.dataType,   // 'sold' | 'active' | 'none' | 'error'
       keywords:      result.keywords,
       itemCount:     result.items.length,
       firstItem:     result.items[0] || null,
