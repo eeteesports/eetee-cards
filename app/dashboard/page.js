@@ -329,6 +329,7 @@ export default function Dashboard() {
           card={selected}
           onClose={() => setSelected(null)}
           onRefresh={() => fetch('/api/cards?all=true').then((r) => r.json()).then((d) => setCards(d.records || []))}
+          publicView={false}
         />
       )}
     </div>

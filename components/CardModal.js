@@ -31,7 +31,7 @@ const CENTERING_GRADE_COLOR = {
 
 import { formatPrice } from '@/lib/format'
 
-export default function CardModal({ card, onClose, onRefresh }) {
+export default function CardModal({ card, onClose, onRefresh, publicView = true }) {
   const f = card.fields
   const { add, remove, items } = useCart()
   const inCart = items.some((i) => i.id === card.id)
@@ -252,28 +252,30 @@ export default function CardModal({ card, onClose, onRefresh }) {
       onClick={onClose}
     >
       <div
-        className="bg-white w-full max-w-md rounded-t-2xl md:rounded-2xl max-h-[92vh] overflow-y-auto"
+        className="bg-white w-full max-w-3xl rounded-t-2xl md:rounded-2xl max-h-[92vh] overflow-y-auto"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Header */}
         <div className="flex items-center justify-between pt-3 px-4 pb-2 border-b border-gray-100">
           <div className="flex gap-2">
-            {editing ? (
-              <>
-                <button onClick={handleSave} disabled={saving}
-                  className="bg-blue-600 text-white text-sm font-bold px-4 py-1.5 rounded-lg disabled:opacity-50">
-                  {saving ? 'Saving…' : '✓ Save'}
+            {!publicView && (
+              editing ? (
+                <>
+                  <button onClick={handleSave} disabled={saving}
+                    className="bg-blue-600 text-white text-sm font-bold px-4 py-1.5 rounded-lg disabled:opacity-50">
+                    {saving ? 'Saving…' : '✓ Save'}
+                  </button>
+                  <button onClick={() => { setEditing(false); setError('') }}
+                    className="text-gray-500 text-sm px-3 py-1.5 rounded-lg border border-gray-200">
+                    Cancel
+                  </button>
+                </>
+              ) : (
+                <button onClick={() => setEditing(true)}
+                  className="text-sm font-semibold text-blue-600 border border-blue-200 px-4 py-1.5 rounded-lg hover:bg-blue-50">
+                  ✏️ Edit
                 </button>
-                <button onClick={() => { setEditing(false); setError('') }}
-                  className="text-gray-500 text-sm px-3 py-1.5 rounded-lg border border-gray-200">
-                  Cancel
-                </button>
-              </>
-            ) : (
-              <button onClick={() => setEditing(true)}
-                className="text-sm font-semibold text-blue-600 border border-blue-200 px-4 py-1.5 rounded-lg hover:bg-blue-50">
-                ✏️ Edit
-              </button>
+              )
             )}
           </div>
           <button onClick={onClose} className="text-gray-400 hover:text-gray-700 text-3xl leading-none font-light">×</button>
@@ -284,7 +286,7 @@ export default function CardModal({ card, onClose, onRefresh }) {
         )}
 
         {/* Images */}
-        <div className="px-5 pt-4 flex gap-3">
+        <div className="px-5 pt-4 flex gap-4">
           {f['Front Image URL'] ? (
             <img src={cardImg(f['Front Image URL'])} alt={f.Player}
               className={`rounded-xl object-cover ${f['Back Image URL'] ? 'w-1/2 aspect-[3/4]' : 'w-full aspect-[3/4]'}`} />
@@ -299,7 +301,7 @@ export default function CardModal({ card, onClose, onRefresh }) {
         </div>
 
         <div className="p-5 space-y-4">
-          {editing ? (
+          {editing && !publicView ? (
             /* ── EDIT MODE ── */
             <div className="space-y-3">
               <EField label="Player" value={form['Player']} onChange={(v) => set('Player', v)} />
@@ -464,10 +466,10 @@ export default function CardModal({ card, onClose, onRefresh }) {
                 </table>
               </div>
 
-              {/* Value */}
-              {(f['Cost Paid'] != null || estValue != null) && (
+              {/* Value — Cost Paid is Evan's own cost basis, never shown to buyers */}
+              {!publicView && (f['Cost Paid'] != null || estValue != null) && (
                 <div className="space-y-2">
-                  <div className="grid grid-cols-2 gap-3">
+                  <div className={`grid gap-3 ${f['Cost Paid'] != null && estValue != null ? 'grid-cols-2' : 'grid-cols-1'}`}>
                     {f['Cost Paid'] != null && (
                       <div className="bg-gray-50 rounded-xl p-3">
                         <p className="text-xs text-gray-500 uppercase font-semibold tracking-wide">Cost Paid</p>
@@ -521,8 +523,8 @@ export default function CardModal({ card, onClose, onRefresh }) {
                 </div>
               )}
 
-              {/* Graded values */}
-              {(f['PSA 8 Value'] || f['PSA 9 Value'] || f['PSA 10 Value']) && (
+              {/* Graded values — admin reference only, not shown to buyers */}
+              {!publicView && (f['PSA 8 Value'] || f['PSA 9 Value'] || f['PSA 10 Value']) && (
                 <div>
                   <p className="text-xs font-bold text-gray-500 uppercase tracking-widest mb-2">Graded Value Estimates</p>
                   <div className="grid grid-cols-3 gap-2">
@@ -548,37 +550,39 @@ export default function CardModal({ card, onClose, onRefresh }) {
                 </div>
               )}
 
-              {/* Centering */}
-              <div>
-                <p className="text-xs font-bold text-gray-500 uppercase tracking-widest mb-2">Card Centering</p>
-                {centeringGrade ? (
-                  <div className={`border-2 rounded-xl p-3 flex items-center gap-3 ${centeringColors}`}>
-                    <div className="text-center flex-shrink-0">
-                      <p className="text-3xl font-black">{centeringGrade}</p>
-                      <p className="text-xs font-bold uppercase opacity-70">Grade</p>
-                    </div>
-                    <div className="space-y-0.5">
-                      {centeringLR && <p className="text-sm font-bold">Left / Right: <span className="font-black">{centeringLR}</span></p>}
-                      {centeringTB && <p className="text-sm font-bold">Top / Bottom: <span className="font-black">{centeringTB}</span></p>}
-                    </div>
-                    <button onClick={runCentering} disabled={centeringLoading || !f['Front Image URL']}
-                      title="Re-run centering analysis"
-                      className="ml-auto text-xs border border-current px-2 py-1 rounded-lg opacity-60 hover:opacity-100 disabled:opacity-30 flex-shrink-0">
-                      {centeringLoading ? '🔍' : '↻ Re-run'}
-                    </button>
-                  </div>
-                ) : (
-                  <div className="bg-gray-50 border border-dashed border-gray-200 rounded-xl p-3 flex items-center gap-3">
-                    <p className="text-sm text-gray-400 flex-1">No centering data yet</p>
-                    {f['Front Image URL'] && (
-                      <button onClick={runCentering} disabled={centeringLoading}
-                        className="text-xs font-bold px-3 py-1.5 bg-white border border-gray-300 rounded-lg hover:bg-gray-100 disabled:opacity-50 flex-shrink-0">
-                        {centeringLoading ? '🔍 Analyzing...' : '📐 Run Analysis'}
+              {/* Centering — internal grading-prep tool, never shown to buyers */}
+              {!publicView && (
+                <div>
+                  <p className="text-xs font-bold text-gray-500 uppercase tracking-widest mb-2">Card Centering</p>
+                  {centeringGrade ? (
+                    <div className={`border-2 rounded-xl p-3 flex items-center gap-3 ${centeringColors}`}>
+                      <div className="text-center flex-shrink-0">
+                        <p className="text-3xl font-black">{centeringGrade}</p>
+                        <p className="text-xs font-bold uppercase opacity-70">Grade</p>
+                      </div>
+                      <div className="space-y-0.5">
+                        {centeringLR && <p className="text-sm font-bold">Left / Right: <span className="font-black">{centeringLR}</span></p>}
+                        {centeringTB && <p className="text-sm font-bold">Top / Bottom: <span className="font-black">{centeringTB}</span></p>}
+                      </div>
+                      <button onClick={runCentering} disabled={centeringLoading || !f['Front Image URL']}
+                        title="Re-run centering analysis"
+                        className="ml-auto text-xs border border-current px-2 py-1 rounded-lg opacity-60 hover:opacity-100 disabled:opacity-30 flex-shrink-0">
+                        {centeringLoading ? '🔍' : '↻ Re-run'}
                       </button>
-                    )}
-                  </div>
-                )}
-              </div>
+                    </div>
+                  ) : (
+                    <div className="bg-gray-50 border border-dashed border-gray-200 rounded-xl p-3 flex items-center gap-3">
+                      <p className="text-sm text-gray-400 flex-1">No centering data yet</p>
+                      {f['Front Image URL'] && (
+                        <button onClick={runCentering} disabled={centeringLoading}
+                          className="text-xs font-bold px-3 py-1.5 bg-white border border-gray-300 rounded-lg hover:bg-gray-100 disabled:opacity-50 flex-shrink-0">
+                          {centeringLoading ? '🔍 Analyzing...' : '📐 Run Analysis'}
+                        </button>
+                      )}
+                    </div>
+                  )}
+                </div>
+              )}
 
               {/* For sale */}
               {f['For Sale'] && (

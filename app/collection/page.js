@@ -270,7 +270,7 @@ function CollectionInner() {
       </div>
 
       {selected && (
-        <CardModal card={selected} onClose={() => setSelected(null)} onRefresh={fetchCards} />
+        <CardModal card={selected} onClose={() => setSelected(null)} onRefresh={fetchCards} publicView={false} />
       )}
     </div>
   )
