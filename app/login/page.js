@@ -32,11 +32,11 @@ export default function LoginPage() {
         {/* Branding */}
         <div className="flex flex-col items-center mb-10">
           <img
-            src="https://res.cloudinary.com/dgfukcdmz/image/upload/eetee-cards/eetee-logo.png"
-            alt="eetee Sports"
+            src="/eetee-logo.png"
+            alt="eetee Cards"
             className="w-24 h-24 rounded-full object-cover mb-4 ring-4 ring-white/20"
           />
-          <h1 className="text-white font-black text-3xl tracking-widest uppercase">eetee Sports</h1>
+          <h1 className="text-white font-black text-3xl tracking-widest uppercase">eetee Cards</h1>
           <p className="text-blue-300 text-sm mt-1">Card Collection Manager</p>
         </div>
 

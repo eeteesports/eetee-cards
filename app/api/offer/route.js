@@ -1,12 +1,12 @@
 import { Resend } from 'resend'
 
-const OWNER_EMAIL = 'eeteesports@gmail.com'
+const OWNER_EMAIL = 'eeteecards@gmail.com'
 
 export async function POST(request) {
   try {
     // Initialize lazily so missing env var doesn't crash the build
     const resend = new Resend(process.env.RESEND_API_KEY)
-    const { buyerName, buyerEmail, buyerPhone, message, items } = await request.json()
+    const { buyerName, buyerEmail, buyerPhone, message, items, dealsApplied, totalDealDiscount } = await request.json()
 
     if (!buyerName || !buyerEmail || !items?.length) {
       return Response.json({ error: 'Missing required fields' }, { status: 400 })
@@ -15,6 +15,11 @@ export async function POST(request) {
     // Build the card list for the email
     const totalAsking = items.reduce((s, i) => s + (i.askingPrice || 0), 0)
     const totalOffered = items.reduce((s, i) => s + (i.offerAmount || i.askingPrice || 0), 0)
+    const discount = totalDealDiscount || 0
+    const totalOfferedAfterDeals = Math.max(0, totalOffered - discount)
+    const dealLines = (dealsApplied || []).length
+      ? '\n' + dealsApplied.map((d) => `🎉 ${d.label}: ${d.description} — ${d.freeCount} free ($${d.discount.toFixed(2)} off)`).join('\n')
+      : ''
 
     const cardLines = items.map((item, idx) => {
       const asking = item.askingPrice ? `$${Number(item.askingPrice).toLocaleString()}` : 'Price TBD'
@@ -30,7 +35,7 @@ export async function POST(request) {
     const emailBody = `
 Hi Evan,
 
-${buyerName} is interested in ${items.length} card${items.length > 1 ? 's' : ''} from your eetee Sports collection.
+${buyerName} is interested in ${items.length} card${items.length > 1 ? 's' : ''} from your eetee Cards collection.
 
 ──────────────────────────────
 CARDS
@@ -39,9 +44,9 @@ ${cardLines}
 
 ──────────────────────────────
 TOTALS
-──────────────────────────────
+──────────────────────────────${dealLines}
 Total Asking:  $${totalAsking.toLocaleString()}
-Total Offered: $${totalOffered.toLocaleString()}
+Total Offered: $${totalOfferedAfterDeals.toLocaleString()}${discount > 0 ? ` (includes $${discount.toFixed(2)} bulk-deal discount)` : ''}
 
 ──────────────────────────────
 BUYER
@@ -53,7 +58,7 @@ ${message ? `Message:\n"${message}"` : ''}
 
 ──────────────────────────────
 Reply directly to ${buyerEmail} to respond.
-View your collection: https://eetee.vercel.app
+View the collection: https://www.eetee.cards
     `.trim()
 
     const htmlBody = `
@@ -83,6 +88,10 @@ View your collection: https://eetee.vercel.app
       </div>`
     }).join('')}
 
+    ${(dealsApplied || []).length ? `
+    <div style="background: #fefce8; border: 1px solid #fde68a; border-radius: 8px; padding: 12px 14px; margin: 16px 0 8px;">
+      ${dealsApplied.map((d) => `<div style="font-weight:bold; color:#854d0e; font-size:13px;">🎉 ${d.label} — ${d.freeCount} free ($${d.discount.toFixed(2)} off)</div>`).join('')}
+    </div>` : ''}
     <div style="background: #f0fdf4; border: 1px solid #bbf7d0; border-radius: 8px; padding: 14px; margin: 16px 0; display: flex; gap: 24px;">
       <div>
         <div style="font-size: 12px; color: #6b7280; text-transform: uppercase; letter-spacing: 0.05em;">Total Asking</div>
@@ -90,7 +99,7 @@ View your collection: https://eetee.vercel.app
       </div>
       <div>
         <div style="font-size: 12px; color: #6b7280; text-transform: uppercase; letter-spacing: 0.05em;">Total Offered</div>
-        <div style="font-size: 20px; font-weight: 900; color: #16a34a;">$${totalOffered.toLocaleString()}</div>
+        <div style="font-size: 20px; font-weight: 900; color: #16a34a;">$${totalOfferedAfterDeals.toLocaleString()}</div>
       </div>
     </div>
 
@@ -113,7 +122,7 @@ View your collection: https://eetee.vercel.app
     `.trim()
 
     await resend.emails.send({
-      from: 'eetee Sports <onboarding@resend.dev>',
+      from: 'eetee Cards <onboarding@resend.dev>',
       to: OWNER_EMAIL,
       replyTo: buyerEmail,
       subject: `🏷️ New offer from ${buyerName} — ${items.length} card${items.length > 1 ? 's' : ''}`,

@@ -46,8 +46,8 @@ export default function Navbar() {
   return (
     <nav className="bg-[#0f1b35] text-white px-4 py-3 flex items-center justify-between sticky top-0 z-40">
       <Link href={isAdmin ? '/dashboard' : '/'} className="flex items-center gap-2 flex-shrink-0">
-        <img src="https://res.cloudinary.com/dgfukcdmz/image/upload/eetee-cards/eetee-logo.png" alt="eetee Sports" className="w-9 h-9 rounded-full object-cover" />
-        <span className="font-black text-lg tracking-widest uppercase hidden sm:block">eetee Sports</span>
+        <img src="/eetee-logo.png" alt="eetee Cards" className="w-9 h-9 object-contain" />
+        <span className="font-black text-lg tracking-widest uppercase hidden sm:block">eetee Cards</span>
       </Link>
 
       <div className="flex gap-1 items-center">

@@ -2,6 +2,8 @@
 import { useState } from 'react'
 import Link from 'next/link'
 import { useCart } from '@/contexts/CartContext'
+import { computeDealDiscounts } from '@/lib/deals'
+import { formatPrice } from '@/lib/format'
 
 function cardImg(url) {
   if (!url || !url.includes('res.cloudinary.com')) return url
@@ -26,6 +28,15 @@ export default function CartPage() {
     return s + (isNaN(custom) ? (c.fields?.['Asking Price'] || 0) : custom)
   }, 0)
 
+  // Bulk-bin deals (see lib/deals.js) — auto-detected from what's already in
+  // the cart, no code required. Since checkout is an email/offer flow (not
+  // real payment yet), "applied" means reflected in the totals shown here
+  // and passed along in the offer email so Evan honors it.
+  const dealDiscounts = computeDealDiscounts(items)
+  const totalDealDiscount = dealDiscounts.reduce((s, d) => s + d.discount, 0)
+  const totalAskingFinal = Math.max(0, totalAsking - totalDealDiscount)
+  const totalOfferedFinal = Math.max(0, totalOffered - totalDealDiscount)
+
   async function handleSubmit(e) {
     e.preventDefault()
     if (!form.name.trim() || !form.email.trim()) {
@@ -49,6 +60,13 @@ export default function CartPage() {
             offerAmount: isNaN(custom) ? null : custom,
           }
         }),
+        dealsApplied: dealDiscounts.map((d) => ({
+          label: d.label,
+          description: d.description,
+          freeCount: d.freeCount,
+          discount: d.discount,
+        })),
+        totalDealDiscount,
       }
       const res = await fetch('/api/offer', {
         method: 'POST',
@@ -131,7 +149,7 @@ export default function CartPage() {
                   <div>
                     <p className="text-xs text-gray-400 font-medium">Asking</p>
                     <p className="font-bold text-gray-800">
-                      {askingPrice ? `$${Number(askingPrice).toLocaleString()}` : 'Make offer'}
+                      {askingPrice != null ? formatPrice(askingPrice) : 'Make offer'}
                     </p>
                   </div>
                   <div className="flex-1">
@@ -159,16 +177,33 @@ export default function CartPage() {
         })}
       </div>
 
+      {/* Deals — auto-detected from bin thresholds, see lib/deals.js */}
+      {dealDiscounts.length > 0 && (
+        <div className="bg-yellow-50 border border-yellow-200 rounded-2xl p-4 mb-4 space-y-1.5">
+          {dealDiscounts.map((d) => (
+            <p key={d.id} className="text-sm font-bold text-yellow-800">
+              🎉 {d.label} applied — {d.freeCount} free card{d.freeCount !== 1 ? 's' : ''} ({formatPrice(d.discount)} off)
+            </p>
+          ))}
+        </div>
+      )}
+
       {/* Totals */}
       <div className="bg-blue-50 border border-blue-100 rounded-2xl p-4 mb-6 flex justify-between">
         <div>
           <p className="text-xs text-gray-500 uppercase font-semibold tracking-wide">Total Asking</p>
-          <p className="text-xl font-black">${totalAsking.toLocaleString()}</p>
+          {totalDealDiscount > 0 && (
+            <p className="text-xs text-gray-400 line-through">{formatPrice(totalAsking)}</p>
+          )}
+          <p className="text-xl font-black">{formatPrice(totalAskingFinal)}</p>
         </div>
         <div className="text-right">
           <p className="text-xs text-gray-500 uppercase font-semibold tracking-wide">Your Total Offer</p>
-          <p className={`text-xl font-black ${totalOffered < totalAsking ? 'text-blue-600' : 'text-green-600'}`}>
-            ${totalOffered.toLocaleString()}
+          {totalDealDiscount > 0 && (
+            <p className="text-xs text-gray-400 line-through">{formatPrice(totalOffered)}</p>
+          )}
+          <p className={`text-xl font-black ${totalOfferedFinal < totalAskingFinal ? 'text-blue-600' : 'text-green-600'}`}>
+            {formatPrice(totalOfferedFinal)}
           </p>
         </div>
       </div>
@@ -204,7 +239,7 @@ export default function CartPage() {
           disabled={submitting}
           className="w-full bg-green-600 hover:bg-green-700 text-white py-4 rounded-xl font-black text-base disabled:opacity-50 transition-colors"
         >
-          {submitting ? 'Sending offer…' : `💰 Send Offer — $${totalOffered.toLocaleString()}`}
+          {submitting ? 'Sending offer…' : `💰 Send Offer — ${formatPrice(totalOfferedFinal)}`}
         </button>
 
         <p className="text-xs text-center text-gray-400">

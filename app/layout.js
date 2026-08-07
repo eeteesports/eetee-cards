@@ -7,11 +7,11 @@ import PageWrapper from '@/components/PageWrapper'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata = {
-  title: 'eetee Sports',
-  description: 'My Card Collection — All In One Place',
+  title: 'eetee Cards',
+  description: 'A personal sports card collection — browse, buy, and make offers.',
   icons: {
-    icon: 'https://res.cloudinary.com/dgfukcdmz/image/upload/eetee-cards/eetee-logo.png',
-    apple: 'https://res.cloudinary.com/dgfukcdmz/image/upload/eetee-cards/eetee-logo.png',
+    icon: '/eetee-logo.png',
+    apple: '/eetee-logo.png',
   },
 }
 

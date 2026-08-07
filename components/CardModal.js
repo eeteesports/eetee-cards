@@ -29,6 +29,8 @@ const CENTERING_GRADE_COLOR = {
   '5':  'text-red-700 bg-red-50 border-red-200',
 }
 
+import { formatPrice } from '@/lib/format'
+
 export default function CardModal({ card, onClose, onRefresh }) {
   const f = card.fields
   const { add, remove, items } = useCart()
@@ -71,6 +73,16 @@ export default function CardModal({ card, onClose, onRefresh }) {
   })
 
   const set = (key, val) => setForm((p) => ({ ...p, [key]: val }))
+  // Attributes shown as one combined line in the details table — Rookie,
+  // Auto (from Tags), Serial Number, and print-run numbering all live in
+  // different underlying fields, but Evan wants them read together.
+  const attributes = [
+    f.Rookie && 'Rookie',
+    f.Tags?.includes('Auto') && 'Auto',
+    f.Tags?.includes('Patch') && 'Patch',
+    f['Serial Number'] && `Serial #${f['Serial Number']}`,
+    f.Numbered && !f['Serial Number'] && (f['Print Run'] ? `Numbered /${f['Print Run']}` : 'Numbered'),
+  ].filter(Boolean)
   const toggleTag = (tag) =>
     setForm((p) => ({
       ...p,
@@ -426,26 +438,30 @@ export default function CardModal({ card, onClose, onRefresh }) {
           ) : (
             /* ── VIEW MODE ── */
             <>
-              {/* Title */}
+              {/* Listing title — player-name-first, matches how these get listed */}
               <div>
-                <h2 className="text-2xl font-black uppercase tracking-tight">{f.Player}</h2>
-                <p className="text-gray-500 mt-0.5">
-                  {[f.Year, f.Brand, f.Set].filter(Boolean).join(' · ')}
-                </p>
+                <h2 className="text-xl font-black uppercase tracking-tight leading-snug">
+                  {f.Player}
+                  {(f.Year || f.Brand || f.Set) && (
+                    <span className="text-gray-500 font-bold normal-case"> — {[f.Year, f.Brand, f.Set].filter(Boolean).join(' ')}</span>
+                  )}
+                  {f['Parallel / Variant'] && <span className="text-purple-600 font-bold normal-case"> {f['Parallel / Variant']}</span>}
+                </h2>
               </div>
 
-              {/* All detail chips */}
-              <div className="flex flex-wrap gap-2">
-                {f.Sport    && <Chip color="blue">{f.Sport}</Chip>}
-                {f.League   && <Chip color="blue">{f.League}</Chip>}
-                {f.Team     && <Chip color="gray">{f.Team}</Chip>}
-                {f['Parallel / Variant'] && <Chip color="purple">{f['Parallel / Variant']}</Chip>}
-                {f.Rookie   && <Chip color="yellow">⭐ Rookie</Chip>}
-                {f.Numbered && <Chip color="orange">🔢 {f['Print Run'] ? `/${f['Print Run']}` : 'Numbered'}</Chip>}
-                {f['Serial Number'] && <Chip color="orange">{f['Serial Number']}</Chip>}
-                {f.Condition && <Chip color="green">{f.Condition}</Chip>}
-                {f['Card Number'] && <Chip color="gray">#{f['Card Number']}</Chip>}
-                {f.Tags?.map((t) => <Chip key={t} color="gray">{t}</Chip>)}
+              {/* Details table */}
+              <div className="border border-gray-100 rounded-xl overflow-hidden">
+                <table className="w-full text-sm">
+                  <tbody>
+                    {f.Team && <DetailRow label="Team" value={f.Team} />}
+                    {f.Year && <DetailRow label="Year" value={f.Year} />}
+                    {f.League && <DetailRow label="League" value={f.League} />}
+                    {(f['Card Name'] || f.Player) && <DetailRow label="Card Name" value={f['Card Name'] || f.Player} />}
+                    {f['Parallel / Variant'] && <DetailRow label="Parallel Type" value={f['Parallel / Variant']} />}
+                    {attributes.length > 0 && <DetailRow label="Attributes" value={attributes.join(', ')} />}
+                    {f.Condition && <DetailRow label="Condition" value={f.Condition} />}
+                  </tbody>
+                </table>
               </div>
 
               {/* Value */}
@@ -570,8 +586,8 @@ export default function CardModal({ card, onClose, onRefresh }) {
                   <div className="flex items-center justify-between mb-3">
                     <div>
                       <p className="text-green-700 font-semibold text-sm uppercase tracking-wide">Listed for Sale</p>
-                      {f['Asking Price'] && (
-                        <p className="text-2xl font-black text-green-700 mt-0.5">${Number(f['Asking Price']).toLocaleString()}</p>
+                      {f['Asking Price'] != null && (
+                        <p className="text-2xl font-black text-green-700 mt-0.5">{formatPrice(f['Asking Price'])}</p>
                       )}
                     </div>
                   </div>
@@ -610,6 +626,15 @@ export default function CardModal({ card, onClose, onRefresh }) {
         </div>
       </div>
     </div>
+  )
+}
+
+function DetailRow({ label, value }) {
+  return (
+    <tr className="border-b border-gray-50 last:border-0">
+      <td className="px-3 py-2 text-xs font-bold text-gray-400 uppercase tracking-wide align-top w-1/3 bg-gray-50">{label}</td>
+      <td className="px-3 py-2 text-gray-800 font-medium">{value}</td>
+    </tr>
   )
 }
 

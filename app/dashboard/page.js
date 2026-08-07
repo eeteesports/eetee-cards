@@ -97,7 +97,7 @@ export default function Dashboard() {
         <div className="absolute left-0 bottom-0 w-24 h-24 bg-blue-600/10 rounded-full translate-y-6 -translate-x-6" />
 
         <div className="relative z-10">
-          <p className="text-blue-300 text-xs font-bold uppercase tracking-widest mb-1">eetee Sports Portfolio</p>
+          <p className="text-blue-300 text-xs font-bold uppercase tracking-widest mb-1">eetee Cards Portfolio</p>
 
           {loading ? (
             <div className="h-12 w-48 bg-white/10 rounded-xl animate-pulse mb-2" />

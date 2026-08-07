@@ -7,6 +7,8 @@ function cardImg(url) {
   return url.replace('/upload/', '/upload/e_trim:20,c_pad,ar_3:4,b_white,w_600/')
 }
 
+import { formatPrice } from '@/lib/format'
+
 export default function CardTile({ card, onClick }) {
   const f = card.fields
   const { add, items } = useCart()
@@ -82,7 +84,7 @@ export default function CardTile({ card, onClick }) {
         <div className="flex items-center justify-between mt-2">
           {f['Estimated Value'] != null ? (
             <p className="font-bold text-sm text-gray-800">
-              ${Number(f['Estimated Value']).toLocaleString()}
+              {formatPrice(f['Estimated Value'])}
             </p>
           ) : <span />}
 
