@@ -1,9 +1,9 @@
 import { redirect } from 'next/navigation'
 
-// The homepage IS the store now (see app/page.js) — Evan wanted landing
-// straight into the browse experience instead of a separate marketing page.
-// This route stays alive (old links, the admin nav's "Storefront" icon)
-// but just forwards to '/'.
+// Updated 2026-08-17 (brand refresh): "/" is a curated landing page again,
+// and the full filterable browse grid lives at /shop (see
+// app/shop/page.js). This route stays alive for old links/the admin nav's
+// "Storefront" icon but now forwards to the actual browse experience.
 export default function StoreRedirect() {
-  redirect('/')
+  redirect('/shop')
 }

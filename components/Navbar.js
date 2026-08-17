@@ -26,8 +26,8 @@ export default function Navbar() {
   // Close on route change
   useEffect(() => { setAddOpen(false) }, [pathname])
 
-  // Hide navbar on login and public homepage (they have their own headers)
-  if (pathname === '/login' || pathname === '/') return null
+  // Hide navbar on login and the public homepage/shop (they build their own headers)
+  if (pathname === '/login' || pathname === '/' || pathname === '/shop') return null
 
   const adminLinks = [
     { href: '/dashboard',  label: 'Dashboard',  icon: '📈' },
@@ -37,17 +37,17 @@ export default function Navbar() {
   ]
 
   const publicLinks = [
-    { href: '/store', label: 'Store', icon: '🏷️' },
+    { href: '/shop', label: 'Shop', icon: '🏷️' },
   ]
 
   const links = isAdmin ? adminLinks : publicLinks
   const isAddActive = pathname === '/add' || pathname === '/bulk-add'
 
   return (
-    <nav className="bg-[#0f1b35] text-white px-4 py-3 flex items-center justify-between sticky top-0 z-40">
+    <nav className="bg-navy-900 text-white px-4 py-3 flex items-center justify-between sticky top-0 z-40">
       <Link href={isAdmin ? '/dashboard' : '/'} className="flex items-center gap-2 flex-shrink-0">
         <img src="/eetee-logo.png" alt="eetee Cards" className="w-9 h-9 object-contain" />
-        <span className="font-black text-lg tracking-widest uppercase hidden sm:block">eetee Cards</span>
+        <span className="font-display font-semibold text-lg tracking-tight hidden sm:block">eetee Cards</span>
       </Link>
 
       <div className="flex gap-1 items-center">
@@ -55,7 +55,7 @@ export default function Navbar() {
         {links.map(({ href, label, icon }) => (
           <Link key={href} href={href}
             className={`px-3 py-2 rounded-lg text-sm font-medium hidden lg:flex items-center gap-1 transition-colors ${
-              pathname === href ? 'bg-blue-600 text-white' : 'text-white/70 hover:bg-white/10 hover:text-white'
+              pathname === href ? 'bg-navy-700 text-white' : 'text-white/70 hover:bg-white/10 hover:text-white'
             }`}>
             <span>{icon}</span> {label}
           </Link>
@@ -65,7 +65,7 @@ export default function Navbar() {
         {links.map(({ href, icon, label }) => (
           <Link key={`t-${href}`} href={href} title={label}
             className={`p-2 rounded-lg text-lg hidden sm:flex lg:hidden transition-colors ${
-              pathname === href ? 'bg-blue-600' : 'hover:bg-white/10'
+              pathname === href ? 'bg-navy-700' : 'hover:bg-white/10'
             }`}>
             {icon}
           </Link>
@@ -78,11 +78,11 @@ export default function Navbar() {
           { href: '/tools',      icon: '🛠️' },
         ] : [
           { href: '/',      icon: '🏠' },
-          { href: '/store', icon: '🏷️' },
+          { href: '/shop', icon: '🏷️' },
         ]).map(({ href, icon }) => (
           <Link key={`m-${href}`} href={href}
             className={`p-2 rounded-lg text-lg sm:hidden transition-colors ${
-              pathname === href ? 'bg-blue-600' : 'hover:bg-white/10'
+              pathname === href ? 'bg-navy-700' : 'hover:bg-white/10'
             }`}>
             {icon}
           </Link>
@@ -95,7 +95,7 @@ export default function Navbar() {
             <div className={`hidden lg:flex items-center rounded-lg overflow-hidden border ${isAddActive ? 'border-blue-400' : 'border-white/20'}`}>
               <Link href="/add"
                 className={`px-3 py-2 text-sm font-medium flex items-center gap-1 transition-colors ${
-                  pathname === '/add' ? 'bg-blue-600 text-white' : 'text-white/70 hover:bg-white/10 hover:text-white'
+                  pathname === '/add' ? 'bg-navy-700 text-white' : 'text-white/70 hover:bg-white/10 hover:text-white'
                 }`}>
                 <span>➕</span> Add Card
               </Link>
@@ -111,7 +111,7 @@ export default function Navbar() {
             {/* Tablet: icon + chevron */}
             <div className={`hidden sm:flex lg:hidden items-center rounded-lg overflow-hidden border ${isAddActive ? 'border-blue-400' : 'border-white/20'}`}>
               <Link href="/add" title="Add single card"
-                className={`p-2 text-lg transition-colors ${pathname === '/add' ? 'bg-blue-600' : 'hover:bg-white/10'}`}>
+                className={`p-2 text-lg transition-colors ${pathname === '/add' ? 'bg-navy-700' : 'hover:bg-white/10'}`}>
                 ➕
               </Link>
               <button onClick={() => setAddOpen(o => !o)}
@@ -122,7 +122,7 @@ export default function Navbar() {
 
             {/* Mobile: just the ➕ icon (opens dropdown) */}
             <button onClick={() => setAddOpen(o => !o)}
-              className={`sm:hidden p-2 rounded-lg text-lg transition-colors ${isAddActive || addOpen ? 'bg-blue-600' : 'hover:bg-white/10'}`}>
+              className={`sm:hidden p-2 rounded-lg text-lg transition-colors ${isAddActive || addOpen ? 'bg-navy-700' : 'hover:bg-white/10'}`}>
               ➕
             </button>
 
@@ -167,8 +167,8 @@ export default function Navbar() {
         {/* Admin: store link + logout */}
         {isAdmin && (
           <>
-            <Link href="/store" title="Storefront"
-              className={`p-2 rounded-lg text-lg transition-colors ${pathname === '/store' ? 'bg-blue-600' : 'hover:bg-white/10'}`}>
+            <Link href="/shop" title="Storefront"
+              className={`p-2 rounded-lg text-lg transition-colors ${pathname === '/shop' ? 'bg-navy-700' : 'hover:bg-white/10'}`}>
               🏷️
             </Link>
             <button
