@@ -13,6 +13,7 @@
     "react": "^18",
     "react-dom": "^18",
     "@anthropic-ai/sdk": "^0.20.0",
+    "@libsql/client": "^0.17.4",
     "resend": "^3.2.0",
     "next-auth": "^4.24.7"
   },

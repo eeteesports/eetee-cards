@@ -1,36 +1,20 @@
 import { promises as fs } from 'fs'
 import path from 'path'
 import { fetchEbayComps } from '@/lib/ebay'
+import { listCardsForRainbowMatch } from '@/lib/db'
 
-const AIRTABLE_BASE = process.env.AIRTABLE_BASE_ID
-const AIRTABLE_KEY  = process.env.AIRTABLE_API_KEY
-const TABLE         = 'Cards'
-
+// Turso-backed replacement for the old direct-Airtable fetchOwnedCards()
+// (2026-08-14) — same match criteria (player contains / exact year / set
+// contains / exact card number), same returned field shape, so everything
+// below this point (matchParallel, the enrichment loop, the response
+// shape) is unchanged from before.
 async function fetchOwnedCards(criteria) {
-  const url = `https://api.airtable.com/v0/${AIRTABLE_BASE}/${encodeURIComponent(TABLE)}`
-  const params = new URLSearchParams({
-    fields: ['Player', 'Year', 'Set', 'Card Number', 'Parallel / Variant', 'Print Run', 'Serial Number', 'Front Image URL', 'Condition'],
-    filterByFormula: `AND(
-      FIND(LOWER("${criteria.playerContains.toLowerCase()}"), LOWER({Player})),
-      {Year} = ${criteria.year},
-      FIND(LOWER("${criteria.setContains.toLowerCase()}"), LOWER({Set})),
-      {Card Number} = "${criteria.cardNumber}"
-    )`,
-    pageSize: 100,
+  return listCardsForRainbowMatch({
+    playerContains: criteria.playerContains,
+    year: criteria.year,
+    setContains: criteria.setContains,
+    cardNumber: criteria.cardNumber,
   })
-  // Airtable requires array params as repeated keys
-  const fieldParams = ['Player', 'Year', 'Set', 'Card Number', 'Parallel / Variant', 'Print Run', 'Serial Number', 'Front Image URL', 'Condition']
-    .map(f => `fields[]=${encodeURIComponent(f)}`)
-    .join('&')
-
-  const res = await fetch(
-    `${url}?filterByFormula=${encodeURIComponent(params.get('filterByFormula'))}&${fieldParams}&pageSize=100`,
-    { headers: { Authorization: `Bearer ${AIRTABLE_KEY}` } }
-  )
-
-  if (!res.ok) return []
-  const data = await res.json()
-  return (data.records || []).map(r => r.fields)
 }
 
 function normalizeParallelName(name) {
@@ -66,7 +50,7 @@ export async function GET(request, { params }) {
     return Response.json({ error: 'Rainbow not found' }, { status: 404 })
   }
 
-  // Fetch owned cards from Airtable
+  // Fetch owned cards from Turso
   const ownedCards = await fetchOwnedCards(rainbow.matchCriteria)
 
   // Check eBay prices? Only if ?ebay=1 is in query

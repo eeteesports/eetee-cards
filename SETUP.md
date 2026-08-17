@@ -1,6 +1,6 @@
 # eetee Sports — Setup Guide
 
-Your Airtable database is already created and wired in. You need 3 free accounts and ~20 minutes to get this live.
+**Updated 2026-08-14:** this site now reads/writes the same Turso database as the `eetee-cards-app` desktop app, instead of its own Airtable base. The steps below are kept for historical reference (Cloudinary/Anthropic setup is unchanged); Step 3 (Airtable) is obsolete — see "Turso Details" near the bottom instead.
 
 ---
 
@@ -27,14 +27,12 @@ Your Airtable database is already created and wired in. You need 3 free accounts
 
 ---
 
-## Step 3 — Get an Airtable Personal Access Token
+## Step 3 — Turso database (obsolete Airtable step, kept for history)
 
-1. Go to https://airtable.com/create/tokens
-2. Click **Create new token**
-3. Name it "eetee-cards"
-4. Add scopes: `data.records:read`, `data.records:write`, `schema.bases:read`
-5. Under **Access**, select **All current and future bases**
-6. Click **Create token** and copy it (starts with `pat...`)
+This site no longer uses Airtable. It reads/writes the same Turso database
+as the `eetee-cards-app` desktop app — copy `TURSO_DATABASE_URL` and
+`TURSO_AUTH_TOKEN` straight out of that app's `.env.local` rather than
+creating new credentials. Nothing to sign up for here.
 
 ---
 
@@ -52,9 +50,13 @@ Your Airtable database is already created and wired in. You need 3 free accounts
    | Variable | Value |
    |----------|-------|
    | `ANTHROPIC_API_KEY` | your `sk-ant-...` key |
-   | `AIRTABLE_API_KEY` | your `pat...` token |
+   | `TURSO_DATABASE_URL` | same value as in `eetee-cards-app/.env.local` |
+   | `TURSO_AUTH_TOKEN` | same value as in `eetee-cards-app/.env.local` |
+   | `NEXTAUTH_SECRET` | any long random string (admin login session signing) |
+   | `ADMIN_PASSWORD` | the password for Evan's own /login |
    | `NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME` | your Cloudinary cloud name |
    | `NEXT_PUBLIC_CLOUDINARY_UPLOAD_PRESET` | `eetee-cards-unsigned` |
+   | `EBAY_APP_ID` / `EBAY_CERT_ID` | only needed if using the eBay comp-price lookup in the AI valuation flow |
 
 7. Click **Deploy** — Vercel will build and give you a URL like `eetee-cards.vercel.app`
 
@@ -70,13 +72,17 @@ Your app will be live at your Vercel URL. Open it on your phone and go to **Add 
 
 ---
 
-## Airtable Details (already created for you)
+## Turso Details (shared with eetee-cards-app)
 
-- **Base:** eetee Card Collection
-- **Base ID:** app5got9RZ5o2iczD
-- **Table:** Cards
-
-You can view and edit your cards directly in Airtable at https://airtable.com anytime.
+- **Database:** the same one `eetee-cards-app` migrated ~1,730 CDP-imported
+  cards into on 2026-08-13 (see that app's `scripts/migrate-to-turso-full.mjs`).
+- **Table:** `cards`, plus a growing set of value/price/listing tables the
+  desktop app also uses — this site only reads/writes `cards`.
+- The old Airtable base (`app5got9RZ5o2iczD`, table `Cards`) is no longer
+  used by this site as of 2026-08-14. It held ~25 test records, not the
+  real inventory, so nothing was migrated out of it.
+- To browse/edit the data directly, use Turso's own dashboard
+  (turso.tech) or `eetee-cards-app`'s own UI — not Airtable anymore.
 
 ---
 
