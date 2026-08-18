@@ -7,6 +7,7 @@ import CardModal from '@/components/CardModal'
 import DealsBanner from '@/components/DealsBanner'
 import TeamPicker from '@/components/TeamPicker'
 import TeamShopBox from '@/components/TeamShopBox'
+import WordmarkGraphic from '@/components/WordmarkGraphic'
 import { PRICE_BINS, binForPrice } from '@/lib/priceBins'
 import { formatPrice } from '@/lib/format'
 import { DEALS } from '@/lib/deals'
@@ -141,12 +142,9 @@ export default function Home() {
             className="pointer-events-none select-none absolute -left-24 top-1/2 -translate-y-1/2 w-[420px] max-w-none opacity-[0.035] grayscale"
           />
           <div className="relative px-4 py-10 text-center">
-            <div className="flex items-center justify-center gap-4 flex-wrap">
+            <div className="flex items-center justify-center gap-2 flex-wrap">
               <img src="/eetee-logo.png" alt="" className="w-20 h-20 object-contain flex-shrink-0" />
-              <div className="text-left">
-                <h1 className="font-display font-semibold text-3xl text-gray-800">eetee Cards</h1>
-                <p className="text-gray-500 text-base mt-1">A family run sports hobby</p>
-              </div>
+              <WordmarkGraphic className="h-24 w-auto max-w-full" />
             </div>
 
             <Link href="/shop" className="inline-block mt-6 bg-navy-900 hover:bg-navy-800 text-white font-semibold px-8 py-3 rounded-lg text-sm transition-colors">
