@@ -59,6 +59,7 @@ function ShopInner() {
     rookie: searchParams.get('rookie') === 'true',
     graded: searchParams.get('graded') === 'true',
   }))
+  const [sort, setSort] = useState(searchParams.get('sort') || '')
 
   const setF = (key, val) => setFilters((p) => ({ ...p, [key]: val }))
   const toggleF = (key) => setFilters((p) => ({ ...p, [key]: !p[key] }))
@@ -102,6 +103,12 @@ function ShopInner() {
     if (filters.priceMax && price > Number(filters.priceMax)) return false
     if (filters.graded && !isGradedCondition(c.fields.Condition)) return false
     return true
+  }).sort((a, b) => {
+    const priceA = a.fields['Asking Price'] ?? -1
+    const priceB = b.fields['Asking Price'] ?? -1
+    if (sort === 'price_desc') return priceB - priceA
+    if (sort === 'price_asc') return priceA - priceB
+    return 0 // default: whatever order the API returned (newest-first)
   })
 
   const activeFilterCount = [
@@ -110,12 +117,16 @@ function ShopInner() {
     filters.rookie, filters.numbered, filters.graded, filters.priceMin, filters.priceMax, filters.bin,
   ].filter(Boolean).length
 
+  // Dark navy sidebar per Evan's mockup — every input here needs its own
+  // dark-theme treatment rather than the light-card styling the rest of
+  // the site uses, since this panel sits directly on navy-900.
+  const darkInput = "w-full bg-white/10 border border-white/20 text-white placeholder-white/40 rounded-lg px-3 py-2 text-xs focus:outline-none focus:border-white/50"
   const FilterPanel = (
     <aside className="w-full text-sm">
       {activeFilterCount > 0 && (
         <button
           onClick={() => setFilters(emptyFilters())}
-          className="w-full mb-4 text-navy-700 font-semibold hover:underline text-left text-xs"
+          className="w-full mb-4 text-gold-300 font-semibold hover:underline text-left text-xs"
         >
           ✕ Clear all filters ({activeFilterCount})
         </button>
@@ -129,8 +140,8 @@ function ShopInner() {
               onClick={() => setF('bin', filters.bin === b.key ? '' : b.key)}
               className={`text-xs px-2 py-2 rounded-lg border font-semibold transition-colors ${
                 filters.bin === b.key
-                  ? 'bg-navy-800 text-white border-navy-800'
-                  : 'bg-white text-gray-700 border-gray-200 hover:border-gray-400'
+                  ? 'bg-gold-400 text-navy-900 border-gold-400'
+                  : 'bg-white/5 text-white/70 border-white/15 hover:border-white/30 hover:bg-white/10'
               }`}
             >
               {b.label}
@@ -142,20 +153,20 @@ function ShopInner() {
       <FilterSection title="Custom Price Range">
         <div className="flex gap-2 items-center">
           <div className="relative flex-1">
-            <span className="absolute left-2.5 top-1/2 -translate-y-1/2 text-gray-400 text-xs">$</span>
+            <span className="absolute left-2.5 top-1/2 -translate-y-1/2 text-white/40 text-xs">$</span>
             <input
               type="number" value={filters.priceMin} onChange={(e) => setF('priceMin', e.target.value)}
               placeholder="Min" min={0} step="0.01"
-              className="w-full border border-gray-200 rounded-lg pl-6 pr-2 py-2 text-xs focus:outline-none focus:border-navy-400"
+              className={`${darkInput} pl-6`}
             />
           </div>
-          <span className="text-gray-400 flex-shrink-0">–</span>
+          <span className="text-white/30 flex-shrink-0">–</span>
           <div className="relative flex-1">
-            <span className="absolute left-2.5 top-1/2 -translate-y-1/2 text-gray-400 text-xs">$</span>
+            <span className="absolute left-2.5 top-1/2 -translate-y-1/2 text-white/40 text-xs">$</span>
             <input
               type="number" value={filters.priceMax} onChange={(e) => setF('priceMax', e.target.value)}
               placeholder="Max" min={0} step="0.01"
-              className="w-full border border-gray-200 rounded-lg pl-6 pr-2 py-2 text-xs focus:outline-none focus:border-navy-400"
+              className={`${darkInput} pl-6`}
             />
           </div>
         </div>
@@ -187,7 +198,7 @@ function ShopInner() {
         <input
           type="text" value={filters.team} onChange={(e) => setF('team', e.target.value)}
           placeholder="e.g. Lakers, Lions…"
-          className="w-full border border-gray-200 rounded-lg px-3 py-2 text-xs focus:outline-none focus:border-navy-400"
+          className={darkInput}
         />
       </FilterSection>
 
@@ -195,7 +206,7 @@ function ShopInner() {
         <input
           type="text" value={filters.set} onChange={(e) => setF('set', e.target.value)}
           placeholder="e.g. Prizm, Chrome…"
-          className="w-full border border-gray-200 rounded-lg px-3 py-2 text-xs focus:outline-none focus:border-navy-400"
+          className={darkInput}
         />
       </FilterSection>
 
@@ -204,13 +215,13 @@ function ShopInner() {
           <input
             type="number" value={filters.yearMin} onChange={(e) => setF('yearMin', e.target.value)}
             placeholder="From"
-            className="w-full border border-gray-200 rounded-lg px-3 py-2 text-xs focus:outline-none focus:border-navy-400"
+            className={darkInput}
           />
-          <span className="text-gray-400 flex-shrink-0">–</span>
+          <span className="text-white/30 flex-shrink-0">–</span>
           <input
             type="number" value={filters.yearMax} onChange={(e) => setF('yearMax', e.target.value)}
             placeholder="To"
-            className="w-full border border-gray-200 rounded-lg px-3 py-2 text-xs focus:outline-none focus:border-navy-400"
+            className={darkInput}
           />
         </div>
       </FilterSection>
@@ -218,7 +229,7 @@ function ShopInner() {
       <FilterSection title="Condition">
         <select
           value={filters.condition} onChange={(e) => setF('condition', e.target.value)}
-          className="w-full border border-gray-200 rounded-lg px-3 py-2 text-xs focus:outline-none focus:border-navy-400 bg-white"
+          className={`${darkInput} [&>option]:text-gray-900`}
         >
           <option value="">Any condition</option>
           {CONDITIONS.map((c) => <option key={c}>{c}</option>)}
@@ -228,9 +239,10 @@ function ShopInner() {
   )
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-royal-600">
       <DealsBanner />
 
+      {/* Header — full-bleed, no side rails here (matches the homepage) */}
       <div className="bg-navy-900 text-white">
         <div className="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between gap-3 flex-wrap">
           <Link href="/" className="flex items-center gap-2.5 flex-shrink-0">
@@ -262,7 +274,8 @@ function ShopInner() {
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 py-6">
+      {/* Rail-framed content column — royal-600 shows as side rails on wide viewports */}
+      <div className="max-w-7xl mx-auto bg-gray-50 min-h-[calc(100vh-140px)] px-4 py-6">
         <button
           onClick={() => setFiltersOpen(!filtersOpen)}
           className="lg:hidden w-full mb-4 flex items-center justify-between border border-gray-200 rounded-xl px-4 py-2.5 bg-white text-sm font-semibold text-gray-700 shadow-sm"
@@ -277,14 +290,14 @@ function ShopInner() {
         </button>
 
         <div className="lg:flex lg:gap-6">
-          <div className={`lg:w-60 lg:flex-shrink-0 ${filtersOpen ? 'block mb-4' : 'hidden lg:block'}`}>
-            <div className="bg-white border border-gray-200 rounded-2xl p-4 shadow-sm sticky top-4">
+          <div className={`lg:w-64 lg:flex-shrink-0 ${filtersOpen ? 'block mb-4' : 'hidden lg:block'}`}>
+            <div className="bg-navy-900 rounded-2xl p-4 sticky top-4">
               {FilterPanel}
             </div>
           </div>
 
           <div className="flex-1 min-w-0">
-            <div className="flex items-center justify-between mb-4">
+            <div className="flex items-center justify-between mb-4 gap-3 flex-wrap">
               {loading ? (
                 <div className="h-4 w-32 bg-gray-200 rounded animate-pulse" />
               ) : (
@@ -294,11 +307,22 @@ function ShopInner() {
                   {activeFilterCount > 0 && <span className="text-navy-700"> · {activeFilterCount} filter{activeFilterCount !== 1 ? 's' : ''} active</span>}
                 </p>
               )}
-              {activeFilterCount > 0 && !loading && (
-                <button onClick={() => setFilters(emptyFilters())} className="text-xs text-gray-400 hover:text-red-500 transition-colors">
-                  Clear all
-                </button>
-              )}
+              <div className="flex items-center gap-3 ml-auto">
+                <select
+                  value={sort}
+                  onChange={(e) => setSort(e.target.value)}
+                  className="text-xs border border-gray-200 rounded-lg px-2.5 py-1.5 bg-white text-gray-700 focus:outline-none focus:border-navy-400"
+                >
+                  <option value="">Newest first</option>
+                  <option value="price_desc">Price: high to low</option>
+                  <option value="price_asc">Price: low to high</option>
+                </select>
+                {activeFilterCount > 0 && !loading && (
+                  <button onClick={() => setFilters(emptyFilters())} className="text-xs text-gray-400 hover:text-red-500 transition-colors">
+                    Clear all
+                  </button>
+                )}
+              </div>
             </div>
 
             {loading ? (
@@ -387,14 +411,14 @@ function ShopInner() {
             )}
           </div>
         </div>
-      </div>
 
-      <div className="border-t border-gray-200 mt-4">
-        <div className="max-w-7xl mx-auto px-4 py-6 flex items-center justify-between text-sm text-gray-400 flex-wrap gap-2">
-          <span>© eetee Cards</span>
-          <div className="flex gap-4">
-            <a href="mailto:eeteecards@gmail.com" className="hover:text-gray-600 transition-colors">Contact</a>
-            <Link href="/login" className="hover:text-gray-600 transition-colors">Admin</Link>
+        <div className="border-t border-gray-200 mt-6 -mx-4 px-4 pt-6">
+          <div className="flex items-center justify-between text-sm text-gray-400 flex-wrap gap-2">
+            <span>© eetee Cards</span>
+            <div className="flex gap-4">
+              <a href="mailto:eeteecards@gmail.com" className="hover:text-gray-600 transition-colors">Contact</a>
+              <Link href="/login" className="hover:text-gray-600 transition-colors">Admin</Link>
+            </div>
           </div>
         </div>
       </div>
@@ -417,22 +441,22 @@ function ShopInner() {
 function FilterSection({ title, children }) {
   return (
     <div className="mb-5">
-      <p className="text-xs font-bold uppercase tracking-widest text-gray-400 mb-2">{title}</p>
+      <p className="text-xs font-bold uppercase tracking-widest text-white/40 mb-2">{title}</p>
       <div className="space-y-1.5">{children}</div>
     </div>
   )
 }
 
-function Toggle({ active, onClick, color = 'navy', children }) {
+function Toggle({ active, onClick, color = 'gold', children }) {
   const activeColors = {
-    navy: 'bg-navy-800 text-white border-navy-800',
+    navy: 'bg-white text-navy-900 border-white',
     gold: 'bg-gold-400 text-navy-900 border-gold-400',
   }
   return (
     <button
       onClick={onClick}
       className={`w-full text-left px-3 py-2 rounded-lg text-xs border transition-colors font-medium
-        ${active ? activeColors[color] || activeColors.navy : 'bg-white text-gray-700 border-gray-200 hover:border-gray-300 hover:bg-gray-50'}`}
+        ${active ? activeColors[color] || activeColors.gold : 'bg-white/5 text-white/70 border-white/15 hover:border-white/30 hover:bg-white/10'}`}
     >
       {children}
     </button>

@@ -6,16 +6,10 @@ import { useCart } from '@/contexts/CartContext'
 import CardModal from '@/components/CardModal'
 import DealsBanner from '@/components/DealsBanner'
 import TeamPicker from '@/components/TeamPicker'
-import ShopByTeamModal from '@/components/ShopByTeamModal'
+import TeamShopBox from '@/components/TeamShopBox'
 import { PRICE_BINS, binForPrice } from '@/lib/priceBins'
 import { formatPrice } from '@/lib/format'
-
-const HERO_BUTTONS = [
-  { key: 'team',   icon: '🏟️', label: 'Shop by Team', sub: 'Pick a league, then a team' },
-  { key: 'dollar', icon: '💵', label: '$1 Value Bin', sub: 'Deep discount singles', href: '/shop?bin=one-dollar' },
-  { key: 'highend', icon: '💎', label: 'High End Cards', sub: '$50 and up', href: '/shop?priceMin=50' },
-  { key: 'graded', icon: '🏆', label: 'Graded Cards', sub: 'PSA, BGS, SGC', href: '/shop?graded=true' },
-]
+import { DEALS } from '@/lib/deals'
 
 function cardImg(url) {
   if (!url || !url.includes('res.cloudinary.com')) return url
@@ -46,7 +40,6 @@ export default function Home() {
   const [loading, setLoading] = useState(true)
   const [search, setSearch] = useState('')
   const [selected, setSelected] = useState(null)
-  const [showTeamModal, setShowTeamModal] = useState(false)
 
   useEffect(() => {
     fetch('/api/cards?forSale=true')
@@ -72,11 +65,14 @@ export default function Home() {
     return acc
   }, {})
 
+  const dollarDeal = DEALS.find((d) => d.binKey === 'one-dollar')
+  const fiftyCentDeal = DEALS.find((d) => d.binKey === 'fifty-cent')
+
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-royal-600">
       <DealsBanner />
 
-      {/* Header */}
+      {/* Header — full-bleed, no side rails here */}
       <div className="bg-navy-900 text-white">
         <div className="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between gap-4 flex-wrap">
           <Link href="/" className="flex items-center gap-2.5 flex-shrink-0">
@@ -132,106 +128,114 @@ export default function Home() {
         </div>
       </div>
 
-      {/* Welcome hero — logo watermark, quick-navigation buttons */}
-      <div className="relative overflow-hidden bg-white border-b border-gray-100">
-        <img
-          src="/eetee-logo-watermark.png"
-          alt=""
-          aria-hidden="true"
-          className="pointer-events-none select-none absolute -left-24 top-1/2 -translate-y-1/2 w-[420px] max-w-none opacity-[0.035] grayscale"
-        />
-        <div className="relative max-w-7xl mx-auto px-4 py-10 text-center">
-          <img src="/eetee-logo.png" alt="" className="w-16 h-16 mx-auto mb-3 object-contain" />
-          <h1 className="font-display font-semibold text-2xl sm:text-3xl text-gray-900">Welcome to eetee Cards</h1>
-          <p className="text-gray-500 mt-1.5 text-sm">Where do you want to start?</p>
-
-          <div className="mt-6 grid grid-cols-2 sm:grid-cols-4 gap-3 max-w-2xl mx-auto">
-            {HERO_BUTTONS.map((btn) => {
-              const content = (
-                <>
-                  <div className="text-2xl mb-1.5">{btn.icon}</div>
-                  <p className="font-display font-semibold text-sm text-gray-900">{btn.label}</p>
-                  <p className="text-xs text-gray-400 mt-0.5">{btn.sub}</p>
-                </>
-              )
-              const className = "bg-white border border-gray-200 rounded-2xl p-4 hover:border-navy-300 hover:shadow-md transition-all"
-              return btn.key === 'team' ? (
-                <button key={btn.key} onClick={() => setShowTeamModal(true)} className={className}>{content}</button>
-              ) : (
-                <Link key={btn.key} href={btn.href} className={className}>{content}</Link>
-              )
-            })}
-          </div>
-        </div>
-      </div>
-
-      <div className="max-w-7xl mx-auto px-4 py-8 space-y-10">
-        {/* Rookie hero band */}
-        {rookies.length > 0 && (
-          <Row
-            title="Fresh Rookies"
-            eyebrow="Just landed"
-            href="/shop?rookie=true"
-            cards={rookies}
-            loading={loading}
-            items={items}
-            onAdd={add}
-            onRemove={remove}
-            onOpen={setSelected}
+      {/* Rail-framed content column — the royal-600 page background shows
+          as side rails on wide viewports, matching Evan's mockup. Runs
+          the full remaining page height (hero through footer). */}
+      <div className="max-w-7xl mx-auto bg-gray-50">
+        {/* Welcome hero — logo watermark, Shop Now CTA, 4 quick-nav boxes */}
+        <div className="relative overflow-hidden border-b border-gray-100">
+          <img
+            src="/eetee-logo-watermark.png"
+            alt=""
+            aria-hidden="true"
+            className="pointer-events-none select-none absolute -left-24 top-1/2 -translate-y-1/2 w-[420px] max-w-none opacity-[0.035] grayscale"
           />
-        )}
+          <div className="relative px-4 py-10 text-center">
+            <div className="flex items-center justify-center gap-4 flex-wrap">
+              <img src="/eetee-logo.png" alt="" className="w-20 h-20 object-contain flex-shrink-0" />
+              <div className="text-left">
+                <h1 className="font-display font-semibold text-3xl text-gray-800">eetee Cards</h1>
+                <p className="text-gray-500 text-base mt-1">A family run sports hobby</p>
+              </div>
+            </div>
 
-        <Row
-          title="Recently Added"
-          eyebrow="New to the collection"
-          href="/shop"
-          cards={recentlyAdded}
-          loading={loading}
-          items={items}
-          onAdd={add}
-          onRemove={remove}
-          onOpen={setSelected}
-        />
+            <Link href="/shop" className="inline-block mt-6 bg-navy-900 hover:bg-navy-800 text-white font-semibold px-8 py-3 rounded-lg text-sm transition-colors">
+              Shop Now
+            </Link>
 
-        {deals.length > 0 && (
-          <Row
-            title="Under $1"
-            eyebrow="Deals"
-            href="/shop?bin=one-dollar"
-            cards={deals}
-            loading={loading}
-            items={items}
-            onAdd={add}
-            onRemove={remove}
-            onOpen={setSelected}
-          />
-        )}
-
-        {/* Shop by sport tiles */}
-        {Object.keys(sportCounts).length > 1 && (
-          <div>
-            <h2 className="font-display font-semibold text-xl text-gray-900 mb-3">Shop by Sport</h2>
-            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3">
-              {SPORT_TILES.filter(({ sport }) => sportCounts[sport]).map(({ sport, icon }) => (
-                <Link key={sport} href={`/shop?sport=${sport}`}
-                  className="bg-white border border-gray-200 rounded-2xl p-5 text-center hover:border-navy-300 hover:shadow-md transition-all group">
-                  <div className="text-3xl mb-2">{icon}</div>
-                  <p className="font-display font-semibold text-sm text-gray-900 group-hover:text-navy-700">{sport}</p>
-                  <p className="text-xs text-gray-400 mt-0.5">{sportCounts[sport]} cards</p>
-                </Link>
-              ))}
+            <div className="mt-8 grid grid-cols-2 sm:grid-cols-4 gap-4 max-w-3xl mx-auto text-left">
+              <ValueBox
+                href="/shop?bin=fifty-cent" icon="🪙" label="50¢ Value Box"
+                ribbon={fiftyCentDeal ? `${fiftyCentDeal.buyQty} for ${fiftyCentDeal.freeQty} free` : null}
+              />
+              <ValueBox
+                href="/shop?bin=one-dollar" icon="💵" label="$1 Value Box"
+                ribbon={dollarDeal ? `${dollarDeal.buyQty} for ${dollarDeal.freeQty} free` : null}
+              />
+              <TeamShopBox />
+              <ValueBox href="/shop?priceMin=25" icon="💎" label="High End Cards" sub="$25 and up" />
             </div>
           </div>
-        )}
-      </div>
+        </div>
 
-      {/* Footer */}
-      <div className="border-t border-gray-200 mt-4">
-        <div className="max-w-7xl mx-auto px-4 py-6 flex items-center justify-between text-sm text-gray-400 flex-wrap gap-2">
-          <span>© eetee Cards</span>
-          <div className="flex gap-4">
-            <a href="mailto:eeteecards@gmail.com" className="hover:text-gray-600 transition-colors">Contact</a>
-            <Link href="/login" className="hover:text-gray-600 transition-colors">Admin</Link>
+        <div className="px-4 py-8 space-y-10">
+          {/* Rookie hero band */}
+          {rookies.length > 0 && (
+            <Row
+              title="Fresh Rookies"
+              eyebrow="Just landed"
+              href="/shop?rookie=true"
+              cards={rookies}
+              loading={loading}
+              items={items}
+              onAdd={add}
+              onRemove={remove}
+              onOpen={setSelected}
+            />
+          )}
+
+          <Row
+            title="Recently Added"
+            eyebrow="New to the collection"
+            href="/shop"
+            cards={recentlyAdded}
+            loading={loading}
+            items={items}
+            onAdd={add}
+            onRemove={remove}
+            onOpen={setSelected}
+          />
+
+          {deals.length > 0 && (
+            <Row
+              title="Under $1"
+              eyebrow="Deals"
+              href="/shop?bin=one-dollar"
+              cards={deals}
+              loading={loading}
+              items={items}
+              onAdd={add}
+              onRemove={remove}
+              onOpen={setSelected}
+            />
+          )}
+
+          {/* Shop by sport tiles */}
+          {Object.keys(sportCounts).length > 1 && (
+            <div>
+              <h2 className="font-display font-semibold text-xl text-gray-900 mb-3">Shop by Sport</h2>
+              <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3">
+                {SPORT_TILES.filter(({ sport }) => sportCounts[sport]).map(({ sport, icon }) => (
+                  <Link key={sport} href={`/shop?sport=${sport}`}
+                    className="bg-white border border-gray-200 rounded-2xl p-5 text-center hover:border-navy-300 hover:shadow-md transition-all group">
+                    <div className="text-3xl mb-2">{icon}</div>
+                    <p className="font-display font-semibold text-sm text-gray-900 group-hover:text-navy-700">{sport}</p>
+                    <p className="text-xs text-gray-400 mt-0.5">{sportCounts[sport]} cards</p>
+                  </Link>
+                ))}
+              </div>
+            </div>
+          )}
+        </div>
+
+        {/* Footer */}
+        <div className="border-t border-gray-200">
+          <div className="px-4 py-6 flex items-center justify-between text-sm text-gray-400 flex-wrap gap-2">
+            <span>© eetee Cards</span>
+            <div className="flex gap-4">
+              <a href="mailto:eeteecards@gmail.com" className="hover:text-gray-600 transition-colors">Contact</a>
+              <Link href="/login" className="hover:text-gray-600 transition-colors">Admin</Link>
+            </div>
           </div>
         </div>
       </div>
@@ -247,8 +251,26 @@ export default function Home() {
       )}
 
       {selected && <CardModal card={selected} onClose={() => setSelected(null)} />}
-      {showTeamModal && <ShopByTeamModal onClose={() => setShowTeamModal(false)} />}
     </div>
+  )
+}
+
+// One of the three link-based hero boxes (Team box is its own component —
+// it needs interactive dropdowns, not just a link).
+function ValueBox({ href, icon, label, sub, ribbon }) {
+  return (
+    <Link href={href} className="relative block bg-royal-600 hover:bg-royal-700 rounded-2xl p-4 text-white transition-colors overflow-hidden">
+      {ribbon && (
+        <span className="absolute top-4 -left-11 w-40 -rotate-45 bg-gold-400 text-navy-900 text-[9px] leading-tight font-bold text-center py-0.5 shadow-sm">
+          {ribbon}
+        </span>
+      )}
+      <div className={ribbon ? 'mt-6' : ''}>
+        <div className="text-2xl mb-1.5">{icon}</div>
+        <p className="font-display font-semibold text-sm">{label}</p>
+        {sub && <p className="text-xs text-royal-100 mt-0.5">{sub}</p>}
+      </div>
+    </Link>
   )
 }
 

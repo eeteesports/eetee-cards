@@ -28,6 +28,23 @@ module.exports = {
           900: '#0f1b35',
           950: '#0a1226',
         },
+        // Royal — brighter secondary blue from Evan's own mockup (2026-08-17):
+        // side-rail framing + the homepage value-box backgrounds. Deliberately
+        // distinct from navy (which stays the header/sidebar/text-heavy color)
+        // so the two read as a real two-tone brand pairing, not one blue that
+        // just varies by opacity.
+        royal: {
+          50:  '#eaf0fd',
+          100: '#cddaf9',
+          200: '#9bb5f3',
+          300: '#6990ed',
+          400: '#3d6ce6',
+          500: '#2151d3',
+          600: '#1d46b8',
+          700: '#1a3d9e',
+          800: '#173682',
+          900: '#132c68',
+        },
         // Accent — warm gold, replacing the mixed bright-yellow/blue accent
         // usage across the storefront. Pairs with navy for the classic
         // "established brand" feel (Evan's ask: legitimate business, not
