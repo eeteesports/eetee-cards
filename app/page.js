@@ -256,20 +256,27 @@ export default function Home() {
 }
 
 // One of the three link-based hero boxes (Team box is its own component —
-// it needs interactive dropdowns, not just a link).
+// it needs interactive dropdowns, not just a link). Gradient + shadow +
+// an icon "chip" instead of a bare emoji — a flat solid-color rounded
+// rectangle read as a slide-deck placeholder, not a real storefront tile.
 function ValueBox({ href, icon, label, sub, ribbon }) {
   return (
-    <Link href={href} className="relative block bg-royal-600 hover:bg-royal-700 rounded-2xl p-4 text-white transition-colors overflow-hidden">
+    <Link
+      href={href}
+      className="group relative block bg-gradient-to-br from-royal-500 to-royal-700 rounded-2xl p-4 text-white
+        shadow-[0_8px_20px_-6px_rgba(19,44,104,0.55)] ring-1 ring-white/10
+        transition-all duration-150 hover:shadow-[0_14px_28px_-8px_rgba(19,44,104,0.65)] hover:-translate-y-0.5"
+    >
       {ribbon && (
-        <span className="absolute top-4 -left-11 w-40 -rotate-45 bg-gold-400 text-navy-900 text-[9px] leading-tight font-bold text-center py-0.5 shadow-sm">
+        <span className="absolute top-2.5 right-2.5 bg-gold-400 text-navy-900 text-[10px] font-bold px-2 py-0.5 rounded-full shadow-sm">
           {ribbon}
         </span>
       )}
-      <div className={ribbon ? 'mt-6' : ''}>
-        <div className="text-2xl mb-1.5">{icon}</div>
-        <p className="font-display font-semibold text-sm">{label}</p>
-        {sub && <p className="text-xs text-royal-100 mt-0.5">{sub}</p>}
+      <div className="w-10 h-10 rounded-xl bg-white/15 flex items-center justify-center text-xl mb-2.5 group-hover:bg-white/20 transition-colors">
+        {icon}
       </div>
+      <p className="font-display font-semibold text-sm">{label}</p>
+      {sub && <p className="text-xs text-royal-100 mt-0.5">{sub}</p>}
     </Link>
   )
 }

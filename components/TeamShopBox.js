@@ -30,8 +30,11 @@ export default function TeamShopBox() {
   }
 
   return (
-    <div className="bg-royal-600 rounded-2xl p-4 text-white flex flex-col">
-      <div className="text-2xl mb-1.5">🏟️</div>
+    <div
+      className="bg-gradient-to-br from-royal-500 to-royal-700 rounded-2xl p-4 text-white flex flex-col
+        shadow-[0_8px_20px_-6px_rgba(19,44,104,0.55)] ring-1 ring-white/10"
+    >
+      <div className="w-10 h-10 rounded-xl bg-white/15 flex items-center justify-center text-xl mb-2.5">🏟️</div>
       <p className="font-display font-semibold text-sm">Shop by Team</p>
       <p className="text-xs text-royal-100 mt-0.5 mb-3">Pick a league, then a team</p>
 
