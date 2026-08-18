@@ -521,7 +521,7 @@ export default function BulkAddPage() {
               const active = cards.find(c => c.id === activeCardId)
               return active ? (
                 <div className="flex gap-3 items-center bg-green-50 border border-green-200 rounded-2xl p-4">
-                  <img src={active.frontPreview} className="w-16 aspect-[3/4] object-cover rounded-xl flex-shrink-0" alt="Front" />
+                  <img src={active.frontPreview} className="w-16 aspect-[3/4] object-cover flex-shrink-0" alt="Front" />
                   <div>
                     <p className="font-bold text-green-800">✅ Front captured!</p>
                     <p className="text-sm text-green-700">Add the back to help Claude find the card number.</p>
@@ -560,7 +560,7 @@ export default function BulkAddPage() {
             <div className="flex gap-2 overflow-x-auto pb-2">
               {cards.map((c, i) => (
                 <div key={c.id} className="flex-shrink-0 relative">
-                  <img src={c.frontPreview} className="w-14 aspect-[3/4] object-cover rounded-lg border-2 border-gray-200" alt={`Card ${i + 1}`} />
+                  <img src={c.frontPreview} className="w-14 aspect-[3/4] object-cover border-2 border-gray-200" alt={`Card ${i + 1}`} />
                   <div className="absolute -bottom-1 left-0 right-0 flex justify-center">
                     <StatusBadge status={c.status} />
                   </div>
@@ -635,7 +635,7 @@ export default function BulkAddPage() {
             {cards.map((c, i) => (
               <button key={c.id} onClick={() => { saveCurrentReview(); goToReviewCard(i) }}
                 className={`flex-shrink-0 relative transition-all ${i === reviewIndex ? 'ring-2 ring-blue-500 rounded-lg' : ''}`}>
-                <img src={c.frontPreview} className="w-10 aspect-[3/4] object-cover rounded-lg" alt={`Card ${i + 1}`} />
+                <img src={c.frontPreview} className="w-10 aspect-[3/4] object-cover" alt={`Card ${i + 1}`} />
                 <div className="absolute -bottom-0.5 left-0 right-0 flex justify-center">
                   <StatusBadge status={c.status} />
                 </div>
@@ -660,8 +660,8 @@ export default function BulkAddPage() {
         {/* Images */}
         {card && (
           <div className="flex gap-3 mb-4">
-            <img src={card.frontPreview} className={`rounded-xl object-cover ${card.backPreview ? 'w-1/2' : 'w-full'} aspect-[3/4]`} alt="Front" />
-            {card.backPreview && <img src={card.backPreview} className="w-1/2 aspect-[3/4] rounded-xl object-cover" alt="Back" />}
+            <img src={card.frontPreview} className={`object-cover ${card.backPreview ? 'w-1/2' : 'w-full'} aspect-[3/4]`} alt="Front" />
+            {card.backPreview && <img src={card.backPreview} className="w-1/2 aspect-[3/4] object-cover" alt="Back" />}
           </div>
         )}
 
@@ -789,7 +789,7 @@ export default function BulkAddPage() {
         <div className="flex gap-2 mt-6 flex-wrap justify-center">
           {cards.map((c, i) => (
             <div key={c.id} className="relative">
-              <img src={c.frontPreview} className="w-10 aspect-[3/4] object-cover rounded-lg" alt={`Card ${i+1}`} />
+              <img src={c.frontPreview} className="w-10 aspect-[3/4] object-cover" alt={`Card ${i+1}`} />
               <div className="absolute -bottom-0.5 left-0 right-0 flex justify-center">
                 <StatusBadge status={c.status} />
               </div>

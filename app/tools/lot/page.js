@@ -130,7 +130,7 @@ export default function LotCalculatorPage() {
                       }`}
                     >
                       {f['Front Image URL'] ? (
-                        <img src={cardImg(f['Front Image URL'])} alt="" className="w-8 aspect-[3/4] object-cover rounded flex-shrink-0" />
+                        <img src={cardImg(f['Front Image URL'])} alt="" className="w-8 aspect-[3/4] object-cover flex-shrink-0" />
                       ) : (
                         <div className="w-8 aspect-[3/4] bg-gray-100 rounded flex-shrink-0 flex items-center justify-center text-xs">🃏</div>
                       )}
@@ -211,7 +211,7 @@ export default function LotCalculatorPage() {
                 {lotCards.map((c) => (
                   <div key={c.id} className="flex items-center gap-2 p-2 bg-gray-50 rounded-xl">
                     {c.img ? (
-                      <img src={cardImg(c.img)} alt="" className="w-7 aspect-[3/4] object-cover rounded flex-shrink-0" />
+                      <img src={cardImg(c.img)} alt="" className="w-7 aspect-[3/4] object-cover flex-shrink-0" />
                     ) : (
                       <div className="w-7 aspect-[3/4] bg-gray-200 rounded flex-shrink-0 flex items-center justify-center text-xs">🃏</div>
                     )}

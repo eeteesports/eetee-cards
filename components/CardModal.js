@@ -285,18 +285,23 @@ export default function CardModal({ card, onClose, onRefresh, publicView = true 
           <div className="mx-4 mt-3 bg-red-50 border border-red-200 text-red-700 text-sm px-3 py-2 rounded-lg">{error}</div>
         )}
 
-        {/* Images */}
-        <div className="px-5 pt-4 flex gap-4">
+        {/* Images — sized by each photo's own natural aspect ratio (fixed
+            height, auto width, object-contain), not forced into a portrait
+            box. Some card backs are shot/scanned landscape (stat blocks) —
+            a forced aspect-[3/4] + object-cover was cropping real content
+            off the sides. No rounding either: corner sharpness is real
+            grading signal a rounded crop would misrepresent. */}
+        <div className="px-5 pt-4 flex flex-wrap gap-4 justify-center">
           {f['Front Image URL'] ? (
             <img src={cardImg(f['Front Image URL'])} alt={f.Player}
-              className={`rounded-xl object-cover ${f['Back Image URL'] ? 'w-1/2 aspect-[3/4]' : 'w-full aspect-[3/4]'}`} />
+              className="h-64 w-auto max-w-full object-contain border border-gray-200" />
           ) : (
-            <div className="w-full aspect-[3/4] bg-gray-100 rounded-xl flex items-center justify-center text-gray-400">
+            <div className="h-64 w-48 bg-gray-100 flex items-center justify-center text-gray-400">
               <div className="text-center"><span className="text-5xl block">🃏</span><span className="text-sm mt-2 block">No Image</span></div>
             </div>
           )}
           {f['Back Image URL'] && (
-            <img src={cardImg(f['Back Image URL'])} alt="Back" className="w-1/2 aspect-[3/4] rounded-xl object-cover" />
+            <img src={cardImg(f['Back Image URL'])} alt="Back" className="h-64 w-auto max-w-full object-contain border border-gray-200" />
           )}
         </div>
 

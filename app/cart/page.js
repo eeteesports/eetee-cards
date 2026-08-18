@@ -131,9 +131,9 @@ export default function CartPage() {
               {/* Image */}
               <div className="flex-shrink-0 w-16">
                 {f['Front Image URL'] ? (
-                  <img src={cardImg(f['Front Image URL'])} alt={f.Player} className="w-full aspect-[3/4] object-cover rounded-lg" />
+                  <img src={cardImg(f['Front Image URL'])} alt={f.Player} className="w-full aspect-[3/4] object-cover" />
                 ) : (
-                  <div className="w-full aspect-[3/4] bg-gray-100 rounded-lg flex items-center justify-center text-2xl">🃏</div>
+                  <div className="w-full aspect-[3/4] bg-gray-100 flex items-center justify-center text-2xl">🃏</div>
                 )}
               </div>
 

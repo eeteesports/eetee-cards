@@ -94,7 +94,7 @@ export default function TeamPage({ params }) {
                 return (
                   <div
                     key={card.id}
-                    className="bg-white rounded-xl border border-gray-200 overflow-hidden hover:shadow-lg transition-shadow flex-shrink-0 w-40 sm:w-48"
+                    className="bg-white rounded-b-xl border border-gray-200 overflow-hidden hover:shadow-lg transition-shadow flex-shrink-0 w-40 sm:w-48"
                   >
                     <div className="relative cursor-pointer" onClick={() => setSelected(card)}>
                       {f['Front Image URL'] ? (
@@ -133,7 +133,7 @@ export default function TeamPage({ params }) {
                 const f = card.fields
                 return (
                   <div key={card.id} onClick={() => setSelected(card)}
-                    className="bg-white rounded-xl border border-gray-200 overflow-hidden cursor-pointer hover:shadow-lg transition-shadow flex-shrink-0 w-40 sm:w-48">
+                    className="bg-white rounded-b-xl border border-gray-200 overflow-hidden cursor-pointer hover:shadow-lg transition-shadow flex-shrink-0 w-40 sm:w-48">
                     {f['Front Image URL'] ? (
                       <img src={cardImg(f['Front Image URL'])} alt={f.Player} className="w-full aspect-[3/4] object-cover" />
                     ) : (

@@ -483,7 +483,7 @@ export default function AddCard() {
           {/* Front thumbnail */}
           <div className="flex gap-4 items-center bg-green-50 border border-green-200 rounded-2xl p-4">
             {frontImg && (
-              <img src={frontImg.preview} className="w-16 aspect-[3/4] object-cover rounded-lg flex-shrink-0" alt="Front" />
+              <img src={frontImg.preview} className="w-16 aspect-[3/4] object-cover flex-shrink-0" alt="Front" />
             )}
             <div>
               <p className="font-bold text-green-800">✅ Front captured!</p>
@@ -534,8 +534,8 @@ export default function AddCard() {
             <div>
               {frontImg ? (
                 <div className="relative cursor-pointer" onClick={() => frontInputRef.current.click()}>
-                  <img src={frontImg.preview} className="w-full aspect-[3/4] object-cover rounded-xl" alt="Front" />
-                  <div className="absolute inset-0 bg-black/0 hover:bg-black/20 rounded-xl transition-colors" />
+                  <img src={frontImg.preview} className="w-full aspect-[3/4] object-cover" alt="Front" />
+                  <div className="absolute inset-0 bg-black/0 hover:bg-black/20 transition-colors" />
                   <span className="absolute bottom-2 left-2 bg-black/60 text-white text-xs px-2 py-0.5 rounded">Front ✎</span>
                 </div>
               ) : (
@@ -550,7 +550,7 @@ export default function AddCard() {
             <div>
               {backImg ? (
                 <div className="relative cursor-pointer" onClick={() => backInputRef.current.click()}>
-                  <img src={backImg.preview} className="w-full aspect-[3/4] object-cover rounded-xl" alt="Back" />
+                  <img src={backImg.preview} className="w-full aspect-[3/4] object-cover" alt="Back" />
                   <span className="absolute bottom-2 left-2 bg-black/60 text-white text-xs px-2 py-0.5 rounded">Back ✎</span>
                 </div>
               ) : (

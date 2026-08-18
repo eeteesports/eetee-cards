@@ -72,10 +72,7 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between gap-4 flex-wrap">
           <Link href="/" className="flex items-center gap-2.5 flex-shrink-0">
             <img src="/eetee-logo.png" alt="eetee Cards" className="w-9 h-9 object-contain" />
-            <div>
-              <p className="font-display font-semibold text-lg tracking-tight leading-none">eetee Cards</p>
-              <p className="text-navy-300 text-xs mt-0.5">Detroit roots. Collecting since the &apos;90s.</p>
-            </div>
+            <p className="font-display font-semibold text-lg tracking-tight">eetee Cards</p>
           </Link>
 
           <form onSubmit={submitSearch} className="flex-1 min-w-[200px] max-w-xl">
@@ -247,11 +244,12 @@ function Row({ title, eyebrow, href, cards, loading, items, onAdd, onRemove, onO
             const inCart = items.some((i) => i.id === card.id)
             const bin = binForPrice(f['Asking Price'])
             return (
-              <div key={card.id} className="w-40 flex-shrink-0 bg-white rounded-xl border border-gray-200 overflow-hidden hover:shadow-lg hover:-translate-y-0.5 transition-all duration-150">
+              <div key={card.id} className="w-40 flex-shrink-0 bg-white rounded-b-xl border border-gray-200 overflow-hidden hover:shadow-lg hover:-translate-y-0.5 transition-all duration-150">
                 <div className="relative cursor-pointer" onClick={() => onOpen(card)}>
                   {f.Rookie && (
                     <span className="absolute top-2 right-2 z-10 text-xs font-bold bg-gold-400 text-navy-900 px-1.5 py-0.5 rounded">RC</span>
                   )}
+                  {/* Square corners on the photo itself — corner sharpness is real grading signal. */}
                   {f['Front Image URL'] ? (
                     <img src={cardImg(f['Front Image URL'])} alt={f.Player} className="w-full aspect-[3/4] object-cover" />
                   ) : (

@@ -320,7 +320,7 @@ function ShopInner() {
                   return (
                     <div
                       key={card.id}
-                      className="bg-white rounded-xl border border-gray-200 overflow-hidden hover:shadow-lg hover:-translate-y-0.5 transition-all duration-150"
+                      className="bg-white rounded-b-xl border border-gray-200 overflow-hidden hover:shadow-lg hover:-translate-y-0.5 transition-all duration-150"
                     >
                       <div className="relative cursor-pointer" onClick={() => setSelected(card)}>
                         {f.Condition && (
@@ -331,6 +331,7 @@ function ShopInner() {
                         {f.Rookie && (
                           <span className="absolute top-2 right-2 z-10 text-xs font-bold bg-gold-400 text-navy-900 px-1.5 py-0.5 rounded">RC</span>
                         )}
+                        {/* Square corners on the photo itself — corner sharpness is real grading signal. */}
                         {f['Front Image URL'] ? (
                           <img src={cardImg(f['Front Image URL'])} alt={f.Player} className="w-full aspect-[3/4] object-cover" />
                         ) : (

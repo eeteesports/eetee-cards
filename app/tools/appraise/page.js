@@ -152,7 +152,7 @@ export default function AppraisePage() {
                   }`}
                 >
                   {frontSrc
-                    ? <img src={frontSrc} alt="Front" className="max-h-full object-contain rounded-lg" />
+                    ? <img src={frontSrc} alt="Front" className="max-h-full object-contain" />
                     : <><span className="text-3xl">🃏</span><p className="text-xs text-gray-400 mt-1">Tap to add</p></>
                   }
                 </div>
@@ -167,7 +167,7 @@ export default function AppraisePage() {
                   }`}
                 >
                   {backSrc
-                    ? <img src={backSrc} alt="Back" className="max-h-full object-contain rounded-lg" />
+                    ? <img src={backSrc} alt="Back" className="max-h-full object-contain" />
                     : <><span className="text-3xl">🔄</span><p className="text-xs text-gray-400 mt-1">Tap to add</p></>
                   }
                 </div>
@@ -204,8 +204,8 @@ export default function AppraisePage() {
           {/* Photo thumbnails (photo mode only) */}
           {result.mode === 'photo' && (frontSrc || backSrc) && (
             <div className={`grid gap-3 ${backSrc ? 'grid-cols-2' : 'grid-cols-1'}`}>
-              {frontSrc && <img src={frontSrc} alt="Front" className="rounded-2xl object-contain border border-gray-200 max-h-64 w-full" />}
-              {backSrc  && <img src={backSrc}  alt="Back"  className="rounded-2xl object-contain border border-gray-200 max-h-64 w-full" />}
+              {frontSrc && <img src={frontSrc} alt="Front" className="object-contain border border-gray-200 max-h-64 w-full" />}
+              {backSrc  && <img src={backSrc}  alt="Back"  className="object-contain border border-gray-200 max-h-64 w-full" />}
             </div>
           )}
 
