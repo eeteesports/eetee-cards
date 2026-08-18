@@ -23,9 +23,13 @@ const CONDITIONS = [
 
 const emptyFilters = () => ({
   search: '', sport: '', league: '', team: '', set: '',
-  rookie: false, numbered: false, yearMin: '', yearMax: '',
+  rookie: false, numbered: false, graded: false, yearMin: '', yearMax: '',
   condition: '', priceMin: '', priceMax: '', bin: '',
 })
+
+// A card counts as "graded" if its condition isn't one of the raw-grade
+// buckets — i.e. it's a PSA/BGS/SGC slab grade instead.
+const isGradedCondition = (condition) => !!condition && !condition.startsWith('Raw')
 
 // Full searchable/filterable catalog — split out from the homepage
 // (2026-08-17 brand refresh) so "/" can be a curated landing page instead
@@ -47,8 +51,13 @@ function ShopInner() {
     ...emptyFilters(),
     search: searchParams.get('q') || '',
     sport: searchParams.get('sport') || '',
+    league: searchParams.get('league') || '',
+    team: searchParams.get('team') || '',
     bin: searchParams.get('bin') || '',
+    priceMin: searchParams.get('priceMin') || '',
+    priceMax: searchParams.get('priceMax') || '',
     rookie: searchParams.get('rookie') === 'true',
+    graded: searchParams.get('graded') === 'true',
   }))
 
   const setF = (key, val) => setFilters((p) => ({ ...p, [key]: val }))
@@ -91,13 +100,14 @@ function ShopInner() {
     }
     if (filters.priceMin && price < Number(filters.priceMin)) return false
     if (filters.priceMax && price > Number(filters.priceMax)) return false
+    if (filters.graded && !isGradedCondition(c.fields.Condition)) return false
     return true
   })
 
   const activeFilterCount = [
     filters.sport, filters.league, filters.team, filters.set,
     filters.condition, filters.yearMin, filters.yearMax,
-    filters.rookie, filters.numbered, filters.priceMin, filters.priceMax, filters.bin,
+    filters.rookie, filters.numbered, filters.graded, filters.priceMin, filters.priceMax, filters.bin,
   ].filter(Boolean).length
 
   const FilterPanel = (
@@ -154,6 +164,7 @@ function ShopInner() {
       <FilterSection title="Card Type">
         <Toggle active={filters.rookie}   onClick={() => toggleF('rookie')}   color="gold">⭐ Rookie Cards</Toggle>
         <Toggle active={filters.numbered} onClick={() => toggleF('numbered')} color="gold">🔢 Numbered Only</Toggle>
+        <Toggle active={filters.graded}   onClick={() => toggleF('graded')}   color="gold">🏆 Graded Only</Toggle>
       </FilterSection>
 
       <FilterSection title="Sport">
