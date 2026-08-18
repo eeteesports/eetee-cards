@@ -1,9 +1,11 @@
 // Hero wordmark (2026-08-18) — replaces the plain <h1>eetee Cards</h1> +
 // <p>tagline</p> pairing, which read as default-template text next to the
 // logo icon. This composes the two into one designed lockup: a soft card-
-// shape badge behind the wordmark, a gold divider rule, and the tagline
-// in a smaller, quieter weight — meant to read like real storefront
-// signage rather than a slide title.
+// shape badge behind the wordmark, a divider rule, and the tagline in a
+// smaller, quieter weight — meant to read like real storefront signage
+// rather than a slide title. Divider is royal blue, not gold — a design
+// pass (2026-08-18) rationed gold sitewide to price/deal contexts only,
+// so a purely decorative rule shouldn't compete with that.
 export default function WordmarkGraphic({ className = '' }) {
   return (
     <svg
@@ -32,8 +34,8 @@ export default function WordmarkGraphic({ className = '' }) {
         eetee <tspan fill="#132c68">Cards</tspan>
       </text>
 
-      {/* Gold divider rule */}
-      <rect x="101" y="70" width="46" height="3" rx="1.5" fill="#e8ac24" />
+      {/* Royal divider rule */}
+      <rect x="101" y="70" width="46" height="3" rx="1.5" fill="#2151d3" />
 
       <text
         x="100" y="95"

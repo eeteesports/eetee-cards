@@ -4,7 +4,6 @@ import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import { useCart } from '@/contexts/CartContext'
 import CardModal from '@/components/CardModal'
-import DealsBanner from '@/components/DealsBanner'
 import TeamPicker from '@/components/TeamPicker'
 import TeamShopBox from '@/components/TeamShopBox'
 import WordmarkGraphic from '@/components/WordmarkGraphic'
@@ -71,8 +70,6 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-royal-600">
-      <DealsBanner />
-
       {/* Header — full-bleed, no side rails here */}
       <div className="bg-navy-900 text-white">
         <div className="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between gap-4 flex-wrap">
@@ -100,7 +97,7 @@ export default function Home() {
               <span className="text-lg">🛒</span>
               <span className="text-sm font-semibold hidden sm:inline">Cart</span>
               {cartCount > 0 && (
-                <span className="absolute -top-1.5 -right-1.5 bg-gold-400 text-navy-900 text-xs font-bold w-5 h-5 rounded-full flex items-center justify-center">
+                <span className="absolute -top-1.5 -right-1.5 bg-white text-navy-900 text-xs font-bold w-5 h-5 rounded-full flex items-center justify-center">
                   {cartCount}
                 </span>
               )}
@@ -110,7 +107,7 @@ export default function Home() {
 
         {/* Category quick-nav — sport + price, Amazon-style */}
         <div className="max-w-7xl mx-auto px-4 pb-3 flex items-center gap-2 overflow-x-auto scrollbar-none">
-          <Link href="/shop" className="flex-shrink-0 text-xs font-semibold bg-gold-400 text-navy-900 px-3 py-1.5 rounded-full hover:bg-gold-300 transition-colors">
+          <Link href="/shop" className="flex-shrink-0 text-xs font-semibold bg-white text-navy-900 px-3 py-1.5 rounded-full hover:bg-white/90 transition-colors">
             Shop All
           </Link>
           {SPORT_TILES.map(({ sport, icon }) => (
@@ -147,21 +144,23 @@ export default function Home() {
               <WordmarkGraphic className="h-24 w-auto max-w-full" />
             </div>
 
-            <Link href="/shop" className="inline-block mt-6 bg-navy-900 hover:bg-navy-800 text-white font-semibold px-8 py-3 rounded-lg text-sm transition-colors">
-              Shop Now
-            </Link>
-
+            {/* One unified row of equal-weight tiles — a separate "Shop Now"
+                button above this row used to compete with it for primary-
+                action attention; now Shop Now IS the first tile. Shop by
+                Team moved to its own section below (see "Shop by Team"),
+                since its two-dropdown interaction didn't match the plain
+                single-click feel of its old siblings here. */}
             <div className="mt-8 grid grid-cols-2 sm:grid-cols-4 gap-4 max-w-3xl mx-auto text-left">
-              <ValueBox
-                href="/shop?bin=fifty-cent" icon="🪙" label="50¢ Value Box"
-                ribbon={fiftyCentDeal ? `${fiftyCentDeal.buyQty} for ${fiftyCentDeal.freeQty} free` : null}
-              />
+              <ValueBox href="/shop" icon="🛍️" label="Shop Now" sub="Browse everything" />
+              <ValueBox href="/shop?priceMin=25" icon="💎" label="High End Cards" sub="$25 and up" />
               <ValueBox
                 href="/shop?bin=one-dollar" icon="💵" label="$1 Value Box"
                 ribbon={dollarDeal ? `${dollarDeal.buyQty} for ${dollarDeal.freeQty} free` : null}
               />
-              <TeamShopBox />
-              <ValueBox href="/shop?priceMin=25" icon="💎" label="High End Cards" sub="$25 and up" />
+              <ValueBox
+                href="/shop?bin=fifty-cent" icon="🪙" label="50¢ Value Box"
+                ribbon={fiftyCentDeal ? `${fiftyCentDeal.buyQty} for ${fiftyCentDeal.freeQty} free` : null}
+              />
             </div>
           </div>
         </div>
@@ -224,6 +223,16 @@ export default function Home() {
               </div>
             </div>
           )}
+
+          {/* Shop by Team — moved out of the top quick-action row (its two-
+              dropdown interaction didn't match the single-click feel of
+              the other tiles there); paired here with Shop by Sport since
+              they're the same idea (browse by category), just a level
+              deeper. */}
+          <div>
+            <h2 className="font-display font-semibold text-xl text-gray-900 mb-3">Shop by Team</h2>
+            <TeamShopBox />
+          </div>
         </div>
 
         {/* Footer */}
@@ -287,7 +296,7 @@ function Row({ title, eyebrow, href, cards, loading, items, onAdd, onRemove, onO
     <div>
       <div className="flex items-baseline justify-between mb-3">
         <div>
-          <p className="text-xs font-bold uppercase tracking-widest text-gold-600">{eyebrow}</p>
+          <p className="text-xs font-bold uppercase tracking-widest text-navy-500">{eyebrow}</p>
           <h2 className="font-display font-semibold text-xl text-gray-900">{title}</h2>
         </div>
         <Link href={href} className="text-sm font-semibold text-navy-700 hover:underline flex-shrink-0">
@@ -317,7 +326,7 @@ function Row({ title, eyebrow, href, cards, loading, items, onAdd, onRemove, onO
               <div key={card.id} className="w-40 flex-shrink-0 bg-white rounded-b-xl border border-gray-200 overflow-hidden hover:shadow-lg hover:-translate-y-0.5 transition-all duration-150">
                 <div className="relative cursor-pointer" onClick={() => onOpen(card)}>
                   {f.Rookie && (
-                    <span className="absolute top-2 right-2 z-10 text-xs font-bold bg-gold-400 text-navy-900 px-1.5 py-0.5 rounded">RC</span>
+                    <span className="absolute top-2 right-2 z-10 text-xs font-bold bg-navy-900 text-white px-1.5 py-0.5 rounded">RC</span>
                   )}
                   {/* Square corners on the photo itself — corner sharpness is real grading signal. */}
                   {f['Front Image URL'] ? (

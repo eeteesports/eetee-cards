@@ -4,7 +4,6 @@ import { useSearchParams } from 'next/navigation'
 import Link from 'next/link'
 import { useCart } from '@/contexts/CartContext'
 import CardModal from '@/components/CardModal'
-import DealsBanner from '@/components/DealsBanner'
 import TeamPicker from '@/components/TeamPicker'
 import { PRICE_BINS, binForPrice } from '@/lib/priceBins'
 import { formatPrice } from '@/lib/format'
@@ -126,7 +125,7 @@ function ShopInner() {
       {activeFilterCount > 0 && (
         <button
           onClick={() => setFilters(emptyFilters())}
-          className="w-full mb-4 text-gold-300 font-semibold hover:underline text-left text-xs"
+          className="w-full mb-4 text-white font-semibold hover:underline text-left text-xs"
         >
           ✕ Clear all filters ({activeFilterCount})
         </button>
@@ -240,8 +239,6 @@ function ShopInner() {
 
   return (
     <div className="min-h-screen bg-royal-600">
-      <DealsBanner />
-
       {/* Header — full-bleed, no side rails here (matches the homepage) */}
       <div className="bg-navy-900 text-white">
         <div className="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between gap-3 flex-wrap">
@@ -255,7 +252,7 @@ function ShopInner() {
               <span className="text-lg">🛒</span>
               <span className="text-sm font-semibold hidden sm:inline">Cart</span>
               {cartCount > 0 && (
-                <span className="absolute -top-1.5 -right-1.5 bg-gold-400 text-navy-900 text-xs font-bold w-5 h-5 rounded-full flex items-center justify-center">
+                <span className="absolute -top-1.5 -right-1.5 bg-white text-navy-900 text-xs font-bold w-5 h-5 rounded-full flex items-center justify-center">
                   {cartCount}
                 </span>
               )}
@@ -364,7 +361,7 @@ function ShopInner() {
                           </span>
                         )}
                         {f.Rookie && (
-                          <span className="absolute top-2 right-2 z-10 text-xs font-bold bg-gold-400 text-navy-900 px-1.5 py-0.5 rounded">RC</span>
+                          <span className="absolute top-2 right-2 z-10 text-xs font-bold bg-navy-900 text-white px-1.5 py-0.5 rounded">RC</span>
                         )}
                         {/* Square corners on the photo itself — corner sharpness is real grading signal. */}
                         {f['Front Image URL'] ? (
