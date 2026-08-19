@@ -383,16 +383,24 @@ function ShopInner() {
                         </div>
                         <div className="flex items-center justify-between mt-2">
                           <p className="font-display font-semibold text-navy-900 text-sm">
-                            {f['Asking Price'] != null ? formatPrice(f['Asking Price']) : 'Make Offer'}
+                            {f['Asking Price'] != null ? formatPrice(f['Asking Price']) : 'Contact'}
                           </p>
-                          <button
-                            onClick={() => inCart ? remove(card.id) : add(card)}
-                            className={`text-xs font-bold px-2.5 py-1 rounded-lg transition-colors ${
-                              inCart ? 'bg-green-100 text-green-700' : 'bg-green-600 text-white hover:bg-green-700'
-                            }`}
-                          >
-                            {inCart ? '✓ In Cart' : '+ Cart'}
-                          </button>
+                          {f['Asking Price'] == null ? (
+                            <a href={`mailto:eeteecards@gmail.com?subject=${encodeURIComponent(`Pricing for ${f.Player || 'a card'}`)}`}
+                              onClick={(e) => e.stopPropagation()}
+                              className="text-xs font-bold px-2.5 py-1 rounded-lg bg-white border border-green-300 text-green-700 hover:bg-green-50 transition-colors">
+                              ✉️ Ask
+                            </a>
+                          ) : (
+                            <button
+                              onClick={() => inCart ? remove(card.id) : add(card)}
+                              className={`text-xs font-bold px-2.5 py-1 rounded-lg transition-colors ${
+                                inCart ? 'bg-green-100 text-green-700' : 'bg-green-600 text-white hover:bg-green-700'
+                              }`}
+                            >
+                              {inCart ? '✓ In Cart' : '+ Cart'}
+                            </button>
+                          )}
                         </div>
                       </div>
                     </div>
@@ -419,7 +427,7 @@ function ShopInner() {
           <Link href="/cart" className="flex items-center gap-3 bg-navy-900 text-white px-6 py-3 rounded-2xl shadow-2xl font-semibold text-sm hover:bg-navy-800 transition-colors">
             <span>🛒</span>
             <span>{cartCount} card{cartCount !== 1 ? 's' : ''} in cart</span>
-            <span className="bg-gold-400 text-navy-900 text-xs px-2 py-0.5 rounded-lg font-bold">View Offer →</span>
+            <span className="bg-gold-400 text-navy-900 text-xs px-2 py-0.5 rounded-lg font-bold">View Cart →</span>
           </Link>
         </div>
       )}

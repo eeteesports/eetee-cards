@@ -183,7 +183,7 @@ export default function TeamPage({ params }) {
           <Link href="/cart" className="flex items-center gap-3 bg-navy-900 text-white px-6 py-3 rounded-2xl shadow-2xl font-semibold text-sm hover:bg-navy-800 transition-colors">
             <span>🛒</span>
             <span>{cartCount} card{cartCount !== 1 ? 's' : ''} in cart</span>
-            <span className="bg-gold-400 text-navy-900 text-xs px-2 py-0.5 rounded-lg font-bold">View Offer →</span>
+            <span className="bg-gold-400 text-navy-900 text-xs px-2 py-0.5 rounded-lg font-bold">View Cart →</span>
           </Link>
         </div>
       )}
