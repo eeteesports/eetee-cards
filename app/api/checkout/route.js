@@ -57,20 +57,27 @@ export async function POST(request) {
     }
   })
 
+  // Stripe's dedicated shipping field, not a plain line item — we still
+  // decide the price ourselves (lib/shipping.js's weight/value rules;
+  // Stripe has no idea what a card weighs), but reporting it this way
+  // gets it a proper "Shipping" row on Stripe's own checkout page and
+  // makes session.amount_subtotal / total_details.amount_shipping
+  // actually correct when we read the session back later — a plain line
+  // item silently breaks both (amount_shipping stays 0, amount_subtotal
+  // quietly folds shipping in with the cards).
   const shippingLabel = PACKAGING_LABELS[shipping.packaging] + (shipping.signatureRequired ? ' + Signature Confirmation' : '')
-  lineItems.push({
-    quantity: 1,
-    price_data: {
-      currency: 'usd',
-      unit_amount: Math.round(shipping.cost * 100),
-      product_data: { name: `Shipping — ${shippingLabel}` },
-    },
-  })
 
   const sessionParams = {
     mode: 'payment',
     line_items: lineItems,
     shipping_address_collection: { allowed_countries: ['US'] },
+    shipping_options: [{
+      shipping_rate_data: {
+        type: 'fixed_amount',
+        fixed_amount: { amount: Math.round(shipping.cost * 100), currency: 'usd' },
+        display_name: shippingLabel,
+      },
+    }],
     success_url: `${origin}/order/confirmation?session_id={CHECKOUT_SESSION_ID}`,
     cancel_url: `${origin}/cart`,
     metadata: {

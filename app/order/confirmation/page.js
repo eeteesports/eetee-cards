@@ -46,18 +46,25 @@ export default async function OrderConfirmationPage({ searchParams }) {
       expand: ['line_items', 'line_items.data.price.product'],
     })
     if (session.payment_status === 'paid') {
+      // Card records + images still need pulling from the expanded line
+      // items (that's the only place they live), but the dollar totals
+      // now come straight from Stripe's own fields — shipping_options at
+      // checkout creation (see app/api/checkout) means amount_subtotal
+      // and total_details.amount_shipping are actually correct now,
+      // instead of needing to be reconstructed from line items.
       const cardLines = session.line_items.data.filter((li) => li.price?.product?.metadata?.cardId)
       const cards = await Promise.all(cardLines.map((li) => getCard(li.price.product.metadata.cardId)))
       const items = cardLines.map((li, i) => ({ card: cards[i], price: (li.amount_total ?? 0) / 100 }))
-      const itemsSubtotal = items.reduce((s, i) => s + i.price, 0)
-      const shippingCost = Math.max(0, (session.amount_total ?? 0) / 100 - itemsSubtotal)
+      const subtotal = (session.amount_subtotal ?? 0) / 100
+      const shippingCost = (session.total_details?.amount_shipping ?? 0) / 100
+      const total = (session.amount_total ?? 0) / 100
 
       return (
         <Shell>
-          <PurchaseTracker transactionId={sessionId} value={(session.amount_total ?? 0) / 100} shippingCost={shippingCost} items={items} />
+          <PurchaseTracker transactionId={sessionId} value={total} shippingCost={shippingCost} items={items} />
           <Header email={session.customer_details?.email} />
           <ItemList items={items} />
-          <Totals subtotal={itemsSubtotal} shipping={shippingCost} total={(session.amount_total ?? 0) / 100} />
+          <Totals subtotal={subtotal} shipping={shippingCost} total={total} />
         </Shell>
       )
     }
