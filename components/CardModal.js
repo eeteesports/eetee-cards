@@ -4,6 +4,7 @@ import Link from 'next/link'
 import { useCart } from '@/contexts/CartContext'
 import { TEAMS_BY_LEAGUE } from '@/app/add/teams'
 import CardBadges from '@/components/CardBadges'
+import { trackViewItem } from '@/lib/analytics'
 
 function cardImg(url) {
   if (!url || !url.includes('res.cloudinary.com')) return url
@@ -108,6 +109,12 @@ export default function CardModal({ card, onClose, onRefresh, publicView = true 
     window.addEventListener('keydown', handler)
     return () => window.removeEventListener('keydown', handler)
   }, [onClose, zoomedImage])
+
+  // Only real shoppers, not admin edit view — one fire per card opened.
+  useEffect(() => {
+    if (publicView) trackViewItem(card)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [card.id])
 
   async function handleSave() {
     setSaving(true)

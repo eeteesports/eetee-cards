@@ -11,6 +11,8 @@
   "dependencies": {
     "@anthropic-ai/sdk": "^0.20.0",
     "@libsql/client": "^0.17.4",
+    "@next/third-parties": "^16.3.1",
+    "@vercel/analytics": "^2.0.1",
     "next": "14.2.0",
     "next-auth": "^4.24.7",
     "react": "^18",

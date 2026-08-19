@@ -2,6 +2,7 @@ import Link from 'next/link'
 import { getWebOrderBySessionId, getCard } from '@/lib/db'
 import { getStripe } from '@/lib/stripe'
 import { formatPrice } from '@/lib/format'
+import PurchaseTracker from '@/components/PurchaseTracker'
 
 function cardImg(url) {
   if (!url || !url.includes('res.cloudinary.com')) return url
@@ -28,10 +29,12 @@ export default async function OrderConfirmationPage({ searchParams }) {
 
   const order = await getWebOrderBySessionId(sessionId)
   if (order) {
+    const items = order.items.map((i) => ({ card: i.card, price: i.price }))
     return (
       <Shell>
+        <PurchaseTracker transactionId={sessionId} value={order.total} shippingCost={order.shipping_cost} items={items} />
         <Header email={order.buyer_email} />
-        <ItemList items={order.items.map((i) => ({ card: i.card, price: i.price }))} />
+        <ItemList items={items} />
         <Totals subtotal={order.subtotal} shipping={order.shipping_cost} total={order.total} />
       </Shell>
     )
@@ -46,16 +49,15 @@ export default async function OrderConfirmationPage({ searchParams }) {
       const cardLines = session.line_items.data.filter((li) => li.price?.product?.metadata?.cardId)
       const cards = await Promise.all(cardLines.map((li) => getCard(li.price.product.metadata.cardId)))
       const items = cardLines.map((li, i) => ({ card: cards[i], price: (li.amount_total ?? 0) / 100 }))
+      const itemsSubtotal = items.reduce((s, i) => s + i.price, 0)
+      const shippingCost = Math.max(0, (session.amount_total ?? 0) / 100 - itemsSubtotal)
 
       return (
         <Shell>
+          <PurchaseTracker transactionId={sessionId} value={(session.amount_total ?? 0) / 100} shippingCost={shippingCost} items={items} />
           <Header email={session.customer_details?.email} />
           <ItemList items={items} />
-          <Totals
-            subtotal={items.reduce((s, i) => s + i.price, 0)}
-            shipping={Math.max(0, (session.amount_total ?? 0) / 100 - items.reduce((s, i) => s + i.price, 0))}
-            total={(session.amount_total ?? 0) / 100}
-          />
+          <Totals subtotal={itemsSubtotal} shipping={shippingCost} total={(session.amount_total ?? 0) / 100} />
         </Shell>
       )
     }

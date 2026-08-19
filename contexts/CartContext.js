@@ -1,5 +1,6 @@
 'use client'
 import { createContext, useContext, useState, useEffect } from 'react'
+import { trackAddToCart, trackRemoveFromCart } from '@/lib/analytics'
 
 const CartContext = createContext({ items: [], add: () => {}, remove: () => {}, clear: () => {} })
 
@@ -32,14 +33,17 @@ export function CartProvider({ children }) {
       try { localStorage.setItem('eetee-cart', JSON.stringify(next)) } catch {}
       return next
     })
+    trackAddToCart(card)
   }
 
   function remove(id) {
+    const removed = items.find((i) => i.id === id)
     setItems((prev) => {
       const next = prev.filter((i) => i.id !== id)
       try { localStorage.setItem('eetee-cart', JSON.stringify(next)) } catch {}
       return next
     })
+    if (removed) trackRemoveFromCart(removed)
   }
 
   function clear() {

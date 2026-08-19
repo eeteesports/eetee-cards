@@ -5,6 +5,7 @@ import { useCart } from '@/contexts/CartContext'
 import { formatPrice } from '@/lib/format'
 import { computeShipping, PACKAGING_LABELS } from '@/lib/shipping'
 import { computeDiscount } from '@/lib/discounts'
+import { trackBeginCheckout } from '@/lib/analytics'
 
 function cardImg(url) {
   if (!url || !url.includes('res.cloudinary.com')) return url
@@ -59,6 +60,7 @@ export default function CartPage() {
   async function handleCheckout() {
     setSubmitting(true)
     setError('')
+    trackBeginCheckout(items, total)
     try {
       const res = await fetch('/api/checkout', {
         method: 'POST',

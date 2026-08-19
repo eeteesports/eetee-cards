@@ -1,4 +1,6 @@
 import { Inter, Space_Grotesk } from 'next/font/google'
+import { GoogleAnalytics } from '@next/third-parties/google'
+import { Analytics } from '@vercel/analytics/next'
 import './globals.css'
 import Navbar from '@/components/Navbar'
 import Providers from '@/components/Providers'
@@ -36,6 +38,8 @@ export default function RootLayout({ children }) {
           <Navbar />
           <main><PageWrapper>{children}</PageWrapper></main>
         </Providers>
+        <Analytics />
+        <GoogleAnalytics gaId="G-Z6WJXPD14L" />
       </body>
     </html>
   )
