@@ -4,6 +4,7 @@ import { useSearchParams } from 'next/navigation'
 import Link from 'next/link'
 import { useCart } from '@/contexts/CartContext'
 import CardModal from '@/components/CardModal'
+import CardBadges from '@/components/CardBadges'
 import TeamPicker from '@/components/TeamPicker'
 import { PRICE_BINS, binForPrice } from '@/lib/priceBins'
 import { formatPrice } from '@/lib/format'
@@ -355,14 +356,7 @@ function ShopInner() {
                       className="bg-white rounded-b-xl border border-gray-200 overflow-hidden hover:shadow-lg hover:-translate-y-0.5 transition-all duration-150"
                     >
                       <div className="relative cursor-pointer" onClick={() => setSelected(card)}>
-                        {f.Condition && (
-                          <span className="absolute top-2 left-2 z-10 text-xs font-semibold px-2 py-0.5 rounded bg-gray-100 text-gray-700">
-                            {f.Condition}
-                          </span>
-                        )}
-                        {f.Rookie && (
-                          <span className="absolute top-2 right-2 z-10 text-xs font-bold bg-navy-900 text-white px-1.5 py-0.5 rounded">RC</span>
-                        )}
+                        <CardBadges fields={f} size="sm" />
                         {/* Square corners on the photo itself — corner sharpness is real grading signal. */}
                         {f['Front Image URL'] ? (
                           <img src={cardImg(f['Front Image URL'])} alt={f.Player} className="w-full aspect-[3/4] object-cover" />
@@ -377,11 +371,11 @@ function ShopInner() {
                           <p className="text-navy-600 text-xs font-medium mt-0.5 truncate">{f['Parallel / Variant']}</p>
                         )}
                         <div className="flex flex-wrap gap-1 mt-1.5">
+                          {f.Condition && (
+                            <span className="text-xs bg-gray-100 text-gray-600 px-1.5 py-0.5 rounded-full">{f.Condition}</span>
+                          )}
                           {bin && (bin.key === 'fifty-cent' || bin.key === 'one-dollar') && (
                             <span className="text-xs bg-gold-100 text-gold-800 px-1.5 py-0.5 rounded-full font-semibold">{bin.label}</span>
-                          )}
-                          {f.Numbered && f['Print Run'] && (
-                            <span className="text-xs bg-orange-100 text-orange-800 px-1.5 py-0.5 rounded-full font-medium">🔢 /{f['Print Run']}</span>
                           )}
                           {f.League && (
                             <span className="text-xs bg-navy-50 text-navy-700 px-1.5 py-0.5 rounded-full">{f.League}</span>

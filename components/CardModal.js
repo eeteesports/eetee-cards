@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react'
 import Link from 'next/link'
 import { useCart } from '@/contexts/CartContext'
 import { TEAMS_BY_LEAGUE } from '@/app/add/teams'
+import CardBadges from '@/components/CardBadges'
 
 function cardImg(url) {
   if (!url || !url.includes('res.cloudinary.com')) return url
@@ -40,6 +41,7 @@ export default function CardModal({ card, onClose, onRefresh, publicView = true 
   const [error, setError] = useState('')
   const [centeringLoading, setCenteringLoading] = useState(false)
   const [refreshingValue, setRefreshingValue] = useState(false)
+  const [zoomedImage, setZoomedImage] = useState(null) // { url, alt } — raw, untransformed source for close inspection
   const [valueSource, setValueSource] = useState(f['Value Notes'] ? null : null)
 
   const [form, setForm] = useState({
@@ -98,10 +100,14 @@ export default function CardModal({ card, onClose, onRefresh, publicView = true 
     : null
 
   useEffect(() => {
-    const handler = (e) => { if (e.key === 'Escape') onClose() }
+    const handler = (e) => {
+      if (e.key !== 'Escape') return
+      if (zoomedImage) setZoomedImage(null)
+      else onClose()
+    }
     window.addEventListener('keydown', handler)
     return () => window.removeEventListener('keydown', handler)
-  }, [onClose])
+  }, [onClose, zoomedImage])
 
   async function handleSave() {
     setSaving(true)
@@ -247,6 +253,7 @@ export default function CardModal({ card, onClose, onRefresh, publicView = true 
   const centeringColors = CENTERING_GRADE_COLOR[centeringGrade] || 'text-gray-600 bg-gray-50 border-gray-200'
 
   return (
+    <>
     <div
       className="fixed inset-0 bg-black/70 z-50 flex items-end md:items-center justify-center"
       onClick={onClose}
@@ -293,17 +300,25 @@ export default function CardModal({ card, onClose, onRefresh, publicView = true 
             grading signal a rounded crop would misrepresent. */}
         <div className="px-5 pt-4 flex flex-wrap gap-4 justify-center">
           {f['Front Image URL'] ? (
-            <img src={cardImg(f['Front Image URL'])} alt={f.Player}
-              className="h-64 w-auto max-w-full object-contain border border-gray-200" />
+            <div className="relative cursor-zoom-in group" onClick={() => setZoomedImage({ url: f['Front Image URL'], alt: f.Player })}>
+              <CardBadges fields={f} />
+              <img src={cardImg(f['Front Image URL'])} alt={f.Player}
+                className="h-64 w-auto max-w-full object-contain border border-gray-200" />
+              <ZoomHint />
+            </div>
           ) : (
             <div className="h-64 w-48 bg-gray-100 flex items-center justify-center text-gray-400">
               <div className="text-center"><span className="text-5xl block">🃏</span><span className="text-sm mt-2 block">No Image</span></div>
             </div>
           )}
           {f['Back Image URL'] && (
-            <img src={cardImg(f['Back Image URL'])} alt="Back" className="h-64 w-auto max-w-full object-contain border border-gray-200" />
+            <div className="relative cursor-zoom-in group" onClick={() => setZoomedImage({ url: f['Back Image URL'], alt: `${f.Player} — back` })}>
+              <img src={cardImg(f['Back Image URL'])} alt="Back" className="h-64 w-auto max-w-full object-contain border border-gray-200" />
+              <ZoomHint />
+            </div>
           )}
         </div>
+        <p className="text-center text-xs text-gray-400 -mt-1 mb-1">Tap a photo to zoom in — check corners and surface</p>
 
         <div className="p-5 space-y-4">
           {editing && !publicView ? (
@@ -635,6 +650,37 @@ export default function CardModal({ card, onClose, onRefresh, publicView = true 
         </div>
       </div>
     </div>
+
+    {/* Zoom lightbox — raw, untransformed image (no Cloudinary crop/pad)
+        so corners and surface show at full fidelity, not a thumbnail. */}
+    {zoomedImage && (
+      <div
+        className="fixed inset-0 bg-black/90 z-[60] flex items-center justify-center p-4 cursor-zoom-out"
+        onClick={() => setZoomedImage(null)}
+      >
+        <button
+          onClick={() => setZoomedImage(null)}
+          className="absolute top-4 right-4 text-white/70 hover:text-white text-4xl leading-none font-light"
+        >
+          ×
+        </button>
+        <img
+          src={zoomedImage.url}
+          alt={zoomedImage.alt}
+          className="max-w-full max-h-full object-contain"
+          onClick={(e) => e.stopPropagation()}
+        />
+      </div>
+    )}
+    </>
+  )
+}
+
+function ZoomHint() {
+  return (
+    <span className="absolute bottom-1.5 right-1.5 w-6 h-6 rounded-full bg-black/50 text-white text-xs flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+      🔍
+    </span>
   )
 }
 

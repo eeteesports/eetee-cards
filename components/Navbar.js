@@ -26,8 +26,12 @@ export default function Navbar() {
   // Close on route change
   useEffect(() => { setAddOpen(false) }, [pathname])
 
-  // Hide navbar on login and the public homepage/shop (they build their own headers)
-  if (pathname === '/login' || pathname === '/' || pathname === '/shop') return null
+  // Hide navbar on login and every public storefront page — each of these
+  // builds its own navy/royal header, so this admin nav would double up on
+  // top of it (2026-08-18: /cart and /team/[team] were missing from this
+  // list, which is why they looked like a different site once you clicked
+  // in — this bar was rendering above their real header).
+  if (pathname === '/login' || pathname === '/' || pathname === '/shop' || pathname === '/cart' || pathname.startsWith('/team/')) return null
 
   const adminLinks = [
     { href: '/dashboard',  label: 'Dashboard',  icon: '📈' },

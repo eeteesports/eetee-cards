@@ -4,6 +4,7 @@ import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import { useCart } from '@/contexts/CartContext'
 import CardModal from '@/components/CardModal'
+import CardBadges from '@/components/CardBadges'
 import TeamPicker from '@/components/TeamPicker'
 import TeamShopBox from '@/components/TeamShopBox'
 import WordmarkGraphic from '@/components/WordmarkGraphic'
@@ -325,9 +326,7 @@ function Row({ title, eyebrow, href, cards, loading, items, onAdd, onRemove, onO
             return (
               <div key={card.id} className="w-40 flex-shrink-0 bg-white rounded-b-xl border border-gray-200 overflow-hidden hover:shadow-lg hover:-translate-y-0.5 transition-all duration-150">
                 <div className="relative cursor-pointer" onClick={() => onOpen(card)}>
-                  {f.Rookie && (
-                    <span className="absolute top-2 right-2 z-10 text-xs font-bold bg-navy-900 text-white px-1.5 py-0.5 rounded">RC</span>
-                  )}
+                  <CardBadges fields={f} size="sm" />
                   {/* Square corners on the photo itself — corner sharpness is real grading signal. */}
                   {f['Front Image URL'] ? (
                     <img src={cardImg(f['Front Image URL'])} alt={f.Player} className="w-full aspect-[3/4] object-cover" />
@@ -338,6 +337,9 @@ function Row({ title, eyebrow, href, cards, loading, items, onAdd, onRemove, onO
                 <div className="p-2.5">
                   <p className="font-semibold text-xs truncate text-gray-900">{f.Player || 'Unknown'}</p>
                   <p className="text-gray-400 text-[11px] truncate mt-0.5">{[f.Year, f.Brand, f.Set].filter(Boolean).join(' · ')}</p>
+                  {f.Condition && (
+                    <p className="text-gray-400 text-[10px] truncate mt-0.5">{f.Condition}</p>
+                  )}
                   {bin && (bin.key === 'fifty-cent' || bin.key === 'one-dollar') && (
                     <span className="inline-block mt-1 text-[10px] bg-gold-100 text-gold-800 px-1.5 py-0.5 rounded-full font-semibold">{bin.label}</span>
                   )}
