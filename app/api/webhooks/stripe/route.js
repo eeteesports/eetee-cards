@@ -10,7 +10,8 @@
 // is computed over the exact bytes it sent, and re-serializing a parsed
 // object won't match.
 import { getStripe } from '@/lib/stripe'
-import { createWebOrder } from '@/lib/db'
+import { createWebOrder, getWebOrderBySessionId } from '@/lib/db'
+import { sendOrderNotification } from '@/lib/notify'
 
 export async function POST(request) {
   const stripe = getStripe()
@@ -30,7 +31,7 @@ export async function POST(request) {
     const cardIds = (session.metadata?.cardIds || '').split(',').filter(Boolean)
 
     if (cardIds.length) {
-      await createWebOrder({
+      const { alreadyExisted } = await createWebOrder({
         stripeSessionId: session.id,
         stripePaymentIntent: session.payment_intent,
         buyerName: session.customer_details?.name,
@@ -42,6 +43,15 @@ export async function POST(request) {
         total: (session.amount_total ?? 0) / 100,
         cardIds,
       })
+
+      // Only on first delivery — Stripe can redeliver the same event, and
+      // createWebOrder is written to no-op on a repeat, but this isn't,
+      // so it needs its own guard against a duplicate "you sold this!"
+      // email.
+      if (!alreadyExisted) {
+        const order = await getWebOrderBySessionId(session.id)
+        if (order) await sendOrderNotification(order)
+      }
     }
   }
 
