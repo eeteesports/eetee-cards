@@ -23,8 +23,8 @@ export function CartProvider({ children }) {
 
   function add(card) {
     // Checkout charges a fixed amount per line item — an unpriced card
-    // (still shown as "Make Offer" in the UI) can't go through Buy Now,
-    // so it's never addable to the cart at all.
+    // (shown as "Contact for Pricing" in the UI instead) can't go through
+    // Buy Now, so it's never addable to the cart at all.
     if (card.fields?.['Asking Price'] == null) return
     setItems((prev) => {
       if (prev.find((i) => i.id === card.id)) return prev

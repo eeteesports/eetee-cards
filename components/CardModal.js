@@ -633,8 +633,8 @@ export default function CardModal({ card, onClose, onRefresh, publicView = true 
                     )}
                     {inCart && (
                       <Link href="/cart" onClick={onClose}
-                        className="flex-1 py-2.5 rounded-xl font-bold text-sm text-center bg-[#0f1b35] text-white hover:bg-blue-900 transition-colors">
-                        View Cart & Offer →
+                        className="flex-1 py-2.5 rounded-xl font-bold text-sm text-center bg-navy-900 text-white hover:bg-navy-800 transition-colors">
+                        View Cart & Checkout →
                       </Link>
                     )}
                   </div>

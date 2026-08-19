@@ -141,7 +141,7 @@ export default function TeamPage({ params }) {
 
         {noPriceCards.length > 0 && (
           <div className="mb-10">
-            <h2 className="font-display font-semibold text-lg text-gray-900 mb-3">Make an Offer</h2>
+            <h2 className="font-display font-semibold text-lg text-gray-900 mb-3">Ask About These</h2>
             <div className="flex gap-4 overflow-x-auto pb-2 scrollbar-none -mx-1 px-1">
               {noPriceCards.map((card) => {
                 const f = card.fields

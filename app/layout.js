@@ -15,7 +15,7 @@ const spaceGrotesk = Space_Grotesk({ subsets: ['latin'], weight: ['500', '600', 
 
 export const metadata = {
   title: 'eetee Cards',
-  description: 'A personal sports card collection — browse, buy, and make offers.',
+  description: 'A personal sports card collection — browse and buy.',
   icons: {
     icon: '/eetee-logo.png',
     apple: '/eetee-logo.png',

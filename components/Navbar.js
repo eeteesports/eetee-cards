@@ -30,8 +30,12 @@ export default function Navbar() {
   // builds its own navy/royal header, so this admin nav would double up on
   // top of it (2026-08-18: /cart and /team/[team] were missing from this
   // list, which is why they looked like a different site once you clicked
-  // in — this bar was rendering above their real header).
-  if (pathname === '/login' || pathname === '/' || pathname === '/shop' || pathname === '/cart' || pathname.startsWith('/team/')) return null
+  // in — this bar was rendering above their real header. 2026-08-19: same
+  // bug on /order/confirmation, added here too).
+  if (
+    pathname === '/login' || pathname === '/' || pathname === '/shop' ||
+    pathname === '/cart' || pathname.startsWith('/team/') || pathname.startsWith('/order/')
+  ) return null
 
   const adminLinks = [
     { href: '/dashboard',  label: 'Dashboard',  icon: '📈' },

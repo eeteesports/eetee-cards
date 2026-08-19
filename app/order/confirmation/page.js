@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { getWebOrderBySessionId } from '@/lib/db'
+import { getWebOrderBySessionId, getCard } from '@/lib/db'
 import { getStripe } from '@/lib/stripe'
 import { formatPrice } from '@/lib/format'
 
@@ -12,8 +12,10 @@ function cardImg(url) {
 // successful payment. The webhook (app/api/webhooks/stripe) is what
 // actually records the order, and it can land a beat after this redirect
 // does, so this checks our own web_orders table first and falls back to
-// asking Stripe directly for the session so the page never shows an
-// error just because it beat the webhook here.
+// asking Stripe directly for the session — rebuilt from the same real
+// card records (each line item carries its cardId in metadata, set in
+// app/api/checkout) so the buyer sees the cards they bought either way,
+// not a "processing" placeholder.
 export default async function OrderConfirmationPage({ searchParams }) {
   const sessionId = searchParams?.session_id
   if (!sessionId) {
@@ -35,19 +37,23 @@ export default async function OrderConfirmationPage({ searchParams }) {
     )
   }
 
-  // Webhook hasn't landed yet — ask Stripe directly so the buyer still
-  // sees a real confirmation instead of an error.
   try {
     const stripe = getStripe()
-    const session = await stripe.checkout.sessions.retrieve(sessionId, { expand: ['line_items'] })
+    const session = await stripe.checkout.sessions.retrieve(sessionId, {
+      expand: ['line_items', 'line_items.data.price.product'],
+    })
     if (session.payment_status === 'paid') {
+      const cardLines = session.line_items.data.filter((li) => li.price?.product?.metadata?.cardId)
+      const cards = await Promise.all(cardLines.map((li) => getCard(li.price.product.metadata.cardId)))
+      const items = cardLines.map((li, i) => ({ card: cards[i], price: (li.amount_total ?? 0) / 100 }))
+
       return (
         <Shell>
           <Header email={session.customer_details?.email} />
-          <p className="text-sm text-gray-500 mb-4">Order details are finishing up — a full confirmation is on its way to your email.</p>
+          <ItemList items={items} />
           <Totals
-            subtotal={(session.amount_subtotal ?? 0) / 100}
-            shipping={(session.total_details?.amount_shipping ?? 0) / 100}
+            subtotal={items.reduce((s, i) => s + i.price, 0)}
+            shipping={Math.max(0, (session.amount_total ?? 0) / 100 - items.reduce((s, i) => s + i.price, 0))}
             total={(session.amount_total ?? 0) / 100}
           />
         </Shell>
