@@ -4,6 +4,7 @@ import Link from 'next/link'
 import { useCart } from '@/contexts/CartContext'
 import { formatPrice } from '@/lib/format'
 import { computeShipping, PACKAGING_LABELS } from '@/lib/shipping'
+import { computeDiscount } from '@/lib/discounts'
 
 function cardImg(url) {
   if (!url || !url.includes('res.cloudinary.com')) return url
@@ -52,7 +53,8 @@ export default function CartPage() {
     () => computeShipping(items.map((c) => ({ weightClass: c.fields?.['Weight Class'], price: c.fields?.['Asking Price'] || 0 }))),
     [items]
   )
-  const total = subtotal + (items.length ? shipping.cost : 0)
+  const discount = useMemo(() => computeDiscount(items), [items])
+  const total = Math.max(0, subtotal + (items.length ? shipping.cost : 0) - discount.amount)
 
   async function handleCheckout() {
     setSubmitting(true)
@@ -147,6 +149,12 @@ export default function CartPage() {
             <span>Shipping — {PACKAGING_LABELS[shipping.packaging]}{shipping.signatureRequired ? ' + signature' : ''}</span>
             <span>{formatPrice(shipping.cost)}</span>
           </div>
+          {discount.amount > 0 && (
+            <div className="flex justify-between text-sm text-green-600 font-medium">
+              <span>🎉 {discount.labels.join(', ')}</span>
+              <span>-{formatPrice(discount.amount)}</span>
+            </div>
+          )}
           <div className="flex justify-between font-display font-semibold text-gray-900 text-lg pt-1.5 border-t border-gray-100">
             <span>Total</span><span>{formatPrice(total)}</span>
           </div>

@@ -6,6 +6,7 @@
 import { getCard } from '@/lib/db'
 import { getStripe } from '@/lib/stripe'
 import { computeShipping, PACKAGING_LABELS } from '@/lib/shipping'
+import { computeDiscount } from '@/lib/discounts'
 
 export async function POST(request) {
   const { cardIds } = await request.json()
@@ -66,7 +67,7 @@ export async function POST(request) {
     },
   })
 
-  const session = await stripe.checkout.sessions.create({
+  const sessionParams = {
     mode: 'payment',
     line_items: lineItems,
     shipping_address_collection: { allowed_countries: ['US'] },
@@ -76,7 +77,25 @@ export async function POST(request) {
       cardIds: available.map((c) => c.id).join(','),
       shippingMethod: shipping.packaging,
     },
-  })
+  }
+
+  // Automatic discount — a fresh one-time coupon for the exact computed
+  // amount, so the buyer never has to type a promo code. Whatever rules
+  // qualified (bulk bin deals today, a spend threshold whenever one's
+  // configured — see lib/discounts.js) are just added together into one
+  // number here.
+  const discount = computeDiscount(available)
+  if (discount.amount > 0) {
+    const coupon = await stripe.coupons.create({
+      amount_off: Math.round(discount.amount * 100),
+      currency: 'usd',
+      duration: 'once',
+      name: discount.labels.join(', ').slice(0, 40),
+    })
+    sessionParams.discounts = [{ coupon: coupon.id }]
+  }
+
+  const session = await stripe.checkout.sessions.create(sessionParams)
 
   return Response.json({ url: session.url, unavailable })
 }
