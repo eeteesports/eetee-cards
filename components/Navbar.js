@@ -31,10 +31,11 @@ export default function Navbar() {
   // top of it (2026-08-18: /cart and /team/[team] were missing from this
   // list, which is why they looked like a different site once you clicked
   // in — this bar was rendering above their real header. 2026-08-19: same
-  // bug on /order/confirmation, added here too).
+  // bug on /order/confirmation, added here too; 2026-08-20: /privacy too).
   if (
     pathname === '/login' || pathname === '/' || pathname === '/shop' ||
-    pathname === '/cart' || pathname.startsWith('/team/') || pathname.startsWith('/order/')
+    pathname === '/cart' || pathname.startsWith('/team/') || pathname.startsWith('/order/') ||
+    pathname === '/privacy'
   ) return null
 
   const adminLinks = [
