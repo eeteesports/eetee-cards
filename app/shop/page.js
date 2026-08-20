@@ -366,14 +366,11 @@ function ShopInner() {
                       </div>
                       <div className="p-3">
                         <p className="font-semibold text-sm truncate text-gray-900">{f.Player || 'Unknown'}</p>
-                        <p className="text-gray-400 text-xs truncate mt-0.5">{[f.Year, f.Brand, f.Set].filter(Boolean).join(' · ')}</p>
                         {f['Parallel / Variant'] && (
-                          <p className="text-navy-600 text-xs font-medium mt-0.5 truncate">{f['Parallel / Variant']}</p>
+                          <p className="text-royal-600 text-xs font-bold truncate mt-0.5">{f['Parallel / Variant']}</p>
                         )}
+                        <p className="text-gray-400 text-xs truncate mt-0.5">{[f.Year, f.Brand, f.Set].filter(Boolean).join(' · ')}</p>
                         <div className="flex flex-wrap gap-1 mt-1.5">
-                          {f.Condition && (
-                            <span className="text-xs bg-gray-100 text-gray-600 px-1.5 py-0.5 rounded-full">{f.Condition}</span>
-                          )}
                           {bin && (bin.key === 'fifty-cent' || bin.key === 'one-dollar') && (
                             <span className="text-xs bg-gold-100 text-gold-800 px-1.5 py-0.5 rounded-full font-semibold">{bin.label}</span>
                           )}

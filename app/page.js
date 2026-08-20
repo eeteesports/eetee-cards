@@ -336,10 +336,10 @@ function Row({ title, eyebrow, href, cards, loading, items, onAdd, onRemove, onO
                 </div>
                 <div className="p-2.5">
                   <p className="font-semibold text-xs truncate text-gray-900">{f.Player || 'Unknown'}</p>
-                  <p className="text-gray-400 text-[11px] truncate mt-0.5">{[f.Year, f.Brand, f.Set].filter(Boolean).join(' · ')}</p>
-                  {f.Condition && (
-                    <p className="text-gray-400 text-[10px] truncate mt-0.5">{f.Condition}</p>
+                  {f['Parallel / Variant'] && (
+                    <p className="text-royal-600 text-[11px] font-bold truncate mt-0.5">{f['Parallel / Variant']}</p>
                   )}
+                  <p className="text-gray-400 text-[11px] truncate mt-0.5">{[f.Year, f.Brand, f.Set].filter(Boolean).join(' · ')}</p>
                   {bin && (bin.key === 'fifty-cent' || bin.key === 'one-dollar') && (
                     <span className="inline-block mt-1 text-[10px] bg-gold-100 text-gold-800 px-1.5 py-0.5 rounded-full font-semibold">{bin.label}</span>
                   )}

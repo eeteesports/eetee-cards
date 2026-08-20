@@ -116,10 +116,10 @@ export default function TeamPage({ params }) {
                     </div>
                     <div className="p-2.5">
                       <p className="font-semibold text-xs truncate text-gray-900">{f.Player || 'Unknown'}</p>
-                      <p className="text-gray-400 text-[11px] truncate mt-0.5">{[f.Year, f.Set].filter(Boolean).join(' · ')}</p>
-                      {f.Condition && (
-                        <p className="text-gray-400 text-[10px] truncate mt-0.5">{f.Condition}</p>
+                      {f['Parallel / Variant'] && (
+                        <p className="text-royal-600 text-[11px] font-bold truncate mt-0.5">{f['Parallel / Variant']}</p>
                       )}
+                      <p className="text-gray-400 text-[11px] truncate mt-0.5">{[f.Year, f.Set].filter(Boolean).join(' · ')}</p>
                       <div className="flex items-center justify-between mt-1.5">
                         <p className="font-display font-semibold text-navy-900 text-xs">{formatPrice(f['Asking Price'])}</p>
                         <button
