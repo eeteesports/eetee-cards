@@ -1,5 +1,5 @@
 'use client'
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useMemo } from 'react'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import { useCart } from '@/contexts/CartContext'
@@ -15,6 +15,18 @@ import { DEALS } from '@/lib/deals'
 function cardImg(url) {
   if (!url || !url.includes('res.cloudinary.com')) return url
   return url.replace('/upload/', '/upload/e_trim:20,c_pad,ar_3:4,b_white,w_600/')
+}
+
+// Fisher-Yates — used to keep "Fresh Rookies" and "Under $1" from being
+// 100% whichever team Evan's mid-batch on (he uploads inventory
+// team-by-team, and both rows were otherwise just the newest matches).
+function shuffled(arr) {
+  const a = arr.slice()
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1))
+    ;[a[i], a[j]] = [a[j], a[i]]
+  }
+  return a
 }
 
 const SPORT_TILES = [
@@ -54,11 +66,16 @@ export default function Home() {
   }
 
   const recentlyAdded = cards.slice(0, 12)
-  const deals = cards.filter((c) => {
+  // Randomized (not just newest-first) so a single upload batch — Evan
+  // adds inventory team-by-team — doesn't make these rows look like the
+  // catalog is one team. Reshuffles on each fresh page load, but memoized
+  // on `cards` so it doesn't reshuffle out from under someone mid-browse
+  // (cart clicks, search typing, etc. re-render without a new fetch).
+  const deals = useMemo(() => shuffled(cards.filter((c) => {
     const p = c.fields['Asking Price']
     return p != null && p <= 1
-  }).slice(0, 12)
-  const rookies = cards.filter((c) => c.fields.Rookie).slice(0, 12)
+  })).slice(0, 12), [cards])
+  const rookies = useMemo(() => shuffled(cards.filter((c) => c.fields.Rookie)).slice(0, 12), [cards])
 
   const sportCounts = cards.reduce((acc, c) => {
     const s = c.fields.Sport
