@@ -11,6 +11,66 @@ import WordmarkGraphic from '@/components/WordmarkGraphic'
 import { PRICE_BINS, binForPrice } from '@/lib/priceBins'
 import { formatPrice } from '@/lib/format'
 import { DEALS } from '@/lib/deals'
+import { SITE_CLOSED } from '@/lib/maintenanceMode'
+
+// Temporary storefront closure (2026-09-06, Evan's ask) — see
+// lib/maintenanceMode.js. The real curated homepage below is untouched
+// and fully intact; flipping SITE_CLOSED back to false restores it with
+// zero code loss. This top-level component just picks which one renders.
+export default function Home() {
+  if (SITE_CLOSED) return <ComingSoon />
+  return <HomeInner />
+}
+
+// Full-bleed, brand-consistent "closed for now" page — same logo,
+// wordmark, and navy/royal/gold palette as the real site, deliberately
+// with no shop/cart navigation (there's nowhere for it to go right now).
+// A contact link stays available for anyone who still wants to reach out,
+// and a quiet Admin link keeps Evan's own way back in.
+function ComingSoon() {
+  return (
+    <div className="min-h-screen bg-navy-900 text-white flex items-center justify-center px-4 py-16 relative overflow-hidden">
+      <img
+        src="/eetee-logo-watermark.png"
+        alt=""
+        aria-hidden="true"
+        className="pointer-events-none select-none absolute -right-32 -bottom-32 w-[520px] max-w-none opacity-[0.06]"
+      />
+      <div className="relative max-w-lg w-full text-center">
+        <div className="flex items-center justify-center gap-2 flex-wrap mb-8">
+          <img src="/eetee-logo.png" alt="" className="w-16 h-16 object-contain flex-shrink-0" />
+          <WordmarkGraphic className="h-20 w-auto max-w-full [&_text]:fill-white [&_tspan]:!fill-royal-200" />
+        </div>
+
+        <span className="inline-block text-[11px] font-bold uppercase tracking-widest text-gold-400 bg-gold-400/10 border border-gold-400/30 rounded-full px-3 py-1 mb-5">
+          Back soon
+        </span>
+
+        <h1 className="font-display font-semibold text-2xl sm:text-3xl mb-3">
+          We're restocking behind the scenes
+        </h1>
+        <p className="text-white/70 text-sm sm:text-base leading-relaxed mb-8">
+          The shop is taking a short break while we refresh our inventory.
+          No orders are being placed right now, but we'll be back with new
+          cards soon — thanks for your patience.
+        </p>
+
+        <a
+          href="mailto:eeteecards@gmail.com"
+          className="inline-block bg-gold-400 text-navy-900 font-semibold text-sm px-6 py-3 rounded-xl hover:bg-gold-300 transition-colors"
+        >
+          ✉️ Get in touch
+        </a>
+
+        <div className="mt-12 pt-6 border-t border-white/10">
+          <Link href="/login" className="text-xs text-white/40 hover:text-white/70 transition-colors">
+            Admin
+          </Link>
+        </div>
+      </div>
+    </div>
+  )
+}
 
 function cardImg(url) {
   if (!url || !url.includes('res.cloudinary.com')) return url
@@ -45,7 +105,7 @@ const SPORT_TILES = [
 // anywhere, and a few curated rows rather than one giant grid. One fetch
 // of all for-sale cards (already sorted newest-first by the API) powers
 // every section below — no extra round trips.
-export default function Home() {
+function HomeInner() {
   const router = useRouter()
   const { add, remove, items } = useCart()
   const cartCount = items.length

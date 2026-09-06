@@ -7,8 +7,18 @@ import { getCard } from '@/lib/db'
 import { getStripe } from '@/lib/stripe'
 import { computeShipping, PACKAGING_LABELS } from '@/lib/shipping'
 import { computeDiscount } from '@/lib/discounts'
+import { SITE_CLOSED } from '@/lib/maintenanceMode'
 
 export async function POST(request) {
+  // Belt-and-suspenders for the temporary storefront closure (2026-09-06):
+  // the UI paths that reach this (/shop, /cart) already redirect away
+  // (next.config.mjs), but block the API itself too in case of a stale
+  // cached page, an already-open tab from before the switch, or a direct
+  // request.
+  if (SITE_CLOSED) {
+    return Response.json({ error: 'The shop is temporarily closed. Check back soon!' }, { status: 503 })
+  }
+
   const { cardIds } = await request.json()
   if (!Array.isArray(cardIds) || !cardIds.length) {
     return Response.json({ error: 'cardIds is required' }, { status: 400 })
