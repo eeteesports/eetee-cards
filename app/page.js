@@ -43,23 +43,24 @@ function ComingSoon() {
         </div>
 
         <span className="inline-block text-[11px] font-bold uppercase tracking-widest text-gold-400 bg-gold-400/10 border border-gold-400/30 rounded-full px-3 py-1 mb-5">
-          Back soon
+          ⚡ Leveling up
         </span>
 
         <h1 className="font-display font-semibold text-2xl sm:text-3xl mb-3">
-          We're restocking behind the scenes
+          Something new is coming to the shop
         </h1>
         <p className="text-white/70 text-sm sm:text-base leading-relaxed mb-8">
-          The shop is taking a short break while we refresh our inventory.
-          No orders are being placed right now, but we'll be back with new
-          cards soon — thanks for your patience.
+          We're rebuilding behind the scenes — fresh inventory, sharper
+          photos, and a better way to browse. It's going to be worth the
+          wait. Looking for something specific right now? Email us and
+          we'll help you track it down.
         </p>
 
         <a
-          href="mailto:eeteecards@gmail.com"
+          href="mailto:eeteecards@gmail.com?subject=Card%20inquiry"
           className="inline-block bg-gold-400 text-navy-900 font-semibold text-sm px-6 py-3 rounded-xl hover:bg-gold-300 transition-colors"
         >
-          ✉️ Get in touch
+          ✉️ Email eeteecards@gmail.com
         </a>
 
         <div className="mt-12 pt-6 border-t border-white/10">
