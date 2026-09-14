@@ -35,7 +35,7 @@ export default function Navbar() {
   if (
     pathname === '/login' || pathname === '/' || pathname === '/shop' ||
     pathname === '/cart' || pathname.startsWith('/team/') || pathname.startsWith('/order/') ||
-    pathname === '/privacy'
+    pathname === '/privacy' || pathname === '/marketplace'
   ) return null
 
   const adminLinks = [

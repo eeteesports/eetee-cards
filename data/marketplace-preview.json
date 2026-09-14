@@ -1,0 +1,3464 @@
+{
+  "version": "2026-09-14",
+  "currency": "USD",
+  "listings": [
+    {
+      "id": "B20260909-034",
+      "kind": "single",
+      "title": "Elijah Arroyo",
+      "description": "2025 \u00b7 Topps \u00b7 Chrome",
+      "price": 20,
+      "cards": [
+        {
+          "copy_id": "B20260909-034",
+          "player": "Elijah Arroyo",
+          "season": "2025",
+          "brand": "Topps",
+          "set": "Chrome",
+          "card_name": "Rookies Autograph Variation",
+          "parallel": "Purple Lava Refractor",
+          "card_number": "RA-EA",
+          "card_level": null,
+          "edition": null,
+          "serial_number": "63/75",
+          "print_run": 75,
+          "rookie": true,
+          "autograph": true,
+          "memorabilia": false,
+          "teams": [
+            "Seattle Seahawks"
+          ],
+          "price": 20
+        }
+      ]
+    },
+    {
+      "id": "milroe-rookie-tour",
+      "kind": "bundle",
+      "title": "Jalen Milroe rookie tour",
+      "description": "Eight designs. One rookie season.",
+      "price": 8,
+      "cards": [
+        {
+          "copy_id": "B20260909-011",
+          "player": "Jalen Milroe",
+          "season": "2025",
+          "brand": "Panini",
+          "set": "Prizm",
+          "card_name": "Base",
+          "parallel": null,
+          "card_number": "317",
+          "card_level": null,
+          "edition": null,
+          "serial_number": null,
+          "print_run": null,
+          "rookie": true,
+          "autograph": false,
+          "memorabilia": false,
+          "teams": [
+            "Seattle Seahawks"
+          ],
+          "price": 1
+        },
+        {
+          "copy_id": "B20260909-028",
+          "player": "Jalen Milroe",
+          "season": "2025",
+          "brand": "Donruss",
+          "set": "Donruss",
+          "card_name": "Base",
+          "parallel": null,
+          "card_number": "307",
+          "card_level": null,
+          "edition": null,
+          "serial_number": null,
+          "print_run": null,
+          "rookie": true,
+          "autograph": false,
+          "memorabilia": false,
+          "teams": [
+            "Seattle Seahawks"
+          ],
+          "price": 1
+        },
+        {
+          "copy_id": "B20260909-074",
+          "player": "Jalen Milroe",
+          "season": "2025",
+          "brand": "Donruss",
+          "set": "Donruss Optic",
+          "card_name": "Base",
+          "parallel": null,
+          "card_number": "253",
+          "card_level": null,
+          "edition": null,
+          "serial_number": null,
+          "print_run": null,
+          "rookie": true,
+          "autograph": false,
+          "memorabilia": false,
+          "teams": [
+            "Seattle Seahawks"
+          ],
+          "price": 1
+        },
+        {
+          "copy_id": "B20260909-078",
+          "player": "Jalen Milroe",
+          "season": "2025",
+          "brand": "Panini",
+          "set": "Phoenix",
+          "card_name": "Base",
+          "parallel": null,
+          "card_number": "151",
+          "card_level": null,
+          "edition": null,
+          "serial_number": null,
+          "print_run": null,
+          "rookie": true,
+          "autograph": false,
+          "memorabilia": false,
+          "teams": [
+            "Seattle Seahawks"
+          ],
+          "price": 1
+        },
+        {
+          "copy_id": "B20260909-087",
+          "player": "Jalen Milroe",
+          "season": "2025",
+          "brand": "Panini",
+          "set": "Absolute",
+          "card_name": "Base",
+          "parallel": null,
+          "card_number": "132",
+          "card_level": null,
+          "edition": null,
+          "serial_number": null,
+          "print_run": null,
+          "rookie": true,
+          "autograph": false,
+          "memorabilia": false,
+          "teams": [
+            "Seattle Seahawks"
+          ],
+          "price": 1
+        },
+        {
+          "copy_id": "B20260909-092",
+          "player": "Jalen Milroe",
+          "season": "2025",
+          "brand": "Topps",
+          "set": "Signature Class",
+          "card_name": "Base",
+          "parallel": null,
+          "card_number": "151",
+          "card_level": null,
+          "edition": "Paper",
+          "serial_number": null,
+          "print_run": null,
+          "rookie": true,
+          "autograph": false,
+          "memorabilia": false,
+          "teams": [
+            "Seattle Seahawks"
+          ],
+          "price": 1
+        },
+        {
+          "copy_id": "B20260909-107",
+          "player": "Jalen Milroe",
+          "season": "2025",
+          "brand": "Panini",
+          "set": "Select",
+          "card_name": "Base",
+          "parallel": null,
+          "card_number": "14",
+          "card_level": "Concourse",
+          "edition": null,
+          "serial_number": null,
+          "print_run": null,
+          "rookie": true,
+          "autograph": false,
+          "memorabilia": false,
+          "teams": [
+            "Seattle Seahawks"
+          ],
+          "price": 1
+        },
+        {
+          "copy_id": "B20260909-136",
+          "player": "Jalen Milroe",
+          "season": "2025",
+          "brand": "Score",
+          "set": "Score",
+          "card_name": "Anniversary Rookie",
+          "parallel": null,
+          "card_number": "7",
+          "card_level": null,
+          "edition": null,
+          "serial_number": null,
+          "print_run": null,
+          "rookie": true,
+          "autograph": false,
+          "memorabilia": false,
+          "teams": [
+            "Seattle Seahawks"
+          ],
+          "price": 1
+        }
+      ]
+    },
+    {
+      "id": "emmanwori-rookie-mix",
+      "kind": "bundle",
+      "title": "Nick Emmanwori rookie mix",
+      "description": "A seven-card start, with a splash of Prizm Pink.",
+      "price": 7,
+      "cards": [
+        {
+          "copy_id": "B20260909-005",
+          "player": "Nick Emmanwori",
+          "season": "2025",
+          "brand": "Panini",
+          "set": "Prizm",
+          "card_name": "Base",
+          "parallel": "Pink",
+          "card_number": "320",
+          "card_level": null,
+          "edition": null,
+          "serial_number": null,
+          "print_run": null,
+          "rookie": true,
+          "autograph": false,
+          "memorabilia": false,
+          "teams": [
+            "Seattle Seahawks"
+          ],
+          "price": 1
+        },
+        {
+          "copy_id": "B20260909-029",
+          "player": "Nick Emmanwori",
+          "season": "2025",
+          "brand": "Donruss",
+          "set": "Donruss",
+          "card_name": "Base",
+          "parallel": null,
+          "card_number": "348",
+          "card_level": null,
+          "edition": null,
+          "serial_number": null,
+          "print_run": null,
+          "rookie": true,
+          "autograph": false,
+          "memorabilia": false,
+          "teams": [
+            "Seattle Seahawks"
+          ],
+          "price": 1
+        },
+        {
+          "copy_id": "B20260909-030",
+          "player": "Nick Emmanwori",
+          "season": "2025",
+          "brand": "Topps",
+          "set": "Chrome",
+          "card_name": "Base",
+          "parallel": null,
+          "card_number": "348",
+          "card_level": null,
+          "edition": null,
+          "serial_number": null,
+          "print_run": null,
+          "rookie": true,
+          "autograph": false,
+          "memorabilia": false,
+          "teams": [
+            "Seattle Seahawks"
+          ],
+          "price": 1
+        },
+        {
+          "copy_id": "B20260909-051",
+          "player": "Nick Emmanwori",
+          "season": "2025",
+          "brand": "Panini",
+          "set": "Mosaic",
+          "card_name": "Base",
+          "parallel": null,
+          "card_number": "321",
+          "card_level": null,
+          "edition": null,
+          "serial_number": null,
+          "print_run": null,
+          "rookie": true,
+          "autograph": false,
+          "memorabilia": false,
+          "teams": [
+            "Seattle Seahawks"
+          ],
+          "price": 1
+        },
+        {
+          "copy_id": "B20260909-072",
+          "player": "Nick Emmanwori",
+          "season": "2025",
+          "brand": "Donruss",
+          "set": "Donruss Optic",
+          "card_name": "Base",
+          "parallel": null,
+          "card_number": "277",
+          "card_level": null,
+          "edition": null,
+          "serial_number": null,
+          "print_run": null,
+          "rookie": true,
+          "autograph": false,
+          "memorabilia": false,
+          "teams": [
+            "Seattle Seahawks"
+          ],
+          "price": 1
+        },
+        {
+          "copy_id": "B20260909-079",
+          "player": "Nick Emmanwori",
+          "season": "2025",
+          "brand": "Panini",
+          "set": "Phoenix",
+          "card_name": "Base",
+          "parallel": null,
+          "card_number": "245",
+          "card_level": null,
+          "edition": null,
+          "serial_number": null,
+          "print_run": null,
+          "rookie": true,
+          "autograph": false,
+          "memorabilia": false,
+          "teams": [
+            "Seattle Seahawks"
+          ],
+          "price": 1
+        },
+        {
+          "copy_id": "B20260909-103",
+          "player": "Nick Emmanwori",
+          "season": "2025",
+          "brand": "Panini",
+          "set": "Select",
+          "card_name": "Base",
+          "parallel": null,
+          "card_number": "15",
+          "card_level": "Concourse",
+          "edition": null,
+          "serial_number": null,
+          "print_run": null,
+          "rookie": true,
+          "autograph": false,
+          "memorabilia": false,
+          "teams": [
+            "Seattle Seahawks"
+          ],
+          "price": 1
+        }
+      ]
+    },
+    {
+      "id": "arroyo-rookie-mix",
+      "kind": "bundle",
+      "title": "Elijah Arroyo rookie mix",
+      "description": "Six sets to kick off an Arroyo collection.",
+      "price": 6,
+      "cards": [
+        {
+          "copy_id": "B20260909-004",
+          "player": "Elijah Arroyo",
+          "season": "2025",
+          "brand": "Panini",
+          "set": "Prizm",
+          "card_name": "Base",
+          "parallel": null,
+          "card_number": "309",
+          "card_level": null,
+          "edition": null,
+          "serial_number": null,
+          "print_run": null,
+          "rookie": true,
+          "autograph": false,
+          "memorabilia": false,
+          "teams": [
+            "Seattle Seahawks"
+          ],
+          "price": 1
+        },
+        {
+          "copy_id": "B20260909-037",
+          "player": "Elijah Arroyo",
+          "season": "2025",
+          "brand": "Topps",
+          "set": "Chrome",
+          "card_name": "Base",
+          "parallel": null,
+          "card_number": "396",
+          "card_level": null,
+          "edition": null,
+          "serial_number": null,
+          "print_run": null,
+          "rookie": true,
+          "autograph": false,
+          "memorabilia": false,
+          "teams": [
+            "Seattle Seahawks"
+          ],
+          "price": 1
+        },
+        {
+          "copy_id": "B20260909-068",
+          "player": "Elijah Arroyo",
+          "season": "2025",
+          "brand": "Donruss",
+          "set": "Donruss Optic",
+          "card_name": "Base",
+          "parallel": null,
+          "card_number": "214",
+          "card_level": null,
+          "edition": null,
+          "serial_number": null,
+          "print_run": null,
+          "rookie": true,
+          "autograph": false,
+          "memorabilia": false,
+          "teams": [
+            "Seattle Seahawks"
+          ],
+          "price": 1
+        },
+        {
+          "copy_id": "B20260909-080",
+          "player": "Elijah Arroyo",
+          "season": "2025",
+          "brand": "Panini",
+          "set": "Phoenix",
+          "card_name": "Base",
+          "parallel": null,
+          "card_number": "178",
+          "card_level": null,
+          "edition": null,
+          "serial_number": null,
+          "print_run": null,
+          "rookie": true,
+          "autograph": false,
+          "memorabilia": false,
+          "teams": [
+            "Seattle Seahawks"
+          ],
+          "price": 1
+        },
+        {
+          "copy_id": "B20260909-113",
+          "player": "Elijah Arroyo",
+          "season": "2025",
+          "brand": "Panini",
+          "set": "Select",
+          "card_name": "Base",
+          "parallel": null,
+          "card_number": "114",
+          "card_level": "Premier Level",
+          "edition": null,
+          "serial_number": null,
+          "print_run": null,
+          "rookie": true,
+          "autograph": false,
+          "memorabilia": false,
+          "teams": [
+            "Seattle Seahawks"
+          ],
+          "price": 1
+        },
+        {
+          "copy_id": "B20260909-128",
+          "player": "Elijah Arroyo",
+          "season": "2025",
+          "brand": "Score",
+          "set": "Score",
+          "card_name": "Base",
+          "parallel": null,
+          "card_number": "50",
+          "card_level": null,
+          "edition": null,
+          "serial_number": null,
+          "print_run": null,
+          "rookie": true,
+          "autograph": false,
+          "memorabilia": false,
+          "teams": [
+            "Seattle Seahawks"
+          ],
+          "price": 1
+        }
+      ]
+    },
+    {
+      "id": "seahawks-throwbacks",
+      "kind": "bundle",
+      "title": "Seahawks throwback mix",
+      "description": "Five cards celebrating familiar Seattle names.",
+      "price": 5,
+      "cards": [
+        {
+          "copy_id": "B20260909-044",
+          "player": "Richard Sherman",
+          "season": "2025",
+          "brand": "Topps",
+          "set": "Chrome",
+          "card_name": "Legends of the Gridiron",
+          "parallel": null,
+          "card_number": "LOG-36",
+          "card_level": null,
+          "edition": null,
+          "serial_number": null,
+          "print_run": null,
+          "rookie": false,
+          "autograph": false,
+          "memorabilia": false,
+          "teams": [
+            "Seattle Seahawks"
+          ],
+          "price": 1
+        },
+        {
+          "copy_id": "B20260909-050",
+          "player": "Kam Chancellor",
+          "season": "2025",
+          "brand": "Topps",
+          "set": "Chrome",
+          "card_name": "Legends of the Gridiron",
+          "parallel": null,
+          "card_number": "LOG-34",
+          "card_level": null,
+          "edition": null,
+          "serial_number": null,
+          "print_run": null,
+          "rookie": false,
+          "autograph": false,
+          "memorabilia": false,
+          "teams": [
+            "Seattle Seahawks"
+          ],
+          "price": 1
+        },
+        {
+          "copy_id": "B20260909-142",
+          "player": "Dave Krieg",
+          "season": "1985",
+          "brand": "Topps",
+          "set": "Topps",
+          "card_name": "Base",
+          "parallel": null,
+          "card_number": "388",
+          "card_level": null,
+          "edition": null,
+          "serial_number": null,
+          "print_run": null,
+          "rookie": false,
+          "autograph": false,
+          "memorabilia": false,
+          "teams": [
+            "Seattle Seahawks"
+          ],
+          "price": 1
+        },
+        {
+          "copy_id": "B20260909-143",
+          "player": "Brian Bosworth",
+          "season": "1989",
+          "brand": "Pro Set",
+          "set": "Pro Set",
+          "card_name": "Base",
+          "parallel": null,
+          "card_number": "391",
+          "card_level": null,
+          "edition": null,
+          "serial_number": null,
+          "print_run": null,
+          "rookie": false,
+          "autograph": false,
+          "memorabilia": false,
+          "teams": [
+            "Seattle Seahawks"
+          ],
+          "price": 1
+        },
+        {
+          "copy_id": "B20260909-144",
+          "player": "Dan McGwire",
+          "season": "1991",
+          "brand": "Fleer",
+          "set": "Ultra",
+          "card_name": "Base",
+          "parallel": null,
+          "card_number": "289",
+          "card_level": null,
+          "edition": null,
+          "serial_number": null,
+          "print_run": null,
+          "rookie": true,
+          "autograph": false,
+          "memorabilia": false,
+          "teams": [
+            "Seattle Seahawks"
+          ],
+          "price": 1
+        }
+      ]
+    },
+    {
+      "id": "horton-rookie-mix",
+      "kind": "bundle",
+      "title": "Tory Horton rookie mix",
+      "description": "Five rookie cards, from Optic to Signature Class.",
+      "price": 5,
+      "cards": [
+        {
+          "copy_id": "B20260909-073",
+          "player": "Tory Horton",
+          "season": "2025",
+          "brand": "Donruss",
+          "set": "Donruss Optic",
+          "card_name": "Base",
+          "parallel": null,
+          "card_number": "295",
+          "card_level": null,
+          "edition": null,
+          "serial_number": null,
+          "print_run": null,
+          "rookie": true,
+          "autograph": false,
+          "memorabilia": false,
+          "teams": [
+            "Seattle Seahawks"
+          ],
+          "price": 1
+        },
+        {
+          "copy_id": "B20260909-082",
+          "player": "Tory Horton",
+          "season": "2025",
+          "brand": "Panini",
+          "set": "Phoenix",
+          "card_name": "Base",
+          "parallel": null,
+          "card_number": "248",
+          "card_level": null,
+          "edition": null,
+          "serial_number": null,
+          "print_run": null,
+          "rookie": true,
+          "autograph": false,
+          "memorabilia": false,
+          "teams": [
+            "Seattle Seahawks"
+          ],
+          "price": 1
+        },
+        {
+          "copy_id": "B20260909-085",
+          "player": "Tory Horton",
+          "season": "2025",
+          "brand": "Panini",
+          "set": "Absolute",
+          "card_name": "Base",
+          "parallel": null,
+          "card_number": "185",
+          "card_level": null,
+          "edition": null,
+          "serial_number": null,
+          "print_run": null,
+          "rookie": true,
+          "autograph": false,
+          "memorabilia": false,
+          "teams": [
+            "Seattle Seahawks"
+          ],
+          "price": 1
+        },
+        {
+          "copy_id": "B20260909-090",
+          "player": "Tory Horton",
+          "season": "2025",
+          "brand": "Topps",
+          "set": "Signature Class",
+          "card_name": "Base",
+          "parallel": "Blue & Yellow",
+          "card_number": "145",
+          "card_level": null,
+          "edition": "Paper",
+          "serial_number": null,
+          "print_run": null,
+          "rookie": true,
+          "autograph": false,
+          "memorabilia": false,
+          "teams": [
+            "Seattle Seahawks"
+          ],
+          "price": 1
+        },
+        {
+          "copy_id": "B20260909-127",
+          "player": "Tory Horton",
+          "season": "2025",
+          "brand": "Score",
+          "set": "Score",
+          "card_name": "Base",
+          "parallel": null,
+          "card_number": "58",
+          "card_level": null,
+          "edition": null,
+          "serial_number": null,
+          "print_run": null,
+          "rookie": true,
+          "autograph": false,
+          "memorabilia": false,
+          "teams": [
+            "Seattle Seahawks"
+          ],
+          "price": 1
+        }
+      ]
+    },
+    {
+      "id": "metcalf-mix",
+      "kind": "bundle",
+      "title": "DK Metcalf through the years",
+      "description": "Four cards spanning 2021\u20132024, including Hot Routes.",
+      "price": 4,
+      "cards": [
+        {
+          "copy_id": "B20260909-137",
+          "player": "DK Metcalf",
+          "season": "2024",
+          "brand": "Donruss",
+          "set": "Donruss Optic",
+          "card_name": "Base",
+          "parallel": null,
+          "card_number": "181",
+          "card_level": null,
+          "edition": null,
+          "serial_number": null,
+          "print_run": null,
+          "rookie": false,
+          "autograph": false,
+          "memorabilia": false,
+          "teams": [
+            "Seattle Seahawks"
+          ],
+          "price": 1
+        },
+        {
+          "copy_id": "B20260909-139",
+          "player": "DK Metcalf",
+          "season": "2022",
+          "brand": "Panini",
+          "set": "Phoenix",
+          "card_name": "Hot Routes",
+          "parallel": "Silver",
+          "card_number": "HR-25",
+          "card_level": null,
+          "edition": null,
+          "serial_number": null,
+          "print_run": null,
+          "rookie": false,
+          "autograph": false,
+          "memorabilia": false,
+          "teams": [
+            "Seattle Seahawks"
+          ],
+          "price": 1
+        },
+        {
+          "copy_id": "B20260909-140",
+          "player": "DK Metcalf",
+          "season": "2021",
+          "brand": "Panini",
+          "set": "Mosaic",
+          "card_name": "Got Game?",
+          "parallel": null,
+          "card_number": "GG-16",
+          "card_level": null,
+          "edition": null,
+          "serial_number": null,
+          "print_run": null,
+          "rookie": false,
+          "autograph": false,
+          "memorabilia": false,
+          "teams": [
+            "Seattle Seahawks"
+          ],
+          "price": 1
+        },
+        {
+          "copy_id": "B20260909-141",
+          "player": "DK Metcalf",
+          "season": "2024",
+          "brand": "Panini",
+          "set": "Phoenix",
+          "card_name": "Base",
+          "parallel": "Silver Lazer",
+          "card_number": "51",
+          "card_level": null,
+          "edition": null,
+          "serial_number": null,
+          "print_run": null,
+          "rookie": false,
+          "autograph": false,
+          "memorabilia": false,
+          "teams": [
+            "Seattle Seahawks"
+          ],
+          "price": 1
+        }
+      ]
+    },
+    {
+      "id": "martinez-rookie-mix",
+      "kind": "bundle",
+      "title": "Damien Martinez rookie mix",
+      "description": "A four-card rookie sampler.",
+      "price": 4,
+      "cards": [
+        {
+          "copy_id": "B20260909-007",
+          "player": "Damien Martinez",
+          "season": "2025",
+          "brand": "Panini",
+          "set": "Prizm",
+          "card_name": "Base",
+          "parallel": null,
+          "card_number": "373",
+          "card_level": null,
+          "edition": null,
+          "serial_number": null,
+          "print_run": null,
+          "rookie": true,
+          "autograph": false,
+          "memorabilia": false,
+          "teams": [
+            "Seattle Seahawks"
+          ],
+          "price": 1
+        },
+        {
+          "copy_id": "B20260909-054",
+          "player": "Damien Martinez",
+          "season": "2025",
+          "brand": "Panini",
+          "set": "Mosaic",
+          "card_name": "Base",
+          "parallel": null,
+          "card_number": "360",
+          "card_level": null,
+          "edition": null,
+          "serial_number": null,
+          "print_run": null,
+          "rookie": true,
+          "autograph": false,
+          "memorabilia": false,
+          "teams": [
+            "Seattle Seahawks"
+          ],
+          "price": 1
+        },
+        {
+          "copy_id": "B20260909-066",
+          "player": "Damien Martinez",
+          "season": "2025",
+          "brand": "Donruss",
+          "set": "Donruss Optic",
+          "card_name": "Base",
+          "parallel": null,
+          "card_number": "298",
+          "card_level": null,
+          "edition": null,
+          "serial_number": null,
+          "print_run": null,
+          "rookie": true,
+          "autograph": false,
+          "memorabilia": false,
+          "teams": [
+            "Seattle Seahawks"
+          ],
+          "price": 1
+        },
+        {
+          "copy_id": "B20260909-096",
+          "player": "Damien Martinez",
+          "season": "2025",
+          "brand": "Topps",
+          "set": "Signature Class",
+          "card_name": "Base",
+          "parallel": null,
+          "card_number": "183",
+          "card_level": null,
+          "edition": "Paper",
+          "serial_number": null,
+          "print_run": null,
+          "rookie": true,
+          "autograph": false,
+          "memorabilia": false,
+          "teams": [
+            "Seattle Seahawks"
+          ],
+          "price": 1
+        }
+      ]
+    },
+    {
+      "id": "ouzts-color-trio",
+      "kind": "bundle",
+      "title": "Robbie Ouzts color trio",
+      "description": "Optic Blue Hyper, Pink, and a Phoenix rookie.",
+      "price": 4,
+      "cards": [
+        {
+          "copy_id": "B20260909-062",
+          "player": "Robbie Ouzts",
+          "season": "2025",
+          "brand": "Donruss",
+          "set": "Donruss Optic",
+          "card_name": "Base",
+          "parallel": "Blue Hyper",
+          "card_number": "264",
+          "card_level": null,
+          "edition": null,
+          "serial_number": null,
+          "print_run": null,
+          "rookie": true,
+          "autograph": false,
+          "memorabilia": false,
+          "teams": [
+            "Seattle Seahawks"
+          ],
+          "price": 1
+        },
+        {
+          "copy_id": "B20260909-067",
+          "player": "Robbie Ouzts",
+          "season": "2025",
+          "brand": "Donruss",
+          "set": "Donruss Optic",
+          "card_name": "Base",
+          "parallel": "Pink",
+          "card_number": "264",
+          "card_level": null,
+          "edition": null,
+          "serial_number": null,
+          "print_run": null,
+          "rookie": true,
+          "autograph": false,
+          "memorabilia": false,
+          "teams": [
+            "Seattle Seahawks"
+          ],
+          "price": 2
+        },
+        {
+          "copy_id": "B20260909-083",
+          "player": "Robbie Ouzts",
+          "season": "2025",
+          "brand": "Panini",
+          "set": "Phoenix",
+          "card_name": "Base",
+          "parallel": null,
+          "card_number": "224",
+          "card_level": null,
+          "edition": null,
+          "serial_number": null,
+          "print_run": null,
+          "rookie": true,
+          "autograph": false,
+          "memorabilia": false,
+          "teams": [
+            "Seattle Seahawks"
+          ],
+          "price": 1
+        }
+      ]
+    },
+    {
+      "id": "walker-space-retro",
+      "kind": "bundle",
+      "title": "Kenneth Walker: space & retro",
+      "description": "Cosmic Chrome meets the 1975 Topps design.",
+      "price": 3.5,
+      "cards": [
+        {
+          "copy_id": "B20260909-042",
+          "player": "Kenneth Walker III",
+          "season": "2025",
+          "brand": "Topps",
+          "set": "Chrome",
+          "card_name": "1975 Topps",
+          "parallel": null,
+          "card_number": "1975-30",
+          "card_level": null,
+          "edition": null,
+          "serial_number": null,
+          "print_run": null,
+          "rookie": false,
+          "autograph": false,
+          "memorabilia": false,
+          "teams": [
+            "Seattle Seahawks"
+          ],
+          "price": 1
+        },
+        {
+          "copy_id": "B20260909-057",
+          "player": "Kenneth Walker III",
+          "season": "2025",
+          "brand": "Topps",
+          "set": "Cosmic Chrome",
+          "card_name": "Base",
+          "parallel": null,
+          "card_number": "90",
+          "card_level": null,
+          "edition": null,
+          "serial_number": null,
+          "print_run": null,
+          "rookie": false,
+          "autograph": false,
+          "memorabilia": false,
+          "teams": [
+            "Seattle Seahawks"
+          ],
+          "price": 1.5
+        },
+        {
+          "copy_id": "B20260909-060",
+          "player": "Kenneth Walker III",
+          "season": "2025",
+          "brand": "Topps",
+          "set": "Cosmic Chrome",
+          "card_name": "Light Speed",
+          "parallel": "Refractor",
+          "card_number": "LS-21",
+          "card_level": null,
+          "edition": null,
+          "serial_number": null,
+          "print_run": null,
+          "rookie": false,
+          "autograph": false,
+          "memorabilia": false,
+          "teams": [
+            "Seattle Seahawks"
+          ],
+          "price": 1
+        }
+      ]
+    },
+    {
+      "id": "B20260909-021",
+      "kind": "single",
+      "title": "Elijah Arroyo",
+      "description": "2025 \u00b7 Panini \u00b7 Prizm",
+      "price": 3,
+      "cards": [
+        {
+          "copy_id": "B20260909-021",
+          "player": "Elijah Arroyo",
+          "season": "2025",
+          "brand": "Panini",
+          "set": "Prizm",
+          "card_name": "Base",
+          "parallel": "Pigskin",
+          "card_number": "309",
+          "card_level": null,
+          "edition": null,
+          "serial_number": "043/180",
+          "print_run": 180,
+          "rookie": true,
+          "autograph": false,
+          "memorabilia": false,
+          "teams": [
+            "Seattle Seahawks"
+          ],
+          "price": 3
+        }
+      ]
+    },
+    {
+      "id": "B20260909-088",
+      "kind": "single",
+      "title": "Jalen Milroe",
+      "description": "2025 \u00b7 Panini \u00b7 Absolute",
+      "price": 3,
+      "cards": [
+        {
+          "copy_id": "B20260909-088",
+          "player": "Jalen Milroe",
+          "season": "2025",
+          "brand": "Panini",
+          "set": "Absolute",
+          "card_name": "Base",
+          "parallel": "Black",
+          "card_number": "132",
+          "card_level": null,
+          "edition": null,
+          "serial_number": null,
+          "print_run": null,
+          "rookie": true,
+          "autograph": false,
+          "memorabilia": false,
+          "teams": [
+            "Seattle Seahawks"
+          ],
+          "price": 3
+        }
+      ]
+    },
+    {
+      "id": "B20260909-024",
+      "kind": "single",
+      "title": "AJ Barner",
+      "description": "2025 \u00b7 Panini \u00b7 Prizm",
+      "price": 2,
+      "cards": [
+        {
+          "copy_id": "B20260909-024",
+          "player": "AJ Barner",
+          "season": "2025",
+          "brand": "Panini",
+          "set": "Prizm",
+          "card_name": "Base",
+          "parallel": "Green Wave",
+          "card_number": "297",
+          "card_level": null,
+          "edition": null,
+          "serial_number": null,
+          "print_run": null,
+          "rookie": false,
+          "autograph": false,
+          "memorabilia": false,
+          "teams": [
+            "Seattle Seahawks"
+          ],
+          "price": 2
+        }
+      ]
+    },
+    {
+      "id": "B20260909-063",
+      "kind": "single",
+      "title": "Cooper Kupp",
+      "description": "2025 \u00b7 Donruss \u00b7 Donruss Optic",
+      "price": 2,
+      "cards": [
+        {
+          "copy_id": "B20260909-063",
+          "player": "Cooper Kupp",
+          "season": "2025",
+          "brand": "Donruss",
+          "set": "Donruss Optic",
+          "card_name": "Base",
+          "parallel": "Holo",
+          "card_number": "169",
+          "card_level": null,
+          "edition": null,
+          "serial_number": null,
+          "print_run": null,
+          "rookie": false,
+          "autograph": false,
+          "memorabilia": false,
+          "teams": [
+            "Seattle Seahawks"
+          ],
+          "price": 2
+        }
+      ]
+    },
+    {
+      "id": "B20260909-098",
+      "kind": "single",
+      "title": "Cooper Kupp",
+      "description": "2025 \u00b7 Topps \u00b7 Signature Class",
+      "price": 2,
+      "cards": [
+        {
+          "copy_id": "B20260909-098",
+          "player": "Cooper Kupp",
+          "season": "2025",
+          "brand": "Topps",
+          "set": "Signature Class",
+          "card_name": "Base",
+          "parallel": "Refractor",
+          "card_number": "97",
+          "card_level": null,
+          "edition": "Chrome",
+          "serial_number": null,
+          "print_run": null,
+          "rookie": false,
+          "autograph": false,
+          "memorabilia": false,
+          "teams": [
+            "Seattle Seahawks"
+          ],
+          "price": 2
+        }
+      ]
+    },
+    {
+      "id": "B20260909-099",
+      "kind": "single",
+      "title": "Cooper Kupp",
+      "description": "2025 \u00b7 Topps \u00b7 Signature Class",
+      "price": 2,
+      "cards": [
+        {
+          "copy_id": "B20260909-099",
+          "player": "Cooper Kupp",
+          "season": "2025",
+          "brand": "Topps",
+          "set": "Signature Class",
+          "card_name": "Base",
+          "parallel": "Green & Purple",
+          "card_number": "97",
+          "card_level": null,
+          "edition": "Paper",
+          "serial_number": null,
+          "print_run": null,
+          "rookie": false,
+          "autograph": false,
+          "memorabilia": false,
+          "teams": [
+            "Seattle Seahawks"
+          ],
+          "price": 2
+        }
+      ]
+    },
+    {
+      "id": "B20260909-130",
+      "kind": "single",
+      "title": "Cortez Kennedy",
+      "description": "1990 \u00b7 Pro Set \u00b7 Pro Set",
+      "price": 2,
+      "cards": [
+        {
+          "copy_id": "B20260909-130",
+          "player": "Cortez Kennedy",
+          "season": "1990",
+          "brand": "Pro Set",
+          "set": "Pro Set",
+          "card_name": "Base",
+          "parallel": null,
+          "card_number": "671",
+          "card_level": null,
+          "edition": null,
+          "serial_number": null,
+          "print_run": null,
+          "rookie": true,
+          "autograph": false,
+          "memorabilia": false,
+          "teams": [
+            "Seattle Seahawks"
+          ],
+          "price": 2
+        }
+      ]
+    },
+    {
+      "id": "B20260909-132",
+      "kind": "single",
+      "title": "Curt Warner",
+      "description": "1986 \u00b7 Topps \u00b7 Topps",
+      "price": 2,
+      "cards": [
+        {
+          "copy_id": "B20260909-132",
+          "player": "Curt Warner",
+          "season": "1986",
+          "brand": "Topps",
+          "set": "Topps",
+          "card_name": "Base",
+          "parallel": null,
+          "card_number": "202",
+          "card_level": null,
+          "edition": null,
+          "serial_number": null,
+          "print_run": null,
+          "rookie": false,
+          "autograph": false,
+          "memorabilia": false,
+          "teams": [
+            "Seattle Seahawks"
+          ],
+          "price": 2
+        }
+      ]
+    },
+    {
+      "id": "B20260909-010",
+      "kind": "single",
+      "title": "Damien Martinez",
+      "description": "2025 \u00b7 Panini \u00b7 Prizm",
+      "price": 2,
+      "cards": [
+        {
+          "copy_id": "B20260909-010",
+          "player": "Damien Martinez",
+          "season": "2025",
+          "brand": "Panini",
+          "set": "Prizm",
+          "card_name": "Base",
+          "parallel": "White Disco",
+          "card_number": "373",
+          "card_level": null,
+          "edition": null,
+          "serial_number": null,
+          "print_run": null,
+          "rookie": true,
+          "autograph": false,
+          "memorabilia": false,
+          "teams": [
+            "Seattle Seahawks"
+          ],
+          "price": 2
+        }
+      ]
+    },
+    {
+      "id": "B20260909-138",
+      "kind": "single",
+      "title": "Dave Krieg",
+      "description": "2024 \u00b7 Panini \u00b7 Prizm",
+      "price": 2,
+      "cards": [
+        {
+          "copy_id": "B20260909-138",
+          "player": "Dave Krieg",
+          "season": "2024",
+          "brand": "Panini",
+          "set": "Prizm",
+          "card_name": "Base",
+          "parallel": "Red",
+          "card_number": "267",
+          "card_level": null,
+          "edition": null,
+          "serial_number": null,
+          "print_run": null,
+          "rookie": false,
+          "autograph": false,
+          "memorabilia": false,
+          "teams": [
+            "Seattle Seahawks"
+          ],
+          "price": 2
+        }
+      ]
+    },
+    {
+      "id": "B20260909-014",
+      "kind": "single",
+      "title": "Elijah Arroyo",
+      "description": "2025 \u00b7 Panini \u00b7 Prizm",
+      "price": 2,
+      "cards": [
+        {
+          "copy_id": "B20260909-014",
+          "player": "Elijah Arroyo",
+          "season": "2025",
+          "brand": "Panini",
+          "set": "Prizm",
+          "card_name": "Base",
+          "parallel": "Neon Green Pulsar",
+          "card_number": "309",
+          "card_level": null,
+          "edition": null,
+          "serial_number": null,
+          "print_run": null,
+          "rookie": true,
+          "autograph": false,
+          "memorabilia": false,
+          "teams": [
+            "Seattle Seahawks"
+          ],
+          "price": 2
+        }
+      ]
+    },
+    {
+      "id": "B20260909-020",
+      "kind": "single",
+      "title": "Elijah Arroyo",
+      "description": "2025 \u00b7 Panini \u00b7 Prizm",
+      "price": 2,
+      "cards": [
+        {
+          "copy_id": "B20260909-020",
+          "player": "Elijah Arroyo",
+          "season": "2025",
+          "brand": "Panini",
+          "set": "Prizm",
+          "card_name": "Base",
+          "parallel": "Silver",
+          "card_number": "309",
+          "card_level": null,
+          "edition": null,
+          "serial_number": null,
+          "print_run": null,
+          "rookie": true,
+          "autograph": false,
+          "memorabilia": false,
+          "teams": [
+            "Seattle Seahawks"
+          ],
+          "price": 2
+        }
+      ]
+    },
+    {
+      "id": "B20260909-059",
+      "kind": "single",
+      "title": "Elijah Arroyo",
+      "description": "2025 \u00b7 Topps \u00b7 Cosmic Chrome",
+      "price": 2,
+      "cards": [
+        {
+          "copy_id": "B20260909-059",
+          "player": "Elijah Arroyo",
+          "season": "2025",
+          "brand": "Topps",
+          "set": "Cosmic Chrome",
+          "card_name": "Base",
+          "parallel": null,
+          "card_number": "190",
+          "card_level": null,
+          "edition": null,
+          "serial_number": null,
+          "print_run": null,
+          "rookie": true,
+          "autograph": false,
+          "memorabilia": false,
+          "teams": [
+            "Seattle Seahawks"
+          ],
+          "price": 2
+        }
+      ]
+    },
+    {
+      "id": "B20260909-100",
+      "kind": "single",
+      "title": "Elijah Arroyo",
+      "description": "2025 \u00b7 Panini \u00b7 Select",
+      "price": 2,
+      "cards": [
+        {
+          "copy_id": "B20260909-100",
+          "player": "Elijah Arroyo",
+          "season": "2025",
+          "brand": "Panini",
+          "set": "Select",
+          "card_name": "Select Certified",
+          "parallel": null,
+          "card_number": "24",
+          "card_level": null,
+          "edition": null,
+          "serial_number": null,
+          "print_run": null,
+          "rookie": true,
+          "autograph": false,
+          "memorabilia": false,
+          "teams": [
+            "Seattle Seahawks"
+          ],
+          "price": 2
+        }
+      ]
+    },
+    {
+      "id": "B20260909-116",
+      "kind": "single",
+      "title": "Ernest Jones",
+      "description": "2025 \u00b7 Panini \u00b7 Select",
+      "price": 2,
+      "cards": [
+        {
+          "copy_id": "B20260909-116",
+          "player": "Ernest Jones",
+          "season": "2025",
+          "brand": "Panini",
+          "set": "Select",
+          "card_name": "Base",
+          "parallel": "Red and Blue Prizm Shock",
+          "card_number": "113",
+          "card_level": "Premier Level",
+          "edition": null,
+          "serial_number": null,
+          "print_run": null,
+          "rookie": false,
+          "autograph": false,
+          "memorabilia": false,
+          "teams": [
+            "Seattle Seahawks"
+          ],
+          "price": 2
+        }
+      ]
+    },
+    {
+      "id": "B20260909-058",
+      "kind": "single",
+      "title": "Jalen Milroe",
+      "description": "2025 \u00b7 Topps \u00b7 Cosmic Chrome",
+      "price": 2,
+      "cards": [
+        {
+          "copy_id": "B20260909-058",
+          "player": "Jalen Milroe",
+          "season": "2025",
+          "brand": "Topps",
+          "set": "Cosmic Chrome",
+          "card_name": "Base",
+          "parallel": null,
+          "card_number": "191",
+          "card_level": null,
+          "edition": null,
+          "serial_number": null,
+          "print_run": null,
+          "rookie": true,
+          "autograph": false,
+          "memorabilia": false,
+          "teams": [
+            "Seattle Seahawks"
+          ],
+          "price": 2
+        }
+      ]
+    },
+    {
+      "id": "B20260909-070",
+      "kind": "single",
+      "title": "Jalen Milroe",
+      "description": "2025 \u00b7 Donruss \u00b7 Donruss Optic",
+      "price": 2,
+      "cards": [
+        {
+          "copy_id": "B20260909-070",
+          "player": "Jalen Milroe",
+          "season": "2025",
+          "brand": "Donruss",
+          "set": "Donruss Optic",
+          "card_name": "Base",
+          "parallel": "Blue Hyper",
+          "card_number": "253",
+          "card_level": null,
+          "edition": null,
+          "serial_number": null,
+          "print_run": null,
+          "rookie": true,
+          "autograph": false,
+          "memorabilia": false,
+          "teams": [
+            "Seattle Seahawks"
+          ],
+          "price": 2
+        }
+      ]
+    },
+    {
+      "id": "B20260909-084",
+      "kind": "single",
+      "title": "Jaxon Smith-Njigba",
+      "description": "2025 \u00b7 Panini \u00b7 Phoenix",
+      "price": 2,
+      "cards": [
+        {
+          "copy_id": "B20260909-084",
+          "player": "Jaxon Smith-Njigba",
+          "season": "2025",
+          "brand": "Panini",
+          "set": "Phoenix",
+          "card_name": "Thunderbirds",
+          "parallel": null,
+          "card_number": "46",
+          "card_level": null,
+          "edition": null,
+          "serial_number": null,
+          "print_run": null,
+          "rookie": false,
+          "autograph": false,
+          "memorabilia": false,
+          "teams": [
+            "Seattle Seahawks"
+          ],
+          "price": 2
+        }
+      ]
+    },
+    {
+      "id": "B20260909-093",
+      "kind": "single",
+      "title": "Jaxon Smith-Njigba",
+      "description": "2025 \u00b7 Topps \u00b7 Signature Class",
+      "price": 2,
+      "cards": [
+        {
+          "copy_id": "B20260909-093",
+          "player": "Jaxon Smith-Njigba",
+          "season": "2025",
+          "brand": "Topps",
+          "set": "Signature Class",
+          "card_name": "Base",
+          "parallel": "Blue & Yellow",
+          "card_number": "46",
+          "card_level": null,
+          "edition": "Paper",
+          "serial_number": null,
+          "print_run": null,
+          "rookie": false,
+          "autograph": false,
+          "memorabilia": false,
+          "teams": [
+            "Seattle Seahawks"
+          ],
+          "price": 2
+        }
+      ]
+    },
+    {
+      "id": "B20260909-122",
+      "kind": "single",
+      "title": "Jaxon Smith-Njigba",
+      "description": "2025 \u00b7 Panini \u00b7 Select",
+      "price": 2,
+      "cards": [
+        {
+          "copy_id": "B20260909-122",
+          "player": "Jaxon Smith-Njigba",
+          "season": "2025",
+          "brand": "Panini",
+          "set": "Select",
+          "card_name": "Turbocharged",
+          "parallel": null,
+          "card_number": "16",
+          "card_level": null,
+          "edition": null,
+          "serial_number": null,
+          "print_run": null,
+          "rookie": false,
+          "autograph": false,
+          "memorabilia": false,
+          "teams": [
+            "Seattle Seahawks"
+          ],
+          "price": 2
+        }
+      ]
+    },
+    {
+      "id": "B20260909-025",
+      "kind": "single",
+      "title": "Kam Chancellor",
+      "description": "2025 \u00b7 Panini \u00b7 Prizm",
+      "price": 2,
+      "cards": [
+        {
+          "copy_id": "B20260909-025",
+          "player": "Kam Chancellor",
+          "season": "2025",
+          "brand": "Panini",
+          "set": "Prizm",
+          "card_name": "Base",
+          "parallel": "White Disco",
+          "card_number": "217",
+          "card_level": null,
+          "edition": null,
+          "serial_number": null,
+          "print_run": null,
+          "rookie": false,
+          "autograph": false,
+          "memorabilia": false,
+          "teams": [
+            "Seattle Seahawks"
+          ],
+          "price": 2
+        }
+      ]
+    },
+    {
+      "id": "B20260909-049",
+      "kind": "single",
+      "title": "Kam Chancellor",
+      "description": "2025 \u00b7 Topps \u00b7 Chrome",
+      "price": 2,
+      "cards": [
+        {
+          "copy_id": "B20260909-049",
+          "player": "Kam Chancellor",
+          "season": "2025",
+          "brand": "Topps",
+          "set": "Chrome",
+          "card_name": "Legends of the Gridiron",
+          "parallel": "Refractor",
+          "card_number": "LOG-34",
+          "card_level": null,
+          "edition": null,
+          "serial_number": null,
+          "print_run": null,
+          "rookie": false,
+          "autograph": false,
+          "memorabilia": false,
+          "teams": [
+            "Seattle Seahawks"
+          ],
+          "price": 2
+        }
+      ]
+    },
+    {
+      "id": "B20260909-038",
+      "kind": "single",
+      "title": "Kenneth Walker III",
+      "description": "2025 \u00b7 Topps \u00b7 Chrome",
+      "price": 2,
+      "cards": [
+        {
+          "copy_id": "B20260909-038",
+          "player": "Kenneth Walker III",
+          "season": "2025",
+          "brand": "Topps",
+          "set": "Chrome",
+          "card_name": "Base",
+          "parallel": "Prism Refractor",
+          "card_number": "276",
+          "card_level": null,
+          "edition": null,
+          "serial_number": null,
+          "print_run": null,
+          "rookie": false,
+          "autograph": false,
+          "memorabilia": false,
+          "teams": [
+            "Seattle Seahawks"
+          ],
+          "price": 2
+        }
+      ]
+    },
+    {
+      "id": "B20260909-026",
+      "kind": "single",
+      "title": "Leonard Williams",
+      "description": "2025 \u00b7 Panini \u00b7 Prizm",
+      "price": 2,
+      "cards": [
+        {
+          "copy_id": "B20260909-026",
+          "player": "Leonard Williams",
+          "season": "2025",
+          "brand": "Panini",
+          "set": "Prizm",
+          "card_name": "Base",
+          "parallel": "White Disco",
+          "card_number": "183",
+          "card_level": null,
+          "edition": null,
+          "serial_number": null,
+          "print_run": null,
+          "rookie": false,
+          "autograph": false,
+          "memorabilia": false,
+          "teams": [
+            "Seattle Seahawks"
+          ],
+          "price": 2
+        }
+      ]
+    },
+    {
+      "id": "B20260909-033",
+      "kind": "single",
+      "title": "Marquez Valdes-Scantling",
+      "description": "2025 \u00b7 Topps \u00b7 Chrome",
+      "price": 2,
+      "cards": [
+        {
+          "copy_id": "B20260909-033",
+          "player": "Marquez Valdes-Scantling",
+          "season": "2025",
+          "brand": "Topps",
+          "set": "Chrome",
+          "card_name": "Base",
+          "parallel": "Geometric Refractor",
+          "card_number": "272",
+          "card_level": null,
+          "edition": null,
+          "serial_number": null,
+          "print_run": null,
+          "rookie": false,
+          "autograph": false,
+          "memorabilia": false,
+          "teams": [
+            "Seattle Seahawks"
+          ],
+          "price": 2
+        }
+      ]
+    },
+    {
+      "id": "B20260909-009",
+      "kind": "single",
+      "title": "Nick Emmanwori",
+      "description": "2025 \u00b7 Panini \u00b7 Prizm",
+      "price": 2,
+      "cards": [
+        {
+          "copy_id": "B20260909-009",
+          "player": "Nick Emmanwori",
+          "season": "2025",
+          "brand": "Panini",
+          "set": "Prizm",
+          "card_name": "Base",
+          "parallel": "Pink",
+          "card_number": "320",
+          "card_level": null,
+          "edition": null,
+          "serial_number": null,
+          "print_run": null,
+          "rookie": true,
+          "autograph": false,
+          "memorabilia": false,
+          "teams": [
+            "Seattle Seahawks"
+          ],
+          "price": 2
+        }
+      ]
+    },
+    {
+      "id": "B20260909-031",
+      "kind": "single",
+      "title": "Nick Emmanwori",
+      "description": "2025 \u00b7 Topps \u00b7 Chrome",
+      "price": 2,
+      "cards": [
+        {
+          "copy_id": "B20260909-031",
+          "player": "Nick Emmanwori",
+          "season": "2025",
+          "brand": "Topps",
+          "set": "Chrome",
+          "card_name": "Base",
+          "parallel": "Refractor",
+          "card_number": "348",
+          "card_level": null,
+          "edition": null,
+          "serial_number": null,
+          "print_run": null,
+          "rookie": true,
+          "autograph": false,
+          "memorabilia": false,
+          "teams": [
+            "Seattle Seahawks"
+          ],
+          "price": 2
+        }
+      ]
+    },
+    {
+      "id": "B20260909-065",
+      "kind": "single",
+      "title": "Nick Emmanwori",
+      "description": "2025 \u00b7 Donruss \u00b7 Donruss Optic",
+      "price": 2,
+      "cards": [
+        {
+          "copy_id": "B20260909-065",
+          "player": "Nick Emmanwori",
+          "season": "2025",
+          "brand": "Donruss",
+          "set": "Donruss Optic",
+          "card_name": "Base",
+          "parallel": "Blue Hyper",
+          "card_number": "277",
+          "card_level": null,
+          "edition": null,
+          "serial_number": null,
+          "print_run": null,
+          "rookie": true,
+          "autograph": false,
+          "memorabilia": false,
+          "teams": [
+            "Seattle Seahawks"
+          ],
+          "price": 2
+        }
+      ]
+    },
+    {
+      "id": "B20260909-036",
+      "kind": "single",
+      "title": "Olu Oluwatimi",
+      "description": "2025 \u00b7 Topps \u00b7 Chrome",
+      "price": 2,
+      "cards": [
+        {
+          "copy_id": "B20260909-036",
+          "player": "Olu Oluwatimi",
+          "season": "2025",
+          "brand": "Topps",
+          "set": "Chrome",
+          "card_name": "Base",
+          "parallel": "Topps Refractor",
+          "card_number": "273",
+          "card_level": null,
+          "edition": null,
+          "serial_number": null,
+          "print_run": null,
+          "rookie": false,
+          "autograph": false,
+          "memorabilia": false,
+          "teams": [
+            "Seattle Seahawks"
+          ],
+          "price": 2
+        }
+      ]
+    },
+    {
+      "id": "B20260909-039",
+      "kind": "single",
+      "title": "Olu Oluwatimi",
+      "description": "2025 \u00b7 Topps \u00b7 Chrome",
+      "price": 2,
+      "cards": [
+        {
+          "copy_id": "B20260909-039",
+          "player": "Olu Oluwatimi",
+          "season": "2025",
+          "brand": "Topps",
+          "set": "Chrome",
+          "card_name": "Base",
+          "parallel": "Refractor",
+          "card_number": "273",
+          "card_level": null,
+          "edition": null,
+          "serial_number": null,
+          "print_run": null,
+          "rookie": false,
+          "autograph": false,
+          "memorabilia": false,
+          "teams": [
+            "Seattle Seahawks"
+          ],
+          "price": 2
+        }
+      ]
+    },
+    {
+      "id": "B20260909-123",
+      "kind": "single",
+      "title": "Russell Wilson",
+      "description": "2025 \u00b7 Panini \u00b7 Select",
+      "price": 2,
+      "cards": [
+        {
+          "copy_id": "B20260909-123",
+          "player": "Russell Wilson",
+          "season": "2025",
+          "brand": "Panini",
+          "set": "Select",
+          "card_name": "Multiverse",
+          "parallel": "Red Prizm",
+          "card_number": "MVJ-RWN",
+          "card_level": null,
+          "edition": null,
+          "serial_number": null,
+          "print_run": null,
+          "rookie": false,
+          "autograph": false,
+          "memorabilia": true,
+          "teams": [
+            "Seattle Seahawks",
+            "New York Giants"
+          ],
+          "price": 2
+        }
+      ]
+    },
+    {
+      "id": "B20260909-131",
+      "kind": "single",
+      "title": "Sam Adams",
+      "description": "1994 \u00b7 Pacific \u00b7 Prisms",
+      "price": 2,
+      "cards": [
+        {
+          "copy_id": "B20260909-131",
+          "player": "Sam Adams",
+          "season": "1994",
+          "brand": "Pacific",
+          "set": "Prisms",
+          "card_name": "PROMO",
+          "parallel": null,
+          "card_number": "1",
+          "card_level": null,
+          "edition": null,
+          "serial_number": null,
+          "print_run": null,
+          "rookie": true,
+          "autograph": false,
+          "memorabilia": false,
+          "teams": [
+            "Seattle Seahawks"
+          ],
+          "price": 2
+        }
+      ]
+    },
+    {
+      "id": "B20260909-043",
+      "kind": "single",
+      "title": "Sam Darnold",
+      "description": "2025 \u00b7 Topps \u00b7 Chrome",
+      "price": 2,
+      "cards": [
+        {
+          "copy_id": "B20260909-043",
+          "player": "Sam Darnold",
+          "season": "2025",
+          "brand": "Topps",
+          "set": "Chrome",
+          "card_name": "Base",
+          "parallel": "Pulsar Refractor",
+          "card_number": "275",
+          "card_level": null,
+          "edition": null,
+          "serial_number": null,
+          "print_run": null,
+          "rookie": false,
+          "autograph": false,
+          "memorabilia": false,
+          "teams": [
+            "Seattle Seahawks"
+          ],
+          "price": 2
+        }
+      ]
+    },
+    {
+      "id": "B20260909-048",
+      "kind": "single",
+      "title": "Sam Darnold",
+      "description": "2025 \u00b7 Topps \u00b7 Chrome",
+      "price": 2,
+      "cards": [
+        {
+          "copy_id": "B20260909-048",
+          "player": "Sam Darnold",
+          "season": "2025",
+          "brand": "Topps",
+          "set": "Chrome",
+          "card_name": "Base",
+          "parallel": "Refractor",
+          "card_number": "275",
+          "card_level": null,
+          "edition": null,
+          "serial_number": null,
+          "print_run": null,
+          "rookie": false,
+          "autograph": false,
+          "memorabilia": false,
+          "teams": [
+            "Seattle Seahawks"
+          ],
+          "price": 2
+        }
+      ]
+    },
+    {
+      "id": "B20260909-056",
+      "kind": "single",
+      "title": "Sam Darnold",
+      "description": "2025 \u00b7 Panini \u00b7 Mosaic",
+      "price": 2,
+      "cards": [
+        {
+          "copy_id": "B20260909-056",
+          "player": "Sam Darnold",
+          "season": "2025",
+          "brand": "Panini",
+          "set": "Mosaic",
+          "card_name": "Notoriety",
+          "parallel": null,
+          "card_number": "9",
+          "card_level": null,
+          "edition": null,
+          "serial_number": null,
+          "print_run": null,
+          "rookie": false,
+          "autograph": false,
+          "memorabilia": false,
+          "teams": [
+            "Seattle Seahawks"
+          ],
+          "price": 2
+        }
+      ]
+    },
+    {
+      "id": "B20260909-097",
+      "kind": "single",
+      "title": "Sam Darnold",
+      "description": "2025 \u00b7 Topps \u00b7 Signature Class",
+      "price": 2,
+      "cards": [
+        {
+          "copy_id": "B20260909-097",
+          "player": "Sam Darnold",
+          "season": "2025",
+          "brand": "Topps",
+          "set": "Signature Class",
+          "card_name": "Base",
+          "parallel": null,
+          "card_number": "47",
+          "card_level": null,
+          "edition": "Chrome",
+          "serial_number": null,
+          "print_run": null,
+          "rookie": false,
+          "autograph": false,
+          "memorabilia": false,
+          "teams": [
+            "Seattle Seahawks"
+          ],
+          "price": 2
+        }
+      ]
+    },
+    {
+      "id": "B20260909-124",
+      "kind": "single",
+      "title": "Sam Darnold",
+      "description": "2025 \u00b7 Panini \u00b7 Select",
+      "price": 2,
+      "cards": [
+        {
+          "copy_id": "B20260909-124",
+          "player": "Sam Darnold",
+          "season": "2025",
+          "brand": "Panini",
+          "set": "Select",
+          "card_name": "Base",
+          "parallel": "Red and Blue Prizm Shock",
+          "card_number": "13",
+          "card_level": "Concourse",
+          "edition": null,
+          "serial_number": null,
+          "print_run": null,
+          "rookie": false,
+          "autograph": false,
+          "memorabilia": false,
+          "teams": [
+            "Seattle Seahawks"
+          ],
+          "price": 2
+        }
+      ]
+    },
+    {
+      "id": "B20260909-121",
+      "kind": "single",
+      "title": "Tariq Woolen",
+      "description": "2025 \u00b7 Panini \u00b7 Select",
+      "price": 2,
+      "cards": [
+        {
+          "copy_id": "B20260909-121",
+          "player": "Tariq Woolen",
+          "season": "2025",
+          "brand": "Panini",
+          "set": "Select",
+          "card_name": "Base",
+          "parallel": "Black and Green Prizm Shock",
+          "card_number": "115",
+          "card_level": "Premier Level",
+          "edition": null,
+          "serial_number": null,
+          "print_run": null,
+          "rookie": false,
+          "autograph": false,
+          "memorabilia": false,
+          "teams": [
+            "Seattle Seahawks"
+          ],
+          "price": 2
+        }
+      ]
+    },
+    {
+      "id": "B20260909-075",
+      "kind": "single",
+      "title": "Tory Horton",
+      "description": "2025 \u00b7 Donruss \u00b7 Donruss Optic",
+      "price": 2,
+      "cards": [
+        {
+          "copy_id": "B20260909-075",
+          "player": "Tory Horton",
+          "season": "2025",
+          "brand": "Donruss",
+          "set": "Donruss Optic",
+          "card_name": "Base",
+          "parallel": "Holo",
+          "card_number": "295",
+          "card_level": null,
+          "edition": null,
+          "serial_number": null,
+          "print_run": null,
+          "rookie": true,
+          "autograph": false,
+          "memorabilia": false,
+          "teams": [
+            "Seattle Seahawks"
+          ],
+          "price": 2
+        }
+      ]
+    },
+    {
+      "id": "B20260909-095",
+      "kind": "single",
+      "title": "Tory Horton",
+      "description": "2025 \u00b7 Topps \u00b7 Signature Class",
+      "price": 2,
+      "cards": [
+        {
+          "copy_id": "B20260909-095",
+          "player": "Tory Horton",
+          "season": "2025",
+          "brand": "Topps",
+          "set": "Signature Class",
+          "card_name": "Base",
+          "parallel": null,
+          "card_number": "145",
+          "card_level": null,
+          "edition": "Paper",
+          "serial_number": null,
+          "print_run": null,
+          "rookie": true,
+          "autograph": false,
+          "memorabilia": false,
+          "teams": [
+            "Seattle Seahawks"
+          ],
+          "price": 2
+        }
+      ]
+    },
+    {
+      "id": "B20260909-045",
+      "kind": "single",
+      "title": "Zach Charbonnet",
+      "description": "2025 \u00b7 Topps \u00b7 Chrome",
+      "price": 2,
+      "cards": [
+        {
+          "copy_id": "B20260909-045",
+          "player": "Zach Charbonnet",
+          "season": "2025",
+          "brand": "Topps",
+          "set": "Chrome",
+          "card_name": "Base",
+          "parallel": "Pulsar Refractor",
+          "card_number": "279",
+          "card_level": null,
+          "edition": null,
+          "serial_number": null,
+          "print_run": null,
+          "rookie": false,
+          "autograph": false,
+          "memorabilia": false,
+          "teams": [
+            "Seattle Seahawks"
+          ],
+          "price": 2
+        }
+      ]
+    },
+    {
+      "id": "B20260909-027",
+      "kind": "single",
+      "title": "Ernest Jones",
+      "description": "2025 \u00b7 Panini \u00b7 Prizm",
+      "price": 1.5,
+      "cards": [
+        {
+          "copy_id": "B20260909-027",
+          "player": "Ernest Jones",
+          "season": "2025",
+          "brand": "Panini",
+          "set": "Prizm",
+          "card_name": "Base",
+          "parallel": "Silver",
+          "card_number": "282",
+          "card_level": null,
+          "edition": null,
+          "serial_number": null,
+          "print_run": null,
+          "rookie": false,
+          "autograph": false,
+          "memorabilia": false,
+          "teams": [
+            "Seattle Seahawks"
+          ],
+          "price": 1.5
+        }
+      ]
+    },
+    {
+      "id": "B20260909-002",
+      "kind": "single",
+      "title": "Grey Zabel",
+      "description": "2025 \u00b7 Panini \u00b7 Prizm",
+      "price": 1.5,
+      "cards": [
+        {
+          "copy_id": "B20260909-002",
+          "player": "Grey Zabel",
+          "season": "2025",
+          "brand": "Panini",
+          "set": "Prizm",
+          "card_name": "Base",
+          "parallel": "White Disco",
+          "card_number": "387",
+          "card_level": null,
+          "edition": null,
+          "serial_number": null,
+          "print_run": null,
+          "rookie": true,
+          "autograph": false,
+          "memorabilia": false,
+          "teams": [
+            "Seattle Seahawks"
+          ],
+          "price": 1.5
+        }
+      ]
+    },
+    {
+      "id": "B20260909-022",
+      "kind": "single",
+      "title": "Nick Emmanwori",
+      "description": "2025 \u00b7 Topps \u00b7 Chrome",
+      "price": 1.5,
+      "cards": [
+        {
+          "copy_id": "B20260909-022",
+          "player": "Nick Emmanwori",
+          "season": "2025",
+          "brand": "Topps",
+          "set": "Chrome",
+          "card_name": "Base",
+          "parallel": null,
+          "card_number": "348",
+          "card_level": null,
+          "edition": null,
+          "serial_number": null,
+          "print_run": null,
+          "rookie": true,
+          "autograph": false,
+          "memorabilia": false,
+          "teams": [
+            "Seattle Seahawks"
+          ],
+          "price": 1.5
+        }
+      ]
+    },
+    {
+      "id": "B20260909-101",
+      "kind": "single",
+      "title": "Nick Emmanwori",
+      "description": "2025 \u00b7 Panini \u00b7 Select",
+      "price": 1.5,
+      "cards": [
+        {
+          "copy_id": "B20260909-101",
+          "player": "Nick Emmanwori",
+          "season": "2025",
+          "brand": "Panini",
+          "set": "Select",
+          "card_name": "Base",
+          "parallel": "Black and Green Prizm Shock",
+          "card_number": "15",
+          "card_level": "Concourse",
+          "edition": null,
+          "serial_number": null,
+          "print_run": null,
+          "rookie": true,
+          "autograph": false,
+          "memorabilia": false,
+          "teams": [
+            "Seattle Seahawks"
+          ],
+          "price": 1.5
+        }
+      ]
+    },
+    {
+      "id": "B20260909-081",
+      "kind": "single",
+      "title": "Sam Darnold",
+      "description": "2025 \u00b7 Panini \u00b7 Phoenix",
+      "price": 1.5,
+      "cards": [
+        {
+          "copy_id": "B20260909-081",
+          "player": "Sam Darnold",
+          "season": "2025",
+          "brand": "Panini",
+          "set": "Phoenix",
+          "card_name": "Thunderbirds",
+          "parallel": null,
+          "card_number": "45",
+          "card_level": null,
+          "edition": null,
+          "serial_number": null,
+          "print_run": null,
+          "rookie": false,
+          "autograph": false,
+          "memorabilia": false,
+          "teams": [
+            "Seattle Seahawks"
+          ],
+          "price": 1.5
+        }
+      ]
+    },
+    {
+      "id": "B20260909-125",
+      "kind": "single",
+      "title": "Tyler Lockett",
+      "description": "2025 \u00b7 Panini \u00b7 Select",
+      "price": 1.5,
+      "cards": [
+        {
+          "copy_id": "B20260909-125",
+          "player": "Tyler Lockett",
+          "season": "2025",
+          "brand": "Panini",
+          "set": "Select",
+          "card_name": "Multiverse",
+          "parallel": "Blue Prizm",
+          "card_number": "MVJ-TLT",
+          "card_level": null,
+          "edition": null,
+          "serial_number": null,
+          "print_run": null,
+          "rookie": false,
+          "autograph": false,
+          "memorabilia": true,
+          "teams": [
+            "Seattle Seahawks",
+            "Tennessee Titans"
+          ],
+          "price": 1.5
+        }
+      ]
+    },
+    {
+      "id": "B20260909-135",
+      "kind": "dollar",
+      "title": "Alex McGough",
+      "description": "2018 \u00b7 Donruss \u00b7 Donruss Optic",
+      "price": 1,
+      "cards": [
+        {
+          "copy_id": "B20260909-135",
+          "player": "Alex McGough",
+          "season": "2018",
+          "brand": "Donruss",
+          "set": "Donruss Optic",
+          "card_name": "Base",
+          "parallel": null,
+          "card_number": "193",
+          "card_level": null,
+          "edition": null,
+          "serial_number": null,
+          "print_run": null,
+          "rookie": true,
+          "autograph": false,
+          "memorabilia": false,
+          "teams": [
+            "Seattle Seahawks"
+          ],
+          "price": 1
+        }
+      ]
+    },
+    {
+      "id": "B20260909-129",
+      "kind": "dollar",
+      "title": "Boye Mafe",
+      "description": "2022 \u00b7 Panini \u00b7 Prizm",
+      "price": 1,
+      "cards": [
+        {
+          "copy_id": "B20260909-129",
+          "player": "Boye Mafe",
+          "season": "2022",
+          "brand": "Panini",
+          "set": "Prizm",
+          "card_name": "Base",
+          "parallel": null,
+          "card_number": "386",
+          "card_level": null,
+          "edition": null,
+          "serial_number": null,
+          "print_run": null,
+          "rookie": true,
+          "autograph": false,
+          "memorabilia": false,
+          "teams": [
+            "Seattle Seahawks"
+          ],
+          "price": 1
+        }
+      ]
+    },
+    {
+      "id": "B20260909-094",
+      "kind": "dollar",
+      "title": "Cooper Kupp",
+      "description": "2025 \u00b7 Topps \u00b7 Signature Class",
+      "price": 1,
+      "cards": [
+        {
+          "copy_id": "B20260909-094",
+          "player": "Cooper Kupp",
+          "season": "2025",
+          "brand": "Topps",
+          "set": "Signature Class",
+          "card_name": "Base",
+          "parallel": "Blue & Yellow",
+          "card_number": "97",
+          "card_level": null,
+          "edition": "Paper",
+          "serial_number": null,
+          "print_run": null,
+          "rookie": false,
+          "autograph": false,
+          "memorabilia": false,
+          "teams": [
+            "Seattle Seahawks"
+          ],
+          "price": 1
+        }
+      ]
+    },
+    {
+      "id": "B20260909-003",
+      "kind": "dollar",
+      "title": "Damien Martinez",
+      "description": "2025 \u00b7 Panini \u00b7 Prizm",
+      "price": 1,
+      "cards": [
+        {
+          "copy_id": "B20260909-003",
+          "player": "Damien Martinez",
+          "season": "2025",
+          "brand": "Panini",
+          "set": "Prizm",
+          "card_name": "Base",
+          "parallel": null,
+          "card_number": "373",
+          "card_level": null,
+          "edition": null,
+          "serial_number": null,
+          "print_run": null,
+          "rookie": true,
+          "autograph": false,
+          "memorabilia": false,
+          "teams": [
+            "Seattle Seahawks"
+          ],
+          "price": 1
+        }
+      ]
+    },
+    {
+      "id": "B20260909-052",
+      "kind": "dollar",
+      "title": "Damien Martinez",
+      "description": "2025 \u00b7 Panini \u00b7 Mosaic",
+      "price": 1,
+      "cards": [
+        {
+          "copy_id": "B20260909-052",
+          "player": "Damien Martinez",
+          "season": "2025",
+          "brand": "Panini",
+          "set": "Mosaic",
+          "card_name": "Base",
+          "parallel": null,
+          "card_number": "360",
+          "card_level": null,
+          "edition": null,
+          "serial_number": null,
+          "print_run": null,
+          "rookie": true,
+          "autograph": false,
+          "memorabilia": false,
+          "teams": [
+            "Seattle Seahawks"
+          ],
+          "price": 1
+        }
+      ]
+    },
+    {
+      "id": "B20260909-134",
+      "kind": "dollar",
+      "title": "Darrell Taylor",
+      "description": "2020 \u00b7 Panini \u00b7 Absolute",
+      "price": 1,
+      "cards": [
+        {
+          "copy_id": "B20260909-134",
+          "player": "Darrell Taylor",
+          "season": "2020",
+          "brand": "Panini",
+          "set": "Absolute",
+          "card_name": "Base",
+          "parallel": null,
+          "card_number": "126",
+          "card_level": null,
+          "edition": null,
+          "serial_number": null,
+          "print_run": null,
+          "rookie": true,
+          "autograph": false,
+          "memorabilia": false,
+          "teams": [
+            "Seattle Seahawks"
+          ],
+          "price": 1
+        }
+      ]
+    },
+    {
+      "id": "B20260909-023",
+      "kind": "dollar",
+      "title": "Dave Krieg",
+      "description": "2025 \u00b7 Panini \u00b7 Prizm",
+      "price": 1,
+      "cards": [
+        {
+          "copy_id": "B20260909-023",
+          "player": "Dave Krieg",
+          "season": "2025",
+          "brand": "Panini",
+          "set": "Prizm",
+          "card_name": "Base",
+          "parallel": "Lazer",
+          "card_number": "88",
+          "card_level": null,
+          "edition": null,
+          "serial_number": null,
+          "print_run": null,
+          "rookie": false,
+          "autograph": false,
+          "memorabilia": false,
+          "teams": [
+            "Seattle Seahawks"
+          ],
+          "price": 1
+        }
+      ]
+    },
+    {
+      "id": "B20260909-133",
+      "kind": "dollar",
+      "title": "DeeJay Dallas",
+      "description": "2020 \u00b7 Panini \u00b7 Absolute",
+      "price": 1,
+      "cards": [
+        {
+          "copy_id": "B20260909-133",
+          "player": "DeeJay Dallas",
+          "season": "2020",
+          "brand": "Panini",
+          "set": "Absolute",
+          "card_name": "Base",
+          "parallel": null,
+          "card_number": "128",
+          "card_level": null,
+          "edition": null,
+          "serial_number": null,
+          "print_run": null,
+          "rookie": true,
+          "autograph": false,
+          "memorabilia": false,
+          "teams": [
+            "Seattle Seahawks"
+          ],
+          "price": 1
+        }
+      ]
+    },
+    {
+      "id": "B20260909-001",
+      "kind": "dollar",
+      "title": "Elijah Arroyo",
+      "description": "2025 \u00b7 Panini \u00b7 Prizm",
+      "price": 1,
+      "cards": [
+        {
+          "copy_id": "B20260909-001",
+          "player": "Elijah Arroyo",
+          "season": "2025",
+          "brand": "Panini",
+          "set": "Prizm",
+          "card_name": "Base",
+          "parallel": null,
+          "card_number": "309",
+          "card_level": null,
+          "edition": null,
+          "serial_number": null,
+          "print_run": null,
+          "rookie": true,
+          "autograph": false,
+          "memorabilia": false,
+          "teams": [
+            "Seattle Seahawks"
+          ],
+          "price": 1
+        }
+      ]
+    },
+    {
+      "id": "B20260909-032",
+      "kind": "dollar",
+      "title": "Elijah Arroyo",
+      "description": "2025 \u00b7 Topps \u00b7 Chrome",
+      "price": 1,
+      "cards": [
+        {
+          "copy_id": "B20260909-032",
+          "player": "Elijah Arroyo",
+          "season": "2025",
+          "brand": "Topps",
+          "set": "Chrome",
+          "card_name": "Base",
+          "parallel": null,
+          "card_number": "396",
+          "card_level": null,
+          "edition": null,
+          "serial_number": null,
+          "print_run": null,
+          "rookie": true,
+          "autograph": false,
+          "memorabilia": false,
+          "teams": [
+            "Seattle Seahawks"
+          ],
+          "price": 1
+        }
+      ]
+    },
+    {
+      "id": "B20260909-110",
+      "kind": "dollar",
+      "title": "Elijah Arroyo",
+      "description": "2025 \u00b7 Panini \u00b7 Select",
+      "price": 1,
+      "cards": [
+        {
+          "copy_id": "B20260909-110",
+          "player": "Elijah Arroyo",
+          "season": "2025",
+          "brand": "Panini",
+          "set": "Select",
+          "card_name": "Base",
+          "parallel": null,
+          "card_number": "114",
+          "card_level": "Premier Level",
+          "edition": null,
+          "serial_number": null,
+          "print_run": null,
+          "rookie": true,
+          "autograph": false,
+          "memorabilia": false,
+          "teams": [
+            "Seattle Seahawks"
+          ],
+          "price": 1
+        }
+      ]
+    },
+    {
+      "id": "B20260909-016",
+      "kind": "dollar",
+      "title": "Grey Zabel",
+      "description": "2025 \u00b7 Panini \u00b7 Prizm",
+      "price": 1,
+      "cards": [
+        {
+          "copy_id": "B20260909-016",
+          "player": "Grey Zabel",
+          "season": "2025",
+          "brand": "Panini",
+          "set": "Prizm",
+          "card_name": "Base",
+          "parallel": null,
+          "card_number": "387",
+          "card_level": null,
+          "edition": null,
+          "serial_number": null,
+          "print_run": null,
+          "rookie": true,
+          "autograph": false,
+          "memorabilia": false,
+          "teams": [
+            "Seattle Seahawks"
+          ],
+          "price": 1
+        }
+      ]
+    },
+    {
+      "id": "B20260909-086",
+      "kind": "dollar",
+      "title": "Grey Zabel",
+      "description": "2025 \u00b7 Panini \u00b7 Absolute",
+      "price": 1,
+      "cards": [
+        {
+          "copy_id": "B20260909-086",
+          "player": "Grey Zabel",
+          "season": "2025",
+          "brand": "Panini",
+          "set": "Absolute",
+          "card_name": "Base",
+          "parallel": null,
+          "card_number": "125",
+          "card_level": null,
+          "edition": null,
+          "serial_number": null,
+          "print_run": null,
+          "rookie": true,
+          "autograph": false,
+          "memorabilia": false,
+          "teams": [
+            "Seattle Seahawks"
+          ],
+          "price": 1
+        }
+      ]
+    },
+    {
+      "id": "B20260909-106",
+      "kind": "dollar",
+      "title": "Grey Zabel",
+      "description": "2025 \u00b7 Panini \u00b7 Select",
+      "price": 1,
+      "cards": [
+        {
+          "copy_id": "B20260909-106",
+          "player": "Grey Zabel",
+          "season": "2025",
+          "brand": "Panini",
+          "set": "Select",
+          "card_name": "Base",
+          "parallel": null,
+          "card_number": "215",
+          "card_level": "Club Level",
+          "edition": null,
+          "serial_number": null,
+          "print_run": null,
+          "rookie": true,
+          "autograph": false,
+          "memorabilia": false,
+          "teams": [
+            "Seattle Seahawks"
+          ],
+          "price": 1
+        }
+      ]
+    },
+    {
+      "id": "B20260909-008",
+      "kind": "dollar",
+      "title": "Jalen Milroe",
+      "description": "2025 \u00b7 Panini \u00b7 Prizm",
+      "price": 1,
+      "cards": [
+        {
+          "copy_id": "B20260909-008",
+          "player": "Jalen Milroe",
+          "season": "2025",
+          "brand": "Panini",
+          "set": "Prizm",
+          "card_name": "Base",
+          "parallel": null,
+          "card_number": "317",
+          "card_level": null,
+          "edition": null,
+          "serial_number": null,
+          "print_run": null,
+          "rookie": true,
+          "autograph": false,
+          "memorabilia": false,
+          "teams": [
+            "Seattle Seahawks"
+          ],
+          "price": 1
+        }
+      ]
+    },
+    {
+      "id": "B20260909-061",
+      "kind": "dollar",
+      "title": "Jalen Milroe",
+      "description": "2025 \u00b7 Donruss \u00b7 Donruss Optic",
+      "price": 1,
+      "cards": [
+        {
+          "copy_id": "B20260909-061",
+          "player": "Jalen Milroe",
+          "season": "2025",
+          "brand": "Donruss",
+          "set": "Donruss Optic",
+          "card_name": "Rookie Recruits",
+          "parallel": null,
+          "card_number": "16",
+          "card_level": null,
+          "edition": null,
+          "serial_number": null,
+          "print_run": null,
+          "rookie": true,
+          "autograph": false,
+          "memorabilia": false,
+          "teams": [
+            "Seattle Seahawks"
+          ],
+          "price": 1
+        }
+      ]
+    },
+    {
+      "id": "B20260909-069",
+      "kind": "dollar",
+      "title": "Jalen Milroe",
+      "description": "2025 \u00b7 Donruss \u00b7 Donruss Optic",
+      "price": 1,
+      "cards": [
+        {
+          "copy_id": "B20260909-069",
+          "player": "Jalen Milroe",
+          "season": "2025",
+          "brand": "Donruss",
+          "set": "Donruss Optic",
+          "card_name": "Base",
+          "parallel": null,
+          "card_number": "253",
+          "card_level": null,
+          "edition": null,
+          "serial_number": null,
+          "print_run": null,
+          "rookie": true,
+          "autograph": false,
+          "memorabilia": false,
+          "teams": [
+            "Seattle Seahawks"
+          ],
+          "price": 1
+        }
+      ]
+    },
+    {
+      "id": "B20260909-091",
+      "kind": "dollar",
+      "title": "Jalen Milroe",
+      "description": "2025 \u00b7 Topps \u00b7 Signature Class",
+      "price": 1,
+      "cards": [
+        {
+          "copy_id": "B20260909-091",
+          "player": "Jalen Milroe",
+          "season": "2025",
+          "brand": "Topps",
+          "set": "Signature Class",
+          "card_name": "Base",
+          "parallel": null,
+          "card_number": "151",
+          "card_level": null,
+          "edition": "Paper",
+          "serial_number": null,
+          "print_run": null,
+          "rookie": true,
+          "autograph": false,
+          "memorabilia": false,
+          "teams": [
+            "Seattle Seahawks"
+          ],
+          "price": 1
+        }
+      ]
+    },
+    {
+      "id": "B20260909-105",
+      "kind": "dollar",
+      "title": "Jalen Milroe",
+      "description": "2025 \u00b7 Panini \u00b7 Select",
+      "price": 1,
+      "cards": [
+        {
+          "copy_id": "B20260909-105",
+          "player": "Jalen Milroe",
+          "season": "2025",
+          "brand": "Panini",
+          "set": "Select",
+          "card_name": "Base",
+          "parallel": null,
+          "card_number": "14",
+          "card_level": "Concourse",
+          "edition": null,
+          "serial_number": null,
+          "print_run": null,
+          "rookie": true,
+          "autograph": false,
+          "memorabilia": false,
+          "teams": [
+            "Seattle Seahawks"
+          ],
+          "price": 1
+        }
+      ]
+    },
+    {
+      "id": "B20260909-126",
+      "kind": "dollar",
+      "title": "Jarran Reed",
+      "description": "2016 \u00b7 Donruss \u00b7 Donruss Optic",
+      "price": 1,
+      "cards": [
+        {
+          "copy_id": "B20260909-126",
+          "player": "Jarran Reed",
+          "season": "2016",
+          "brand": "Donruss",
+          "set": "Donruss Optic",
+          "card_name": "Base",
+          "parallel": "Holo",
+          "card_number": "120",
+          "card_level": null,
+          "edition": null,
+          "serial_number": null,
+          "print_run": null,
+          "rookie": true,
+          "autograph": false,
+          "memorabilia": false,
+          "teams": [
+            "Seattle Seahawks"
+          ],
+          "price": 1
+        }
+      ]
+    },
+    {
+      "id": "B20260909-089",
+      "kind": "dollar",
+      "title": "Jaxon Smith-Njigba",
+      "description": "2025 \u00b7 Panini \u00b7 Absolute",
+      "price": 1,
+      "cards": [
+        {
+          "copy_id": "B20260909-089",
+          "player": "Jaxon Smith-Njigba",
+          "season": "2025",
+          "brand": "Panini",
+          "set": "Absolute",
+          "card_name": "Base",
+          "parallel": null,
+          "card_number": "94",
+          "card_level": null,
+          "edition": null,
+          "serial_number": null,
+          "print_run": null,
+          "rookie": false,
+          "autograph": false,
+          "memorabilia": false,
+          "teams": [
+            "Seattle Seahawks"
+          ],
+          "price": 1
+        }
+      ]
+    },
+    {
+      "id": "B20260909-114",
+      "kind": "dollar",
+      "title": "Jaxon Smith-Njigba",
+      "description": "2025 \u00b7 Panini \u00b7 Select",
+      "price": 1,
+      "cards": [
+        {
+          "copy_id": "B20260909-114",
+          "player": "Jaxon Smith-Njigba",
+          "season": "2025",
+          "brand": "Panini",
+          "set": "Select",
+          "card_name": "Numbers",
+          "parallel": null,
+          "card_number": "20",
+          "card_level": null,
+          "edition": null,
+          "serial_number": null,
+          "print_run": null,
+          "rookie": false,
+          "autograph": false,
+          "memorabilia": false,
+          "teams": [
+            "Seattle Seahawks"
+          ],
+          "price": 1
+        }
+      ]
+    },
+    {
+      "id": "B20260909-118",
+      "kind": "dollar",
+      "title": "Jaxon Smith-Njigba",
+      "description": "2025 \u00b7 Panini \u00b7 Select",
+      "price": 1,
+      "cards": [
+        {
+          "copy_id": "B20260909-118",
+          "player": "Jaxon Smith-Njigba",
+          "season": "2025",
+          "brand": "Panini",
+          "set": "Select",
+          "card_name": "Base",
+          "parallel": null,
+          "card_number": "213",
+          "card_level": "Club Level",
+          "edition": null,
+          "serial_number": null,
+          "print_run": null,
+          "rookie": false,
+          "autograph": false,
+          "memorabilia": false,
+          "teams": [
+            "Seattle Seahawks"
+          ],
+          "price": 1
+        }
+      ]
+    },
+    {
+      "id": "B20260909-047",
+      "kind": "dollar",
+      "title": "Kam Chancellor",
+      "description": "2025 \u00b7 Topps \u00b7 Chrome",
+      "price": 1,
+      "cards": [
+        {
+          "copy_id": "B20260909-047",
+          "player": "Kam Chancellor",
+          "season": "2025",
+          "brand": "Topps",
+          "set": "Chrome",
+          "card_name": "Legends of the Gridiron",
+          "parallel": null,
+          "card_number": "LOG-34",
+          "card_level": null,
+          "edition": null,
+          "serial_number": null,
+          "print_run": null,
+          "rookie": false,
+          "autograph": false,
+          "memorabilia": false,
+          "teams": [
+            "Seattle Seahawks"
+          ],
+          "price": 1
+        }
+      ]
+    },
+    {
+      "id": "B20260909-041",
+      "kind": "dollar",
+      "title": "Kenneth Walker III",
+      "description": "2025 \u00b7 Topps \u00b7 Chrome",
+      "price": 1,
+      "cards": [
+        {
+          "copy_id": "B20260909-041",
+          "player": "Kenneth Walker III",
+          "season": "2025",
+          "brand": "Topps",
+          "set": "Chrome",
+          "card_name": "1975 Topps",
+          "parallel": null,
+          "card_number": "1975-30",
+          "card_level": null,
+          "edition": null,
+          "serial_number": null,
+          "print_run": null,
+          "rookie": false,
+          "autograph": false,
+          "memorabilia": false,
+          "teams": [
+            "Seattle Seahawks"
+          ],
+          "price": 1
+        }
+      ]
+    },
+    {
+      "id": "B20260909-076",
+      "kind": "dollar",
+      "title": "Mark Glowinski",
+      "description": "2025 \u00b7 Donruss \u00b7 Donruss Optic",
+      "price": 1,
+      "cards": [
+        {
+          "copy_id": "B20260909-076",
+          "player": "Mark Glowinski",
+          "season": "2025",
+          "brand": "Donruss",
+          "set": "Donruss Optic",
+          "card_name": "2015 Retro",
+          "parallel": null,
+          "card_number": "30",
+          "card_level": null,
+          "edition": null,
+          "serial_number": null,
+          "print_run": null,
+          "rookie": false,
+          "autograph": false,
+          "memorabilia": false,
+          "teams": [
+            "Seattle Seahawks"
+          ],
+          "price": 1
+        }
+      ]
+    },
+    {
+      "id": "B20260909-035",
+      "kind": "dollar",
+      "title": "Marquez Valdes-Scantling",
+      "description": "2025 \u00b7 Topps \u00b7 Chrome",
+      "price": 1,
+      "cards": [
+        {
+          "copy_id": "B20260909-035",
+          "player": "Marquez Valdes-Scantling",
+          "season": "2025",
+          "brand": "Topps",
+          "set": "Chrome",
+          "card_name": "Base",
+          "parallel": "Topps Refractor",
+          "card_number": "272",
+          "card_level": null,
+          "edition": null,
+          "serial_number": null,
+          "print_run": null,
+          "rookie": false,
+          "autograph": false,
+          "memorabilia": false,
+          "teams": [
+            "Seattle Seahawks"
+          ],
+          "price": 1
+        }
+      ]
+    },
+    {
+      "id": "B20260909-012",
+      "kind": "dollar",
+      "title": "Nick Emmanwori",
+      "description": "2025 \u00b7 Panini \u00b7 Prizm",
+      "price": 1,
+      "cards": [
+        {
+          "copy_id": "B20260909-012",
+          "player": "Nick Emmanwori",
+          "season": "2025",
+          "brand": "Panini",
+          "set": "Prizm",
+          "card_name": "Base",
+          "parallel": null,
+          "card_number": "320",
+          "card_level": null,
+          "edition": null,
+          "serial_number": null,
+          "print_run": null,
+          "rookie": true,
+          "autograph": false,
+          "memorabilia": false,
+          "teams": [
+            "Seattle Seahawks"
+          ],
+          "price": 1
+        }
+      ]
+    },
+    {
+      "id": "B20260909-064",
+      "kind": "dollar",
+      "title": "Nick Emmanwori",
+      "description": "2025 \u00b7 Donruss \u00b7 Donruss Optic",
+      "price": 1,
+      "cards": [
+        {
+          "copy_id": "B20260909-064",
+          "player": "Nick Emmanwori",
+          "season": "2025",
+          "brand": "Donruss",
+          "set": "Donruss Optic",
+          "card_name": "Base",
+          "parallel": null,
+          "card_number": "277",
+          "card_level": null,
+          "edition": null,
+          "serial_number": null,
+          "print_run": null,
+          "rookie": true,
+          "autograph": false,
+          "memorabilia": false,
+          "teams": [
+            "Seattle Seahawks"
+          ],
+          "price": 1
+        }
+      ]
+    },
+    {
+      "id": "B20260909-102",
+      "kind": "dollar",
+      "title": "Nick Emmanwori",
+      "description": "2025 \u00b7 Panini \u00b7 Select",
+      "price": 1,
+      "cards": [
+        {
+          "copy_id": "B20260909-102",
+          "player": "Nick Emmanwori",
+          "season": "2025",
+          "brand": "Panini",
+          "set": "Select",
+          "card_name": "Base",
+          "parallel": null,
+          "card_number": "15",
+          "card_level": "Concourse",
+          "edition": null,
+          "serial_number": null,
+          "print_run": null,
+          "rookie": true,
+          "autograph": false,
+          "memorabilia": false,
+          "teams": [
+            "Seattle Seahawks"
+          ],
+          "price": 1
+        }
+      ]
+    },
+    {
+      "id": "B20260909-040",
+      "kind": "dollar",
+      "title": "Richard Sherman",
+      "description": "2025 \u00b7 Topps \u00b7 Chrome",
+      "price": 1,
+      "cards": [
+        {
+          "copy_id": "B20260909-040",
+          "player": "Richard Sherman",
+          "season": "2025",
+          "brand": "Topps",
+          "set": "Chrome",
+          "card_name": "Legends of the Gridiron",
+          "parallel": null,
+          "card_number": "LOG-36",
+          "card_level": null,
+          "edition": null,
+          "serial_number": null,
+          "print_run": null,
+          "rookie": false,
+          "autograph": false,
+          "memorabilia": false,
+          "teams": [
+            "Seattle Seahawks"
+          ],
+          "price": 1
+        }
+      ]
+    },
+    {
+      "id": "B20260909-053",
+      "kind": "dollar",
+      "title": "Ricky White III",
+      "description": "2025 \u00b7 Panini \u00b7 Mosaic",
+      "price": 1,
+      "cards": [
+        {
+          "copy_id": "B20260909-053",
+          "player": "Ricky White III",
+          "season": "2025",
+          "brand": "Panini",
+          "set": "Mosaic",
+          "card_name": "Base",
+          "parallel": null,
+          "card_number": "386",
+          "card_level": null,
+          "edition": null,
+          "serial_number": null,
+          "print_run": null,
+          "rookie": true,
+          "autograph": false,
+          "memorabilia": false,
+          "teams": [
+            "Seattle Seahawks"
+          ],
+          "price": 1
+        }
+      ]
+    },
+    {
+      "id": "B20260909-077",
+      "kind": "dollar",
+      "title": "Tory Horton",
+      "description": "2025 \u00b7 Panini \u00b7 Phoenix",
+      "price": 1,
+      "cards": [
+        {
+          "copy_id": "B20260909-077",
+          "player": "Tory Horton",
+          "season": "2025",
+          "brand": "Panini",
+          "set": "Phoenix",
+          "card_name": "Base",
+          "parallel": null,
+          "card_number": "248",
+          "card_level": null,
+          "edition": null,
+          "serial_number": null,
+          "print_run": null,
+          "rookie": true,
+          "autograph": false,
+          "memorabilia": false,
+          "teams": [
+            "Seattle Seahawks"
+          ],
+          "price": 1
+        }
+      ]
+    }
+  ]
+}

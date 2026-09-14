@@ -15,5 +15,6 @@ export const config = {
     '/admin/:path*',
     '/scout/:path*',
     '/tools/:path*',
+    '/marketplace/:path*',
   ],
 }

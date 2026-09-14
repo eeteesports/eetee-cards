@@ -19,7 +19,16 @@ export default function LoginPage() {
       redirect: false,
     })
     if (result?.ok) {
-      router.push('/dashboard')
+      // Return to the protected page that opened login, allowing only our origin.
+      const requested = new URLSearchParams(window.location.search).get('callbackUrl')
+      let destination = '/dashboard'
+      try {
+        const target = new URL(requested || '/dashboard', window.location.origin)
+        if (target.origin === window.location.origin && target.pathname !== '/login') {
+          destination = target.pathname + target.search + target.hash
+        }
+      } catch { /* Keep the default for malformed callback URLs. */ }
+      router.push(destination)
     } else {
       setError('Wrong password. Try again.')
       setLoading(false)
