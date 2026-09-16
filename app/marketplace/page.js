@@ -8,5 +8,5 @@ export const metadata = {
 }
 
 export default function MarketplacePage() {
-  return <Marketplace listings={data.listings} />
+  return <Marketplace listings={data.listings} summary={data.summary} />
 }

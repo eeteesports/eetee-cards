@@ -193,3 +193,6 @@
 .heroCaption{padding:15px}
 .heroCaption b{font-size:13px}
 }
+
+.collectionStats{display:flex;gap:12px;align-items:baseline;margin:0 0 20px;flex-wrap:wrap}.collectionStats strong{font-size:14px}.collectionStats span{font-size:11px;color:#69716f}.searchRow .teamSelect{max-width:240px}.loadMore{text-align:center;margin:40px 0 5px}.loadMore p{font-size:12px;color:#69716f;margin-bottom:15px}
+@media(max-width:700px){.searchRow select{max-width:100%;min-width:0;flex:1}.searchRow .teamSelect{max-width:100%;flex-basis:50%}.rookieToggle{flex-basis:100%}.collectionStats{gap:8px}}
