@@ -5,10 +5,8 @@ const nextConfig = {
   images: {
     domains: ['res.cloudinary.com'],
   },
-  // Temporary storefront closure (2026-09-06) — see lib/maintenanceMode.js.
-  // Bounces every public shopping/checkout route back to "/", which shows
-  // the Under Construction page while SITE_CLOSED is true. Admin/ops
-  // routes are untouched (not listed here).
+  // Keep legacy single-card shopping and checkout closed.
+  // The public homepage is the independently curated team-bundle catalog.
   async redirects() {
     if (!SITE_CLOSED) return []
     return [
