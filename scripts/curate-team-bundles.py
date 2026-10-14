@@ -1,6 +1,8 @@
 """Curate disjoint physical lots from an owner-priced local inventory snapshot."""
 import argparse,collections,hashlib,json,random,re,sqlite3
 from pathlib import Path
+from datetime import datetime
+from zoneinfo import ZoneInfo
 from PIL import Image,ImageOps
 TEAMS=['Arizona Cardinals','Atlanta Falcons','Baltimore Ravens','Buffalo Bills','Carolina Panthers','Chicago Bears','Cincinnati Bengals','Cleveland Browns','Dallas Cowboys','Denver Broncos','Detroit Lions','Green Bay Packers','Houston Texans','Indianapolis Colts','Jacksonville Jaguars','Kansas City Chiefs','Las Vegas Raiders','Los Angeles Chargers','Los Angeles Rams','Miami Dolphins','Minnesota Vikings','New England Patriots','New Orleans Saints','New York Giants','New York Jets','Philadelphia Eagles','Pittsburgh Steelers','San Francisco 49ers','Seattle Seahawks','Tampa Bay Buccaneers','Tennessee Titans','Washington Commanders']
 ALIASES={'Houston Oilers':'Tennessee Titans','Washington Redskins':'Washington Commanders','St. Louis Rams':'Los Angeles Rams','Oakland Raiders':'Las Vegas Raiders','Los Angeles Raiders':'Las Vegas Raiders','San Diego Chargers':'Los Angeles Chargers','Baltimore Colts':'Indianapolis Colts','Phoenix Cardinals':'Arizona Cardinals','Cardinals':'Arizona Cardinals','Chargers':'Los Angeles Chargers','Buffalo':'Buffalo Bills'}
@@ -110,7 +112,7 @@ def main():
    public.append(dict(id=bid,team=team,name=f'Team set {n}',price=20,playerCount=len({c['player'] for c in lot}),cards=cards))
    private.append(dict(id=bid,team=team,cards=[c['id'] for c in lot],asking=20,value=value,status='curated',notes='Public team bundle; shipping additional; owner asking prices; no duplicates within lot.'))
   summary.append(dict(team=team,sets=len(best),eligibleCopies=len(pool),uniqueIdentities=len({identity(c) for c in pool}),eligibleValue=sum(c['price'] for c in pool),lots=[dict(id=f'{slug}-{n:02d}',value=sum(c['price'] for c in lot),cards=len(lot),players=len({c['player'] for c in lot}),maxPerPlayer=max(collections.Counter(c['player'] for c in lot).values())) for n,lot in enumerate(best,1)]))
- result=dict(asOf='October 13, 2026',teams=TEAMS,bundles=public)
+ result=dict(asOf=datetime.now(ZoneInfo('America/New_York')).strftime('%B %d, %Y'),teams=TEAMS,bundles=public)
  (site/'data/team-bundles.json').write_text(json.dumps(result,separators=(',',':')))
  (audit/'picking-manifest.json').write_text(json.dumps(private,indent=2));(audit/'coverage.json').write_text(json.dumps(dict(teams=summary,skipped=dict(skipped),bundleCount=len(public),physicalCards=len(allocated)),indent=2))
  print('Bundles',len(public),'cards',len(allocated),'skipped',dict(skipped))
