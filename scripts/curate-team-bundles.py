@@ -104,7 +104,7 @@ def main():
      with Image.open(path) as im:
       image=ImageOps.exif_transpose(im).convert('RGB');image.thumbnail((480,620));image.save(dest,'WEBP',quality=83)
      photos[side]='/team-bundles/'+dest.name
-    cards.append(dict(id=pid,player=c['player'],year=c['season'],brand=c['brand'],set=c['set'],number=c['number'],family=c['family'],parallel=c['parallel'],serial=c['serial'],rookie=c['rookie'],**photos))
+    cards.append(dict(id=pid,player=c['player'],year=c['season'],brand=c['brand'],set=c['set'],number=c['number'],family=c['family'],parallel=c['parallel'],serial=c['serial'],rookie=c['rookie'],autograph=(c.get('identity') or {}).get('autograph') is True or (c.get('identity') or {}).get('autographed')=='Yes',printRun=(c.get('identity') or {}).get('print_run'),**photos))
    value=sum(c['price'] for c in lot);assert 30<=value<=35;assert len({identity(c) for c in lot})==len(lot)
    tier=collections.Counter(f"{c['price']:g}" for c in lot)
    public.append(dict(id=bid,team=team,name=f'Team set {n}',price=20,playerCount=len({c['player'] for c in lot}),cards=cards))
