@@ -37,7 +37,7 @@ def plan(pool,count):
  identities=collections.defaultdict(list)
  for i,c in enumerate(pool):identities[identity(c)].append(i)
  for k in range(count):
-  constraint([(xi(k,i),c['units']) for i,c in enumerate(pool)],60,65)
+  constraint([(xi(k,i),c['units']) for i,c in enumerate(pool)],60,64)
   for indices in identities.values():constraint([(xi(k,i),1) for i in indices],0,1)
   for p,player in enumerate(players):
    indices=[i for i,c in enumerate(pool) if c['player']==player]
@@ -56,7 +56,7 @@ def plan(pool,count):
  result=milp(objective,integrality=np.ones(variables),bounds=Bounds(np.zeros(variables),np.ones(variables)),constraints=LinearConstraint(matrix,lower,upper),options={'time_limit':18,'mip_rel_gap':.02})
  if result.x is None:return []
  lots=[[c for i,c in enumerate(pool) if result.x[xi(k,i)]>.5] for k in range(count)]
- if any(not 60<=sum(c['units'] for c in lot)<=70 or len({identity(c) for c in lot})!=len(lot) or max(collections.Counter(c['player'] for c in lot).values())>3 for lot in lots):return []
+ if any(not 60<=sum(c['units'] for c in lot)<=64 or len({identity(c) for c in lot})!=len(lot) or max(collections.Counter(c['player'] for c in lot).values())>3 for lot in lots):return []
  if len({c['id'] for lot in lots for c in lot})!=sum(len(lot) for lot in lots):return []
  return lots
 
@@ -105,7 +105,7 @@ def main():
       image=ImageOps.exif_transpose(im).convert('RGB');image.thumbnail((480,620));image.save(dest,'WEBP',quality=83)
      photos[side]='/team-bundles/'+dest.name
     cards.append(dict(id=pid,player=c['player'],year=c['season'],brand=c['brand'],set=c['set'],number=c['number'],family=c['family'],parallel=c['parallel'],serial=c['serial'],rookie=c['rookie'],autograph=(c.get('identity') or {}).get('autograph') is True or (c.get('identity') or {}).get('autographed')=='Yes',printRun=(c.get('identity') or {}).get('print_run'),**photos))
-   value=sum(c['price'] for c in lot);assert 30<=value<=35;assert len({identity(c) for c in lot})==len(lot)
+   value=sum(c['price'] for c in lot);assert 30<=value<=32;assert len({identity(c) for c in lot})==len(lot)
    tier=collections.Counter(f"{c['price']:g}" for c in lot)
    public.append(dict(id=bid,team=team,name=f'Team set {n}',price=20,playerCount=len({c['player'] for c in lot}),cards=cards))
    private.append(dict(id=bid,team=team,cards=[c['id'] for c in lot],asking=20,value=value,status='curated',notes='Public team bundle; shipping additional; owner asking prices; no duplicates within lot.'))
