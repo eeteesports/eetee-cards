@@ -104,10 +104,10 @@ def main():
      with Image.open(path) as im:
       image=ImageOps.exif_transpose(im).convert('RGB');image.thumbnail((480,620));image.save(dest,'WEBP',quality=83)
      photos[side]='/team-bundles/'+dest.name
-    cards.append(dict(id=pid,player=c['player'],year=c['season'],brand=c['brand'],set=c['set'],number=c['number'],family=c['family'],parallel=c['parallel'],serial=c['serial'],rookie=c['rookie'],price=c['price'],**photos))
+    cards.append(dict(id=pid,player=c['player'],year=c['season'],brand=c['brand'],set=c['set'],number=c['number'],family=c['family'],parallel=c['parallel'],serial=c['serial'],rookie=c['rookie'],**photos))
    value=sum(c['price'] for c in lot);assert 30<=value<=35;assert len({identity(c) for c in lot})==len(lot)
    tier=collections.Counter(f"{c['price']:g}" for c in lot)
-   public.append(dict(id=bid,team=team,name=f'Team set {n}',price=20,value=value,playerCount=len({c['player'] for c in lot}),cards=cards,priceMix=dict(tier)))
+   public.append(dict(id=bid,team=team,name=f'Team set {n}',price=20,playerCount=len({c['player'] for c in lot}),cards=cards))
    private.append(dict(id=bid,team=team,cards=[c['id'] for c in lot],asking=20,value=value,status='curated',notes='Public team bundle; shipping additional; owner asking prices; no duplicates within lot.'))
   summary.append(dict(team=team,sets=len(best),eligibleCopies=len(pool),uniqueIdentities=len({identity(c) for c in pool}),eligibleValue=sum(c['price'] for c in pool),lots=[dict(id=f'{slug}-{n:02d}',value=sum(c['price'] for c in lot),cards=len(lot),players=len({c['player'] for c in lot}),maxPerPlayer=max(collections.Counter(c['player'] for c in lot).values())) for n,lot in enumerate(best,1)]))
  result=dict(asOf='October 13, 2026',teams=TEAMS,bundles=public)
