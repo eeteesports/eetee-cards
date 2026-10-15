@@ -18,3 +18,12 @@ test('actual published team sets and bin physical copies are disjoint',()=>{
  const teams=JSON.parse(fs.readFileSync(new URL('../data/team-bundles.json',import.meta.url))),bins=JSON.parse(fs.readFileSync(new URL('../data/bin-cards.json',import.meta.url)));const all=teams.bundles.flatMap(b=>b.cards.map(c=>c.id));assert.equal(new Set(all).size,all.length);const ids=new Set(all);for(const c of bins.cards){assert(!ids.has(c.id));ids.add(c.id);assert([50,100].includes(c.binPriceCents))}
  const q=quoteCart({cards:bins.cards,bundles:teams.bundles},{cards:bins.cards.slice(0,40).map(c=>c.id)});assert(q.meetsMinimum);assert(requestEmail(q).startsWith('mailto:eeteecards@gmail.com?'))
 })
+
+test('team-set request email includes requested wording and buyer placeholders',()=>{
+ const href=requestEmail(quoteCart(catalog,{bundles:['team']}));const url=new URL(href)
+ assert.equal(url.pathname,'eeteecards@gmail.com')
+ assert.equal(url.searchParams.get('subject'),'Request: Example — Set 1')
+ assert.equal(url.searchParams.get('body'),"Hi - I would like to request Example — Set 1. Please confirm it is still available and what shipping would cost.\n\nThe address I'd like it shipped to is:\n\n\n\nThank you\n\n-[Name]\n[Reddit/IG name if interested in communicating there instead of email]")
+ const mixed=new URL(requestEmail(quoteCart(catalog,{bundles:['team'],cards:['f0']})))
+ assert(mixed.searchParams.get('body').includes('[f0]'))
+})
