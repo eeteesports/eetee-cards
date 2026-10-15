@@ -1,0 +1,130 @@
+{
+  "Arizona Cardinals": {
+    "logo": "/team-logos/arizona-cardinals.png",
+    "source": "https://a.espncdn.com/i/teamlogos/nfl/500/ari.png"
+  },
+  "Atlanta Falcons": {
+    "logo": "/team-logos/atlanta-falcons.png",
+    "source": "https://a.espncdn.com/i/teamlogos/nfl/500/atl.png"
+  },
+  "Baltimore Ravens": {
+    "logo": "/team-logos/baltimore-ravens.png",
+    "source": "https://a.espncdn.com/i/teamlogos/nfl/500/bal.png"
+  },
+  "Buffalo Bills": {
+    "logo": "/team-logos/buffalo-bills.png",
+    "source": "https://a.espncdn.com/i/teamlogos/nfl/500/buf.png"
+  },
+  "Carolina Panthers": {
+    "logo": "/team-logos/carolina-panthers.png",
+    "source": "https://a.espncdn.com/i/teamlogos/nfl/500/car.png"
+  },
+  "Chicago Bears": {
+    "logo": "/team-logos/chicago-bears.png",
+    "source": "https://a.espncdn.com/i/teamlogos/nfl/500/chi.png"
+  },
+  "Cincinnati Bengals": {
+    "logo": "/team-logos/cincinnati-bengals.png",
+    "source": "https://a.espncdn.com/i/teamlogos/nfl/500/cin.png"
+  },
+  "Cleveland Browns": {
+    "logo": "/team-logos/cleveland-browns.png",
+    "source": "https://a.espncdn.com/i/teamlogos/nfl/500/cle.png"
+  },
+  "Dallas Cowboys": {
+    "logo": "/team-logos/dallas-cowboys.png",
+    "source": "https://a.espncdn.com/i/teamlogos/nfl/500/dal.png"
+  },
+  "Denver Broncos": {
+    "logo": "/team-logos/denver-broncos.png",
+    "source": "https://a.espncdn.com/i/teamlogos/nfl/500/den.png"
+  },
+  "Detroit Lions": {
+    "logo": "/team-logos/detroit-lions.png",
+    "source": "https://a.espncdn.com/i/teamlogos/nfl/500/det.png"
+  },
+  "Green Bay Packers": {
+    "logo": "/team-logos/green-bay-packers.png",
+    "source": "https://a.espncdn.com/i/teamlogos/nfl/500/gb.png"
+  },
+  "Houston Texans": {
+    "logo": "/team-logos/houston-texans.png",
+    "source": "https://a.espncdn.com/i/teamlogos/nfl/500/hou.png"
+  },
+  "Indianapolis Colts": {
+    "logo": "/team-logos/indianapolis-colts.png",
+    "source": "https://a.espncdn.com/i/teamlogos/nfl/500/ind.png"
+  },
+  "Jacksonville Jaguars": {
+    "logo": "/team-logos/jacksonville-jaguars.png",
+    "source": "https://a.espncdn.com/i/teamlogos/nfl/500/jax.png"
+  },
+  "Kansas City Chiefs": {
+    "logo": "/team-logos/kansas-city-chiefs.png",
+    "source": "https://a.espncdn.com/i/teamlogos/nfl/500/kc.png"
+  },
+  "Las Vegas Raiders": {
+    "logo": "/team-logos/las-vegas-raiders.png",
+    "source": "https://a.espncdn.com/i/teamlogos/nfl/500/lv.png"
+  },
+  "Los Angeles Chargers": {
+    "logo": "/team-logos/los-angeles-chargers.png",
+    "source": "https://a.espncdn.com/i/teamlogos/nfl/500/lac.png"
+  },
+  "Los Angeles Rams": {
+    "logo": "/team-logos/los-angeles-rams.png",
+    "source": "https://a.espncdn.com/i/teamlogos/nfl/500/lar.png"
+  },
+  "Miami Dolphins": {
+    "logo": "/team-logos/miami-dolphins.png",
+    "source": "https://a.espncdn.com/i/teamlogos/nfl/500/mia.png"
+  },
+  "Minnesota Vikings": {
+    "logo": "/team-logos/minnesota-vikings.png",
+    "source": "https://a.espncdn.com/i/teamlogos/nfl/500/min.png"
+  },
+  "New England Patriots": {
+    "logo": "/team-logos/new-england-patriots.png",
+    "source": "https://a.espncdn.com/i/teamlogos/nfl/500/ne.png"
+  },
+  "New Orleans Saints": {
+    "logo": "/team-logos/new-orleans-saints.png",
+    "source": "https://a.espncdn.com/i/teamlogos/nfl/500/no.png"
+  },
+  "New York Giants": {
+    "logo": "/team-logos/new-york-giants.png",
+    "source": "https://a.espncdn.com/i/teamlogos/nfl/500/nyg.png"
+  },
+  "New York Jets": {
+    "logo": "/team-logos/new-york-jets.png",
+    "source": "https://a.espncdn.com/i/teamlogos/nfl/500/nyj.png"
+  },
+  "Philadelphia Eagles": {
+    "logo": "/team-logos/philadelphia-eagles.png",
+    "source": "https://a.espncdn.com/i/teamlogos/nfl/500/phi.png"
+  },
+  "Pittsburgh Steelers": {
+    "logo": "/team-logos/pittsburgh-steelers.png",
+    "source": "https://a.espncdn.com/i/teamlogos/nfl/500/pit.png"
+  },
+  "San Francisco 49ers": {
+    "logo": "/team-logos/san-francisco-49ers.png",
+    "source": "https://a.espncdn.com/i/teamlogos/nfl/500/sf.png"
+  },
+  "Seattle Seahawks": {
+    "logo": "/team-logos/seattle-seahawks.png",
+    "source": "https://a.espncdn.com/i/teamlogos/nfl/500/sea.png"
+  },
+  "Tampa Bay Buccaneers": {
+    "logo": "/team-logos/tampa-bay-buccaneers.png",
+    "source": "https://a.espncdn.com/i/teamlogos/nfl/500/tb.png"
+  },
+  "Tennessee Titans": {
+    "logo": "/team-logos/tennessee-titans.png",
+    "source": "https://a.espncdn.com/i/teamlogos/nfl/500/ten.png"
+  },
+  "Washington Commanders": {
+    "logo": "/team-logos/washington-commanders.png",
+    "source": "https://a.espncdn.com/i/teamlogos/nfl/500/wsh.png"
+  }
+}
