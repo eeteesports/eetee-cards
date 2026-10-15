@@ -1,0 +1,27 @@
+[
+  {
+    "name": "NFL",
+    "logo": "/league-logos/nfl.png",
+    "available": true
+  },
+  {
+    "name": "NBA",
+    "logo": "/league-logos/nba.png",
+    "available": false
+  },
+  {
+    "name": "NCAA Football",
+    "logo": "/league-logos/ncaaf.png",
+    "available": false
+  },
+  {
+    "name": "MLB",
+    "logo": "/league-logos/mlb.png",
+    "available": false
+  },
+  {
+    "name": "NHL",
+    "logo": "/league-logos/nhl.png",
+    "available": false
+  }
+]
