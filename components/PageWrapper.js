@@ -2,7 +2,7 @@
 import { usePathname } from 'next/navigation'
 
 // These pages manage their own full-width layout
-const FULL_WIDTH = ['/', '/login', '/store', '/marketplace']
+const FULL_WIDTH = ['/', '/bins', '/login', '/store', '/marketplace']
 
 export default function PageWrapper({ children }) {
   const pathname = usePathname()

@@ -10,9 +10,9 @@ const nextConfig = {
   async redirects() {
     if (!SITE_CLOSED) return []
     return [
-      { source: '/shop', destination: '/', permanent: false },
-      { source: '/shop/:path*', destination: '/', permanent: false },
-      { source: '/cart', destination: '/', permanent: false },
+      { source: '/shop', destination: '/bins', permanent: false },
+      { source: '/shop/:path*', destination: '/bins', permanent: false },
+      { source: '/cart', destination: '/bins', permanent: false },
       { source: '/team/:path*', destination: '/', permanent: false },
       { source: '/order/:path*', destination: '/', permanent: false },
     ]

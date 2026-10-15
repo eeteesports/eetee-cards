@@ -1,4 +1,5 @@
-import TeamBundles from '@/components/TeamBundles'
-import inventory from '@/data/team-bundles.json'
-export const metadata={title:'$20 NFL team card bundles · eetee.cards',description:'Choose your NFL team and browse curated sports card sets. $30–$35 in individually priced cards for $20 plus shipping. Exact cards shown; no duplicates in a lot.'}
-export default function Home(){return <TeamBundles inventory={inventory}/>}
+import PublicShop from '@/components/PublicShop'
+import teams from '@/data/team-bundles.json'
+import bins from '@/data/bin-cards.json'
+export const metadata={title:'eetee.cards · $20 NFL team sets',description:'Choose your team and see every card in each $20 set. Also browse the $1 and 50¢ bins: mix and match $15 worth for $10, plus shipping.'}
+export default function Home(){return <PublicShop teams={teams} bins={bins}/>}

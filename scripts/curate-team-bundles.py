@@ -6,22 +6,25 @@ from zoneinfo import ZoneInfo
 from PIL import Image,ImageOps
 TEAMS=['Arizona Cardinals','Atlanta Falcons','Baltimore Ravens','Buffalo Bills','Carolina Panthers','Chicago Bears','Cincinnati Bengals','Cleveland Browns','Dallas Cowboys','Denver Broncos','Detroit Lions','Green Bay Packers','Houston Texans','Indianapolis Colts','Jacksonville Jaguars','Kansas City Chiefs','Las Vegas Raiders','Los Angeles Chargers','Los Angeles Rams','Miami Dolphins','Minnesota Vikings','New England Patriots','New Orleans Saints','New York Giants','New York Jets','Philadelphia Eagles','Pittsburgh Steelers','San Francisco 49ers','Seattle Seahawks','Tampa Bay Buccaneers','Tennessee Titans','Washington Commanders']
 ALIASES={'Houston Oilers':'Tennessee Titans','Washington Redskins':'Washington Commanders','St. Louis Rams':'Los Angeles Rams','Oakland Raiders':'Las Vegas Raiders','Los Angeles Raiders':'Las Vegas Raiders','San Diego Chargers':'Los Angeles Chargers','Baltimore Colts':'Indianapolis Colts','Phoenix Cardinals':'Arizona Cardinals','Cardinals':'Arizona Cardinals','Chargers':'Los Angeles Chargers','Buffalo':'Buffalo Bills'}
-def norm(x):return ' '.join(re.findall(r'[a-z0-9]+',str(x or '').lower()))
+def norm(x):return ' '.join(re.findall(r'[a-z0-9]+',str(x or '').lower().replace('&',' and ')))
 def identity(c):
- s=norm(c['set']);s=re.sub(r'^topps ','',s) if c['brand']=='Topps' else s;s=re.sub(r' football$','',s)
+ s=re.sub(r'^(panini america|panini|topps) ','',norm(c['set']));s=re.sub(r' football$','',s)
+ brand='panini' if norm(c['brand']).startswith('panini') else 'topps' if norm(c['brand']).startswith('topps') else norm(c['brand'])
  p=norm(c['parallel'])
  p='' if p in ('base','standard','regular') else re.sub(r'\bprizm\b','',p).strip()
  p='refractor' if p in ('base refractor','silver refractor') else p
- if p in ('fanatics exclusive topps logo refractor','topps logo refractor','topps refractor'):p='topps logo refractor'
- f=norm(c['family']);f='base' if f in ('base','base rookies','rookies','concourse','premier level','club level','field level','') else f
+ if p in ('fanatics exclusive topps logo refractor','topps logo refractor','topps refractor','toppsfractor'):p='topps logo refractor'
+ p={'raywave refractor':'ray wave refractor','x fractor refractor':'x fractor','hot pink x fractor refractor':'hot pink x fractor','green mosaic':'mosaic green','reactive yellow mosaic':'mosaic reactive yellow','reactive blue mosaic':'mosaic reactive blue','camo pink mosaic':'mosaic camo pink'}.get(p,p)
+ p=re.sub(r'\s+',' ',p).strip()
+ f=norm(c['family']);f='base' if f in ('base','base rookies','rookies','concourse','premier level','club level','field level','base concourse','base premier level','base club level','base field level','base rated rookies','rated rookies','rated rookie','rookie class','rookie class ii','rookie class base ii','veteran class','rookie portraits','') else f
  f='select certified' if f=='select certified rookies' else f
- return (norm(c['season']),norm(c['brand']),s,norm(c['player']),norm(c['number']),f,p)
+ return (norm(c['season']),brand,s,norm(c['player']),norm(c['number']),f,p)
 def asking(c):
  f=c.get('financial') or {};i=c.get('identity') or {}
  if f.get('asking_manual'):return f.get('asking')
  if i.get('list_price') is not None:return float(i['list_price'])
  return {'fifty':.5,'one':1}.get((c.get('sorting') or {}).get('bucket'))
-def plan(pool,count):
+def plan(pool,count,max_per_player=3):
  from scipy.optimize import milp,Bounds,LinearConstraint
  from scipy.sparse import coo_matrix
  import numpy as np
@@ -43,7 +46,7 @@ def plan(pool,count):
   for indices in identities.values():constraint([(xi(k,i),1) for i in indices],0,1)
   for p,player in enumerate(players):
    indices=[i for i,c in enumerate(pool) if c['player']==player]
-   constraint([(xi(k,i),1) for i in indices],0,3)
+   constraint([(xi(k,i),1) for i in indices],0,max_per_player)
    constraint([(yi(k,p),1)]+[(xi(k,i),-1) for i in indices],-np.inf,0)
    objective[yi(k,p)]=-100
   for t,tier in enumerate(tier_values):
@@ -58,7 +61,7 @@ def plan(pool,count):
  result=milp(objective,integrality=np.ones(variables),bounds=Bounds(np.zeros(variables),np.ones(variables)),constraints=LinearConstraint(matrix,lower,upper),options={'time_limit':18,'mip_rel_gap':.02})
  if result.x is None:return []
  lots=[[c for i,c in enumerate(pool) if result.x[xi(k,i)]>.5] for k in range(count)]
- if any(not 60<=sum(c['units'] for c in lot)<=64 or len({identity(c) for c in lot})!=len(lot) or max(collections.Counter(c['player'] for c in lot).values())>3 for lot in lots):return []
+ if any(not 60<=sum(c['units'] for c in lot)<=64 or len({identity(c) for c in lot})!=len(lot) or max(collections.Counter(c['player'] for c in lot).values())>max_per_player for lot in lots):return []
  if len({c['id'] for lot in lots for c in lot})!=sum(len(lot) for lot in lots):return []
  return lots
 
@@ -83,9 +86,15 @@ def main():
    if not raw:ok=False;break
    path=Path(raw);preview=Path(raw+'.preview.jpg');path=preview if preview.is_file() else path
    try:
-    if path.stat().st_flags&0x40000000:ok=False;break
+    if path.stat().st_flags&0x40000000:
+     cached=assets/f"{hashlib.sha256(c['id'].encode()).hexdigest()[:16]}-{side}.webp"
+     if cached.is_file():path=cached
+     else:ok=False;break
     with Image.open(path) as im:im.verify()
-   except Exception:ok=False;break
+   except Exception:
+    cached=assets/f"{hashlib.sha256(c['id'].encode()).hexdigest()[:16]}-{side}.webp"
+    if cached.is_file():path=cached
+    else:ok=False;break
    paths[side]=str(path)
   if not ok:skipped['image_unavailable']+=1;continue
   eligible[next(iter(teams))].append(dict(c,price=price,units=round(price*2),source_images=paths))
@@ -95,6 +104,9 @@ def main():
   for count in (3,2,1):
    best=plan(pool,count)
    if best:break
+  if len(best)<2 and sum(c['price'] for c in pool)>=60:
+   expanded=plan(pool,2,max_per_player=4)
+   if expanded and min(len({c['player'] for c in lot}) for lot in expanded)>=12:best=expanded
   print(team,len(best),'sets planned',flush=True)
   slug=team.lower().replace(' ','-')
   for n,lot in enumerate(best,1):
