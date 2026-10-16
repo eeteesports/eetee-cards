@@ -27,3 +27,9 @@ test('analytics failures, privacy signals and opt-outs cannot interrupt shopping
   window.localStorage={getItem:()=>null};window.gtag=()=>{throw Error('blocked')};assert.doesNotThrow(()=>trackShop('add_to_cart',{}))
  }finally{globalThis.window=savedWindow;globalThis.document=savedDocument}
 })
+
+test('individual cards are measured at full price and the all-cards page is included',()=>{
+ const c={id:'high',listingId:'high-listing',priceCents:3000,player:'Player',year:'2025',number:'1',set:'Set'}
+ const quote=quoteCart({cards:[c],bundles:[]},{cards:['high']})
+ assert(isPublicLocation('https://eetee.cards/cards'));assert.equal(analyticsItem(c).price,30);assert.equal(analyticsItem(c).item_category,'individual_card');assert.equal(cartEventData(quote).bin_count,0);assert.equal(cartEventData(quote).funnel_type,'individual_cards')
+})

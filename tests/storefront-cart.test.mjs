@@ -27,3 +27,20 @@ test('team-set request email includes requested wording and buyer placeholders',
  const mixed=new URL(requestEmail(quoteCart(catalog,{bundles:['team'],cards:['f0']})))
  assert(mixed.searchParams.get('body').includes('[f0]'))
 })
+
+test('higher-priced cards retain full price when combined with bargain bins and team sets',()=>{
+ const expanded={...catalog,cards:[...cards,{id:'premium',priceCents:3000,player:'Premium',number:'1'},{id:'two',priceCents:200,player:'Two',number:'2'}]}
+ const q=quoteCart(expanded,{cards:['premium','two',...cards.filter(c=>c.id.startsWith('d')).slice(0,15).map(c=>c.id)],bundles:['team']})
+ assert.equal(q.individualTotalCents,3200);assert.equal(q.binTotalCents,1000);assert.equal(q.savingsCents,500);assert.equal(q.totalCents,6200);assert.equal(q.individualCards.length,2)
+ const email=new URL(requestEmail(q)).searchParams.get('body');assert(email.includes('Other individual cards: $32.00'));assert(email.includes('Order subtotal: $62.00'))
+ assert.equal(quoteCart(expanded,{cards:['two']}).meetsMinimum,false)
+ assert.throws(()=>quoteCart({...expanded,cards:[{id:'bad',priceCents:-100}]},{cards:['bad']}),/Invalid card price/)
+})
+test('published individual catalog has positive prices, two photos, and no overlapping physical inventory',()=>{
+ const individual=JSON.parse(fs.readFileSync(new URL('../data/individual-cards.json',import.meta.url)))
+ const bins=JSON.parse(fs.readFileSync(new URL('../data/bin-cards.json',import.meta.url)))
+ const teams=JSON.parse(fs.readFileSync(new URL('../data/team-bundles.json',import.meta.url)))
+ const occupied=new Set([...bins.cards.map(c=>c.id),...teams.bundles.flatMap(b=>b.cards.map(c=>c.id))])
+ for(const c of individual.cards){assert(!occupied.has(c.id));occupied.add(c.id);assert(Number.isInteger(c.priceCents)&&c.priceCents>100);assert(c.front&&c.back);assert(fs.existsSync(new URL('../public'+c.front,import.meta.url)));assert(fs.existsSync(new URL('../public'+c.back,import.meta.url)))}
+ assert(individual.cards.length>0)
+})

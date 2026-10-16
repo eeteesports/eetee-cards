@@ -1,6 +1,6 @@
 import {NextResponse} from 'next/server'
 import teams from '@/data/team-bundles.json'
-import bins from '@/data/bin-cards.json'
+import bins from '@/lib/publicCatalog'
 import {quoteCart,requestEmail} from '@/lib/storefrontCart.mjs'
 export async function POST(req) {
   try {
