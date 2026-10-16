@@ -1,0 +1,10 @@
+import test from 'node:test'
+import assert from 'node:assert/strict'
+import {matchesCard,hasCardType,sportOf} from '../lib/catalogFilters.mjs'
+import {selectAuctions} from '../lib/liveAuctions.mjs'
+const card={player:'Test Rookie',year:'2025',set:'Chrome',number:'12',sport:'Football',teams:['Detroit Lions'],priceCents:300,rookie:true,autograph:true,serial:'2/50',memorabilia:true,parallel:'Gold',family:'Insert'}
+test('search matches words across card details and teams',()=>{assert(matchesCard(card,{query:'2025 lions gold'}));assert(!matchesCard(card,{query:'lions silver'}))})
+test('price range inclusive and bins exact',()=>{assert(matchesCard(card,{min:'3',max:'3'}));assert(!matchesCard(card,{max:'2.99'}));assert(!matchesCard(card,{tier:'100'}));assert(matchesCard({...card,binPriceCents:50,priceCents:undefined},{tier:'50'}))})
+test('sport team and features combine',()=>{assert(matchesCard(card,{sport:'Football',team:'Detroit Lions',types:['rookie','autograph','numbered','memorabilia']}));assert(!matchesCard(card,{sport:'Basketball'}));assert(!matchesCard(card,{types:['graded','autograph']}));assert(hasCardType({...card,graded:true},'graded'));assert.equal(sportOf(card),'Football')})
+test('serial formats and absent parallel',()=>{assert(hasCardType({...card,serial:'1 of 1'},'numbered'));assert(!hasCardType({...card,parallel:'Base'},'parallel'));assert(!hasCardType({...card,family:'Base'},'insert'))})
+test('auctions exclude ended other sellers and fixed prices',()=>{const item={itemId:'x',title:'Card',seller:{username:'eetee_cards'},buyingOptions:['AUCTION'],itemEndDate:'2026-10-20T00:00:00Z',image:{imageUrl:'https://i.ebayimg.com/test.jpg'},currentBidPrice:{value:'0.99',currency:'USD'},itemWebUrl:'https://www.ebay.com/itm/123',bidCount:0};const now=Date.parse('2026-10-16T00:00:00Z');assert.equal(selectAuctions([item,{...item,seller:{username:'other'}},{...item,itemEndDate:'2026-10-15T00:00:00Z'},{...item,buyingOptions:['FIXED_PRICE']}],now).length,1);assert.equal(selectAuctions([item],now)[0].currentBid,.99)})

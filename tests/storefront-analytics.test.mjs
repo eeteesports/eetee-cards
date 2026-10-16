@@ -33,3 +33,9 @@ test('individual cards are measured at full price and the all-cards page is incl
  const quote=quoteCart({cards:[c],bundles:[]},{cards:['high']})
  assert(isPublicLocation('https://eetee.cards/cards'));assert.equal(analyticsItem(c).price,30);assert.equal(analyticsItem(c).item_category,'individual_card');assert.equal(cartEventData(quote).bin_count,0);assert.equal(cartEventData(quote).funnel_type,'individual_cards')
 })
+
+test('team page and shopping-path/eBay clicks retain only public metadata',()=>{
+ assert(isPublicLocation('https://eetee.cards/team-sets'))
+ assert.deepEqual(sanitizeEvent('ebay_auction_click',{item_id:'123',placement:'homepage',email:'private'}),{item_id:'123',placement:'homepage'})
+ assert.deepEqual(sanitizeEvent('select_shopping_path',{shopping_path:'team_sets'}),{shopping_path:'team_sets'})
+})
