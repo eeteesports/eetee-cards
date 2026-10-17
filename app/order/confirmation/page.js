@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import LegacyConfirmation from '@/components/LegacyOrderConfirmation'
 import {getStripe} from '@/lib/stripe'
 import {fulfillStorefrontOrder,notificationOrder} from '@/lib/storefrontOrders'
 import {sendOrderNotification} from '@/lib/notify'
@@ -8,6 +9,7 @@ export default async function Confirmation({searchParams}){
  let order
  try{
   const session=await getStripe().checkout.sessions.retrieve(searchParams?.session_id||'')
+  if(!session.metadata?.storefrontOrderId)return <LegacyConfirmation searchParams={searchParams}/>
   const result=await fulfillStorefrontOrder(session)
   if(result){order=result.order;if(!result.alreadyExisted)await sendOrderNotification(notificationOrder(order))}
  }catch(e){console.error('Order confirmation unavailable',e.type||'lookup')}

@@ -36,7 +36,7 @@ function BargainBins({cards,selected,onToggle,onShowCart,quote,initialTier='all'
  function openCard(c){trackShop('select_item',{item_list_id:'bin_'+tier,items:[analyticsItem(c)]});trackShop('view_item',{currency:'USD',value:analyticsItem(c).price,items:[analyticsItem(c)]});setViewer(c);setSide('front')}
  const selectedSet=new Set(selected)
  return <>
- <div className={styles.binIntro}><h1>{(fullCatalog||['all','higher'].includes(tier))?'Shop All Cards':'$15 worth of cards for $10'}</h1><p>{(fullCatalog||['all','higher'].includes(tier))?'Browse individual cards at their listed prices. Mix and match $15 of 50¢ and $1 bin cards for $10.':'Mix and match the $1 and 50¢ bins. Your discount is applied automatically.'}</p><p><strong>Minimum $10 spend before shipping.</strong> Shipping and availability confirmed before payment.</p></div>
+ <div className={styles.binIntro}><h1>{(fullCatalog||['all','higher'].includes(tier))?'Shop All Cards':'$15 worth of cards for $10'}</h1><p>{(fullCatalog||['all','higher'].includes(tier))?'Browse individual cards at their listed prices. Mix and match $15 of 50¢ and $1 bin cards for $10.':'Mix and match the $1 and 50¢ bins. Your discount is applied automatically.'}</p><p><strong>Minimum $10 spend before shipping.</strong> $7 USPS Ground Advantage shipping per order.</p></div>
  <div className={styles.binLayout}>
   <aside className={styles.filters} aria-label="Card filters"><div className={styles.filterHeading}><h2>Filter cards</h2>{activeFilters&&<button onClick={clearFilters}>Clear all</button>}</div>
    <label htmlFor="bin-search">Search</label><input id="bin-search" type="search" placeholder="Player, set, parallel, card #…" value={query} onChange={e=>setQuery(e.target.value)}/>
@@ -56,10 +56,10 @@ function BargainBins({cards,selected,onToggle,onShowCart,quote,initialTier='all'
  </>
 }
 export default function PublicShop({teams,bins,mode='home',binTier='all'}){
- const[cart,setCart]=useState({cards:[],bundles:[]}),[ready,setReady]=useState(false),[showCart,setShowCart]=useState(false),[busy,setBusy]=useState(false),[error,setError]=useState(''),[mailto,setMailto]=useState(''),[copyStatus,setCopyStatus]=useState('')
+ const[cart,setCart]=useState({cards:[],bundles:[]}),[ready,setReady]=useState(false),[showCart,setShowCart]=useState(false),[busy,setBusy]=useState(false),[error,setError]=useState('')
  const catalog=useMemo(()=>({cards:bins.cards,bundles:teams.bundles}),[bins,teams])
  useEffect(()=>{try{const previous=JSON.parse(localStorage.getItem(cartKey)||'{}'),cards=new Set(bins.cards.map(c=>c.id)),bundles=new Set(teams.bundles.map(b=>b.id));setCart({cards:[...new Set(Array.isArray(previous.cards)?previous.cards:[])].filter(id=>cards.has(id)),bundles:[...new Set(Array.isArray(previous.bundles)?previous.bundles:[])].filter(id=>bundles.has(id))})}catch{}setReady(true)},[])
- useEffect(()=>{if(ready){try{localStorage.setItem(cartKey,JSON.stringify(cart))}catch{}}setMailto('');setCopyStatus('');setError('')},[cart,ready])
+ useEffect(()=>{if(ready){try{localStorage.setItem(cartKey,JSON.stringify(cart))}catch{}}setError('')},[cart,ready])
  const quote=useMemo(()=>quoteCart(catalog,cart),[catalog,cart])
  const lines=useMemo(()=>{const map=new Map();for(const c of quote.chosenCards){if(!map.has(c.listingId))map.set(c.listingId,{...c,copies:[]});map.get(c.listingId).copies.push(c)}return [...map.values()]},[quote])
  function toggleCard(id){const item=catalog.cards.find(c=>c.id===id);if(item)trackShop(cart.cards.includes(id)?'remove_from_cart':'add_to_cart',{currency:'USD',value:analyticsItem(item).price,items:[analyticsItem(item)]});setCart(c=>({...c,cards:c.cards.includes(id)?c.cards.filter(x=>x!==id):[...c.cards,id]}))}
