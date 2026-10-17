@@ -12,6 +12,7 @@
 import { getStripe } from '@/lib/stripe'
 import { createWebOrder, getWebOrderBySessionId } from '@/lib/db'
 import { sendOrderNotification } from '@/lib/notify'
+import {fulfillStorefrontOrder,releaseStorefrontHold,notificationOrder} from '@/lib/storefrontOrders'
 
 export async function POST(request) {
   const stripe = getStripe()
@@ -26,7 +27,15 @@ export async function POST(request) {
     return Response.json({ error: 'Invalid signature' }, { status: 400 })
   }
 
-  if (event.type === 'checkout.session.completed') {
+  if(event.type === 'checkout.session.expired' && event.data.object.metadata?.storefrontOrderId){
+    await releaseStorefrontHold(event.data.object.metadata.storefrontOrderId)
+  }
+  if(event.type === 'checkout.session.completed' && event.data.object.metadata?.storefrontOrderId){
+    const fulfilled=await fulfillStorefrontOrder(event.data.object)
+    if(fulfilled && !fulfilled.alreadyExisted)await sendOrderNotification(notificationOrder(fulfilled.order))
+    return Response.json({received:true})
+  }
+  if (event.type === 'checkout.session.completed' && event.data.object.payment_status === 'paid') {
     const session = event.data.object
     const cardIds = (session.metadata?.cardIds || '').split(',').filter(Boolean)
 

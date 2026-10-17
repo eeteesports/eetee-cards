@@ -14,7 +14,7 @@ const nextConfig = {
       { source: '/shop/:path*', destination: '/bins', permanent: false },
       { source: '/cart', destination: '/bins', permanent: false },
       { source: '/team/:path*', destination: '/', permanent: false },
-      { source: '/order/:path*', destination: '/', permanent: false },
+
     ]
   },
 };
