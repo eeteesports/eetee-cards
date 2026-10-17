@@ -11,3 +11,9 @@ test('unknown, duplicate, overlapping, and below-minimum selections cannot be ch
  for(const s of [{cards:['missing']},{cards:['card0','card0']},{cards:['card0']}])assert.throws(()=>checkoutManifest({cards,bundles:[]},s))
  assert.throws(()=>checkoutManifest({cards,bundles:[{...bundle,cards:[cards[0]]}]},{cards:['card0'],bundles:['team']}))
 })
+
+test('rounding a large bin purchase never overprices the final card',()=>{
+ const many=Array.from({length:100},(_,i)=>({id:'half'+i,priceCents:50,player:'Player',number:i,front:'/photo.jpg'}))
+ const q=checkoutManifest({cards:many,bundles:[]},{cards:many.map(c=>c.id)})
+ assert.equal(q.subtotalCents,3333);assert(q.lines.every(l=>l.cents===33||l.cents===34))
+})
