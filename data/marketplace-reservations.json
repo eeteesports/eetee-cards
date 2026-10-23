@@ -1,1 +1,22 @@
-{"bundles":["dallas-cowboys-01","san-francisco-49ers-01","pittsburgh-steelers-01","philadelphia-eagles-01","green-bay-packers-01","chicago-bears-01","new-york-giants-01"],"reason":"Reserved for confirmed eBay auctions; release only after auction outcomes are reconciled."}
+{
+  "bundles": [
+    "dallas-cowboys-01",
+    "san-francisco-49ers-01",
+    "pittsburgh-steelers-01",
+    "philadelphia-eagles-01",
+    "green-bay-packers-01",
+    "chicago-bears-01",
+    "new-york-giants-01"
+  ],
+  "reason": "Reserved for confirmed eBay auctions; release only after auction outcomes are reconciled.",
+  "soldBundles": [
+    {
+      "id": "philadelphia-eagles-02",
+      "channel": "Facebook Marketplace",
+      "status": "sold",
+      "cardCount": 35,
+      "source": "Owner-confirmed in chat on 2026-10-23; email verification unavailable due to Gmail rate limit.",
+      "recordedOn": "2026-10-23"
+    }
+  ]
+}
