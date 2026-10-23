@@ -1,6 +1,7 @@
 'use client'
 import leagues from '../data/league-logos.json'
 import LiveAuctions from './LiveAuctions'
+import {SHIPPING_CENTS} from '../lib/storefrontCheckout.mjs'
 import {trackShop} from '../lib/storefrontAnalytics.mjs'
 import styles from './HomeLanding.module.css'
 export default function HomeLanding({teams,cards,onShowCart,cartCount}){
@@ -12,5 +13,5 @@ export default function HomeLanding({teams,cards,onShowCart,cartCount}){
  <section className={styles.path} aria-labelledby="value-title"><div className={styles.sticker}>Mix &amp; Match<br/>$15 in bin cards for $10!</div><h2 id="value-title">Shop Value</h2><p className={styles.metric}>$1 and under</p><p className={styles.detail}>$10 minimum order</p><a className={styles.primary} href="/bins" onClick={()=>trackShop('select_bin',{bin:'bins'})}>Shop Value <span aria-hidden="true">→</span></a></section>
  <section className={styles.path} aria-labelledby="sets-title"><div className={styles.sticker}>$30+ in value!</div><h2 id="sets-title">Shop Team Bundles</h2><div className={styles.leaguePreview}>{['NFL','NBA','MLB'].map(name=>{const league=leagues.find(l=>l.name===name);return <div key={name} className={league.available?styles.league:styles.futureLeague}><img src={league.logo} alt={name}/>{!league.available&&<span>Coming soon</span>}</div>})}</div><p className={styles.metric}>$20 per bundle</p><a className={styles.primary} href="/team-sets" onClick={()=>trackShop('select_shopping_path',{shopping_path:'team_sets'})}>Shop Team Bundles <span aria-hidden="true">→</span></a></section>
  </div><LiveAuctions/></main>
- <footer className={styles.footer}><a href="mailto:eeteecards@gmail.com">eeteecards@gmail.com</a><a href="/privacy">Privacy</a><span>$7 USPS Ground Advantage shipping · Secure Stripe checkout.</span></footer></div>
+ <footer className={styles.footer}><a href="mailto:eeteecards@gmail.com">eeteecards@gmail.com</a><a href="/privacy">Privacy</a><span>${(SHIPPING_CENTS/100).toFixed(2)} USPS Ground Advantage shipping · Secure Stripe checkout.</span></footer></div>
 }
