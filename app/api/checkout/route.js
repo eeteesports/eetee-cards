@@ -1,3 +1,4 @@
+import {checkoutBranding} from '@/lib/checkoutBranding.mjs'
 import {getStripe} from '@/lib/stripe'
 import {checkoutManifest,SHIPPING_CENTS,SHIPPING_METHOD} from '@/lib/storefrontCheckout.mjs'
 import {shopCatalog,clearExpiredHolds,reserveStorefront,attachStorefrontSession,releaseStorefrontHold} from '@/lib/storefrontOrders'
@@ -12,7 +13,7 @@ export async function POST(request){
   await clearExpiredHolds(manifest.physicalIds,stripe)
   order=await reserveStorefront(manifest)
   const origin=new URL(request.url).origin
-  const session=await stripe.checkout.sessions.create({mode:'payment',payment_method_types:['card'],line_items:manifest.lines.map(l=>({quantity:1,price_data:{currency:'usd',unit_amount:l.cents,product_data:{name:l.name,images:[new URL(l.image,origin).href]}}})),shipping_address_collection:{allowed_countries:['US']},shipping_options:[{shipping_rate_data:{type:'fixed_amount',fixed_amount:{amount:SHIPPING_CENTS,currency:'usd'},display_name:SHIPPING_METHOD}}],expires_at:Math.floor(order.expiresAt/1000)+60,success_url:`${origin}/order/confirmation?session_id={CHECKOUT_SESSION_ID}`,cancel_url:`${origin}/cards`,metadata:{storefrontOrderId:order.id,shippingMethod:'USPS Ground Advantage'}},{idempotencyKey:order.id})
+  const session=await stripe.checkout.sessions.create({mode:'payment',branding_settings:checkoutBranding,payment_method_types:['card'],line_items:manifest.lines.map(l=>({quantity:1,price_data:{currency:'usd',unit_amount:l.cents,product_data:{name:l.name,images:[new URL(l.image,origin).href]}}})),shipping_address_collection:{allowed_countries:['US']},shipping_options:[{shipping_rate_data:{type:'fixed_amount',fixed_amount:{amount:SHIPPING_CENTS,currency:'usd'},display_name:SHIPPING_METHOD}}],expires_at:Math.floor(order.expiresAt/1000)+60,success_url:`${origin}/order/confirmation?session_id={CHECKOUT_SESSION_ID}`,cancel_url:`${origin}/cards`,metadata:{storefrontOrderId:order.id,shippingMethod:'USPS Ground Advantage'}},{idempotencyKey:order.id})
   await attachStorefrontSession(order.id,session)
   return Response.json({url:session.url})
  }catch(e){
