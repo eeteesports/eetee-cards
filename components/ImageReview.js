@@ -4,7 +4,7 @@ import {useSession,signOut} from 'next-auth/react'
 import {createPortal} from 'react-dom'
 import {IMAGE_ISSUES} from '../lib/imageReviewInput.mjs'
 import styles from './ImageReview.module.css'
-export function OwnerBar(){const {status}=useSession();return status==='authenticated'?<div className={styles.bar}><strong>Owner mode</strong><a href="/admin">Admin</a><a href="/admin/image-reviews">Image requests</a><button onClick={()=>signOut({callbackUrl:'/'})}>Sign out</button></div>:null}
+export function OwnerBar(){const {status}=useSession();return status==='authenticated'?<div className={styles.bar}><strong>Owner mode</strong><a href="/admin">Admin</a><a href="/admin/analytics">Analytics</a><a href="/admin/image-reviews">Image requests</a><button onClick={()=>signOut({callbackUrl:'/'})}>Sign out</button></div>:null}
 export default function ReviewableImage({card,side='front',children}){
  const {status}=useSession(),dialog=useRef(null),[opened,setOpened]=useState(false),[issues,setIssues]=useState([]),[note,setNote]=useState(''),[busy,setBusy]=useState(false),[message,setMessage]=useState('')
  async function save(e){e.preventDefault();setBusy(true);setMessage('');try{const r=await fetch('/api/admin/image-reviews',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({cardId:card.id,side,issues,note})});const data=await r.json();if(!r.ok)throw Error(data.error||'Could not save.');setMessage('Saved to your image-review queue.')}catch(e){setMessage(e.message)}finally{setBusy(false)}}
