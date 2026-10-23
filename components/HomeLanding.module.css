@@ -18,8 +18,8 @@
 .secondary:hover{background:#30516d}
 .primary span,.secondary span{font-size:20px}
 .sticker{position:absolute;top:-17px;right:9px;transform:rotate(5deg);z-index:1;background:#f5c542;color:#241b04;padding:9px 15px;border-radius:3px;box-shadow:0 4px 10px #0005;font-size:12px;line-height:1.4;text-align:center;font-weight:800;border:1px solid #ffdc75}
-.teamPreview{display:flex;gap:10px;margin:10px 0 16px}
-.teamPreview img{width:44px;height:44px;object-fit:contain;background:#e8eef4;border-radius:50%;padding:6px}
+.teamPreview{display:flex;align-items:center;gap:8px;margin:10px 0 8px}
+.teamPreview img{flex-shrink:0;width:40px;height:40px;object-fit:contain;background:#e8eef4;border-radius:50%;padding:6px}
 .setPrice{display:flex;align-items:baseline;gap:10px;margin-bottom:12px}
 .setPrice strong{font-size:30px;font-weight:700}
 .setPrice span{font-size:12px;color:#b3c3d4}
@@ -30,3 +30,8 @@
 @media(max-width:960px){.paths{gap:18px}.path{padding:40px 18px 20px}.primary,.secondary{padding:13px;font-size:12px}.sticker{right:5px;font-size:11px;padding:8px 12px}.feature strong{font-size:32px}.path h2{font-size:24px}}
 @media(max-width:760px){.header{padding:12px 18px;flex-wrap:wrap}.header nav{gap:17px;font-size:12px}.hero{padding:22px 18px}.hero>img{height:110px}.paths{grid-template-columns:1fr;gap:36px}.main{padding:18px 20px 30px}.path{padding:32px 24px 24px}.path h2{font-size:28px}.sticker{right:12px;font-size:12px}.primary,.secondary{font-size:14px}.feature{margin:8px 0 18px}.footer span{margin-left:0}.hero>span{font-size:11px}}
 @media(max-width:420px){.header nav{width:100%;justify-content:space-between}}
+
+.moreTeams{flex-shrink:0;display:flex;flex-direction:column;align-items:center;justify-content:center;width:40px;height:40px;border:1px dashed #8fcfff;border-radius:50%;background:#203e58;color:#d7edff;line-height:1.1}
+.moreTeams strong{font-size:13px}.moreTeams span{font-size:9px}
+.path .teamCount{font-size:11px;color:#c1d2e5;margin:0 0 16px;line-height:1.5}
+@media(min-width:761px) and (max-width:960px){.teamPreview{gap:6px}.teamPreview img,.moreTeams{width:32px;height:32px}.teamPreview img{padding:4px}.moreTeams strong{font-size:11px}.moreTeams span{font-size:8px}}
