@@ -21,9 +21,9 @@ export default function LoginPage() {
     if (result?.ok) {
       // Return to the protected page that opened login, allowing only our origin.
       const requested = new URLSearchParams(window.location.search).get('callbackUrl')
-      let destination = '/dashboard'
+      let destination = '/admin'
       try {
-        const target = new URL(requested || '/dashboard', window.location.origin)
+        const target = new URL(requested || '/admin', window.location.origin)
         if (target.origin === window.location.origin && target.pathname !== '/login') {
           destination = target.pathname + target.search + target.hash
         }

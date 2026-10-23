@@ -33,7 +33,7 @@ export default function Navbar() {
   // in — this bar was rendering above their real header. 2026-08-19: same
   // bug on /order/confirmation, added here too; 2026-08-20: /privacy too).
   if (
-    pathname === '/login' || pathname === '/' || pathname === '/bins' || pathname === '/cards' || pathname === '/team-sets' || pathname === '/shop' ||
+    pathname.startsWith('/admin') || pathname === '/login' || pathname === '/' || pathname === '/bins' || pathname === '/cards' || pathname === '/team-sets' || pathname === '/shop' ||
     pathname === '/cart' || pathname.startsWith('/team/') || pathname.startsWith('/order/') ||
     pathname === '/privacy' || pathname === '/marketplace'
   ) return null

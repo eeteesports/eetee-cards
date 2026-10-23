@@ -6,6 +6,6 @@ const FULL_WIDTH = ['/', '/team-sets', '/cards', '/bins', '/login', '/store', '/
 
 export default function PageWrapper({ children }) {
   const pathname = usePathname()
-  if (FULL_WIDTH.includes(pathname)) return <>{children}</>
+  if (pathname.startsWith('/admin') || FULL_WIDTH.includes(pathname)) return <>{children}</>
   return <div className="max-w-5xl mx-auto">{children}</div>
 }
