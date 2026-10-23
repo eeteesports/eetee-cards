@@ -2,6 +2,7 @@
 import {useEffect,useMemo,useRef,useState} from 'react'
 import TeamBundles from './TeamBundles'
 import HomeLanding from './HomeLanding'
+import {featuredCatalog} from '../lib/featuredCatalog.mjs'
 import CollectionWatermark from './CollectionWatermark'
 import {CARD_TYPES,sportOf,hasCardType,matchesCard} from '../lib/catalogFilters.mjs'
 import InlineCardBadges from './InlineCardBadges'
@@ -18,14 +19,14 @@ function Modal({title,onClose,children}){
  return <div className={styles.overlay} onClick={e=>{if(e.target===e.currentTarget)onClose()}}><section ref={root} className={styles.modal} role="dialog" aria-modal="true" aria-label={title}><header><h2>{title}</h2><button onClick={onClose} aria-label="Close">×</button></header>{children}</section></div>
 }
 function BargainBins({cards,selected,onToggle,onShowCart,quote,initialTier='all',fullCatalog=false}){
- const[query,setQuery]=useState(''),[tier,setTier]=useState(initialTier),[team,setTeam]=useState(''),[sort,setSort]=useState('newest'),[page,setPage]=useState(0),[viewer,setViewer]=useState(null),[side,setSide]=useState('front'),[sport,setSport]=useState(''),[min,setMin]=useState(''),[max,setMax]=useState(''),[types,setTypes]=useState([]),[year,setYear]=useState(''),[set,setSet]=useState(''),[mobileFilters,setMobileFilters]=useState(false)
+ const[query,setQuery]=useState(''),[tier,setTier]=useState(initialTier),[team,setTeam]=useState(''),[sort,setSort]=useState(fullCatalog?'featured':'newest'),[page,setPage]=useState(0),[viewer,setViewer]=useState(null),[side,setSide]=useState('front'),[sport,setSport]=useState(''),[min,setMin]=useState(''),[max,setMax]=useState(''),[types,setTypes]=useState([]),[year,setYear]=useState(''),[set,setSet]=useState(''),[mobileFilters,setMobileFilters]=useState(false)
  const listings=useMemo(()=>[...cards].sort((a,b)=>String(b.year).localeCompare(String(a.year))||a.player.localeCompare(b.player)||a.set.localeCompare(b.set)),[cards])
  const sports=useMemo(()=>[...new Set(cards.map(sportOf))].sort(),[cards])
  const teams=useMemo(()=>[...new Set(cards.filter(c=>!sport||sportOf(c)===sport).flatMap(c=>c.teams||[]))].sort(),[cards,sport])
  const sets=useMemo(()=>[...new Set(cards.map(c=>c.set).filter(Boolean))].sort(),[cards])
  const years=useMemo(()=>[...new Set(cards.map(c=>String(c.year)).filter(Boolean))].sort((a,b)=>Number(b)-Number(a)),[cards])
  const filters={tier,query,team,sport,min,max,types,year,set}
- const filtered=listings.filter(c=>matchesCard(c,filters)).sort((a,b)=>sort==='low'?cardListPrice(a)-cardListPrice(b):sort==='high'?cardListPrice(b)-cardListPrice(a):sort==='player'?a.player.localeCompare(b.player):0)
+ const filtered=useMemo(()=>{const matching=listings.filter(c=>matchesCard(c,filters));return sort==='featured'?featuredCatalog(matching):matching.sort((a,b)=>sort==='low'?cardListPrice(a)-cardListPrice(b):sort==='high'?cardListPrice(b)-cardListPrice(a):sort==='player'?a.player.localeCompare(b.player):0)},[listings,tier,query,team,sport,min,max,types,year,set,sort])
  useEffect(()=>setPage(0),[tier,team,query,sort,sport,min,max,types,year,set])
  function clearFilters(){setQuery('');setTier('all');setTeam('');setSport('');setMin('');setMax('');setTypes([]);setYear('');setSet('')}
  function chooseTier(value){trackShop('select_bin',{bin:value});setTier(value);setMin('');setMax('')}
@@ -46,7 +47,7 @@ function BargainBins({cards,selected,onToggle,onShowCart,quote,initialTier='all'
    <fieldset><legend>Card type</legend><p className={styles.filterHint}>Select multiple to match every feature.</p>{CARD_TYPES.map(([value,label])=><label className={styles.checkLabel} key={value}><input type="checkbox" checked={types.includes(value)} onChange={()=>toggleType(value)}/><span>{label}</span><small>{cards.filter(c=>hasCardType(c,value)).length}</small></label>)}</fieldset>
    <fieldset><legend>Year / set</legend><label htmlFor="card-year">Year</label><select id="card-year" value={year} onChange={e=>setYear(e.target.value)}><option value="">All years</option>{years.map(y=><option key={y}>{y}</option>)}</select><label htmlFor="card-set">Set</label><select id="card-set" value={set} onChange={e=>setSet(e.target.value)}><option value="">All sets</option>{sets.map(s=><option key={s}>{s}</option>)}</select></fieldset>
    </div><a href="/team-sets">← Browse team sets</a><p>Cards in team sets are excluded here. Each card is shown individually.</p></aside>
-  <section className={styles.binResults} aria-label="Individual cards"><div className={styles.resultHeading}><p aria-live="polite">{filtered.length} cards</p><label className={styles.sortLabel}>Sort by<select id="card-sort" value={sort} onChange={e=>setSort(e.target.value)}><option value="newest">Newest year</option><option value="low">Price: low to high</option><option value="high">Price: high to low</option><option value="player">Player: A–Z</option></select></label><button onClick={onShowCart}>Cart ({selected.length} cards)</button></div>
+  <section className={styles.binResults} aria-label="Individual cards"><div className={styles.resultHeading}><p aria-live="polite">{filtered.length} cards</p><label className={styles.sortLabel}>Sort by<select id="card-sort" value={sort} onChange={e=>setSort(e.target.value)}>{fullCatalog&&<option value="featured">Featured mix</option>}<option value="newest">Newest year</option><option value="low">Price: low to high</option><option value="high">Price: high to low</option><option value="player">Player: A–Z</option></select></label><button onClick={onShowCart}>Cart ({selected.length} cards)</button></div>
    <div className={styles.productGrid}>{shown.map(c=>{const count=selectedSet.has(c.id);return <article key={c.id} className={`${styles.product} ${count?styles.selectedProduct:''}`}><button className={styles.photoButton} onClick={()=>openCard(c)} aria-label={`View ${c.player} ${c.set} fronts and backs`}><img src={c.front} alt={`${c.year} ${c.set} ${c.player} ${c.parallel}`} loading="lazy"/></button><div className={styles.productBody}><h3>{c.player}</h3><p>{cardSetLabel(c)}</p>{cardDetailLabel(c)&&<p>{cardDetailLabel(c)}</p>}<p>#{String(c.number||'').replace(/^#/, '')}</p><InlineCardBadges card={c}/><strong>{money(cardListPrice(c))}</strong><div className={styles.quantity}><button className={styles.addCard} onClick={()=>onToggle(c.id)}>{count?'Remove card':'Add card ＋'}</button></div></div></article>})}</div>
    {!shown.length&&<div className={styles.empty}><p>No cards match these filters.</p><button onClick={clearFilters}>Clear filters</button></div>}
    <div className={styles.pagination}><button disabled={page===0} onClick={()=>setPage(p=>p-1)}>Previous</button><span>Page {page+1} of {pages}</span><button disabled={page+1>=pages} onClick={()=>setPage(p=>p+1)}>Next</button></div>
