@@ -1,13 +1,26 @@
 'use client'
+import {useEffect,useRef} from 'react'
 import teamLogos from '../data/team-logos.json'
 import LiveAuctions from './LiveAuctions'
 import {trackShop} from '../lib/storefrontAnalytics.mjs'
 import styles from './HomeLanding.module.css'
 export default function HomeLanding({teams,cards,onShowCart,cartCount}){
+ const watermark=useRef(null)
+ useEffect(()=>{
+  const reducedMotion=window.matchMedia('(prefers-reduced-motion: reduce)')
+  let frame=0
+  const paint=()=>{frame=0;if(watermark.current)watermark.current.style.setProperty('--watermark-y',`${reducedMotion.matches?0:-window.scrollY*.16}px`)}
+  const onScroll=()=>{if(!reducedMotion.matches&&!frame)frame=window.requestAnimationFrame(paint)}
+  paint()
+  window.addEventListener('scroll',onScroll,{passive:true})
+  reducedMotion.addEventListener('change',paint)
+  return()=>{window.removeEventListener('scroll',onScroll);reducedMotion.removeEventListener('change',paint);window.cancelAnimationFrame(frame)}
+ },[])
  const availableTeams=teams.teams.filter(t=>teams.bundles.some(b=>b.team===t))
  const sample=availableTeams.slice(0,4)
  const moreTeams=availableTeams.length-sample.length
  return <div className={styles.home}>
+ <div ref={watermark} className={styles.watermark} aria-hidden="true"/>
  <header className={styles.header}><a href="/" className={styles.brand}><img src="/eetee-logo.png" alt=""/><span>eetee.cards</span></a><nav aria-label="Main navigation"><a href="/team-sets">Team Sets</a><a href="/cards">Shop All Cards</a><button onClick={onShowCart}>Cart ({cartCount})</button></nav></header>
  <section className={styles.hero}><img src="/eetee-logo.png" alt="eetee alien"/><h1>eetee.cards</h1><p>Individual sports cards & curated team sets</p><span>Find your players. Build your collection.</span></section>
  <main className={styles.main}><div className={styles.paths}>

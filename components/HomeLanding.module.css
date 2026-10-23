@@ -35,3 +35,8 @@
 .moreTeams strong{font-size:13px}.moreTeams span{font-size:9px}
 .path .teamCount{font-size:11px;color:#c1d2e5;margin:0 0 16px;line-height:1.5}
 @media(min-width:761px) and (max-width:960px){.teamPreview{gap:6px}.teamPreview img,.moreTeams{width:32px;height:32px}.teamPreview img{padding:4px}.moreTeams strong{font-size:11px}.moreTeams span{font-size:8px}}
+
+/* Original collection scans, tinted into the navy beneath all content. */
+.home{position:relative;isolation:isolate}
+.watermark{position:fixed;inset:-35vmax;z-index:-1;pointer-events:none;background:url('/collection-watermark.jpg') center var(--watermark-y,0px) / 1400px auto repeat;transform:rotate(-12deg);filter:grayscale(1);opacity:.085}
+@media(prefers-reduced-motion:reduce){.watermark{background-position:center 0!important}}

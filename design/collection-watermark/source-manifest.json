@@ -1,0 +1,110 @@
+{
+  "row_counts": [
+    6,
+    6,
+    6,
+    6
+  ],
+  "size": 2400,
+  "gap": 8,
+  "margin": 8,
+  "tile_aspect": 0.714,
+  "images": [
+    {
+      "card_id": "7b5ed94023be850a",
+      "path": "../../public/team-bundles/7b5ed94023be850a-front.webp"
+    },
+    {
+      "card_id": "3537d62c69104060",
+      "path": "../../public/team-bundles/3537d62c69104060-front.webp"
+    },
+    {
+      "card_id": "09becba56932faef",
+      "path": "../../public/team-bundles/09becba56932faef-front.webp"
+    },
+    {
+      "card_id": "3f99f3f77105c5a8",
+      "path": "../../public/team-bundles/3f99f3f77105c5a8-front.webp"
+    },
+    {
+      "card_id": "40673210762a1652",
+      "path": "../../public/team-bundles/40673210762a1652-front.webp"
+    },
+    {
+      "card_id": "741c4f41d64953dd",
+      "path": "../../public/team-bundles/741c4f41d64953dd-front.webp"
+    },
+    {
+      "card_id": "f4f465dc2d0d5d9e",
+      "path": "../../public/team-bundles/f4f465dc2d0d5d9e-front.webp"
+    },
+    {
+      "card_id": "5e05293933770042",
+      "path": "../../public/team-bundles/5e05293933770042-front.webp"
+    },
+    {
+      "card_id": "7fb40785847fe9bc",
+      "path": "../../public/team-bundles/7fb40785847fe9bc-front.webp"
+    },
+    {
+      "card_id": "c9985336eed7dd16",
+      "path": "../../public/team-bundles/c9985336eed7dd16-front.webp"
+    },
+    {
+      "card_id": "4f069f091ecd9b34",
+      "path": "../../public/team-bundles/4f069f091ecd9b34-front.webp"
+    },
+    {
+      "card_id": "5388d613ef3542e3",
+      "path": "../../public/team-bundles/5388d613ef3542e3-front.webp"
+    },
+    {
+      "card_id": "3f12939a68b1ecd2",
+      "path": "../../public/team-bundles/3f12939a68b1ecd2-front.webp"
+    },
+    {
+      "card_id": "93bc22f237a25ada",
+      "path": "../../public/team-bundles/93bc22f237a25ada-front.webp"
+    },
+    {
+      "card_id": "7dfab1be26d0b995",
+      "path": "../../public/team-bundles/7dfab1be26d0b995-front.webp"
+    },
+    {
+      "card_id": "38ba3755eafb7051",
+      "path": "../../public/team-bundles/38ba3755eafb7051-front.webp"
+    },
+    {
+      "card_id": "97974b66e64ae816",
+      "path": "../../public/team-bundles/97974b66e64ae816-front.webp"
+    },
+    {
+      "card_id": "62776d5b3c227b65",
+      "path": "../../public/team-bundles/62776d5b3c227b65-front.webp"
+    },
+    {
+      "card_id": "14179d02e7353d36",
+      "path": "../../public/team-bundles/14179d02e7353d36-front.webp"
+    },
+    {
+      "card_id": "a4a3da30667a8be1",
+      "path": "../../public/team-bundles/a4a3da30667a8be1-front.webp"
+    },
+    {
+      "card_id": "6c88f47518ef5107",
+      "path": "../../public/team-bundles/6c88f47518ef5107-front.webp"
+    },
+    {
+      "card_id": "792677c6ef594b28",
+      "path": "../../public/team-bundles/792677c6ef594b28-front.webp"
+    },
+    {
+      "card_id": "a411ae977b338b19",
+      "path": "../../public/team-bundles/a411ae977b338b19-front.webp"
+    },
+    {
+      "card_id": "8cac4a65817a9fcf",
+      "path": "../../public/team-bundles/8cac4a65817a9fcf-front.webp"
+    }
+  ]
+}
