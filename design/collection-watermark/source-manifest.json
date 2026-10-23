@@ -5,106 +5,275 @@
     6,
     6
   ],
-  "size": 2400,
-  "gap": 8,
-  "margin": 8,
-  "tile_aspect": 0.714,
+  "size": 1800,
+  "gap": 0,
+  "margin": 0,
+  "tile_aspect": 0.7142857142857143,
   "images": [
     {
       "card_id": "7b5ed94023be850a",
-      "path": "../../public/team-bundles/7b5ed94023be850a-front.webp"
+      "path": "../../public/team-bundles/7b5ed94023be850a-front.webp",
+      "pre_crop": [
+        0.085,
+        0.065,
+        0.915,
+        0.935
+      ],
+      "rotate": 0
     },
     {
       "card_id": "3537d62c69104060",
-      "path": "../../public/team-bundles/3537d62c69104060-front.webp"
+      "path": "../../public/team-bundles/3537d62c69104060-front.webp",
+      "pre_crop": [
+        0.02,
+        0.015,
+        0.97,
+        0.985
+      ],
+      "rotate": 0
     },
     {
       "card_id": "09becba56932faef",
-      "path": "../../public/team-bundles/09becba56932faef-front.webp"
+      "path": "../../public/team-bundles/09becba56932faef-front.webp",
+      "pre_crop": [
+        0.09,
+        0.065,
+        0.915,
+        0.935
+      ],
+      "rotate": 0
     },
     {
       "card_id": "3f99f3f77105c5a8",
-      "path": "../../public/team-bundles/3f99f3f77105c5a8-front.webp"
+      "path": "../../public/team-bundles/3f99f3f77105c5a8-front.webp",
+      "pre_crop": [
+        0.21,
+        0.16,
+        0.865,
+        0.83
+      ],
+      "rotate": 0
     },
     {
       "card_id": "40673210762a1652",
-      "path": "../../public/team-bundles/40673210762a1652-front.webp"
+      "path": "../../public/team-bundles/40673210762a1652-front.webp",
+      "pre_crop": [
+        0.27,
+        0.14,
+        0.86,
+        0.91
+      ],
+      "rotate": 0
     },
     {
       "card_id": "741c4f41d64953dd",
-      "path": "../../public/team-bundles/741c4f41d64953dd-front.webp"
+      "path": "../../public/team-bundles/741c4f41d64953dd-front.webp",
+      "pre_crop": [
+        0.08,
+        0.06,
+        0.92,
+        0.94
+      ],
+      "rotate": 0
     },
     {
       "card_id": "f4f465dc2d0d5d9e",
-      "path": "../../public/team-bundles/f4f465dc2d0d5d9e-front.webp"
+      "path": "../../public/team-bundles/f4f465dc2d0d5d9e-front.webp",
+      "pre_crop": [
+        0.145,
+        0.107,
+        0.873,
+        0.885
+      ],
+      "rotate": 0
     },
     {
       "card_id": "5e05293933770042",
-      "path": "../../public/team-bundles/5e05293933770042-front.webp"
+      "path": "../../public/team-bundles/5e05293933770042-front.webp",
+      "pre_crop": [
+        0.02,
+        0.02,
+        0.97,
+        0.98
+      ],
+      "rotate": 0
     },
     {
       "card_id": "7fb40785847fe9bc",
-      "path": "../../public/team-bundles/7fb40785847fe9bc-front.webp"
+      "path": "../../public/team-bundles/7fb40785847fe9bc-front.webp",
+      "pre_crop": [
+        0.175,
+        0.174,
+        0.806,
+        0.857
+      ],
+      "rotate": 0
     },
     {
       "card_id": "c9985336eed7dd16",
-      "path": "../../public/team-bundles/c9985336eed7dd16-front.webp"
+      "path": "../../public/team-bundles/c9985336eed7dd16-front.webp",
+      "pre_crop": [
+        0.09,
+        0.07,
+        0.9,
+        0.93
+      ],
+      "rotate": 0
     },
     {
       "card_id": "4f069f091ecd9b34",
-      "path": "../../public/team-bundles/4f069f091ecd9b34-front.webp"
+      "path": "../../public/team-bundles/4f069f091ecd9b34-front.webp",
+      "pre_crop": [
+        0.26,
+        0.126,
+        0.86,
+        0.912
+      ],
+      "rotate": 0
     },
     {
       "card_id": "5388d613ef3542e3",
-      "path": "../../public/team-bundles/5388d613ef3542e3-front.webp"
+      "path": "../../public/team-bundles/5388d613ef3542e3-front.webp",
+      "pre_crop": [
+        0.124,
+        0.117,
+        0.885,
+        0.907
+      ],
+      "rotate": 0
     },
     {
       "card_id": "3f12939a68b1ecd2",
-      "path": "../../public/team-bundles/3f12939a68b1ecd2-front.webp"
+      "path": "../../public/team-bundles/3f12939a68b1ecd2-front.webp",
+      "pre_crop": [
+        0.125,
+        0.12,
+        0.835,
+        0.91
+      ],
+      "rotate": 0
     },
     {
       "card_id": "93bc22f237a25ada",
-      "path": "../../public/team-bundles/93bc22f237a25ada-front.webp"
+      "path": "../../public/team-bundles/93bc22f237a25ada-front.webp",
+      "pre_crop": [
+        0.085,
+        0.06,
+        0.92,
+        0.94
+      ],
+      "rotate": 0
     },
     {
       "card_id": "7dfab1be26d0b995",
-      "path": "../../public/team-bundles/7dfab1be26d0b995-front.webp"
+      "path": "../../public/team-bundles/7dfab1be26d0b995-front.webp",
+      "pre_crop": [
+        0.261,
+        0.322,
+        0.87,
+        0.933
+      ],
+      "rotate": 0
     },
     {
       "card_id": "38ba3755eafb7051",
-      "path": "../../public/team-bundles/38ba3755eafb7051-front.webp"
+      "path": "../../public/team-bundles/38ba3755eafb7051-front.webp",
+      "pre_crop": [
+        0.222,
+        0.215,
+        0.74,
+        0.802
+      ],
+      "rotate": 0
     },
     {
       "card_id": "97974b66e64ae816",
-      "path": "../../public/team-bundles/97974b66e64ae816-front.webp"
+      "path": "../../public/team-bundles/97974b66e64ae816-front.webp",
+      "pre_crop": [
+        0.289,
+        0.124,
+        0.886,
+        0.912
+      ],
+      "rotate": 0
     },
     {
       "card_id": "62776d5b3c227b65",
-      "path": "../../public/team-bundles/62776d5b3c227b65-front.webp"
+      "path": "../../public/team-bundles/62776d5b3c227b65-front.webp",
+      "pre_crop": [
+        0.067,
+        0.088,
+        0.937,
+        0.914
+      ],
+      "rotate": 90
     },
     {
       "card_id": "14179d02e7353d36",
-      "path": "../../public/team-bundles/14179d02e7353d36-front.webp"
+      "path": "../../public/team-bundles/14179d02e7353d36-front.webp",
+      "pre_crop": [
+        0.16,
+        0.185,
+        0.79,
+        0.855
+      ],
+      "rotate": 0
     },
     {
       "card_id": "a4a3da30667a8be1",
-      "path": "../../public/team-bundles/a4a3da30667a8be1-front.webp"
+      "path": "../../public/team-bundles/a4a3da30667a8be1-front.webp",
+      "pre_crop": [
+        0.14,
+        0.154,
+        0.775,
+        0.828
+      ],
+      "rotate": 0
     },
     {
       "card_id": "6c88f47518ef5107",
-      "path": "../../public/team-bundles/6c88f47518ef5107-front.webp"
+      "path": "../../public/team-bundles/6c88f47518ef5107-front.webp",
+      "pre_crop": [
+        0.18,
+        0.195,
+        0.81,
+        0.86
+      ],
+      "rotate": 0
     },
     {
       "card_id": "792677c6ef594b28",
-      "path": "../../public/team-bundles/792677c6ef594b28-front.webp"
+      "path": "../../public/team-bundles/792677c6ef594b28-front.webp",
+      "pre_crop": [
+        0.155,
+        0.2,
+        0.82,
+        0.9
+      ],
+      "rotate": 0
     },
     {
       "card_id": "a411ae977b338b19",
-      "path": "../../public/team-bundles/a411ae977b338b19-front.webp"
+      "path": "../../public/team-bundles/a411ae977b338b19-front.webp",
+      "pre_crop": [
+        0.092,
+        0.142,
+        0.893,
+        0.866
+      ],
+      "rotate": 90
     },
     {
       "card_id": "8cac4a65817a9fcf",
-      "path": "../../public/team-bundles/8cac4a65817a9fcf-front.webp"
+      "path": "../../public/team-bundles/8cac4a65817a9fcf-front.webp",
+      "pre_crop": [
+        0.12,
+        0.07,
+        0.9,
+        0.94
+      ],
+      "rotate": 0
     }
-  ]
+  ],
+  "layout_fit": "Proportional cover after manual card-edge crops; landscape cards rotated 90 degrees."
 }

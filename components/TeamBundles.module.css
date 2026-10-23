@@ -6,3 +6,5 @@
 .site .futureLeague:disabled,.site .futurePrice:disabled{opacity:1}.futureLeague img{opacity:.62}
 
 .priceGrid{grid-template-columns:repeat(3,minmax(0,1fr))}@media(max-width:600px){.priceGrid{grid-template-columns:1fr}.headerNav{gap:14px;flex-wrap:wrap}}
+
+.site{background:transparent}
