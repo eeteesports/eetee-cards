@@ -1,4 +1,5 @@
 'use client'
+import {useRouter} from 'next/navigation'
 import {useEffect,useMemo,useRef,useState} from 'react'
 import ReviewableImage,{OwnerBar} from './ImageReview'
 import TeamBundles from './TeamBundles'
@@ -55,10 +56,11 @@ function BargainBins({cards,selected,onToggle,onShowCart,quote,initialTier='all'
   </section>
  </div>
  <div className={styles.selectionBar}><div><strong>{selected.length} individual cards · {money(quote.individualTotalCents+quote.binTotalCents)}</strong><p>Bargain-bin discount applied automatically{quote.chosenBundles.length?` · ${quote.chosenBundles.length} team sets also selected`:''}</p></div><button onClick={onShowCart}>Cart · {money(quote.totalCents)} →</button></div>
- {viewer&&(()=>{const c=viewer;return <Modal title={`${c.player} · ${c.year} ${c.set}`} onClose={()=>setViewer(null)}><div className={styles.copyViewer}><ReviewableImage card={c} side={side}><img src={c[side]} alt={`${c.player} ${side}`}/></ReviewableImage><div><InlineCardBadges card={c}/>{cardDetailLabel(c)&&<p>{cardDetailLabel(c)}</p>}{c.serial&&<p>{c.serial}</p>}<button onClick={()=>{trackShop('view_card_side',{card_side:side==='front'?'back':'front',items:[analyticsItem(c)]});setSide(s=>s==='front'?'back':'front')}}>{side==='front'?'Show back':'Show front'}</button><p className={styles.copyPrice} aria-label="Price">{money(cardListPrice(c))}</p><button className={styles.primary} onClick={()=>onToggle(c.id)}>{selectedSet.has(c.id)?'Remove card':'Add card'}</button></div></div></Modal>})()}
+ {viewer&&(()=>{const c=cards.find(card=>card.id===viewer.id)||viewer;return <Modal title={`${c.player} · ${c.year} ${c.set}`} onClose={()=>setViewer(null)}><div className={styles.copyViewer}><ReviewableImage card={c} side={side}><img src={c[side]} alt={`${c.player} ${side}`}/></ReviewableImage><div><InlineCardBadges card={c}/>{cardDetailLabel(c)&&<p>{cardDetailLabel(c)}</p>}{c.serial&&<p>{c.serial}</p>}<button onClick={()=>{trackShop('view_card_side',{card_side:side==='front'?'back':'front',items:[analyticsItem(c)]});setSide(s=>s==='front'?'back':'front')}}>{side==='front'?'Show back':'Show front'}</button><p className={styles.copyPrice} aria-label="Price">{money(cardListPrice(c))}</p><button className={styles.primary} onClick={()=>onToggle(c.id)}>{selectedSet.has(c.id)?'Remove card':'Add card'}</button></div></div></Modal>})()}
  </>
 }
 export default function PublicShop({teams,bins,mode='home',binTier='all'}){
+ const router=useRouter();useEffect(()=>{const refresh=()=>router.refresh();window.addEventListener('eetee-image-corrected',refresh);return()=>window.removeEventListener('eetee-image-corrected',refresh)},[router])
  const[cart,setCart]=useState({cards:[],bundles:[]}),[ready,setReady]=useState(false),[showCart,setShowCart]=useState(false),[busy,setBusy]=useState(false),[error,setError]=useState('')
  const catalog=useMemo(()=>({cards:bins.cards,bundles:teams.bundles}),[bins,teams])
  useEffect(()=>{try{const previous=JSON.parse(localStorage.getItem(cartKey)||'{}'),cards=new Set(bins.cards.map(c=>c.id)),bundles=new Set(teams.bundles.map(b=>b.id));setCart({cards:[...new Set(Array.isArray(previous.cards)?previous.cards:[])].filter(id=>cards.has(id)),bundles:[...new Set(Array.isArray(previous.bundles)?previous.bundles:[])].filter(id=>bundles.has(id))})}catch{}setReady(true)},[])

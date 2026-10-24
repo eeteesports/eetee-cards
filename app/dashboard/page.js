@@ -67,6 +67,8 @@ export default function Dashboard() {
     '$200+':       cards.filter((c) => c.fields['Estimated Value'] >= 200).length,
   }
 
+  useEffect(()=>{const reload=()=>fetch('/api/cards?all=true').then(r=>r.json()).then(d=>setCards(d.records||[]));window.addEventListener('eetee-card-updated',reload);return()=>window.removeEventListener('eetee-card-updated',reload)},[])
+
   async function fetchValueForCard(card) {
     const f = card.fields
     setFetchingValue(card.id)
@@ -232,6 +234,7 @@ export default function Dashboard() {
               return (
                 <div
                   key={card.id}
+                  data-eetee-card-id={card.id}
                   className="bg-white rounded-2xl border border-gray-100 p-3 flex items-center gap-3 cursor-pointer hover:shadow-md transition-shadow"
                   onClick={() => setSelected(card)}
                 >

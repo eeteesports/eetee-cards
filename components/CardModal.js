@@ -33,7 +33,10 @@ const CENTERING_GRADE_COLOR = {
 
 import { formatPrice } from '@/lib/format'
 
-export default function CardModal({ card, onClose, onRefresh, publicView = true }) {
+export default function CardModal({ card:initialCard, onClose, onRefresh, publicView = true }) {
+  const [card,setCard]=useState(initialCard)
+  useEffect(()=>setCard(initialCard),[initialCard])
+  useEffect(()=>{const update=()=>fetch('/api/cards?all=true',{cache:'no-store'}).then(r=>r.json()).then(d=>{const record=d.records?.find(r=>r.id===initialCard.id);if(record)setCard(record)});window.addEventListener('eetee-card-updated',update);return()=>window.removeEventListener('eetee-card-updated',update)},[initialCard.id])
   const f = card.fields
   const { add, remove, items } = useCart()
   const inCart = items.some((i) => i.id === card.id)
@@ -102,6 +105,7 @@ export default function CardModal({ card, onClose, onRefresh, publicView = true 
 
   useEffect(() => {
     const handler = (e) => {
+      if(document.querySelector('dialog[open]'))return;
       if (e.key !== 'Escape') return
       if (zoomedImage) setZoomedImage(null)
       else onClose()
@@ -285,7 +289,7 @@ export default function CardModal({ card, onClose, onRefresh, publicView = true 
                   </button>
                 </>
               ) : (
-                <button onClick={() => setEditing(true)}
+                <button onClick={() => window.dispatchEvent(new CustomEvent('eetee-open-fix-card',{detail:{cardId:card.id,side:'front',onSaved:onRefresh}}))}
                   className="text-sm font-semibold text-blue-600 border border-blue-200 px-4 py-1.5 rounded-lg hover:bg-blue-50">
                   ✏️ Edit
                 </button>
@@ -307,7 +311,7 @@ export default function CardModal({ card, onClose, onRefresh, publicView = true 
             grading signal a rounded crop would misrepresent. */}
         <div className="px-5 pt-4 flex flex-wrap gap-4 justify-center">
           {f['Front Image URL'] ? (
-            <div className="relative cursor-zoom-in group" onClick={() => setZoomedImage({ url: f['Front Image URL'], alt: f.Player })}>
+            <div data-eetee-card-id={card.id} className="relative cursor-zoom-in group" onClick={() => setZoomedImage({ url: f['Front Image URL'], alt: f.Player })}>
               <CardBadges fields={f} />
               <img src={cardImg(f['Front Image URL'])} alt={f.Player}
                 className="h-64 w-auto max-w-full object-contain border border-gray-200" />
@@ -319,7 +323,7 @@ export default function CardModal({ card, onClose, onRefresh, publicView = true 
             </div>
           )}
           {f['Back Image URL'] && (
-            <div className="relative cursor-zoom-in group" onClick={() => setZoomedImage({ url: f['Back Image URL'], alt: `${f.Player} — back` })}>
+            <div data-eetee-card-id={card.id} className="relative cursor-zoom-in group" onClick={() => setZoomedImage({ url: f['Back Image URL'], alt: `${f.Player} — back` })}>
               <img src={cardImg(f['Back Image URL'])} alt="Back" className="h-64 w-auto max-w-full object-contain border border-gray-200" />
               <ZoomHint />
             </div>

@@ -1,4 +1,5 @@
 'use client'
+import ReviewableImage from './ImageReview'
 import { useCart } from '@/contexts/CartContext'
 
 // Apply Cloudinary trim+pad transformation so card fills frame cleanly
@@ -33,7 +34,7 @@ export default function CardTile({ card, onClick }) {
       className="bg-white rounded-xl border border-gray-200 overflow-hidden cursor-pointer hover:shadow-lg hover:-translate-y-0.5 transition-all duration-150"
     >
       {/* Image area */}
-      <div className="relative">
+      <ReviewableImage card={card}><div className="relative">
         {f['For Sale'] && (
           <span className="absolute top-2 left-2 z-10 bg-green-600 text-white text-xs font-bold px-2 py-0.5 rounded">
             FOR SALE
@@ -57,6 +58,8 @@ export default function CardTile({ card, onClick }) {
           </div>
         )}
       </div>
+
+      </ReviewableImage>
 
       {/* Card info */}
       <div className="p-3">

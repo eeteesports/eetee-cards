@@ -3,6 +3,8 @@ import {authOptions} from '@/lib/auth'
 import {listImageReviews,saveImageReview,setImageReviewStatus} from '@/lib/imageReviewStore'
 import {sameReviewOrigin} from '@/lib/imageReviewInput.mjs'
 export const dynamic='force-dynamic'
+export const runtime='nodejs'
+export const maxDuration=60
 const headers={'Cache-Control':'private, no-store','X-Robots-Tag':'noindex, nofollow'}
 const reply=(body,status=200)=>Response.json(body,{status,headers})
 async function authenticated(){return Boolean(await getServerSession(authOptions))}

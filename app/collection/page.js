@@ -69,6 +69,7 @@ function CollectionInner() {
     setLoading(false)
   }, [filters])
 
+  useEffect(()=>{const reload=()=>fetchCards();window.addEventListener('eetee-card-updated',reload);return()=>window.removeEventListener('eetee-card-updated',reload)},[fetchCards])
   useEffect(() => {
     const t = setTimeout(fetchCards, filters.search || filters.team || filters.set ? 400 : 0)
     return () => clearTimeout(t)
