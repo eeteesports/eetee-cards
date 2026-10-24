@@ -1,0 +1,5282 @@
+{
+  "id": "fronts-2026-10-24",
+  "screened": 4714,
+  "visuallyReviewed": 326,
+  "policy": "Reviewed originals only; fronts; conservative brightness; unchanged saturation/contrast; preserve history; skip any previously edited front.",
+  "corrections": [
+    {
+      "cardId": "ccabffa1a899860b",
+      "player": "Benjamin Morrison",
+      "side": "front",
+      "sourceSha256": "08d8bb8475a1cde39ff49454591c78f0fb3fed91d6617857833775e804fcf38c",
+      "settings": {
+        "left": 0.075,
+        "top": 0.055,
+        "right": 0.927,
+        "bottom": 0.945,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift. Tightened empty scan margins; full card edges retained."
+    },
+    {
+      "cardId": "d13a813e055c1f9f",
+      "player": "Abdul Carter",
+      "side": "front",
+      "sourceSha256": "e7d6eff0509e1b17c22ff58e52d55683e84bca51cd246088385ea1e135f66fac",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "0b576ee4e78744f7",
+      "player": "Kaleb Johnson",
+      "side": "front",
+      "sourceSha256": "f82e537ea2203623d2b9ae01b0b915fafbd075b155d202b11534f81a60f0049b",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "8b98c7065cad9ea9",
+      "player": "Caleb Williams",
+      "side": "front",
+      "sourceSha256": "6d501c75e9cc18992e5afc3f6f9e1f729d6494ebf45e70e5fdfaf06978cbbeef",
+      "settings": {
+        "left": 0.078,
+        "top": 0.061,
+        "right": 0.922,
+        "bottom": 0.942,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift. Tightened empty scan margins; full card edges retained."
+    },
+    {
+      "cardId": "c120d687a8fa6820",
+      "player": "Josh Jacobs",
+      "side": "front",
+      "sourceSha256": "e365c588fdfb00abfe91f1d45ee1222168bcacf50e3db30415d9e0400a44ca97",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "17cc7985a2194aea",
+      "player": "Luther Burden III",
+      "side": "front",
+      "sourceSha256": "70ea0dfff47a459504ea9c6273b34233251b8a539df9047b7d00cc9d3ee34b3c",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "0fd9876f3f7aa60a",
+      "player": "Tyler Shough",
+      "side": "front",
+      "sourceSha256": "d78fa2aaad08c2bd8909b127ec74a654ef678f4b8932ae296a769950e7ff44b0",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "85cba6dc0a8f249d",
+      "player": "Alfred Collins",
+      "side": "front",
+      "sourceSha256": "a0f202e97cd56e34692633f3a71c7d55e1e3db014f286c9c6c59044f69d23e30",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "2608c7713b00b026",
+      "player": "Myles Garrett",
+      "side": "front",
+      "sourceSha256": "41471eb600248dab1dd752e45c85f895411059bd663c0d59e5c50063f90d482a",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "4374fbc7dc98aae3",
+      "player": "Tyler Warren",
+      "side": "front",
+      "sourceSha256": "e7ef7bbcb104784ab1b2468e7422ad82a5c9eee25939a92e6846085a39ad3e2a",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "fe4b650b82e71e17",
+      "player": "Alfred Collins",
+      "side": "front",
+      "sourceSha256": "12f8f2a9271c91b0826b4e2da2adc95c86c63f7c8d625564f44564b7b749a039",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "e0a4eed4c3ab0e26",
+      "player": "Arian Smith",
+      "side": "front",
+      "sourceSha256": "46fa6eb404bf127d5417e3507a0c76af32a309ed74e50116c8123b813797232f",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "39d16d780d948cb0",
+      "player": "Tyler Shough",
+      "side": "front",
+      "sourceSha256": "183e029d12995946aac3560f22bdc18e928947da0c166dac8f77522429177587",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "3e4d16971a328262",
+      "player": "James Morgan",
+      "side": "front",
+      "sourceSha256": "b8e6c04d179abce7fa2c14a52a3459d120f167eb203cd2c87b9aef8a95c123c9",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "691c97f74b836181",
+      "player": "Shedeur Sanders",
+      "side": "front",
+      "sourceSha256": "021290f31cc2e6791d720e11cc3f5fbbf8051df894ad3be7521e172f9fb4cb8b",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "26c9fae49426210c",
+      "player": "Riley Leonard",
+      "side": "front",
+      "sourceSha256": "647e819769e0b6ad6425a2d959b6a18d56deed9efcbfe40f70c35585025226df",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "ef8666bb071096d0",
+      "player": "Tyler Shough",
+      "side": "front",
+      "sourceSha256": "0a73b19f75878cb974ea24f155fb2d207a288f526a9eb43db0caa1abbe254e89",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "5e7bb1d894f6e9f6",
+      "player": "Jim McMahon",
+      "side": "front",
+      "sourceSha256": "6305c35a6a2a19925f329c9b8234dc743eba354fb597c13e33ac39b4e0afa9a1",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "d2f04f637d56a7ed",
+      "player": "Jake Luton",
+      "side": "front",
+      "sourceSha256": "73788bfd08597d53de04f5d9aa3f07ccd142d19810c1842592c610139859a635",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "b0f12b5ee3b8bdcb",
+      "player": "Carson Schwesinger",
+      "side": "front",
+      "sourceSha256": "de5237541696b9ae6ba0ef53e229197b552b8a3e2be4310022e3693f6b2e314b",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "bb825a1df1d49c9e",
+      "player": "Kaleb Johnson",
+      "side": "front",
+      "sourceSha256": "26a67526a2aa704792f6ad745763d8d90d206736f40fe495fbe88ce021ea0961",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "44e43adfedc9ec7e",
+      "player": "Armand Membou",
+      "side": "front",
+      "sourceSha256": "593a1f3cc153fcd410134767aa8136b48c26d24039a65caec3c035eed9bb10f4",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "b23a474cc7202784",
+      "player": "Donovan Ezeiruaku",
+      "side": "front",
+      "sourceSha256": "4d764408013c32897c2ebbeb649380f56646b8a1399fcd7bf32b195a7d88da78",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "0a969d46aa940e9b",
+      "player": "Abdul Carter",
+      "side": "front",
+      "sourceSha256": "64b3e5134a17c49013004c8dfe3aa8c931d231776adeb760bd40a84e959ac48c",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "e1cf19fa877c14e2",
+      "player": "Jordan Love",
+      "side": "front",
+      "sourceSha256": "aede75bd6b9cb6c543ab115360133cd54e291616870fcfde60fe4eb4f832768a",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "10e35dd379f1d356",
+      "player": "Ashton Jeanty",
+      "side": "front",
+      "sourceSha256": "bafe2b82ecbd1a4a474ad396b23b7e8462d2a690cb09e35593504dc329f49a47",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "63f68b6fe8a5738e",
+      "player": "Odell Beckham Jr.",
+      "side": "front",
+      "sourceSha256": "7fc9b7f9cda6e4b38090cb11b21e4e720f32d03c6c64bdf2774bfe7114bb36d2",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "da9715b884ecdc0c",
+      "player": "Abdul Carter",
+      "side": "front",
+      "sourceSha256": "7c4962c149b95cd5f39524cc9e97303babca47a5afe9c0c1c5cd3a6097ffd688",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "f16f9198bb8c46c8",
+      "player": "Brian Thomas Jr.",
+      "side": "front",
+      "sourceSha256": "dbe55e8347f1aca9783f0405ab538140793357da040a7e9070a518cbe5fd9537",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "8f151c6b236a83a7",
+      "player": "Nico Collins",
+      "side": "front",
+      "sourceSha256": "d8ee3f51dc1e0d9990f0fd2153263436a28c9a5c29a9a0fd04ace40f31fc81b2",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "65139570bb21f47d",
+      "player": "Brian Thomas Jr.",
+      "side": "front",
+      "sourceSha256": "8236976b3ea42a7b8be91989567d7bf73b060945269ebe2708e86ef1a88f4cc2",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "ad33e30baf765c15",
+      "player": "Tyler Shough",
+      "side": "front",
+      "sourceSha256": "439f720a1be0b1089afed93cf13f311c07df9d19252c4c7b9e25f446ba1cdcea",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "7dc1a3d1ec249367",
+      "player": "Brian Thomas Jr.",
+      "side": "front",
+      "sourceSha256": "f6aec7809a2c8ab2f65f6f1cae270ed6e8f08fd7342877838e9ee730d69eec75",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "56645a06ea5ee049",
+      "player": "Jayden Higgins",
+      "side": "front",
+      "sourceSha256": "ffafb636db3ab6360853afd5c9a6f9a780bf22bd7232db3112a559fd048b685b",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "f2978c0426149d71",
+      "player": "Donovan Ezeiruaku",
+      "side": "front",
+      "sourceSha256": "4a6d6adf6f264f190ea34deb6ea509c077f8c9da6b4e036a495a0bfd2caff94d",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "69a2e07f42af601f",
+      "player": "Kelvin Banks Jr.",
+      "side": "front",
+      "sourceSha256": "d7549ef5f7749fdad9d379d93f067a6ba82c94ef122b256c927b62ac851509fe",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "f6d0505bd47246f4",
+      "player": "Arian Smith",
+      "side": "front",
+      "sourceSha256": "2e504a21597f95de14ce900cd711a72572ccd5de881556fe20a9283022695ef3",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "1d4067a90f68dcb0",
+      "player": "Woody Marks",
+      "side": "front",
+      "sourceSha256": "b04b1049e49c1f8ee558c742b223181c8dc2ffdfa938697db772b9601017439f",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "a6d5bd6f72d7ae9a",
+      "player": "Tahj Brooks",
+      "side": "front",
+      "sourceSha256": "feaead4821f4a29e78ef7551217fb22837001467da4f1d4a79d94457c4798514",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "2195aa5bcbb1c756",
+      "player": "Garrett Wilson",
+      "side": "front",
+      "sourceSha256": "36d7b920865fbe1a6081093063d710921ab5fae42a14cdeeb28dac0a1fceebd0",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "07e9882e191408da",
+      "player": "Garrett Wilson",
+      "side": "front",
+      "sourceSha256": "aa2f77b5094ee60585e049feddc9bac6cba5ea720da6f65c7acec7cd49536d84",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "c6677f4d29de858b",
+      "player": "Jaxson Dart",
+      "side": "front",
+      "sourceSha256": "75fc68589474613c18d0559e4f952c345732802452fb05faf49ca675b6724cff",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "65890c1b24b83d2b",
+      "player": "George Kittle",
+      "side": "front",
+      "sourceSha256": "34f02474e3550a063d970781285235993a8117918e1302f7d9f77b0ae1613994",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "4a79e271ab8e669d",
+      "player": "Devaughn Vele",
+      "side": "front",
+      "sourceSha256": "801d48dd596bde3f15ae4459536f3f0c6ff0f291d09b681f45657e77d84ae1d7",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "538798ed1a741f1b",
+      "player": "Kelvin Banks Jr.",
+      "side": "front",
+      "sourceSha256": "5eb02b2a2f253373775a097067f6b26dabe60935e81992fd2221d965eac77d7a",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "7cd5bfcd53fe4c53",
+      "player": "Kyle Williams",
+      "side": "front",
+      "sourceSha256": "b21f4328e939723080f4849745744b49de19b894ad354479a9ba36598024be14",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "932fc49dad6429c2",
+      "player": "Quinshon Judkins",
+      "side": "front",
+      "sourceSha256": "f32bec3700f74bf65947fff79ef34905ca53221f89ce83fffac17336c73f8f75",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "758ad2a5096ca31b",
+      "player": "Woody Marks",
+      "side": "front",
+      "sourceSha256": "a3c95948405cd0fe21e5bb10c27602c82b3b7a3e3730abc8c9954acc18bd354f",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "c4b2f1344569374c",
+      "player": "Jordan Watkins",
+      "side": "front",
+      "sourceSha256": "f9545b072eaedf6850f7c9605594d484173b7a49d1037b60ecf3c41daf83e1ca",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "ac6e4989dafd580c",
+      "player": "Quinshon Judkins",
+      "side": "front",
+      "sourceSha256": "8c3560c136fbf24645f796642bd0f6fcbc759cdaf58555e4e7b72306a8a07639",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "a4e2ac0d1cc3e601",
+      "player": "Kaleb Johnson",
+      "side": "front",
+      "sourceSha256": "523df4b27c8282945bf05f6722a6597f4bea167d51cb1632afc99d5f7ade98ef",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "f54dc9e310038fb5",
+      "player": "Brashard Smith",
+      "side": "front",
+      "sourceSha256": "64ff67e42f6b333a3158e715099bc98eac4ac9c1bfa8f4001d7db21b4da51f12",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "c9f0859a90a8da7f",
+      "player": "Quinshon Judkins",
+      "side": "front",
+      "sourceSha256": "3588cae37b76387d491490834ef3e18737639d90c7214ef1d1df7c89cc663459",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "644d9eebf2f25fe0",
+      "player": "Roquan Smith",
+      "side": "front",
+      "sourceSha256": "5bcd8934b4139163078ce682846dff3d808f0e36c99e53092d67f3c55d16efde",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "1e847348d674ec3b",
+      "player": "Travis Hunter",
+      "side": "front",
+      "sourceSha256": "9b552f8535fa095d2d1d5fe572095ddd19fe0e49c392bedb2de412fd0f17b078",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "6c216cecef027685",
+      "player": "K'Lavon Chaisson",
+      "side": "front",
+      "sourceSha256": "a4255bc7e963ee15ca083e1803c33395ec1bf34e489ab39b7285a6c5d77bd188",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "2dbbca7ec6dcffbf",
+      "player": "Kaleb Johnson",
+      "side": "front",
+      "sourceSha256": "9bf0637e3dbdbc8386e344eacd18c74a806ac4863a49f3b5927da4a11d903fa7",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "44b0af8b6051b0f1",
+      "player": "Jack Sawyer",
+      "side": "front",
+      "sourceSha256": "cf1669ca2a428a12d3e17fc347a24266e8cc11713c1cce1e26dfc549c780ca49",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "48666540d55371fe",
+      "player": "Jack Bech",
+      "side": "front",
+      "sourceSha256": "9a4ca0ae87eabf9ec22fd8f7295d3773175cf1636702f574d97dc5b1dd2d967f",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "877e8ebfda4f82f6",
+      "player": "Yahya Black",
+      "side": "front",
+      "sourceSha256": "f512dca73a7507b2cac3dbe227509dc811b1b4ac456d3628decef5f41a617955",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "5c4f34201a1d3fa4",
+      "player": "Jack Sawyer",
+      "side": "front",
+      "sourceSha256": "094ee64af77b8bc2a10734e14d866ae7176708fd9d7d16e1943ef5ed38b15cba",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "0ef770b2b8e99b94",
+      "player": "Jack Sawyer",
+      "side": "front",
+      "sourceSha256": "06cbc86b7e20706a8d2f5a1bba53d05d441fc7ec6b361b76e92fcf29c9020cbc",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "9d6f6e56569fedda",
+      "player": "Brian Thomas Jr.",
+      "side": "front",
+      "sourceSha256": "cef02b228cd18c8a3cd4b5db4fa3fe69ad26a6de5942cdabebff7db9e1bf6b76",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "830357e24f0e5728",
+      "player": "Jack Bech",
+      "side": "front",
+      "sourceSha256": "5a075d12563fb4877d413cd5e18d0bf454a7f566e0bf82277b3b231451ff3a5c",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "f67b1e115162c2e6",
+      "player": "Khalil Mack",
+      "side": "front",
+      "sourceSha256": "99ff99776adc985acef51d7f86fb8bc865dc273fdd690fac32480e31e2668275",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "f48844dfeb199f58",
+      "player": "Peyton Manning",
+      "side": "front",
+      "sourceSha256": "3dd8f4451b0ea1c6c43304a83b42cec016ee25564c37d0b7921bd4c10bb06f00",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "ca87ccdb781dc118",
+      "player": "Travis Hunter",
+      "side": "front",
+      "sourceSha256": "7a95a1b3d0b9b8e67d40c3c14f2d5a0d6c6824d036ba0f2ef757db347e00b489",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "4ad096c0a156dcb7",
+      "player": "Terrell Owens",
+      "side": "front",
+      "sourceSha256": "b01b62363c525150336c93bffb82eb54f0c46787604b19482e2f1e0f9dd1814a",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "919dfada10c5937e",
+      "player": "Randy Gregory",
+      "side": "front",
+      "sourceSha256": "5e04ee59bddca655ab079d6b8009f9b0c37b4bbf80e118c70a275f674f0962f5",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "10c5baf815961ef6",
+      "player": "Kyle Williams",
+      "side": "front",
+      "sourceSha256": "bfa960542537f583ad3ce932af23c571079d82b74fcf266690f7e22031b59d46",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "5c3c427393a9e90b",
+      "player": "Kyle Williams",
+      "side": "front",
+      "sourceSha256": "2e275121d00530926e4929ca5cd73b6c5165591f6b3aaa280e8189a999ea456e",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "cff2043eb24c4c07",
+      "player": "Brian Thomas Jr.",
+      "side": "front",
+      "sourceSha256": "cfe2380e2b5560badfb4b58d5e0186c657e82e18b9d00999081a3a053b5ebf55",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "b21949d73f8dd547",
+      "player": "Randy Gregory",
+      "side": "front",
+      "sourceSha256": "5d0eb6ca6b991f2f79404ab550c3b14e062c07c5636bda9d1be5f57f3bbab3f3",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "2dfd0f6b735c8a3e",
+      "player": "Caleb Williams",
+      "side": "front",
+      "sourceSha256": "c6729d0cc354526d652f398e22bdd52bdf74fc9fd0707f2391a2b1f5ba013062",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "83128102bf0171b6",
+      "player": "Kyle Williams",
+      "side": "front",
+      "sourceSha256": "75dfcfe95535e02d78af4ea75afef66015cfd85515340f82a20662fe23ad6987",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "68bcafb3b482e20a",
+      "player": "Riley Leonard",
+      "side": "front",
+      "sourceSha256": "54cfd2d6ede2ba06bba2e745bddd38671bc968b8d66af86e4d70f43e1a2903cc",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "5383eaea10eb61cb",
+      "player": "Woody Marks",
+      "side": "front",
+      "sourceSha256": "0c0f6a510f9ab3560ad8050d1585b97643d8cbdceaabe4aaba5eaad10ca84b66",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "a1b136ecc24e4de2",
+      "player": "Arian Smith",
+      "side": "front",
+      "sourceSha256": "b12113423d3078970763698482d04f6d36c088c8d80aa09ada0fc026561b3e53",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "c01a7ee0a3b14386",
+      "player": "Kaleb Johnson",
+      "side": "front",
+      "sourceSha256": "bad8d6cab31b06cf4612f02f84eee523f16cf8ef4b869ca63c79a48945076a0e",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "1e40da6d0e9154ff",
+      "player": "Jack Sawyer",
+      "side": "front",
+      "sourceSha256": "8563ad0ae5607991fe6e34ccc6b95b2fc29659ca4f3a50da0137c4aeabc32287",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "9e741edcdcf810bc",
+      "player": "Woody Marks",
+      "side": "front",
+      "sourceSha256": "7aa0e6acbe150bb7e5fb639d4a670575ae2425ea50b72ec986f7d4dbd204f769",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "ff7c29273cf6d76d",
+      "player": "Kaleb Johnson",
+      "side": "front",
+      "sourceSha256": "893c375bf57f7d6183fd06254fd5b836b78c1231ec8fd06a6e7aca62ef38a6f9",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "63a3c909b50325b1",
+      "player": "Arian Smith",
+      "side": "front",
+      "sourceSha256": "6736b0981d0e39b9a7c1438a2538acc76b576fe95539ee1fb18d74f458f71ce5",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "5dcbdad5c295f3fa",
+      "player": "Terry Bradshaw",
+      "side": "front",
+      "sourceSha256": "0caddf45f717fb5a32fbe05c4ea00f37376e084f758ff67654bd6658d702cf64",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "9a715bd4a2d08d3c",
+      "player": "Kaleb Johnson",
+      "side": "front",
+      "sourceSha256": "93794e9e9fa67c34aff503707bf1a2f2d16aac5ee2161704b61fa509e68f96e3",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "727c69fedea85005",
+      "player": "J.K. Dobbins",
+      "side": "front",
+      "sourceSha256": "0e025b4845f50be9ae581fef0429e66814e81fc5595e5683718db5cf5363b41d",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "d84801b01c97d633",
+      "player": "Luther Burden III",
+      "side": "front",
+      "sourceSha256": "89f12f9638c11589f66297adfe0e81791d8525b586c4096ffec7ea3ece325eae",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "e80a7d09377d7caf",
+      "player": "Brandon Aiyuk",
+      "side": "front",
+      "sourceSha256": "bdef003edf09d64d31979d0554335db1950d19db3939686f44527a967cf7ed42",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "8b95a4e8e57c8add",
+      "player": "Christian McCaffrey",
+      "side": "front",
+      "sourceSha256": "442e8f95a341ef2f369237fafa22758f639da1f1f7393d0c0093436bae47c963",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "96a1695ee574f750",
+      "player": "Kyle Williams",
+      "side": "front",
+      "sourceSha256": "6b7fbbbea7dcc6cee9b7a20ef315243f678d001d9cb31a8f5a6604af07ed0199",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "3767d9e0207d682a",
+      "player": "Graham Mertz",
+      "side": "front",
+      "sourceSha256": "3b967cd220cecf60d3e23036a2d6ae0eca86c3e15d7bb9716382750b414fc9a1",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "8e677f0baa27212b",
+      "player": "JT Tuimoloau",
+      "side": "front",
+      "sourceSha256": "667e5280ca0886f7dddc656da9c8fd22f4870f189b875e382f8855073d267633",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "030c633b23d4cac9",
+      "player": "JT Tuimoloau",
+      "side": "front",
+      "sourceSha256": "f1b320721911db8a2ce1f705707aba413f6d064db8b0fb1c5ade3b74aac73c15",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "23ef226113bc406d",
+      "player": "Travis Hunter",
+      "side": "front",
+      "sourceSha256": "9ffe50e30c513fb02a1917f1fcc32ac312799d58fa60fffc611fda7dacd8182b",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "9e90d678b11c7126",
+      "player": "Saquon Barkley",
+      "side": "front",
+      "sourceSha256": "e31d44713e547a411884ebc6eeda5e2cd316b85100d83b06501e35f553ff4c32",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "40bd6656cb9309df",
+      "player": "TreVeyon Henderson",
+      "side": "front",
+      "sourceSha256": "cb2a6ed3196b3cd232ca4ae66bcb434d46b15c00310747595132d5fa9ffa6633",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "b6a3c305dc59c375",
+      "player": "Tyler Warren",
+      "side": "front",
+      "sourceSha256": "f81d240d38b85971e7fefd7040f42963e016c67ebe91556bab7defd7073fe756",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "e99ac884f12e4005",
+      "player": "Jaydon Blue",
+      "side": "front",
+      "sourceSha256": "81a9f14e71ab31cb4aaa04fa3ff23ca7a786e03334794ced7aef1c9f217f2305",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "98107db16b17aabe",
+      "player": "Travis Hunter",
+      "side": "front",
+      "sourceSha256": "15ac69050690ded5cd8ad00fa83adc832f34ebd903fd5c463ae7faa669dcc8ea",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "50eb3d43c2c6a606",
+      "player": "Tyler Shough",
+      "side": "front",
+      "sourceSha256": "94a70fe608f07b46fa984325612c581836d3ee0b00a8abdb4bfe2936b86cd126",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "97d94b09e46f1af2",
+      "player": "Cam Skattebo",
+      "side": "front",
+      "sourceSha256": "a526e31f7a6cd01089259a017bf46d2cf086a534f4873de8429454e4e7af2756",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "411845bfa840093a",
+      "player": "Ray Lewis",
+      "side": "front",
+      "sourceSha256": "fac91f7e577542acce42a856a112915e59a5963c13a6af177b5b3ae235185736",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "d471797e99e215a9",
+      "player": "JT Tuimoloau",
+      "side": "front",
+      "sourceSha256": "c8027c4aba7f5aaec00fa6599764231d2f71029504cf59c72711d8b016c8f0b3",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "abe216b24f5ef388",
+      "player": "Kaden Prather",
+      "side": "front",
+      "sourceSha256": "c35a33a81185316911c8e5ed9ae46debe2e55137be71b6d67a05657189bdf9ca",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "c3b67094565830ef",
+      "player": "Jordan Watkins",
+      "side": "front",
+      "sourceSha256": "f950c450ab75510df13653cb19bac4b98a6134765e27f2f3eb2ae4944e657bee",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "ddfbafe6ddaf9364",
+      "player": "Kyle Williams",
+      "side": "front",
+      "sourceSha256": "1fe5f40cc5643d896f432d68792fee0b6e3a8f881e61422c5d99796b5306f124",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "a524e2a510f0643b",
+      "player": "Andrei Iosivas",
+      "side": "front",
+      "sourceSha256": "48f14ddb7d07bce354ab0646100920c61c1ba90ff6a314e9daaa81c7d58420f4",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "2fef81a655a1ac1f",
+      "player": "Jordan Watkins",
+      "side": "front",
+      "sourceSha256": "5638a222c548c36fe59f2609bdf3df7a8c4916ede08059e0ff1f5cd09f15f459",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "a9772a294ab4f75f",
+      "player": "Josh Jacobs",
+      "side": "front",
+      "sourceSha256": "6296f0fe26d5d82c99a4fd27cade440819d1a7bcc8c27e3d9329c9f1ce45804b",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "31fa4b09692440b3",
+      "player": "Will Campbell",
+      "side": "front",
+      "sourceSha256": "493bad96294362d2ed153f78256c426ba348408b073237d5c427143518c08503",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "ab25ce032aaa9067",
+      "player": "Jack Bech",
+      "side": "front",
+      "sourceSha256": "3e53c2e8dbf02c9cb8f5904049ab31fafa33d296a64f1ef241fcb866b2a97ac0",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "208b581a418926cd",
+      "player": "Will Howard",
+      "side": "front",
+      "sourceSha256": "1683e186d1016ceb5eb8d2b0dda6bd87de0ffc57ca472fb89f1d5d3232ee06b9",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "d1b65edf65bd76aa",
+      "player": "Tyler Warren",
+      "side": "front",
+      "sourceSha256": "7d6da247c81acfbef4701204f99cd03fe8f3c2655d4e70bfeaf31b7a7cb162b1",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "885b64a33ba0922d",
+      "player": "Quinshon Judkins",
+      "side": "front",
+      "sourceSha256": "615389b00c30e41c327781202d1c104c10fad13c7e43a0fcf4c8ef948384af71",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "7a86d582fde8f289",
+      "player": "Kaleb Johnson",
+      "side": "front",
+      "sourceSha256": "80bc21496061bacb44f72d2b7719d7864bada78fff675a8b009156860159ef60",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "1041070b73814f25",
+      "player": "Harold Fannin Jr.",
+      "side": "front",
+      "sourceSha256": "f7475583b0b325e9c273d93dc79cacfc92f5ba929380e01c2b3bd1b7f666896c",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "b83012967f512fe8",
+      "player": "Jack Sawyer",
+      "side": "front",
+      "sourceSha256": "a1ad228f5a6b3fcc689ee635df86ff89df90613d094ba6355d2e10f9349688ad",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "8f2c3079698e5c90",
+      "player": "Jaydon Blue",
+      "side": "front",
+      "sourceSha256": "94e60a43a43158a22d635b9a8ac241b90b3a349bab3178da5f98cb95b6923c1c",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "84b394ade50cf4ff",
+      "player": "Demetrius Knight Jr.",
+      "side": "front",
+      "sourceSha256": "95ef4d1eafe3cdb0c6f5b879b9af4322d16bad13192c3910b08d48b16c96428c",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "cad79a2db4610381",
+      "player": "Jaylin Noel",
+      "side": "front",
+      "sourceSha256": "76c7df331ba93feb3098693e43f9755199a4f265cf30f1dc69520e0439c40bc8",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "5717fde8f1016251",
+      "player": "Graham Mertz",
+      "side": "front",
+      "sourceSha256": "b5c08e51f2903f9ddbf827593fb5993a28db5341cdc93486941d8e4aa0a1386a",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "09b601adb75a299b",
+      "player": "A.J. Brown",
+      "side": "front",
+      "sourceSha256": "d85623589e728691561fbaadd9f2d6df706e2cfa30a8ab8552eb5823b674b386",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "2e739ff3a9b4a938",
+      "player": "Quinshon Judkins",
+      "side": "front",
+      "sourceSha256": "14fee3a381f0faac117e181318be71f3a948110161c90de0e44b33bc889c183e",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "028b87903151ffaf",
+      "player": "Kurtis Rourke",
+      "side": "front",
+      "sourceSha256": "a7967b310d7fc507e760f7024c40bf5786ebcb3598661cd631b416dac6a60e77",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "d3dcfdb0ee32eef2",
+      "player": "Rashee Rice",
+      "side": "front",
+      "sourceSha256": "fb743c2d5bc93670008f71c0fcbbdf8362395b20871c1772d0d3b4d2840d4e04",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "004d567f0af72620",
+      "player": "TreVeyon Henderson",
+      "side": "front",
+      "sourceSha256": "d703afbbf52925479ad38134e4bcbc74c6f3ba17c151d2fee67d2e2e504f13e3",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "e427f582e81f69e0",
+      "player": "Quinshon Judkins",
+      "side": "front",
+      "sourceSha256": "9bc5661c5426a2c11b3484f5648b52da4aef3b27d0064e43a0cc1d8cacd0e411",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "db63da8551a66746",
+      "player": "Harold Fannin Jr.",
+      "side": "front",
+      "sourceSha256": "7fb0d7a0153a79fd69ef24819d4317a5c9956c5ec5795ad6397d57e14e38f5bd",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "f5e285069392ebff",
+      "player": "Jaylin Noel",
+      "side": "front",
+      "sourceSha256": "4c38de943d85877a7d5d92ff3e93a76e39535be2ca0bbb0600f15e4140d42c13",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "be2765378eb30541",
+      "player": "Jaylin Noel",
+      "side": "front",
+      "sourceSha256": "68c46d33bcbd2f56eaf3852f9f46192613d0e27298d894425412e30d47ff9b4c",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "f9586d8b3d143056",
+      "player": "Emeka Egbuka",
+      "side": "front",
+      "sourceSha256": "8c2e99945d4d7ff743973607a766a5d4fc2fb5f81f0c758a37123eb9e8fcbe2c",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "f0d80f5193dfef2a",
+      "player": "Garrett Wilson",
+      "side": "front",
+      "sourceSha256": "e4698bcc9139b570ea0e539948d82e9f040d0f7e8cc0126be6a5bb35dae55d1f",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "03396d3e3a5c0692",
+      "player": "Jaylin Noel",
+      "side": "front",
+      "sourceSha256": "b2ae025140634a545ef83896b797392f3c82ac2afa4dbd81c20836ef678eace8",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "9986bfef9f71a93b",
+      "player": "Donovan Ezeiruaku",
+      "side": "front",
+      "sourceSha256": "929ec10bc758cbfb7ec60f1501a9c614f9d4713f8efa2ae67ed09b0a836970ee",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "2f44a1cb98348581",
+      "player": "Jaylin Noel",
+      "side": "front",
+      "sourceSha256": "ae87975d2456009739ec29c77389466c98ca284a5af1cf544fa75849e261dbb9",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "01eb89c6d8ccbed9",
+      "player": "TreVeyon Henderson",
+      "side": "front",
+      "sourceSha256": "08e65e4b0268e60773c7b5404a8ed3686f17f4257163803143977cd29c8e46e4",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "bbd2fac5d165ff3a",
+      "player": "Jihaad Campbell",
+      "side": "front",
+      "sourceSha256": "099ccfae2b0c4d91820ab7499f5029a9b292186df610a7bbc83ca18fe5ba8fc2",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "5e5df67c94ccd034",
+      "player": "Jordan Watkins",
+      "side": "front",
+      "sourceSha256": "1555366782eeed128e4d7c08d480c6ba0b7ab75f63edb49d1a0fa34c8c8c17e2",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "042af56768a72fd1",
+      "player": "Alvin Kamara",
+      "side": "front",
+      "sourceSha256": "1738de55257a4577710feff507b4fc39af4c157eab7db774f80143a9b02c3711",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "60f4f131fb1c651c",
+      "player": "TreVeyon Henderson",
+      "side": "front",
+      "sourceSha256": "64c0c457d8b2b1712d4ab4bff8660f19ebd85fd82eca71642f6a2c857573c6dc",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "33e02786b53a61d2",
+      "player": "Colston Loveland",
+      "side": "front",
+      "sourceSha256": "e787fccc92ed612add6a1aaf5358a81e1d7bf5ceca52a544aecfa469a13d87d3",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "287efa22dbcfa8cb",
+      "player": "RJ Harvey",
+      "side": "front",
+      "sourceSha256": "1ec447c6a9bebf7df56b39ff957ac670fe472b2d48a7378f5b7355647c0e0948",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "88651b0db97fb0a7",
+      "player": "RJ Harvey",
+      "side": "front",
+      "sourceSha256": "c69e3b0e35270380b221c18d993b969cd2da5f00c483444348d3f43e40e2d62e",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "f64044c3dd231693",
+      "player": "RJ Harvey",
+      "side": "front",
+      "sourceSha256": "cfe0e36302efd997172a12d28b54c0f2c30444cdf93bba65fdcfcf5beac41ca1",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "0f5e4377e2cf8b35",
+      "player": "RJ Harvey",
+      "side": "front",
+      "sourceSha256": "f1c9619f3cac4f53707ed0d8668fd74f6e60ebaa0137a03ec9c6c132034c7e8a",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "fdb709753899e3ab",
+      "player": "Abdul Carter",
+      "side": "front",
+      "sourceSha256": "88be36ebaa9706df28fce6244d0cdb59eb1ebff7a68df7df5561d2239069b8ce",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "4f16cd49e9d1f63c",
+      "player": "Mason Taylor",
+      "side": "front",
+      "sourceSha256": "a43ca5520190326cf12ec39e582491fe00d5aa60823bae4e02a742ec44b498c1",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "3ba8acd2ee56726f",
+      "player": "Jaylin Noel",
+      "side": "front",
+      "sourceSha256": "58c232e750fb1ac086c8b6725a440a83749dfa2576eafb737c4b3629589f3e26",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "34bcda94bd8dbbfe",
+      "player": "Mason Taylor",
+      "side": "front",
+      "sourceSha256": "320ff81b23e280a1e997f79d1bc2025d1d5fa07458caf785172936f71df69984",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "e0200366e5590701",
+      "player": "RJ Harvey",
+      "side": "front",
+      "sourceSha256": "5e394bcf1e4d9d90722910ca13447162c3ae213b388dd8b306b9db023abb6c24",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "7f0fe0c8ff755271",
+      "player": "Jayden Higgins",
+      "side": "front",
+      "sourceSha256": "1a02ae87bc54af0ad4c6df6463cdbd252e9f0518ed65c7d41144fd7e1db142b9",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "082852e9a2a4dedc",
+      "player": "Jaylin Noel",
+      "side": "front",
+      "sourceSha256": "0c1e872c214793cebd76f7182b151723d5209334a4869580dab58d8e00657ad7",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "041118249b252f35",
+      "player": "JT Tuimoloau",
+      "side": "front",
+      "sourceSha256": "7c6800e3f6b2a4473e42a96b0f09b54ccf9125b945247e2a764f1fd6cb0fc9d9",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "df99496fa4c776ec",
+      "player": "Dont'e Thornton Jr.",
+      "side": "front",
+      "sourceSha256": "c1c422041201d23671e333cba83d8f726621f718d9bb7349d2c196145ebc4ea9",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "aacbb20ca9292658",
+      "player": "Barry Sanders",
+      "side": "front",
+      "sourceSha256": "7f0188648552deac1b3c2d841b804fbdbb6cccdedb8041b29931587505a1207a",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "d2843a0784dcd9a9",
+      "player": "TreVeyon Henderson",
+      "side": "front",
+      "sourceSha256": "3cb03ae8b10c24169b9780c71ee36361590fc3016c2c586ae2766e59e78ef735",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "dd284d79799eafd4",
+      "player": "Dont'e Thornton Jr.",
+      "side": "front",
+      "sourceSha256": "ee7a64f1f0d62a86f37d0c64b19569c25288e0595054d5be0259799f600596b3",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "0650076b2bcd03df",
+      "player": "J.J. Watt",
+      "side": "front",
+      "sourceSha256": "7cc35d25527804f21f7144029deb3c33c89f960468d0177cb736e5477aa8bd7c",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "74e26de6ea152d65",
+      "player": "Jack Bech",
+      "side": "front",
+      "sourceSha256": "1e1e664a2eb1bb96f60e8d8b8342cb1b9fd393a6599f2e6c3fa4fe53ff750172",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "9165dd323909b944",
+      "player": "Shedeur Sanders",
+      "side": "front",
+      "sourceSha256": "408feb261b903780d17b08e33f6017f71c026394f104275a1afef21b83d750e1",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "8bc0b59d3ec79a01",
+      "player": "Braelon Allen",
+      "side": "front",
+      "sourceSha256": "6527a7d3b1cf1a436fc00b168e5178f90e0fa2ff79a1cbeb5225e12372f60ccd",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "ef11c25402ee298c",
+      "player": "Jaylin Noel",
+      "side": "front",
+      "sourceSha256": "f2ad4d1643450449627f7162ea783a63403d5dac05d9cc7110c92efeca3accd6",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "a039d5870efabc8e",
+      "player": "Jack Bech",
+      "side": "front",
+      "sourceSha256": "4bed7749bb820907fecba66c6f775cd26c0f55484b1b4293699ad9308dd94d0f",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "fccff7016ea31c09",
+      "player": "TreVeyon Henderson",
+      "side": "front",
+      "sourceSha256": "9ad171a965fa0e926da2dbef36467a77bc18280b3da1a70b1acb0652d6b4cd6c",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "b9f8a7fd879c3998",
+      "player": "Shedeur Sanders",
+      "side": "front",
+      "sourceSha256": "1b99aa834ef13cf0745014c2c61b4650d1c91c18f52bc317176ca013d7a83aa2",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "d66658ce078b1b2b",
+      "player": "Shedeur Sanders",
+      "side": "front",
+      "sourceSha256": "be41121bcff1546f02fddc3ea18c5432ebfae1dd5e0e87faf01cc8cf38a45720",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "e3463aebb33b71a7",
+      "player": "Kaden Prather",
+      "side": "front",
+      "sourceSha256": "4d5ffe12a4f33ec70df83be053a24ec6fa79b1dfa3353082f66a0d5f34e92926",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "f69a5335f6ec72d7",
+      "player": "Shemar Stewart",
+      "side": "front",
+      "sourceSha256": "7b0e53a343f7d2a42423999ae826c039825e0571d9fe97f2367aeaada8222e95",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "6defe652af050496",
+      "player": "Woody Marks",
+      "side": "front",
+      "sourceSha256": "26345866f62f0b4d2be3d270e30f25ce702df62b0642fe7498258b7e002b5956",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "589fc9a160bde787",
+      "player": "Armand Membou",
+      "side": "front",
+      "sourceSha256": "ccba7f7f2eb62ffc43ba70f7ea255376080859b9c7e48d881f5ee5cb1abdc1c4",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "e47cd48fb6ca3056",
+      "player": "Shemar Stewart",
+      "side": "front",
+      "sourceSha256": "425a0cf65d68a3771580def09dc20fa18bbdb0dbd42b74e197cdd6e6aaec9ebf",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "5c1da5e27ad555b3",
+      "player": "Ashton Jeanty",
+      "side": "front",
+      "sourceSha256": "d8750ac19234d9bf3c7e63a30a6084b97f70f8961d5f59b05bb37697019c6c16",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "a42f7d918f55339d",
+      "player": "Tetairoa McMillan",
+      "side": "front",
+      "sourceSha256": "0e27970acf67b544561acf7adf1c21ab3e7e75d8229c86ad8546a6c64f918565",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "8e07ffc69f0a5f8f",
+      "player": "KJ Hamler",
+      "side": "front",
+      "sourceSha256": "033994557ac15711877f6be61addfb7fc7bfc5271c495f9c26a46b3cba72f5ae",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "98b7d33973ac154e",
+      "player": "Trevor Etienne",
+      "side": "front",
+      "sourceSha256": "ba54e9ee1aa3d193f5c9897412c793e593f62fa0adddcc68df06d58426d941e9",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "3004272a6e946d1f",
+      "player": "Derrick Harmon",
+      "side": "front",
+      "sourceSha256": "f5a85e5dee72fa86773bfae17390553f0904f3c903c1a142d72e13df42205ab9",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "e7445046794db618",
+      "player": "Will Campbell",
+      "side": "front",
+      "sourceSha256": "5f385ad2858207149326affbb30d1cbbf97ef6133965480ef6778f7e01e50a1c",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "4cf079821871b4c4",
+      "player": "Travis Hunter",
+      "side": "front",
+      "sourceSha256": "1e2577ba628997571a08273d063a38ef7517a2af7ab8d21690410f07ce04c49f",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "0ad4d26ebf2dfa9b",
+      "player": "Tyler Warren",
+      "side": "front",
+      "sourceSha256": "7f65e83bf241ebf27e650765826460619022b9e50bde002d5866e0dd2ff5fdc3",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "306d1c6ee6b4a787",
+      "player": "Savion Williams",
+      "side": "front",
+      "sourceSha256": "bbed08416708267775609e050a4e09b2a39b3640b5bdff8459cbe0aa881b5b2d",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "04642ca79fe38d8d",
+      "player": "Grey Zabel",
+      "side": "front",
+      "sourceSha256": "b1f11728e9538f06e3aae97c3d463904c1b60b5fa479cf35844b1f1cf38aceb1",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "21dadc2a3e08aeff",
+      "player": "Aireontae Ersery",
+      "side": "front",
+      "sourceSha256": "7fe451692d501d71b40a0b8fb4950e166ac6228b6e88e4d801b00763f2c7c8da",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "4677f3c5206daa65",
+      "player": "Grey Zabel",
+      "side": "front",
+      "sourceSha256": "5d5a7343da2f3219903245370b108f50445c16bc1659e00e94ddaa5c80f6e3b0",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "0c5bca931ec6f0d3",
+      "player": "Harold Fannin Jr.",
+      "side": "front",
+      "sourceSha256": "79b504449962e93e8b96050b876ceeb15b25c0631a94f6fc7bcb45d7c3614386",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "42b4dab8c53ea444",
+      "player": "Ty Robinson",
+      "side": "front",
+      "sourceSha256": "1a182a026d9d16f3532958c0d0515abaefea4fc854ed6e8940a19088310306b8",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "ef8b0a3c9cf38a49",
+      "player": "Shemar Stewart",
+      "side": "front",
+      "sourceSha256": "cd67ceed377eedb1083d02caad5ce89f1b058e5f579444dcbdcd6188710c9fd6",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "d0f5bad260f482a2",
+      "player": "Micah Parsons",
+      "side": "front",
+      "sourceSha256": "2742e48ec07aaf4e8d4a8c0e50dc037892bc0026912063158492f78b630a83ff",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "414fa434705f9edd",
+      "player": "Derrick Harmon",
+      "side": "front",
+      "sourceSha256": "c3d0bccaec8e5ea255c551f494c26920b3fe54e6d72886d6b2d99710d14b3c82",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "9d26dc4c99508b7e",
+      "player": "Derrick Harmon",
+      "side": "front",
+      "sourceSha256": "e90b05a5979851c4ac8034d9dc404abe72829c3111d3e8f4d7e67812b3f53c0d",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "25e01959f74778b8",
+      "player": "Shemar Stewart",
+      "side": "front",
+      "sourceSha256": "7447d427123893000f6656906272cdbb38706e02b88e0b24c18267e5439a7793",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "fa9891a49ba70a8d",
+      "player": "Tyler Shough",
+      "side": "front",
+      "sourceSha256": "c374d16b2693189137ce4393a23e7dde1b467472c04a75390ed7fb99f342387a",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "b8327856ad5fc164",
+      "player": "Dillon Gabriel",
+      "side": "front",
+      "sourceSha256": "52c87123e848818cba83b8b5484138cba8abffd0b7b992e6d07e8394f0520448",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "ded01cf2388ca187",
+      "player": "Azareye'h Thomas",
+      "side": "front",
+      "sourceSha256": "28112b7487ca6dc00835a383d3bd1095303d6c5273691a15747c81752411496c",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "6d5b44c5a9882daa",
+      "player": "Luther Burden III",
+      "side": "front",
+      "sourceSha256": "25520ab6555228b724e86577fd54b49a884bb83c0ff66fc1af88dca8e5f94056",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "28d3b3bdb9a41b35",
+      "player": "Darius Alexander",
+      "side": "front",
+      "sourceSha256": "54e41c96abcf0c4dbf5a6b49a0c48ee6d69b1400b4b49ae19dfa56c09dfd51ea",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "aaedbf39c6473010",
+      "player": "Chimere Dike",
+      "side": "front",
+      "sourceSha256": "a0a15e707f7d558a05a97f7cf6d33093b4116b5ebc7528f62229659239df5025",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "cc29f022f1e43c42",
+      "player": "Darius Alexander",
+      "side": "front",
+      "sourceSha256": "ef317288ec8f975f105903e35820ec60e32c87da463b0649b178ed4654b8c7aa",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "9467cee94185667a",
+      "player": "Shedeur Sanders",
+      "side": "front",
+      "sourceSha256": "4b42f8c0f526143c527062ffaf97aba25e6f32cdf495b794c2447e936d8d7531",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "9f002c565fadcbd6",
+      "player": "Brian Thomas Jr.",
+      "side": "front",
+      "sourceSha256": "6824824fbf20ebc2be71a4fec513d7da1ea64ccf4cd7c574f87830798b189326",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "109dbb3d035ecf79",
+      "player": "Kyle Williams",
+      "side": "front",
+      "sourceSha256": "4da8a06d10bd67508d72efae37b7cfd3dce5cb24dfd22f9024995c40d632ef05",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "0870b648626f37a6",
+      "player": "Jihaad Campbell",
+      "side": "front",
+      "sourceSha256": "e3cb266a1eb20b9ea87a8bcf3436e8441a738edf67bf5e307e40d422ab1f0002",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "6318a84586dcdf25",
+      "player": "Riley Leonard",
+      "side": "front",
+      "sourceSha256": "20ec959f0da151ebe7100c7b530524eaabf156b04db72b4165bfc2ed1c2ab2b6",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "d76cb9db8f28006d",
+      "player": "Brian Thomas Jr.",
+      "side": "front",
+      "sourceSha256": "fed1b80bd2c882407ecc84cb8233964a884c8b683bef8955209e6e247311d116",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "d63b8dc212de4e3e",
+      "player": "Luther Burden III",
+      "side": "front",
+      "sourceSha256": "05375ee99106301badf72ad4ddd58569369829d0f77c4e190a40c268ba82c60a",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "3cfa106b7bcadae1",
+      "player": "Mason Taylor",
+      "side": "front",
+      "sourceSha256": "1a694bcfa0b697e14f4f286a5c1f7835ab95fc3f262557f4d7dc750a441e6799",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "a17db8bfd891634e",
+      "player": "TreVeyon Henderson",
+      "side": "front",
+      "sourceSha256": "4e0d206160e893ceb3837d3aa8ac5c0bd003ca567a9970f78fabd6726d0e5f65",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "a36e71414a066a7f",
+      "player": "Derrick Harmon",
+      "side": "front",
+      "sourceSha256": "30979f5e077ac5fd44ef176222c0fc38fae41c35e215dfc00a40fc4fa2cd8cbf",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "abc9ac359f3cdae9",
+      "player": "Savion Williams",
+      "side": "front",
+      "sourceSha256": "88ebe663c21b0d04a91fc6c13edf812807eeaae3908de64daf39d24d686cdcea",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "f29f4763625e49e7",
+      "player": "Abdul Carter",
+      "side": "front",
+      "sourceSha256": "1bd31a7c4e35dfacd4c8c9f370e9bf319390a8b0e8fd9ab6f044ac6b7aaace1f",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "b2790674a3f23bad",
+      "player": "Jayden Daniels",
+      "side": "front",
+      "sourceSha256": "e7f445a612722a78cf7bcb5aa1ccc8b5712a87d0691f0d9c0de167add2f600d3",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "30497e3d42ad6928",
+      "player": "Malik Nabers",
+      "side": "front",
+      "sourceSha256": "9c136e4d3c51741a4b76cd001662150fcadcbcc30e711ab725cbc4f8b8917142",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "c481682d87db114d",
+      "player": "James Pearce Jr.",
+      "side": "front",
+      "sourceSha256": "df7ebb4f6cbb622df0902d1005e17e0f0c4218161ed3f3759d8a355a3e441f62",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "dadd98f350754afb",
+      "player": "Nico Collins",
+      "side": "front",
+      "sourceSha256": "67557080cbda8bcb22040d2437db6430dff6d0b975af70b84486ecbf385a9db1",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "4a1da5888ea7da91",
+      "player": "Xavier McKinney",
+      "side": "front",
+      "sourceSha256": "60901331970acf9dcb73efd39784d93972554489eb1f39180f63ce92c1699920",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "166c4601398e29a0",
+      "player": "Jahdae Barron",
+      "side": "front",
+      "sourceSha256": "ccfad9c802d7f65a529bbddd46a4633e08fc596b83db6ed452c110ebd5093582",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "94399b05c062fbfe",
+      "player": "Jahdae Barron",
+      "side": "front",
+      "sourceSha256": "86adf3d9c16c7f477d43dd013972bc04f8a6a61c8c03f0b2c6b857269a98f2d6",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "aa9dd9f4c3bc45d0",
+      "player": "Darnell Mooney",
+      "side": "front",
+      "sourceSha256": "dff8e950e2ce7dd4ec6d738f46c9d4eb75358f27d492a7c32d592ee3639b8265",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "39c3a82dd41b0ad4",
+      "player": "Jahdae Barron",
+      "side": "front",
+      "sourceSha256": "94319d5c094c6a5849520d5313854fcae0a5079c3b53e5b6561448ba135652bc",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "54a48b0b43309ced",
+      "player": "Jalen Milroe",
+      "side": "front",
+      "sourceSha256": "4a3960c865fa4fc2a4e955a49869f6d00fc259ea74c445c06a2239caf2abb8cb",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "dcdfe553e716e8d9",
+      "player": "Jahdae Barron",
+      "side": "front",
+      "sourceSha256": "a41a9763247735a45144200acb925ddad3f4e2ba5488d6006fdf0d823353dbe5",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "0063767b1198e595",
+      "player": "Jahdae Barron",
+      "side": "front",
+      "sourceSha256": "1d12c5fd04bf1ebe82c2e1fa3e85c459ab8b130b011b0a34eb8ac65d21a21b65",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "7c5a69c4149517e6",
+      "player": "Billy Bowman Jr.",
+      "side": "front",
+      "sourceSha256": "319a07a327d8da8121d1f6868b8f0b9f214a43c356b9ecb3c4f24958d1898e56",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "33505175988a0ca2",
+      "player": "Neville Gallimore",
+      "side": "front",
+      "sourceSha256": "abfe24a495f44831a78dc78d8a003575a1be88e634fb015ed6940f5e387d6451",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "43dc14f474467980",
+      "player": "Matthew Golden",
+      "side": "front",
+      "sourceSha256": "bfcc8a4408a589496660ffee7dc6e1062ea4f46095d708e25e720c88c651fb41",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "d5abfc82fa11c602",
+      "player": "Matthew Golden",
+      "side": "front",
+      "sourceSha256": "a70891e66ceb377e3e865d0b2b4f3f697e76f6b690d2c7353212f205248fa5fa",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "ef132ec559bfc06b",
+      "player": "Isaiah Coulter",
+      "side": "front",
+      "sourceSha256": "6fb1178f13743269fdfb2cea3374a91fd9b4bb989726768efad24bfde710cac3",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "b1d535b64ca32b7a",
+      "player": "Benjamin Morrison",
+      "side": "front",
+      "sourceSha256": "b78ed3dee48e6d1835fbca441d214349f6d2f08f6200ba6cbb0b878278a3ce7e",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "812e06fcb893f1de",
+      "player": "Matthew Golden",
+      "side": "front",
+      "sourceSha256": "a7cf13b6cfeb81262f98db81c461074fd6223fbeed7baeb63911f08e82dd5fff",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "ae34d79028aaab65",
+      "player": "Benjamin Morrison",
+      "side": "front",
+      "sourceSha256": "51897011c11126e3a18f53ee34dbf4287fc818ba1fe1c812b18361514e4ff96a",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "8723cb73e24de025",
+      "player": "Trey Sermon",
+      "side": "front",
+      "sourceSha256": "4935248cda236199420b3a62bb6a12701f632bb249f11cc0c5e1815869cd5f04",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "ee3fb8469361e065",
+      "player": "Jordan James",
+      "side": "front",
+      "sourceSha256": "2233bb259bacab0c785b55eafcee471b3f5c969d430d89ecccf007f8ce85312f",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "1d98ca031249cb89",
+      "player": "Jaylin Noel",
+      "side": "front",
+      "sourceSha256": "377fa1726c56d3696697f10658c3201e5518470895417c0f456f0237b299f435",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "b8616ba52d0ca61c",
+      "player": "Jordan Love",
+      "side": "front",
+      "sourceSha256": "1c9989534d7c9ba25d0c148324cc478945f9d36de21c6dd7ffdea82a5c389d62",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "656bcae7b49e6349",
+      "player": "Donovan McNabb",
+      "side": "front",
+      "sourceSha256": "a3ce96ed038df3f5ab7bb543844077b8834f776409d63b84c2e7a04975a92339",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "45b130925131d92b",
+      "player": "Elijah Arroyo",
+      "side": "front",
+      "sourceSha256": "5d08bad07853c375ea9919177d74e99116f6974fd4ae3faf62ea90bfb18a3fb3",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "ad5b0b535edec5ee",
+      "player": "Jalen Hurts",
+      "side": "front",
+      "sourceSha256": "a5c99652f6c258658e008b1115a7cb5216f6e672488a643aeec0275d2d592b99",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "5208905d2bf1df16",
+      "player": "Armand Membou",
+      "side": "front",
+      "sourceSha256": "8fb02f3b9f7a5d349ca04cd5bb6932731e31390414b375494e74b237fcb1979c",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "f813d566d40ed60c",
+      "player": "Travis Kelce",
+      "side": "front",
+      "sourceSha256": "db67e7ec6d57d3961d956207f43824baa6f6d0e36658698f2237146d655d8127",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "16ee6c0ad56b85ab",
+      "player": "Matthew Golden",
+      "side": "front",
+      "sourceSha256": "dbb8e19ac730e7eff69a9054c5a230f2730f0e78f8ac74ec842a98ac595f441e",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "b5f0a5543554bb43",
+      "player": "Alvin Kamara",
+      "side": "front",
+      "sourceSha256": "6b302dab946a0695cdbc39eac9bdd7cb4dbf044e0f2069f382729b705f8f1ae0",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "a372eccb170b5549",
+      "player": "Benjamin Morrison",
+      "side": "front",
+      "sourceSha256": "cae1817226d6a3c89c9d4e749cf0462d5f3995d1ddfa16ac5759bde868660643",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "4e7efbe9a04c1a15",
+      "player": "Quinshon Judkins",
+      "side": "front",
+      "sourceSha256": "af92119b965aa9c19bba0d3cb31e3b934cbe74aefd1a7ea1536b6b879e59c8fe",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "5fa3d76e66a61935",
+      "player": "Jack Bech",
+      "side": "front",
+      "sourceSha256": "1fdf1e08b7c23c0e7e13bd86437ec63c37f92a09ce2bd063b9fdf5adeaddd0ee",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "468f8cca1a72b35d",
+      "player": "Emeka Egbuka",
+      "side": "front",
+      "sourceSha256": "2a63e7ede5056551dd4b0ed4465b344a60530028e68dfdca13ef15ff04deb4b7",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "745c0cdc31b1a2fd",
+      "player": "James Pearce Jr.",
+      "side": "front",
+      "sourceSha256": "3f8291fae07c85041037e58ecdce07dbfc36023222bc3a974e4d03312ecba8d7",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "d29f6bb450184bc0",
+      "player": "James Pearce Jr.",
+      "side": "front",
+      "sourceSha256": "9582ac5c2a1dae9bc7d206542412338fab9c6a0cdd0134fa7037a98de560f858",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "572ffc6c7f7553d6",
+      "player": "Seth Williams",
+      "side": "front",
+      "sourceSha256": "4c809d6f65c7f49796d777f33ce88f69d13d5b5e23b11ed0d7c54809c4ef6c38",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "8a215f88b20351c4",
+      "player": "Tee Higgins",
+      "side": "front",
+      "sourceSha256": "ceb24721bcaee3988bd9e0d3425a55add711843a3fd35a9afac1d70d2bcd8bfe",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "110a921eccf15db3",
+      "player": "Jalen Hurts",
+      "side": "front",
+      "sourceSha256": "e6b5ed6ccd5fe1754487cf31bc17c6f99edd3d20f8f04450f05dcae9f263c7b1",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "cb3761125e029875",
+      "player": "Courtland Sutton",
+      "side": "front",
+      "sourceSha256": "6f76ef5277ed26defb4c495e22b494f8c32f7ebbf69ce945db3ee0f98572dc91",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "fbd87d96a844b90f",
+      "player": "Alvin Kamara",
+      "side": "front",
+      "sourceSha256": "b60d72ccf15bc9c360f1dd9936555934125280cf2309de43c1d6280e3f4be1be",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "af28234ec0017ca7",
+      "player": "Armand Membou",
+      "side": "front",
+      "sourceSha256": "e799e9e46439f0a03a99fdff59116538b07f10811947ad2462dd70a5b53b10c7",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "3fbbf68544ed7fda",
+      "player": "James Pearce Jr.",
+      "side": "front",
+      "sourceSha256": "de24c5a0dd5f7308b08a09cfa1281b62945d9a31ed405eae6944806a4bd67de4",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "96186ab6bdc5343e",
+      "player": "James Pearce Jr.",
+      "side": "front",
+      "sourceSha256": "d1aa163c46cf3b447a056ec3172e182a65746451af15b367a1cf540e5d149151",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "ee9960363cc2167c",
+      "player": "Bryan Edwards",
+      "side": "front",
+      "sourceSha256": "108364925e66af171f88701353319b6ef38687ffd28e9033bdd4a9f0ea6f5e68",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "19e3e9eaa31e16b0",
+      "player": "Will Campbell",
+      "side": "front",
+      "sourceSha256": "964914ec7eefb2f9bdb0e42d4c75f59f05778ef8633a360d349b10c7b66a710f",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "c47e8a316cb84d87",
+      "player": "Derrick Henry",
+      "side": "front",
+      "sourceSha256": "198420c90ddd2ebe6e71890ba85f2df87d69023f6ac03d002fd64cb465df4554",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "22584a0f5df75eb6",
+      "player": "Jordan James",
+      "side": "front",
+      "sourceSha256": "089173e227ea26d7837da7ed1ee19cbcae16cb615a36cca608c3feb44e5984f3",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "afd2e6d4a225e101",
+      "player": "Mykel Williams",
+      "side": "front",
+      "sourceSha256": "d08667155167a5f76381f70f444da57bd66554d8630c6d5cb68cfaec241e8837",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "8a9d5b819c61cba7",
+      "player": "LeQuint Allen Jr.",
+      "side": "front",
+      "sourceSha256": "c549fac44d07884935b5b889d8d9192401bf7f484892e9282f372c2af1219a78",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "dc5da623d3648ae4",
+      "player": "Aaron Glenn",
+      "side": "front",
+      "sourceSha256": "6811f7533581e55dc5f81d58c3a2d27fa0ebc4fd9cea9aaf5a486e70b06b04ef",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "61d73e191500bd33",
+      "player": "Jordan Addison",
+      "side": "front",
+      "sourceSha256": "7866d3f0bf7eb29c76df52f98b58c31b0bd2a3b663e2f1e93a985c392f160a1f",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "f9291e22afeb3cc6",
+      "player": "Will Campbell",
+      "side": "front",
+      "sourceSha256": "5a7b7a10bf1aa3df3d3f65a9d54bd83f3a2180c86e0b6174757800c28c7e091c",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "ca2508fc67ab3608",
+      "player": "Jordan James",
+      "side": "front",
+      "sourceSha256": "688a31d1f73d9376fc1ac0b1e99b0785a31b3256cfbec50dbe9dbcc74ee5a557",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "9348c9c75fd4db41",
+      "player": "Chimere Dike",
+      "side": "front",
+      "sourceSha256": "742a6f16e18b687fdd3a1dc989b3fa0747e3132dfcfff156f676505c88abfc3c",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "85584d6caff72715",
+      "player": "James Pearce Jr.",
+      "side": "front",
+      "sourceSha256": "14935c3a2bf36b9028bbc0e18831b42c2e3f33f133709cd3b3fc1d6fc699d3ae",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "f0e60c47cd759bdd",
+      "player": "Travis Hunter",
+      "side": "front",
+      "sourceSha256": "a213e240402a98466dfee4d228e4638e09d1c71e84a01376f8f50dfb912e5d8b",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "c1e728303e52da82",
+      "player": "Jake Luton",
+      "side": "front",
+      "sourceSha256": "723a5f6b74dde1b2c21d7dd5ef5dc4c91740eaa1ae74ef9b962cbd3fef47c487",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "cfdb829aac6c7a81",
+      "player": "Cameron Jordan",
+      "side": "front",
+      "sourceSha256": "550e8683aecb0dcdcbe7a90b31d18234e088d0058adc18d51d3be2795dd17ab0",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "f5daccab406e7ff5",
+      "player": "Tetairoa McMillan",
+      "side": "front",
+      "sourceSha256": "217cc5c0472dbca091d051632a98671e2d092c9fc359ec1b9e133d9ac6372b46",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "6810d6d5fcf76692",
+      "player": "Matthew Golden",
+      "side": "front",
+      "sourceSha256": "d30725dc9f9c069d4b1855c999d55f651a9fb9bea2231385556cc4d56aed0a2b",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "ec05b4e5bcbeddbd",
+      "player": "Woody Marks",
+      "side": "front",
+      "sourceSha256": "0045e33c61b141ea628c96436b2d130e522704bc2943feabc3017098fdc23c5e",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "2768e350a0077de2",
+      "player": "Chimere Dike",
+      "side": "front",
+      "sourceSha256": "770eb8d455c3ff9d20e42d17da292faf33626bef068093f01204889986f0b09d",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "e69ff134d08032a4",
+      "player": "Chimere Dike",
+      "side": "front",
+      "sourceSha256": "6312c7f3f50ea062a7f378e88065a8c960215c1b37247de871ea38361f718c5c",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "8d020728b5ebaf68",
+      "player": "Chimere Dike",
+      "side": "front",
+      "sourceSha256": "36aaeb8dd6d062c6b142b1bee527989ea740a6dd2fb1e7a66c8d7450340ddd77",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "c8ac7f4b9c3483a7",
+      "player": "James Pearce Jr.",
+      "side": "front",
+      "sourceSha256": "0d592d01237e6735c6435d8f72bfd408f2c5326ed133a9d208d229a196f1e90c",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "2f44563a0b64161e",
+      "player": "Julio Jones",
+      "side": "front",
+      "sourceSha256": "d49e6a0b4ab372cb09057085921d2e144e71fb926c72d2e7ef3331f3c55c2533",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "bdb57a7a5c11fde4",
+      "player": "J.J. McCarthy",
+      "side": "front",
+      "sourceSha256": "e1e0d8f8a00a0306dd840eb5815f47abc87f40369ac47255f7782afe3a5d03bc",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "5c2059d380885211",
+      "player": "Arian Smith",
+      "side": "front",
+      "sourceSha256": "bffedd77a0885a5e5c85fa46ba7e902887838863889c9a34f64871d438fd16df",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "44cfff6385eb74c2",
+      "player": "Alejandro Villanueva",
+      "side": "front",
+      "sourceSha256": "f4ea1a6790db3fe7a598f55be1019637fbbfe4a45e311c53ae67398a72127ddc",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "0e01a477b8b03291",
+      "player": "Jaylin Lane",
+      "side": "front",
+      "sourceSha256": "eb726b5c8e4da020d7e7246763911d8b1a8036a57b1d858b959c10522f9b58bc",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.1,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 10% brightness lift."
+    },
+    {
+      "cardId": "85ae3bd2e2aa3d4f",
+      "player": "Colston Loveland",
+      "side": "front",
+      "sourceSha256": "2416b01f17c70ead265158bed6439280888830878daed9460cc7a6b01771bc09",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "b4afd085032d93b3",
+      "player": "Mykel Williams",
+      "side": "front",
+      "sourceSha256": "1e8f6ca5d4273d51fe3403b971f96d31c9366b8acad78e25f5a0fd48e39490ff",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "0cb4c8c45daa0cbe",
+      "player": "Chimere Dike",
+      "side": "front",
+      "sourceSha256": "0ed40fdc8599812bafb767788ee23af27da0fe9e08fa0015570fae170f721010",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "a4095982f02b2cfa",
+      "player": "Jalen Hurts",
+      "side": "front",
+      "sourceSha256": "b989803e052052b7bbdb31a991a5632ad7be2cbc196527f7d67367dd68ad7261",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "96aaab2bf32adb2a",
+      "player": "Phil Mafah",
+      "side": "front",
+      "sourceSha256": "2caf703aaf7f83271b4cc3c321e86b02ce0b15c26227e33258f603bc378fcb64",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "4ca5206c387ce266",
+      "player": "Darnell Savage Jr.",
+      "side": "front",
+      "sourceSha256": "9ebed5f115724db5886f65b1d66e745bb503c533ddec4218835fef52bb8f4de5",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "c2f27249cf0f75c3",
+      "player": "Tetairoa McMillan",
+      "side": "front",
+      "sourceSha256": "c3363b8135bad23c175cff1c9daacaa9b228cce4a15c3cff12f2510593edbcc1",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "387f0fe0f21e7935",
+      "player": "RJ Harvey",
+      "side": "front",
+      "sourceSha256": "4288b924944699f42ed30bf0f4ea2b6ba2e07cc13b1aed88424db1ff0765eabc",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "dab1a0c0f03ea6ae",
+      "player": "Benjamin Morrison",
+      "side": "front",
+      "sourceSha256": "eb769958e8220d03faa9550427cbd32dbbe82b00f99255c5fcb37ad41036b0b9",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "add0eebd25356094",
+      "player": "Mike Evans",
+      "side": "front",
+      "sourceSha256": "c60b631e61803e7fed527f30a0dec643c528eee825733bddac6c69159d20e6cc",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "7e11d1ba75137c47",
+      "player": "Colston Loveland",
+      "side": "front",
+      "sourceSha256": "2524d24ef7eba301cb555d11b2352144cfc1419265270a1543eb9b3e863f7e5d",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.15,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 15% brightness lift."
+    },
+    {
+      "cardId": "a36be02c1c226f11",
+      "player": "Jaylin Lane",
+      "side": "front",
+      "sourceSha256": "09f6a3c6490e3c5041ef7643cf3c5963c2d9ce969cec5406cbb5a75ec83dff64",
+      "settings": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "rotation": 0,
+        "brightness": 1.1,
+        "contrast": 1,
+        "saturation": 1,
+        "gamma": 1
+      },
+      "reason": "Visually reviewed dim front; modest 10% brightness lift."
+    }
+  ]
+}
