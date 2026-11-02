@@ -38,6 +38,8 @@ export default function Navbar() {
     pathname === '/privacy' || pathname === '/marketplace'
   ) return null
 
+  if (isAdmin) return null
+
   const adminLinks = [
     { href: '/dashboard',  label: 'Dashboard',  icon: '📈' },
     { href: '/collection', label: 'Collection', icon: '📊' },

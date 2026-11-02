@@ -1,0 +1,10 @@
+'use client'
+import {useState,useRef,useEffect} from 'react'
+import {FIX_ISSUES} from '@/lib/cardTasksInput.mjs'
+import styles from './CardFixRequest.module.css'
+export default function CardFixRequest({cardId,side='front',onClose}){
+ const dialog=useRef(null),[issues,setIssues]=useState(['crop']),[note,setNote]=useState(''),[message,setMessage]=useState(''),[busy,setBusy]=useState(false),[saved,setSaved]=useState(false)
+ useEffect(()=>{dialog.current.showModal()},[])
+ async function submit(e){e.preventDefault();setBusy(true);setMessage('');try{const r=await fetch('/api/admin/card-tasks',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({cardId,side,issues,note})}),d=await r.json();if(!r.ok)throw Error(d.error);setSaved(true);setMessage('Queued. The background system will apply the correction or explain what needs review.')}catch(e){setMessage(e.message)}finally{setBusy(false)}}
+ return <dialog ref={dialog} className={styles.dialog} aria-labelledby="fix-request-title" onClose={onClose}><header><h2 id="fix-request-title">What needs fixing?</h2><button onClick={()=>dialog.current.close()} disabled={busy} aria-label="Close fix request">×</button></header><p>Describe the change once. We’ll keep the original and record the result in your Fix queue.</p><form onSubmit={submit}><fieldset disabled={busy||saved}><legend>{side==='front'?'Front':'Back'} of this card</legend><div className={styles.issues}>{Object.entries(FIX_ISSUES).map(([key,label])=><label key={key}><input type="checkbox" checked={issues.includes(key)} onChange={()=>setIssues(old=>old.includes(key)?old.filter(k=>k!==key):[...old,key])}/>{label}</label>)}</div><label>Instructions<textarea autoFocus rows={5} maxLength={2000} value={note} onChange={e=>setNote(e.target.value)} placeholder="e.g. Remove the large black border, brighten slightly, and change the parallel to Purple Shock. This is an RC."/></label><button disabled={!issues.length||note.trim().length<3} type="submit">{busy?'Queuing…':'Send to background system'}</button></fieldset></form><p role="status">{message}</p><a href="/admin/card-tasks">View Fix queue →</a></dialog>
+}
