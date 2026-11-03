@@ -20,5 +20,5 @@ export async function POST(request){
   const actions={save:saveListing,verify:verifyListing,publish:publishListing},action=body&&Object.hasOwn(actions,body.action)?actions[body.action]:null
   if(!action)return Response.json({error:'Choose a listing action.'},{status:400,headers})
   return Response.json(await action(body),{headers})
- }catch(e){console.error('Listing action failed',e.name);return Response.json({error:e.status?e.message:'Could not complete this listing action. Reopen the draft to check its saved status.'},{status:e.status||503,headers})}
+ }catch(e){console.error('Listing action failed',e.name);return Response.json({error:e.status?e.message:'Could not complete this listing action. Reopen the draft to check its saved status.',...(e.status&&e.duplicates?{duplicates:e.duplicates}:{})},{status:e.status||503,headers})}
 }
