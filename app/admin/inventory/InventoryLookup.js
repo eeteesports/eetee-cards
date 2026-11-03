@@ -1,10 +1,11 @@
 'use client'
 import {useState,useMemo,useEffect,useRef,useCallback} from 'react'
+import {isPersonalCollection} from '@/lib/collectionScope.mjs'
 import {matches,searchText,normalize} from '@/lib/inventoryLookup.mjs'
 import styles from './inventory.module.css'
 const release=c=>[c.season,c.brand,c.set].filter(Boolean).join(' ')
 const variant=c=>[c.family,c.parallel,c.serial,c.rookie?'RC':''].filter(Boolean).join(' · ')
-export default function InventoryLookup(){
+export default function InventoryLookup({scope='inventory'}){
  const [data,setData]=useState({records:[],syncedAt:null}),[error,setError]=useState(''),[loading,setLoading]=useState(true)
  const [query,setQuery]=useState(''),[set,setSet]=useState(''),[parallel,setParallel]=useState(''),[number,setNumber]=useState(''),[listing,setListing]=useState(''),[ownership,setOwnership]=useState(''),[page,setPage]=useState(0),[active,setActive]=useState(null)
  const inFlight=useRef(false),dialog=useRef(null)
@@ -16,10 +17,10 @@ export default function InventoryLookup(){
     const first=await fetchPage(0),all=[...first.records];let changed=false
     for(let offset=1000;offset<(first.total||0);offset+=1000){const d=await fetchPage(offset);if(d.syncedAt!==first.syncedAt){changed=true;break}all.push(...d.records)}
     if(changed){if(attempt===0)continue;throw Error('Inventory changed while loading. Refresh to get the newest snapshot.')}
-    all.sort((a,b)=>String(b.created).localeCompare(String(a.created))||a.id.localeCompare(b.id));setData({...first,records:all});setError(first.error||'');break
+    all.sort((a,b)=>String(b.created).localeCompare(String(a.created))||a.id.localeCompare(b.id));setData({...first,records:all.filter(c=>scope==='pc'?isPersonalCollection(c):!isPersonalCollection(c))});setError(first.error||'');break
    }
   }catch(e){setError(e.message||'Refresh failed. Showing the last loaded inventory.')}finally{inFlight.current=false;setLoading(false)}
- },[])
+ },[scope])
  useEffect(()=>{refresh();const tick=()=>{if(!document.hidden)refresh()};const timer=setInterval(tick,60000);window.addEventListener('focus',tick);return()=>{clearInterval(timer);window.removeEventListener('focus',tick)}},[refresh])
  const indexed=useMemo(()=>data.records.map(c=>({...c,search:searchText(c)})),[data.records])
  const sets=useMemo(()=>[...new Set(data.records.map(c=>[c.brand,c.set].filter(Boolean).join(' ')).filter(Boolean))].sort(),[data.records])
@@ -31,7 +32,7 @@ export default function InventoryLookup(){
  function clear(){setQuery('');setSet('');setParallel('');setNumber('');setListing('');setOwnership('')}
  const stale=data.syncedAt&&Date.now()-new Date(data.syncedAt).getTime()>10*60*1000
  return <div className={styles.page}>
-  <header className={styles.heading}><div><span className={styles.eyebrow}>YOUR COMPLETE SCANNED COLLECTION</span><h1>Have I scanned this card?</h1><p>Find a physical copy by player, set, card number, or parallel—even when it isn’t listed for sale.</p></div><button onClick={refresh} disabled={loading}>{loading?'Refreshing…':'Refresh inventory'}</button></header>
+  <header className={styles.heading}><div><span className={styles.eyebrow}>{scope==='pc'?'PERSONAL COLLECTION':'EETEE INVENTORY'}</span><h1>{scope==='pc'?'Your PC inventory':'Find a card in inventory'}</h1><p>{scope==='pc'?'Cards marked PC or Personal collection in the Collection field.':'Search any attribute, including cards not listed for sale. Cards marked PC are kept in Collecting.'}</p></div><button onClick={refresh} disabled={loading}>{loading?'Refreshing…':'Refresh inventory'}</button></header>
   <div className={styles.stats}><div><strong>{data.records.length.toLocaleString()}</strong><span>All scanned cards</span></div><div><strong>{data.records.filter(c=>c.ownership==='owned').length.toLocaleString()}</strong><span>Currently owned</span></div><div><strong>{data.records.filter(c=>c.listing.key==='not_listed').length.toLocaleString()}</strong><span>Not listed</span></div><div><strong>{data.records.filter(c=>c.listing.key==='listed').length.toLocaleString()}</strong><span>Listed for sale</span></div></div>
   <p className={styles.sync} role="status">{data.syncedAt?`Scanner library last synced ${new Date(data.syncedAt).toLocaleString()}.`:'Awaiting the first scanner-library sync.'} {stale?'This snapshot may be out of date. Open eetee Scan on your Mac to sync new cards.':'New scans sync while eetee Scan is open and online.'}</p>
   <section className={styles.filters} aria-label="Inventory filters"><label className={styles.search}>Search all attributes<input type="search" value={query} onChange={e=>setQuery(e.target.value)} placeholder="Try Tuten Optic Purple Shock or Tuten 2025 #272"/></label><label>Set<select value={set} onChange={e=>setSet(e.target.value)}><option value="">All sets</option>{sets.map(x=><option key={x}>{x}</option>)}</select></label><label>Parallel<select value={parallel} onChange={e=>setParallel(e.target.value)}><option value="">All parallels</option>{parallels.map(x=><option key={x}>{x}</option>)}</select></label><label>Exact card number<input value={number} onChange={e=>setNumber(e.target.value)} placeholder="e.g. 272"/></label><label>Listing status<select value={listing} onChange={e=>setListing(e.target.value)}><option value="">All listing statuses</option>{[['not_listed','Not listed'],['listed','Listed for sale'],['draft','Listing draft'],['reserved','Reserved'],['sold','Sold'],['check','Check marketplace status'],['departed','Other / awaiting identification']].map(([v,l])=><option key={v} value={v}>{l}</option>)}</select></label><label>Ownership<select value={ownership} onChange={e=>setOwnership(e.target.value)}><option value="">All ownership statuses</option>{[...new Set(data.records.map(c=>c.ownership))].sort().map(x=><option key={x}>{x}</option>)}</select></label><button onClick={clear}>Clear filters</button></section>

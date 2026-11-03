@@ -1,0 +1,15 @@
+import assert from 'node:assert/strict';
+import {initialListing,validateListing,listingXml} from '../lib/listingDraft.mjs';
+import {isPersonalCollection} from '../lib/collectionScope.mjs';
+const c={askingPrice:12,metadata:{player:'A < B',year:'2026',brand:'Topps',set:'Chrome',number:'1',parallel:'Blue',serial:'14/150',teams:['Tennessee Titans'],sport:'Football',rookie:true,graded:false,value:99}};
+const draft=initialListing(c);assert.equal(draft.price,12);assert.equal(draft.priceSource,'Current eetee.cards asking price · no eBay markup');assert.equal(draft.attributes['Print Run'],'150');assert.equal(draft.attributes.Material,undefined);assert.equal(draft.package.weightOz,2);assert.equal(draft.conditionDescriptors[0].value,'400010');
+assert.doesNotThrow(()=>validateListing(draft));assert.throws(()=>validateListing(draft,{complete:true}),/Confirm photos/);
+const reviewed={...draft,checks:{images:true,identity:true,copy:true,attributes:true,terms:true}};
+const valid=validateListing(reviewed,{complete:true});const xml=listingXml(valid,{id:'abcdef1234567890',uuid:'12345678-1234-1234-1234-123456789012',pictures:['https://i.ebayimg.com/one.jpg','https://i.ebayimg.com/two.jpg']});assert.ok(xml.includes('<SKU>eetee-abcdef1234567890</SKU>'));assert.ok(xml.includes('A &lt; B'));assert.ok(xml.includes('<BestOfferEnabled>true</BestOfferEnabled>'));assert.ok(!xml.includes('AutoAccept'));assert.ok(xml.includes('<WeightMinor unit="oz">2</WeightMinor>'));assert.ok(xml.includes('<UUID>12345678123412341234123456789012</UUID>'));
+assert.throws(()=>validateListing({...reviewed,price:25},{complete:true}),/Ground Advantage/);
+const tracked=initialListing({...c,askingPrice:25});assert.equal(tracked.package.height,2);assert.equal(tracked.package.weightOz,5);assert.equal(tracked.shippingProfileId,'271651693012');
+const old=initialListing({...c,metadata:{...c.metadata,year:'1996'}});assert.equal(old.conditionDescription,'');assert.equal(old.conditionDescriptors.length,0);
+assert.throws(()=>validateListing({...reviewed,format:'auction'},{complete:true}),/Choose Start now/);
+const auction=validateListing({...reviewed,format:'auction',startMode:'scheduled',startAt:'2040-12-01T02:00:00Z'},{complete:true});assert.ok(listingXml(auction,{id:'a',pictures:[]}).includes('<ScheduleTime>2040-12-01T02:00:00.000Z</ScheduleTime>'));assert.ok(listingXml(auction,{id:'a',pictures:[]}).includes('<BestOfferEnabled>false</BestOfferEnabled>'));
+for(const name of ['PC','Personal collection','PC: Rainbows'])assert.ok(isPersonalCollection({collection:name}));for(const name of ['', 'Inventory','Hold','Don’t List Yet'])assert.ok(!isPersonalCollection({collection:name}));
+console.log('Passed: site-price precedence, draft/review gates, print run, unknown materials, condition defaults, shipping thresholds, schedule validation, stable SKU/UUID, XML escaping, manual offers and PC separation.');
