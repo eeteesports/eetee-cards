@@ -1,5 +1,8 @@
 import { fetchEbayComps } from '@/lib/ebay'
 
+// Diagnostics must never contact eBay during a site build.
+export const dynamic = 'force-dynamic'
+
 export async function GET() {
   try {
     const result = await fetchEbayComps('Patrick Mahomes', '2020', 'Prizm', null, null, null, null)
