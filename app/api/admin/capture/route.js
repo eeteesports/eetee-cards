@@ -1,6 +1,7 @@
 import {getServerSession} from 'next-auth'
 import {authOptions} from '@/lib/auth'
 import {getTurso} from '@/lib/db'
+import {captureIntake} from '@/lib/captureIntake.mjs'
 import {captureStore} from '@/lib/captureStore.mjs'
 import {sameReviewOrigin} from '@/lib/imageReviewInput.mjs'
 export const dynamic='force-dynamic'
@@ -8,7 +9,7 @@ export const maxDuration=60
 const headers={'Cache-Control':'private, no-store','X-Robots-Tag':'noindex, nofollow'}
 let store
 const getStore=()=>store ||= captureStore(getTurso())
-export async function GET(){if(!await getServerSession(authOptions))return Response.json({error:'Owner login required.'},{status:401,headers});try{return Response.json({sessions:await getStore().list()},{headers})}catch{return Response.json({error:'Capture inbox is temporarily unavailable.'},{status:503,headers})}}
+export async function GET(){if(!await getServerSession(authOptions))return Response.json({error:'Owner login required.'},{status:401,headers});try{const [sessions,receipts]=await Promise.all([getStore().list(),captureIntake(getTurso()).list()]);return Response.json({sessions:sessions.map(s=>({...s,intake:receipts.filter(r=>r.session_id===s.id)}))},{headers})}catch{return Response.json({error:'Capture inbox is temporarily unavailable.'},{status:503,headers})}}
 export async function POST(request){
  if(!await getServerSession(authOptions))return Response.json({error:'Owner login required.'},{status:401,headers})
  if(!sameReviewOrigin(request))return Response.json({error:'Refresh before uploading.'},{status:403,headers})
