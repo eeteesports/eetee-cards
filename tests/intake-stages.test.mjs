@@ -1,0 +1,8 @@
+import test from 'node:test'
+import assert from 'node:assert/strict'
+import {intakeStage,choiceInput} from '../lib/intakeStages.mjs'
+const valid=()=>({ownership:'owned',intake:{images:{front:true,back:true},pairing:'passed',identityComplete:true,finishConfirmed:true,questions:[],valuation:{status:'valued',current:true,low_usd:2,high_usd:4}}})
+test('only evidenced complete cards are ready',()=>{assert.equal(intakeStage(valid()).stage,'ready');assert.equal(intakeStage({ownership:'owned',value:999}).stage,'flags');const c=valid();c.intake.valuation.current=false;assert.equal(intakeStage(c).stage,'valuation');c.intake.valuation.current=true;c.intake.questions=[{reason:'Unreadable serial'}];assert.equal(intakeStage(c).stage,'flags')})
+test('missing images and unconfirmed finish take precedence over price',()=>{const c=valid();c.intake.images.back=false;assert.equal(intakeStage(c).stage,'flags');c.intake.images.back=true;c.intake.finishConfirmed=false;assert.equal(intakeStage(c).stage,'flags')})
+test('sold cards excluded; processing separate; no fabricated estimate',()=>{const c=valid();c.ownership='sold';assert.equal(intakeStage(c).stage,'excluded');c.ownership='owned';c.intake.processing=true;assert.equal(intakeStage(c).stage,'scan');c.intake.processing=false;c.intake.valuation.low_usd=null;assert.equal(intakeStage(c).stage,'valuation')})
+test('selling terms validated independently',()=>{assert.equal(choiceInput({key:'a',revision:'b',choice:'hold',price:''}).price,null);assert.throws(()=>choiceInput({key:'a',revision:'b',choice:'bin',price:-2}));assert.throws(()=>choiceInput({key:'a',revision:'b',choice:'publish'}))})

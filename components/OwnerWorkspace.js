@@ -4,10 +4,10 @@ import {useSession,signOut} from 'next-auth/react'
 import {usePathname} from 'next/navigation'
 import Link from 'next/link'
 import styles from './OwnerWorkspace.module.css'
-const workflow=[['/admin/scan','▣','Scan'],['/admin/review','✓','Review'],['/admin/list','↗','List'],['/admin/bundles','▥','Bundles']]
-const management=[['/admin/inventory','▦','Inventory'],['/admin/analytics','◷','Analytics'],['/admin/collecting','◇','Collecting'],['/admin/buying','⌕','Buying Tools']]
+const workflow=[['/admin/scan','▣','Scan'],['/admin/flags','⚑','Flags'],['/admin/valuation','$','Require Valuation'],['/admin/ready','✓','Ready to List']]
+const management=[['/admin/list','↗','Listings'],['/admin/bundles','▥','Bundles'],['/admin/inventory','▦','Inventory'],['/admin/analytics','◷','Analytics'],['/admin/collecting','◇','Collecting'],['/admin/buying','⌕','Buying Tools']]
 const modules=[...workflow,...management]
-const modulePath=path=>path.startsWith('/admin/ebay')?'/admin/list':path.startsWith('/admin/image-')||path.startsWith('/admin/card-tasks')?'/admin/review':modules.find(([href])=>path===href||path.startsWith(href+'/'))?.[0]
+const modulePath=path=>path.startsWith('/admin/ebay')?'/admin/list':path.startsWith('/admin/image-')||path.startsWith('/admin/card-tasks')?'/admin/flags':path.startsWith('/admin/capture')?'/admin/scan':modules.find(([href])=>path===href||path.startsWith(href+'/'))?.[0]
 export default function OwnerWorkspace({children}){
  const {status}=useSession(),pathname=usePathname(),lastResult=useRef(null)
  useEffect(()=>{

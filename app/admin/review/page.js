@@ -1,2 +1,2 @@
-import WorkflowHome from '@/components/WorkflowHome'
-export default function Page(){return <WorkflowHome module="review"/>}
+import {redirect} from 'next/navigation'
+export default function Page(){redirect('/admin/flags')}
