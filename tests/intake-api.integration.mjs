@@ -25,6 +25,8 @@ test('authenticated queues, durable choices, revision conflicts and origin prote
   assert.equal((await post({key:c.key,revision:c.revision,choice:'bin',price:3},'https://example.org')).status,403)
   const saved=await post({key:c.key,revision:c.revision,choice:'bin',price:3});assert.equal(saved.status,200);assert.equal((await saved.json()).published,false)
   const again=await(await request('/api/admin/intake')).json();assert.equal(again.cards[0].decision.choice,'bin');assert.equal(again.cards[0].decision.price,3)
+  const finish=await request('/api/admin/intake/finish',{method:'POST',headers:{'Content-Type':'application/json',Origin:base},body:JSON.stringify({key:c.key,revision:c.revision,parallel:'Blue'})});assert.equal(finish.status,200)
+  const confirmed=await(await request('/api/admin/intake')).json();assert.equal(confirmed.cards[0].parallel,'Blue');assert.equal(confirmed.cards[0].intake.finishConfirmed,true);assert.equal(confirmed.cards[0].intake.valuation.current,false)
   card.parallel='Changed';await db.execute({sql:'UPDATE inventory_lookup_copies SET data=?',args:[JSON.stringify(card)]})
   assert.notEqual((await post({key:c.key,revision:c.revision,choice:'auction',price:1})).status,200)
   const changed=await(await request('/api/admin/intake')).json();assert.equal(changed.cards[0].stage,'flags');assert.equal(changed.cards[0].decision.stale,true)

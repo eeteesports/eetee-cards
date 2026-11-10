@@ -9,4 +9,12 @@ from focused_review import describe
 root=Path(json.loads((project/'intake/scanner-library-location.json').read_text())['path'])
 with sqlite3.connect(f'file:{root / "collection.sqlite"}?mode=ro',uri=True) as db:
  rows=[json.loads(r[0]) for r in db.execute('SELECT data FROM copies')]
-print(json.dumps([{'id':c['id'],'identity':c.get('identity',{}),'intake':intake_status(c,describe(c),root)} for c in rows]))
+import review
+catalog=review.load_catalog(root)
+output=[]
+for c in rows:
+ status=intake_status(c,describe(c),root)
+ options,source=review.choices({'result':{'identity':c.get('identity',{})}},catalog)
+ status.update(parallelOptions=options,parallelOptionsSource=source)
+ output.append({'id':c['id'],'identity':c.get('identity',{}),'intake':status})
+print(json.dumps(output))

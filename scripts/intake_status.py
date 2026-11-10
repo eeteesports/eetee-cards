@@ -20,7 +20,7 @@ def intake_status(card, report, root):
     valuation={k:value[k] for k in allowed if k in value}
     valuation['current']=current
     return dict(
-        version=1, images={s:bool(images.get(s)) for s in ('front','back')},
+        version=1, finishCandidate=next((q.get('candidate') for q in report.get('questions',[]) if q.get('field')=='parallel' and q.get('candidate')), None) or identity.get('parallel') or ('No parallel' if states.get('parallel') in ('confirmed_absent','owner_absent') else None), images={s:bool(images.get(s)) for s in ('front','back')},
         pairing=pairing(card),
         identityComplete=all(identity.get(k) for k in ('player','season','manufacturer','set','card_number')),
         finishConfirmed=states.get('parallel') in ('machine_identified','confirmed_absent','owner_verified','owner_absent'),
