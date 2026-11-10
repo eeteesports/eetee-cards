@@ -15,15 +15,16 @@ def intake_status(card, report, root):
             values=json.loads((Path(root)/'listing-review'/batch/'valuations.json').read_text())
             value=values.get(card['id'],{})
         except (OSError, ValueError): pass
+    questions=[q for q in report.get('questions',[]) if not (q.get('field')=='images' and card.get('evidence',{}).get('image_action')=='usable' and not card.get('image_review_flags'))]
     current=bool(value) and value.get('fingerprint')==fingerprint(card)
     allowed=('status','low_usd','high_usd','basis','comparables','researched_at')
     valuation={k:value[k] for k in allowed if k in value}
     valuation['current']=current
     return dict(
-        version=1, finishCandidate=next((q.get('candidate') for q in report.get('questions',[]) if q.get('field')=='parallel' and q.get('candidate')), None) or identity.get('parallel') or ('No parallel' if states.get('parallel') in ('confirmed_absent','owner_absent') else None), images={s:bool(images.get(s)) for s in ('front','back')},
+        version=1, finishCandidate=next((q.get('candidate') for q in questions if q.get('field')=='parallel' and q.get('candidate')), None) or identity.get('parallel') or ('No parallel' if states.get('parallel') in ('confirmed_absent','owner_absent') else None), images={s:bool(images.get(s)) for s in ('front','back')},
         pairing=pairing(card),
         identityComplete=all(identity.get(k) for k in ('player','season','manufacturer','set','card_number')),
         finishConfirmed=states.get('parallel') in ('machine_identified','confirmed_absent','owner_verified','owner_absent'),
         processing=card.get('processing_status') in ('queued','identifying','processing'),
-        imageReview=any(q.get('field') in ('images','capture') for q in report.get('questions',[])),
-        questions=[q for q in report.get('questions',[]) if not (q.get('field')=='parallel' and states.get('parallel') in ('machine_identified','confirmed_absent','owner_verified','owner_absent') and 'optional' in q.get('reason',''))],valuation=valuation)
+        imageReview=any(q.get('field') in ('images','capture') for q in questions),
+        questions=[q for q in questions if not (q.get('field')=='parallel' and states.get('parallel') in ('machine_identified','confirmed_absent','owner_verified','owner_absent') and 'optional' in q.get('reason',''))],valuation=valuation)
