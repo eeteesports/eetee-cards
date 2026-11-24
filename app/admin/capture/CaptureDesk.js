@@ -79,7 +79,20 @@ export default function CaptureDesk(){
  async function upload(){if(uploading.current||!current.current||current.current.finished)return;uploading.current=true
   try{const s=current.current;await api('create',{id:s.id,name:s.name,hints:s.hints})
    while(true){const s=current.current;if(!s||s.finished)break;let a;for(const c of s.cards){a=[c.front,c.back].find(x=>x&&!x.received);if(a)break}if(!a)break
-    setProgress('Uploading photo… Keep this screen open.');const local=await localGet('asset:'+a.id);if(!local?.blob)throw Error('A pending photo is missing from this iPad. Retake that side.');const data=new Uint8Array(await local.blob.arrayBuffer()),state=await api('start',{...a,sessionId:s.id});if(!state.verified)for(let part=0;part<Math.ceil(data.length/CHUNK_BYTES);part++){if(state.parts.includes(part))continue;setProgress(`Uploading photo · ${Math.round(part*CHUNK_BYTES/data.length*100)}%`);await api('chunk',{id:a.id,part,data:base64(data.subarray(part*CHUNK_BYTES,(part+1)*CHUNK_BYTES))})}
+    setProgress('Uploading photo… Keep this screen open.');const local=await localGet('asset:'+a.id);if(!local?.blob)throw Error('A pending photo is missing from this iPad. Retake that side.');const data=new Uint8Array(await local.blob.arrayBuffer()),state=await api('start',{...a,sessionId:s.id});if(!state.verified) {
+     const count = Math.ceil(data.length / CHUNK_BYTES)
+     const pending = Array.from({length:count}, (_,i)=>i).filter(i=>!state.parts.includes(i))
+     for (let offset=0; offset<pending.length; offset+=4) {
+      const parts = pending.slice(offset,offset+4)
+      const results = await Promise.allSettled(parts.map(part=>api('chunk',{
+       id:a.id, part, data:base64(data.subarray(part*CHUNK_BYTES,(part+1)*CHUNK_BYTES))
+      })))
+      const failed = results.find(result=>result.status==='rejected')
+      if (failed) throw failed.reason
+      const received = state.parts.length + offset + parts.length
+      setProgress(`Uploading photo · ${Math.round(received/count*100)}%`)
+     }
+    }
     const receipt=await api('verify',{id:a.id});if(!receipt.received||receipt.sha256!==a.sha256||receipt.bytes!==a.bytes)throw Error('Receipt did not match this photo. Local original retained.')
     // Re-read inside the mutation lock: a capture/retake may have arrived during upload.
     while(mutating.current)await new Promise(r=>setTimeout(r,25));mutating.current=true
