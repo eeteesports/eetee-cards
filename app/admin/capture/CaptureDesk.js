@@ -11,6 +11,7 @@ function Photo({asset,label}){const [src,setSrc]=useState('');useEffect(()=>{let
 export default function CaptureDesk(){
  const [session,setSession]=useState(null),[loaded,setLoaded]=useState(false),[name,setName]=useState(''),[hints,setHints]=useState(''),[error,setError]=useState(''),[progress,setProgress]=useState(''),[camera,setCamera]=useState(false),[resolution,setResolution]=useState(''),[busy,setBusy]=useState(false),[target,setTarget]=useState(null),[history,setHistory]=useState([])
  const current=useRef(null),video=useRef(null),stream=useRef(null),uploading=useRef(false),mutating=useRef(false)
+ const picker=useRef(null)
  const voice=useVoiceNotes(session?.id,setError)
  async function save(s){await localPut('active',s);current.current=s;setSession(s)}
  async function refresh(){try{const r=await fetch('/api/admin/capture',{cache:'no-store'});if(r.ok)setHistory((await r.json()).sessions)}catch{}}
@@ -19,6 +20,59 @@ export default function CaptureDesk(){
  useEffect(()=>{if(loaded&&session&&!session.finished)upload();const resume=()=>{if(!document.hidden)upload()};window.addEventListener('online',resume);document.addEventListener('visibilitychange',resume);const timer=setInterval(resume,15000);return()=>{window.removeEventListener('online',resume);document.removeEventListener('visibilitychange',resume);clearInterval(timer)}},[loaded,session?.id])
  useEffect(()=>{const warn=e=>{if(current.current&&!current.current.finished){e.preventDefault();e.returnValue=''}};window.addEventListener('beforeunload',warn);return()=>window.removeEventListener('beforeunload',warn)},[])
  async function start(){if(mutating.current)return;mutating.current=true;setBusy(true);setError('');try{await save({id:uuid(),name:name.trim()||'Cards · '+new Date().toLocaleDateString(),hints,cards:[],finished:false});navigator.storage?.persist?.().catch(()=>{});await upload()}catch(e){setError(e.message)}finally{mutating.current=false;setBusy(false)}}
+ async function importPhotos(event) {
+  const files = Array.from(event.target.files)
+  event.target.value = ''
+  const existing = current.current
+  if (!files.length || mutating.current || existing?.finished || existing?.finishPending || existing?.cards.length) return
+  if (files.length % 2 || files.length > 400) {
+   setError('Select a front and back for each card, up to 200 cards per batch.')
+   return
+  }
+  // Native Camera numbers its photos sequentially. Other filenames retain picker order.
+  if (files.every(file => /^IMG_\d+\./i.test(file.name))) {
+   files.sort((a,b) => a.name.localeCompare(b.name, undefined, {numeric:true}))
+  }
+  mutating.current = true
+  setBusy(true)
+  setError('')
+  const staged = [], cards = []
+  try {
+   for (const [index,file] of files.entries()) {
+    setProgress(`Preparing photo ${index + 1} of ${files.length}`)
+    const url = URL.createObjectURL(file)
+    const image = new Image()
+    try {
+     image.src = url
+     await image.decode().catch(() => { throw Error('Cannot read '+file.name+'. Choose a JPEG copy in Photos.') })
+     let blob = file
+     if (!['image/jpeg','image/png'].includes(file.type) || file.size > MAX_IMAGE_BYTES) {
+      const canvas = document.createElement('canvas')
+      canvas.width = image.naturalWidth
+      canvas.height = image.naturalHeight
+      canvas.getContext('2d').drawImage(image,0,0)
+      try { blob = await new Promise(resolve => canvas.toBlob(resolve,'image/jpeg',0.9)) }
+      finally { canvas.width = canvas.height = 0 }
+     }
+     if (!blob || blob.size < 100 || blob.size > MAX_IMAGE_BYTES) throw Error(file.name+' exceeds the photo size limit.')
+     const digest = await crypto.subtle.digest('SHA-256',await blob.arrayBuffer())
+     const sha256 = Array.from(new Uint8Array(digest),byte => byte.toString(16).padStart(2,'0')).join('')
+     const id = uuid()
+     await localPut('asset:'+id,{blob,sha256})
+     staged.push(id)
+     if (index % 2 === 0) cards.push({id:uuid()})
+     cards.at(-1)[index % 2 ? 'back' : 'front'] = {id,sha256,bytes:blob.size,mime:blob.type,width:image.naturalWidth,height:image.naturalHeight,received:false,capturedAt:file.lastModified}
+    } finally { URL.revokeObjectURL(url) }
+   }
+   await save(existing ? {...existing,cards} : {id:uuid(),name:name.trim() || 'Cards · '+new Date().toLocaleDateString(),hints,cards,finished:false})
+  } catch (error) {
+   await Promise.allSettled(staged.map(id => localDelete('asset:'+id)))
+   setError(error.message)
+   setProgress('')
+   return
+  } finally { mutating.current = false; setBusy(false) }
+  upload()
+ }
  async function openCamera(){setError('');try{if(!navigator.mediaDevices?.getUserMedia)throw Error('Camera requires Safari on a secure HTTPS page.');stop();const s=await navigator.mediaDevices.getUserMedia({audio:false,video:{facingMode:{ideal:'environment'},width:{ideal:4096},height:{ideal:3072}}});stream.current=s;video.current.srcObject=s;await video.current.play();setCamera(true);const settings=s.getVideoTracks()[0].getSettings();setResolution(`${settings.width} × ${settings.height}`)}catch(e){setError(e.name==='NotAllowedError'?'Allow camera access in Safari, then tap Open camera again.':e.message)}}
  function nextTarget(){const s=current.current;if(target)return target;const last=s.cards.at(-1);return last&&!last.back?{cardId:last.id,side:'back'}:{cardId:null,side:'front'}}
  async function capture(){if(mutating.current||!camera||current.current?.finishPending)return;mutating.current=true;setBusy(true);setError('');try{const capturedAt=Date.now();const v=video.current;if(v.videoWidth<300||v.videoHeight<300)throw Error('Camera is still starting. Try again.');const canvas=document.createElement('canvas');canvas.width=v.videoWidth;canvas.height=v.videoHeight;canvas.getContext('2d').drawImage(v,0,0);const blob=await new Promise(r=>canvas.toBlob(r,'image/jpeg',.96));if(!blob||blob.size>MAX_IMAGE_BYTES)throw Error('Photo could not be saved. Try again.');const bytes=await blob.arrayBuffer(),hash=Array.from(new Uint8Array(await crypto.subtle.digest('SHA-256',bytes)),b=>b.toString(16).padStart(2,'0')).join(''),aid=uuid(),t=nextTarget();await localPut('asset:'+aid,{blob,sha256:hash});const s=current.current,cards=s.cards.map(c=>({...c}));let card=cards.find(c=>c.id===t.cardId);if(!card){if(cards.length>=200)throw Error('Finish this 200-card session before starting another.');card={id:uuid()};cards.push(card)}card[t.side]={capturedAt,id:aid,sha256:hash,bytes:blob.size,mime:'image/jpeg',received:false,width:canvas.width,height:canvas.height};await save({...s,cards});setTarget(null);upload()}catch(e){setError('Photo not added: '+e.message)}finally{mutating.current=false;setBusy(false)}}
@@ -49,9 +103,17 @@ export default function CaptureDesk(){
    }
    const r=await api('finish',{id:s.id,clips,cards:s.cards.map(c=>({id:c.id,front:c.front.id,back:c.back.id,frontAt:c.front.capturedAt,backAt:c.back.capturedAt}))});await save({...s,finished:true,receipt:r});stop();setProgress('All images received · ready for intake.');refresh();for(const clip of clips)for(let part=0;part<clip.parts;part++)await localDelete(clip.id+':'+part);await localDelete('voice:'+s.id);for(const c of s.cards)for(const side of ['front','back'])await localDelete('asset:'+c[side].id)}catch(e){setError('Session completion not confirmed. Tap Finish session again to safely retry. '+e.message)}finally{mutating.current=false;setBusy(false)}}
  const cards=session?.cards||[],photos=cards.flatMap(c=>[c.front,c.back]).filter(Boolean),received=photos.filter(a=>a.received).length,complete=cards.length>0&&cards.every(c=>c.front?.received&&c.back?.received),next=session?nextTarget():{side:'front'}
- return <section className={styles.desk}><header className={styles.heading}><div><span className={styles.eyebrow}>YOUR COLLECTION STARTS HERE</span><h1>Capture cards</h1><p>Front. Back. Next card. Photos stay out of your camera roll.</p></div><a href="/admin/inventory">Back to inventory ↗</a></header>
- {!loaded?<p>Opening saved captures…</p>:!session?<div className={styles.start}><h2>Start a capture session</h2><label>Session name<input value={name} maxLength={120} onChange={e=>setName(e.target.value)} placeholder="2026 Heritage · new arrivals"/></label><label>Set hints or notes <small>optional</small><textarea value={hints} maxLength={2000} onChange={e=>setHints(e.target.value)} placeholder="Anything useful for identifying these cards"/></label><button className={styles.primary} disabled={busy} onClick={start}>Start session</button><p>No Photos export. No iCloud folder. Keep this screen open until every image is received.</p></div>:<>
+ return <section className={styles.desk}><header className={styles.heading}><div><span className={styles.eyebrow}>YOUR COLLECTION STARTS HERE</span><h1>Capture cards</h1><p>Front. Back. Next card. Choose existing photos or use the camera.</p></div><a href="/admin/inventory">Back to inventory ↗</a></header>
+ {!loaded?<p>Opening saved captures…</p>:!session?<div className={styles.start}><h2>Start a capture session</h2><label>Session name<input value={name} maxLength={120} onChange={e=>setName(e.target.value)} placeholder="2026 Heritage · new arrivals"/></label><label>Set hints or notes <small>optional</small><textarea value={hints} maxLength={2000} onChange={e=>setHints(e.target.value)} placeholder="Anything useful for identifying these cards"/></label><button className={styles.primary} disabled={busy} onClick={start}>Start camera session</button>
+ <input ref={picker} type="file" accept="image/*" multiple hidden onChange={importPhotos}/>
+ <button disabled={busy} onClick={()=>picker.current.click()}>Select photos to upload</button>
+ <p>Choose both sides of each card. Numbered Camera photos are paired by filename. For other photos, select in front/back order.</p>
+ {busy && <p role="status">{progress}</p>}</div>:<>
  <div className={styles.summary}><div><small>SESSION</small><h2>{session.name}</h2></div><strong>{cards.length} cards <span> / </span> {received} of {photos.length} images received</strong><span className={styles.badge}>{session.finished?'Ready for intake':session.finishPending?'Confirming receipt':'Capturing'}</span></div>
+ {!session.finished && !session.finishPending && !cards.length && <>
+  <input ref={picker} type="file" accept="image/*" multiple hidden onChange={importPhotos}/>
+  <button className={styles.primary} disabled={busy} onClick={()=>picker.current.click()}>Select photos to upload</button>
+ </>}
  {session.finished?<div className={styles.success}><h2>Safely received ✓</h2><p>{cards.length} cards · {photos.length} images. Your session is ready for intake. Identification and valuation have not run yet.</p><button className={styles.primary} onClick={async()=>{await localDelete('active');current.current=null;setSession(null);setProgress('');setName('');setHints('')}}>Capture another session</button></div>:<div className={styles.captureGrid}><div className={styles.cameraPanel}><div className={styles.viewfinder}><video ref={video} playsInline muted autoPlay/><div className={styles.guide} aria-hidden="true"/>{!camera&&<div className={styles.cameraPrompt}><h2>Your iPad is the camera</h2><p>Use even lighting and leave a little space around every edge.</p><button onClick={openCamera} className={styles.primary}>Open camera</button></div>}</div><div className={styles.cameraActions}><div><strong>{target?'Retake':'Capture'} {next.side}</strong><small>{resolution||'Rear camera'} · Full frame preserved</small></div><button className={styles.shutter} disabled={!camera||busy||session.finishPending} onClick={capture}>Take {next.side} photo</button>{camera&&<button disabled={voice.pending||busy||session.finishPending} aria-pressed={voice.recording} onClick={voice.recording?voice.stop:voice.start}>{voice.recording?'Recording · stop mic':'Record voice hints'}</button>}{camera&&<button disabled={voice.pending} onClick={async()=>{await voice.stop();stop()}}>Pause camera</button>}{target&&<button onClick={()=>setTarget(null)}>Cancel retake</button>}</div></div><aside className={styles.instructions}><span className={styles.eyebrow}>CAPTURE → RECEIVE → PROCESS</span><h2>One card at a time.</h2><ol><li>Photograph the front.</li><li>Flip it and photograph the back.</li><li>Move to the next card.</li></ol><p>Check the thumbnails. You can retake either side before finishing.</p><p className={styles.notice}>Keep this screen open until uploads finish. Pending photos are stored on this iPad; do not clear Safari website data before they are received.</p><button onClick={()=>{setError('');upload()}}>Retry pending uploads</button><button className={styles.primary} disabled={!complete||busy||voice.pending} onClick={finish}>Finish session</button><small>Finishing makes this session available for intake. It does not list any cards for sale.</small></aside></div>}
  <div role="status" aria-live="polite" className={styles.status}>{progress}</div>
  <div className={styles.cards}>{cards.map((c,i)=><article key={c.id}><h3>Card {String(i+1).padStart(2,'0')}</h3><div className={styles.pair}>{['front','back'].map(side=><div key={side}><Photo asset={c[side]} label={`Card ${i+1} ${side}`}/>{!session.finished&&<button disabled={busy||session.finishPending} onClick={()=>{setTarget({cardId:c.id,side});if(!camera)openCamera()}}>{c[side]?'Retake':'Capture'} {side}</button>}</div>)}</div></article>)}</div></>}
